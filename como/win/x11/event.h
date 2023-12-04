@@ -500,7 +500,8 @@ bool button_press_event(Win* win,
                        QPoint(x, y),
                        QPoint(x_root, y_root),
                        base::x11::xcb::to_qt_mouse_button(button),
-                       base::x11::xcb::to_qt_mouse_buttons(state),
+                       base::x11::xcb::to_qt_mouse_buttons(state)
+                           | base::x11::xcb::to_qt_mouse_buttons(button),
                        Qt::KeyboardModifiers());
         return win::process_decoration_button_press(win, &ev, true);
     }
@@ -535,7 +536,8 @@ bool button_press_event(Win* win,
                               QPointF(x, y),
                               QPointF(x_root, y_root),
                               base::x11::xcb::to_qt_mouse_button(button),
-                              base::x11::xcb::to_qt_mouse_buttons(state),
+                              base::x11::xcb::to_qt_mouse_buttons(state)
+                                  | base::x11::xcb::to_qt_mouse_buttons(button),
                               key_server::to_qt_keyboard_modifiers(state));
             event.setAccepted(false);
             QCoreApplication::sendEvent(win::decoration(win), &event);
