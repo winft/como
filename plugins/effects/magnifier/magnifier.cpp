@@ -221,7 +221,7 @@ void MagnifierEffect::zoomIn()
     if (effects->isOpenGLCompositing() && !m_texture) {
         effects->makeOpenGLContextCurrent();
         m_texture = std::make_unique<GLTexture>(
-            GL_RGBA8, m_magnifierSize.width(), m_magnifierSize.height());
+            GL_RGBA16F, m_magnifierSize.width(), m_magnifierSize.height());
         m_texture->set_content_transform(effect::transform_type::normal);
         m_fbo = std::make_unique<GLFramebuffer>(m_texture.get());
     }
@@ -261,7 +261,7 @@ void MagnifierEffect::toggle()
         if (effects->isOpenGLCompositing() && !m_texture) {
             effects->makeOpenGLContextCurrent();
             m_texture = std::make_unique<GLTexture>(
-                GL_RGBA8, m_magnifierSize.width(), m_magnifierSize.height());
+                GL_RGBA16F, m_magnifierSize.width(), m_magnifierSize.height());
             m_texture->set_content_transform(effect::transform_type::normal);
             m_fbo = std::make_unique<GLFramebuffer>(m_texture.get());
         }
