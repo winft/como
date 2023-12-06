@@ -7,3 +7,4 @@ ClassName=OverviewConfig
 NameSpace=como
 Singleton=true
 Mutators=true
+IncludeFiles=como/render/effect/interface/types.h
