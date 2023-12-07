@@ -15,7 +15,6 @@ import org.kde.kirigami 2.20 as Kirigami
 
 KWin.TabBoxSwitcher {
     id: tabBox
-    currentIndex: thumbnailGridView.currentIndex
 
     Instantiator {
         active: tabBox.visible
@@ -97,6 +96,7 @@ KWin.TabBoxSwitcher {
                     anchors.fill: parent
                     focus: true
                     model: tabBox.model
+                    currentIndex: tabBox.currentIndex
 
                     readonly property int iconSize: Kirigami.Units.iconSizes.huge
                     readonly property int captionRowHeight: Kirigami.Units.gridUnit * 2
@@ -120,7 +120,7 @@ KWin.TabBoxSwitcher {
                         Accessible.role: Accessible.ListItem
 
                         onClicked: {
-                            thumbnailGridView.currentIndex = index;
+                            tabBox.currentIndex = index;
                         }
 
                         ColumnLayout {
@@ -195,12 +195,7 @@ KWin.TabBoxSwitcher {
                         prefix: "hover"
                     }
 
-                    Connections {
-                        target: tabBox
-                        function onCurrentIndexChanged() {
-                            thumbnailGridView.currentIndex = tabBox.currentIndex;
-                        }
-                    }
+                    onCurrentIndexChanged: tabBox.currentIndex = thumbnailGridView.currentIndex;
                 } // GridView
 
                 Keys.onPressed: {
