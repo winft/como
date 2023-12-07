@@ -214,7 +214,7 @@ QSGNode* window_thumbnail_item::updatePaintNode(QSGNode* oldNode, QQuickItem::Up
 
     // Wait for rendering commands to the offscreen texture complete if there are any.
     if (m_acquireFence) {
-        glClientWaitSync(m_acquireFence, GL_SYNC_FLUSH_COMMANDS_BIT, 5000);
+        glWaitSync(m_acquireFence, 0, GL_TIMEOUT_IGNORED);
         glDeleteSync(m_acquireFence);
         m_acquireFence = nullptr;
     }
