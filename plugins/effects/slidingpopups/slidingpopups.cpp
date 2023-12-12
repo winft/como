@@ -112,6 +112,8 @@ SlidingPopupsEffect::SlidingPopupsEffect()
             &EffectsHandler::activeFullScreenEffectChanged,
             this,
             &SlidingPopupsEffect::stopAnimations);
+    connect(
+        effects, &EffectsHandler::screenLockingChanged, this, &SlidingPopupsEffect::stopAnimations);
 
     auto const windows = effects->stackingOrder();
     for (auto window : windows) {
