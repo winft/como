@@ -435,15 +435,17 @@ public:
                 return Steady;
 
             // Before testing the unshifted key (Ctrl+A vs. Ctrl+Shift+a etc.), see whether this is
-            // +Shift+Tab and check that against +Shift+Backtab (as well)
+            // +Shift+Tab/Backtab and test that against +Shift+Backtab/Tab as well.
             Qt::KeyboardModifiers mods = Qt::ShiftModifier | Qt::ControlModifier | Qt::AltModifier
                 | Qt::MetaModifier | Qt::KeypadModifier | Qt::GroupSwitchModifier;
             mods &= keyQt;
-            if ((keyQt & ~mods) == Qt::Key_Tab) {
-                if (contains(forward, QKeyCombination(mods, Qt::Key_Backtab).toCombined())) {
+            if (((keyQt & ~mods) == Qt::Key_Tab) || ((keyQt & ~mods) == Qt::Key_Backtab)) {
+                if (contains(forward, QKeyCombination(mods, Qt::Key_Backtab).toCombined())
+                    || contains(forward, QKeyCombination(mods, Qt::Key_Tab))) {
                     return Forward;
                 }
-                if (contains(backward, QKeyCombination(mods, Qt::Key_Backtab).toCombined())) {
+                if (contains(backward, QKeyCombination(mods, Qt::Key_Backtab).toCombined())
+                    || contains(backward, QKeyCombination(mods, Qt::Key_Tab))) {
                     return Backward;
                 }
             }
