@@ -352,7 +352,7 @@ public:
         key(
             s_windowsRev,
             [this] { slot_walk_back_through_windows(); },
-            Qt::ALT | Qt::SHIFT | Qt::Key_Backtab);
+            Qt::ALT | Qt::SHIFT | Qt::Key_Tab);
         key(
             s_app,
             [this] { slot_walk_through_current_app_windows(); },
