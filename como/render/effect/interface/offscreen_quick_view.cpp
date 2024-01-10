@@ -246,7 +246,7 @@ void OffscreenQuickView::update()
 
             QOpenGLFramebufferObjectFormat fboFormat;
             fboFormat.setAttachment(QOpenGLFramebufferObject::CombinedDepthStencil);
-            fboFormat.setInternalTextureFormat(d->m_hasAlphaChannel ? GL_RGBA8 : GL_RGB8);
+            fboFormat.setInternalTextureFormat(GL_RGBA8);
 
             d->m_fbo.reset(new QOpenGLFramebufferObject(nativeSize, fboFormat));
             if (!d->m_fbo->isValid()) {
