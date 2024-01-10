@@ -99,7 +99,7 @@ public:
         if (!m_theme.isEmpty()) {
             args.insert(QStringLiteral("theme"), m_theme);
         }
-        auto deco = m_factory->create<KDecoration2::Decoration>(window, QVariantList({args}));
+        auto deco = m_factory->create<KDecoration2::Decoration>(window, QVariantList{args});
         deco->setSettings(m_settings);
         deco->init();
         return deco;
