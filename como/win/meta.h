@@ -91,39 +91,6 @@ bool is_special_window(Win const* win)
         || is_notification(win) || is_critical_notification(win) || is_on_screen_display(win);
 }
 
-/**
- * Looks for another window with same captionNormal and captionSuffix.
- * If no such window exists @c nullptr is returned.
- */
-template<typename Win>
-std::optional<typename Win::space_t::window_t> find_client_with_same_caption(Win const* win)
-{
-    for (auto candidate : win->space.windows) {
-        if (std::visit(overload{[&](auto&& candidate) {
-                           if constexpr (std::is_same_v<std::decay_t<decltype(candidate)>, Win*>) {
-                               if (candidate == win) {
-                                   return false;
-                               }
-                           }
-                           if (!candidate->control) {
-                               return false;
-                           }
-                           if (is_special_window(candidate) && !is_toolbar(candidate)) {
-                               return false;
-                           }
-                           if (candidate->meta.caption.normal != win->meta.caption.normal
-                               || candidate->meta.caption.suffix != win->meta.caption.suffix) {
-                               return false;
-                           }
-                           return true;
-                       }},
-                       candidate)) {
-            return candidate;
-        }
-    }
-    return {};
-}
-
 template<typename Win>
 void set_wm_class(Win& win, QByteArray const& res_name, QByteArray const& res_class)
 {

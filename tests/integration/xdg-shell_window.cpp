@@ -771,64 +771,6 @@ TEST_CASE("xdg-shell window", "[win]")
         QCOMPARE(win::caption(c), origTitle.simplified());
     }
 
-    SECTION("caption multiple windows")
-    {
-        auto surface1 = create_surface();
-        QVERIFY(surface1);
-        auto shellSurface1 = create_xdg_shell_toplevel(surface1);
-        QVERIFY(shellSurface1);
-
-        shellSurface1->setTitle(QStringLiteral("foo"));
-        auto c = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::blue);
-        QVERIFY(c);
-        QCOMPARE(win::caption(c), QStringLiteral("foo"));
-        QCOMPARE(c->meta.caption.normal, QStringLiteral("foo"));
-        QCOMPARE(c->meta.caption.suffix, QString());
-
-        auto surface2 = create_surface();
-        QVERIFY(surface2);
-        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
-        QVERIFY(shellSurface2);
-
-        shellSurface2->setTitle(QStringLiteral("foo"));
-        auto c2 = render_and_wait_for_shown(surface2, QSize(100, 50), Qt::blue);
-        QVERIFY(c2);
-        QCOMPARE(win::caption(c2), QStringLiteral("foo <2>"));
-        QCOMPARE(c2->meta.caption.normal, QStringLiteral("foo"));
-        QCOMPARE(c2->meta.caption.suffix, QStringLiteral(" <2>"));
-
-        auto surface3 = create_surface();
-        QVERIFY(surface3);
-        auto shellSurface3 = create_xdg_shell_toplevel(surface3);
-        QVERIFY(shellSurface3);
-        shellSurface3->setTitle(QStringLiteral("foo"));
-        auto c3 = render_and_wait_for_shown(surface3, QSize(100, 50), Qt::blue);
-        QVERIFY(c3);
-        QCOMPARE(win::caption(c3), QStringLiteral("foo <3>"));
-        QCOMPARE(c3->meta.caption.normal, QStringLiteral("foo"));
-        QCOMPARE(c3->meta.caption.suffix, QStringLiteral(" <3>"));
-
-        auto surface4 = create_surface();
-        QVERIFY(surface4);
-        auto shellSurface4 = create_xdg_shell_toplevel(surface4);
-        QVERIFY(shellSurface4);
-
-        shellSurface4->setTitle(QStringLiteral("bar"));
-        auto c4 = render_and_wait_for_shown(surface4, QSize(100, 50), Qt::blue);
-        QVERIFY(c4);
-        QCOMPARE(win::caption(c4), QStringLiteral("bar"));
-        QCOMPARE(c4->meta.caption.normal, QStringLiteral("bar"));
-        QCOMPARE(c4->meta.caption.suffix, QString());
-        QSignalSpy captionChangedSpy(c4->qobject.get(), &win::window_qobject::captionChanged);
-        QVERIFY(captionChangedSpy.isValid());
-        shellSurface4->setTitle(QStringLiteral("foo"));
-        QVERIFY(captionChangedSpy.wait());
-        QCOMPARE(captionChangedSpy.count(), 1);
-        QCOMPARE(win::caption(c4), QStringLiteral("foo <4>"));
-        QCOMPARE(c4->meta.caption.normal, QStringLiteral("foo"));
-        QCOMPARE(c4->meta.caption.suffix, QStringLiteral(" <4>"));
-    }
-
     SECTION("unresponsive window")
     {
         // this test verifies that killWindow properly terminates a process
