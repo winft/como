@@ -668,19 +668,9 @@ public:
 
     void updateCaption()
     {
-        auto const oldSuffix = this->meta.caption.suffix;
-        const auto shortcut = win::shortcut_caption_suffix(this);
-        this->meta.caption.suffix = shortcut;
-        if ((!win::is_special_window(this) || win::is_toolbar(this))
-            && win::find_client_with_same_caption(this)) {
-            int i = 2;
-            do {
-                this->meta.caption.suffix
-                    = shortcut + QLatin1String(" <") + QString::number(i) + QLatin1Char('>');
-                i++;
-            } while (win::find_client_with_same_caption(this));
-        }
-        if (this->meta.caption.suffix != oldSuffix) {
+        auto const old_suffix = this->meta.caption.suffix;
+        this->meta.caption.suffix = win::shortcut_caption_suffix(this);
+        if (this->meta.caption.suffix != old_suffix) {
             Q_EMIT this->qobject->captionChanged();
         }
     }
@@ -728,13 +718,7 @@ public:
         }
 
         this->meta.caption.normal = cap;
-
-        auto const oldCaptionSuffix = this->meta.caption.suffix;
-        updateCaption();
-
-        if (this->meta.caption.suffix == oldCaptionSuffix) {
-            Q_EMIT this->qobject->captionChanged();
-        }
+        Q_EMIT this->qobject->captionChanged();
     }
 
     void markAsMapped()

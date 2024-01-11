@@ -87,7 +87,6 @@ void set_caption(Win* win, QString const& _s, bool force = false)
         return;
     }
 
-    auto reset_name = force;
     auto was_suffix = !win->meta.caption.suffix.isEmpty();
     win->meta.caption.suffix.clear();
 
@@ -103,21 +102,7 @@ void set_caption(Win* win, QString const& _s, bool force = false)
     auto shortcut_suffix = win::shortcut_caption_suffix(win);
     win->meta.caption.suffix = machine_suffix + shortcut_suffix;
 
-    if ((!win::is_special_window(win) || win::is_toolbar(win))
-        && find_client_with_same_caption(win)) {
-        int i = 2;
-
-        do {
-            win->meta.caption.suffix = machine_suffix + QLatin1String(" <") + QString::number(i)
-                + QLatin1Char('>') + LRM;
-            i++;
-        } while (find_client_with_same_caption(win));
-
-        win->net_info->setVisibleName(win::caption(win).toUtf8().constData());
-        reset_name = false;
-    }
-
-    if ((was_suffix && win->meta.caption.suffix.isEmpty()) || reset_name) {
+    if ((was_suffix && win->meta.caption.suffix.isEmpty()) || force) {
         // If it was new window, it may have old value still set, if the window is reused
         win->net_info->setVisibleName("");
         win->net_info->setVisibleIconName("");

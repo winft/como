@@ -1221,13 +1221,9 @@ public:
 
     void handle_title_changed()
     {
-        auto const old_suffix = this->meta.caption.suffix;
-
-        this->meta.caption.normal = QString::fromStdString(toplevel->title()).simplified();
-        updateCaption();
-
-        if (this->meta.caption.suffix == old_suffix) {
-            // Don't emit caption change twice it already got emitted by the changing suffix.
+        auto const title = QString::fromStdString(toplevel->title()).simplified();
+        if (this->meta.caption.normal != title) {
+            meta.caption.normal = title;
             Q_EMIT this->qobject->captionChanged();
         }
     }
@@ -1399,16 +1395,7 @@ public:
     void updateCaption()
     {
         auto const old_suffix = this->meta.caption.suffix;
-        auto const shortcut = shortcut_caption_suffix(this);
-        this->meta.caption.suffix = shortcut;
-        if ((!is_special_window(this) || is_toolbar(this)) && find_client_with_same_caption(this)) {
-            int i = 2;
-            do {
-                this->meta.caption.suffix
-                    = shortcut + QLatin1String(" <") + QString::number(i) + QLatin1Char('>');
-                i++;
-            } while (find_client_with_same_caption(this));
-        }
+        this->meta.caption.suffix = shortcut_caption_suffix(this);
         if (this->meta.caption.suffix != old_suffix) {
             Q_EMIT this->qobject->captionChanged();
         }
