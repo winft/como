@@ -56,16 +56,16 @@ public:
     virtual QRect geometry() const = 0;
 
     virtual void setText(const QString& text) = 0;
-    virtual const QString& text() const = 0;
+    virtual QString text() const = 0;
     virtual void setFont(const QFont& font) = 0;
-    virtual const QFont& font() const = 0;
+    virtual QFont font() const = 0;
     /**
      * Set the icon that will appear on the left-hand size of the frame.
      */
     virtual void setIcon(const QIcon& icon) = 0;
-    virtual const QIcon& icon() const = 0;
+    virtual QIcon icon() const = 0;
     virtual void setIconSize(const QSize& size) = 0;
-    virtual const QSize& iconSize() const = 0;
+    virtual QSize iconSize() const = 0;
 
     /**
      * @returns The style of this EffectFrame.
