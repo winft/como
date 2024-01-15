@@ -117,7 +117,7 @@ public:
     void setAlignment(Qt::Alignment alignment) override;
     const QFont& font() const override;
     void setFont(const QFont& font) override;
-    const QRect& geometry() const override;
+    QRect geometry() const override;
     void setGeometry(const QRect& geometry, bool force = false) override;
     const QIcon& icon() const override;
     void setIcon(const QIcon& icon) override;
@@ -139,7 +139,6 @@ private:
     Q_DISABLE_COPY(effect_frame_impl)
 
     effect_frame_quick_scene* m_view;
-    QRect m_geometry;
 };
 
 }

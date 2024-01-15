@@ -53,7 +53,7 @@ public:
     virtual void setAlignment(Qt::Alignment alignment) = 0;
     virtual Qt::Alignment alignment() const = 0;
     virtual void setGeometry(const QRect& geometry, bool force = false) = 0;
-    virtual const QRect& geometry() const = 0;
+    virtual QRect geometry() const = 0;
 
     virtual void setText(const QString& text) = 0;
     virtual const QString& text() const = 0;
