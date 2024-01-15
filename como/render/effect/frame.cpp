@@ -250,7 +250,6 @@ effect_frame_impl::effect_frame_impl(EffectsHandler& effects,
             this,
             [this](const QRect& oldGeometry, const QRect& newGeometry) {
                 this->effects.addRepaint(oldGeometry);
-                m_geometry = newGeometry;
                 this->effects.addRepaint(newGeometry);
             });
 }
@@ -289,10 +288,9 @@ void effect_frame_impl::free()
     m_view->hide();
 }
 
-const QRect& effect_frame_impl::geometry() const
+QRect effect_frame_impl::geometry() const
 {
-    // Can't forward to OffscreenQuickView::geometry() because we return a reference.
-    return m_geometry;
+    return m_view->geometry();
 }
 
 void effect_frame_impl::setGeometry(const QRect& geometry, bool force)
