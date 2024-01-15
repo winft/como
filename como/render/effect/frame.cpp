@@ -273,7 +273,7 @@ void effect_frame_impl::setAlignment(Qt::Alignment alignment)
     m_view->setAlignment(alignment);
 }
 
-const QFont& effect_frame_impl::font() const
+QFont effect_frame_impl::font() const
 {
     return m_view->font();
 }
@@ -299,7 +299,7 @@ void effect_frame_impl::setGeometry(const QRect& geometry, bool force)
     m_view->setGeometry(geometry);
 }
 
-const QIcon& effect_frame_impl::icon() const
+QIcon effect_frame_impl::icon() const
 {
     return m_view->icon();
 }
@@ -314,7 +314,7 @@ void effect_frame_impl::setIcon(const QIcon& icon)
     }
 }
 
-const QSize& effect_frame_impl::iconSize() const
+QSize effect_frame_impl::iconSize() const
 {
     return m_view->iconSize();
 }
@@ -345,7 +345,7 @@ void effect_frame_impl::render(const QRegion& region, double opacity, double fra
     effects.renderOffscreenQuickView(m_view);
 }
 
-const QString& effect_frame_impl::text() const
+QString effect_frame_impl::text() const
 {
     return m_view->text();
 }
