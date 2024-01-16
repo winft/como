@@ -18,6 +18,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <como/render/gl/interface/framebuffer.h>
 #include <como/render/gl/interface/texture.h>
 
+#include <QOpenGLContext>
 #include <QQuickWindow>
 #include <QRunnable>
 #include <QSGImageNode>
@@ -61,16 +62,17 @@ window_thumbnail_source::~window_thumbnail_source()
     if (!m_offscreenTexture) {
         return;
     }
-    if (effects) {
-        effects->makeOpenGLContextCurrent();
-        m_offscreenTarget.reset();
-        m_offscreenTexture.reset();
 
-        if (m_acquireFence) {
-            glDeleteSync(m_acquireFence);
-            m_acquireFence = nullptr;
-        }
-        effects->doneOpenGLContextCurrent();
+    if (!QOpenGLContext::currentContext()) {
+        effects->makeOpenGLContextCurrent();
+    }
+
+    m_offscreenTarget.reset();
+    m_offscreenTexture.reset();
+
+    if (m_acquireFence) {
+        glDeleteSync(m_acquireFence);
+        m_acquireFence = nullptr;
     }
 }
 
