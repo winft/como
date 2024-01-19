@@ -13,7 +13,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <como/render/effect/interface/paint_data.h>
 #include <como/render/effect/interface/types.h>
 
+#include <QEasingCurve>
 #include <QLoggingCategory>
+
 #include <cmath>
 
 Q_LOGGING_CATEGORY(KWIN_FALLAPART, "kwin_effect_fallapart", QtWarningMsg)
@@ -76,7 +78,8 @@ void FallApartEffect::apply(effect::window_paint_data& data, WindowQuadList& qua
 {
     auto animationIt = windows.constFind(&data.window);
     if (animationIt != windows.constEnd() && isRealWindow(&data.window)) {
-        const qreal t = animationIt->progress;
+        QEasingCurve easing(QEasingCurve::InCubic);
+        auto const t = easing.valueForProgress(animationIt->progress);
 
         // Request the window to be divided into cells
         quads = quads.makeGrid(blockSize);
@@ -101,8 +104,7 @@ void FallApartEffect::apply(effect::window_paint_data& data, WindowQuadList& qua
             if (p1.y() > data.window.height() / 2) {
                 ydiff = (p1.y() - data.window.height() / 2) / data.window.height() * 100;
             }
-
-            double modif = t * t * 64;
+            double modif = t * 64;
             srandom(cnt); // change direction randomly but consistently
             xdiff += (rand() % 21 - 10);
             ydiff += (rand() % 21 - 10);
