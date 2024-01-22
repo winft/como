@@ -7,39 +7,28 @@
 */
 #pragma once
 
-#include "types.h"
+#include <como/win/dbus/session_manager.h>
+#include <como/win/types.h>
+#include <como_export.h>
 
-#include "como_export.h"
-
-#include <QObject>
 #include <QRect>
 
 namespace como::win::x11
 {
 
-class COMO_EXPORT session_manager : public QObject
+class COMO_EXPORT session_manager : public dbus::session_manager
 {
-    Q_OBJECT
 public:
-    session_manager();
     ~session_manager() override;
 
     session_state state() const;
 
-Q_SIGNALS:
-    void stateChanged(session_state prev, session_state next);
-
-    void loadSessionRequested(const QString& name);
-    void prepareSessionSaveRequested(const QString& name);
-    void finishSessionSaveRequested(const QString& name);
-
-public Q_SLOTS:
-    // DBus API
-    void setState(uint state);
-    void loadSession(const QString& name);
-    void aboutToSaveSession(const QString& name);
-    void finishSaveSession(const QString& name);
-    void quit();
+public:
+    void setState(uint state) override;
+    void loadSession(const QString& name) override;
+    void aboutToSaveSession(const QString& name) override;
+    void finishSaveSession(const QString& name) override;
+    void quit() override;
 
 private:
     void setState(session_state state);

@@ -7,9 +7,6 @@
 */
 #include "session_manager.h"
 
-// Include first to not clash with later X definitions in other includes.
-#include "sessionadaptor.h"
-
 #include <como/win/stacking_order.h>
 #include <como/win/x11/geo.h>
 #include <como/win/x11/window.h>
@@ -23,15 +20,7 @@
 namespace como::win::x11
 {
 
-session_manager::session_manager()
-{
-    new SessionAdaptor(this);
-    QDBusConnection::sessionBus().registerObject(QStringLiteral("/Session"), this);
-}
-
-session_manager::~session_manager()
-{
-}
+session_manager::~session_manager() = default;
 
 session_state session_manager::state() const
 {
