@@ -7,7 +7,6 @@
 
 #include "subsurface.h"
 #include "surface.h"
-#include <como/win/wayland/space_setup.h>
 
 #include <como/debug/console/wayland/wayland_console.h>
 #include <como/win/input.h>
@@ -17,7 +16,9 @@
 #include <como/win/stacking_order.h>
 #include <como/win/stacking_state.h>
 #include <como/win/wayland/internal_window.h>
+#include <como/win/wayland/space_setup.h>
 #include <como/win/wayland/subspace_manager.h>
+#include <win/wayland/session_manager.h>
 
 #include <memory>
 
@@ -46,6 +47,7 @@ public:
     {
         space_setup_init(*this, render, input);
         init_space(*this);
+        session_manager = std::make_unique<wayland::session_manager>();
     }
 
     virtual ~space()
@@ -130,6 +132,7 @@ public:
     std::vector<win::strut_rects> oldrestrictedmovearea;
 
     std::unique_ptr<wayland::subspace_manager> subspace_manager;
+    std::unique_ptr<wayland::session_manager> session_manager;
 
     QTimer* m_quickTileCombineTimer{nullptr};
     win::quicktiles m_lastTilingMode{win::quicktiles::none};
