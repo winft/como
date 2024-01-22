@@ -24,6 +24,7 @@ target_sources(win
     FILE_SET HEADERS
     FILES
       dbus/appmenu.h
+      dbus/session_manager.h
       dbus/virtual_desktop_manager.h
       dbus/virtual_desktop_types.h
       deco/bridge.h
@@ -129,6 +130,7 @@ target_sources(win
   PRIVATE
     cursor_shape.cpp
     dbus/appmenu.cpp
+    dbus/session_manager.cpp
     dbus/virtual_desktop_manager.cpp
     dbus/virtual_desktop_types.cpp
     deco/palette.cpp
@@ -183,6 +185,11 @@ qt6_add_dbus_interface(win_dbus_src dbus/org.kde.kappmenu.xml appmenu_interface)
 qt6_add_dbus_interface(win_dbus_src
   ${KSCREENLOCKER_DBUS_INTERFACES_DIR}/kf6_org.freedesktop.ScreenSaver.xml
   screenlocker_interface
+)
+qt6_add_dbus_adaptor(win_dbus_src
+  dbus/org.kde.KWin.Session.xml
+  dbus/session_manager.h
+  como::win::dbus::session_manager
 )
 
 target_sources(win PRIVATE ${win_dbus_src})
@@ -294,14 +301,6 @@ target_sources(win-x11
     x11/net/root_info.cpp
     x11/net/win_info.cpp
 )
-
-qt6_add_dbus_adaptor(win_x11_dbus_src
-  dbus/org.kde.KWin.Session.xml
-  x11/session_manager.h
-  como::win::x11::session_manager
-)
-
-target_sources(win-x11 PRIVATE ${win_x11_dbus_src})
 
 add_library(win-x11-backend SHARED)
 
