@@ -32,6 +32,10 @@ public Q_SLOTS:
     virtual void finishSaveSession(QString const& /*name*/)
     {
     }
+    virtual bool closeWaylandWindows()
+    {
+        return true;
+    }
     virtual void quit()
     {
     }
