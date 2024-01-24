@@ -268,6 +268,9 @@ Qt::KeyboardModifiers keyboard::modifiers_relevant_for_global_shortcuts(uint32_t
     if (is_active(state, modifiers_indices.meta, XKB_STATE_MODS_EFFECTIVE) == 1) {
         mods |= Qt::MetaModifier;
     }
+    if (keysym >= XKB_KEY_KP_Space && keysym <= XKB_KEY_KP_9) {
+        mods |= Qt::KeypadModifier;
+    }
 
     auto consumed_mods = qt_modifiers_consumed;
     if ((mods & Qt::ShiftModifier) && (consumed_mods == Qt::ShiftModifier)) {
