@@ -266,7 +266,6 @@ void ZoomEffect::prePaintScreen(effect::screen_prepaint_data& data)
         showCursor();
     } else {
         hideCursor();
-        data.paint.mask |= PAINT_SCREEN_TRANSFORMED;
     }
 
     effects->prePaintScreen(data);
