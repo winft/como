@@ -65,6 +65,11 @@ setup::setup(std::string const& test_name,
     qunsetenv("XKB_DEFAULT_VARIANT");
     qunsetenv("XKB_DEFAULT_OPTIONS");
 
+    auto breezerc = KSharedConfig::openConfig(QStringLiteral("breezerc"));
+    breezerc->group(QStringLiteral("Common"))
+        .writeEntry(QStringLiteral("OutlineIntensity"), QStringLiteral("OutlineOff"));
+    breezerc->sync();
+
     base = std::make_unique<base_t>(base::wayland::platform_arguments{
         .config = base::config(KConfig::OpenFlag::SimpleConfig, ""),
         .socket_name = socket_name,
