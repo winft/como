@@ -137,13 +137,13 @@ void init_space(Space& space)
     space.m_nullFocus->map();
 
     space.root_info = x11::root_info<Space>::create(space);
+    space.root_info->activate();
+
     auto& subspaces = space.subspace_manager;
 
     if constexpr (requires { subspaces->backend; }) {
         subspace_manager_set_root_info(*subspaces, space.root_info.get());
     }
-
-    space.root_info->activate();
 
     // TODO(romangg): Do we need this still?
     /*

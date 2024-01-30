@@ -57,7 +57,6 @@ struct subspace_manager_backend {
                                    columns,
                                    rows,
                                    x11::net::DesktopLayoutCornerTopLeft);
-            data->activate();
         }
     }
 
