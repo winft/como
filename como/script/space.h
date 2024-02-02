@@ -421,7 +421,7 @@ Q_SIGNALS:
      * @since 5.0
      */
     void virtualScreenGeometryChanged();
-    void currentDesktopChanged();
+    void currentDesktopChanged(como::win::subspace* prev);
 
 protected:
     space() = default;
