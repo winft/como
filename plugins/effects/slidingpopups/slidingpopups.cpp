@@ -316,9 +316,7 @@ void SlidingPopupsEffect::slide_out(EffectWindow* win)
 
     auto& animation = animations[win];
 
-    if (win->isDeleted()) {
-        animation.deletedRef = EffectWindowDeletedRef(win);
-    }
+    animation.deletedRef = EffectWindowDeletedRef(win);
     animation.visibleRef = EffectWindowVisibleRef(
         win, EffectWindow::PAINT_DISABLED | EffectWindow::PAINT_DISABLED_BY_DELETE);
 
