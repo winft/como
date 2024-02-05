@@ -186,7 +186,7 @@ public:
     QVariantMap attributes() const override;
 
 private:
-    EffectScreen* m_screen;
+    QString m_name;
 };
 
 class ScreenShotSourceArea2 : public ScreenShotSource2
@@ -207,7 +207,7 @@ public:
     QVariantMap attributes() const override;
 
 private:
-    EffectWindow* m_window;
+    QUuid m_internalId;
 };
 
 class ScreenShotSinkPipe2 : public QObject
@@ -259,14 +259,14 @@ ScreenShotSourceScreen2::ScreenShotSourceScreen2(ScreenShotEffect* effect,
                                                  EffectScreen* screen,
                                                  ScreenShotFlags flags)
     : ScreenShotSource2(effect->scheduleScreenShot(screen, flags))
-    , m_screen(screen)
+    , m_name(screen->name())
 {
 }
 
 QVariantMap ScreenShotSourceScreen2::attributes() const
 {
     return QVariantMap{
-        {QStringLiteral("screen"), m_screen->name()},
+        {QStringLiteral("screen"), m_name},
     };
 }
 
@@ -281,14 +281,14 @@ ScreenShotSourceWindow2::ScreenShotSourceWindow2(ScreenShotEffect* effect,
                                                  EffectWindow* window,
                                                  ScreenShotFlags flags)
     : ScreenShotSource2(effect->scheduleScreenShot(window, flags))
-    , m_window(window)
+    , m_internalId(window->internalId())
 {
 }
 
 QVariantMap ScreenShotSourceWindow2::attributes() const
 {
     return QVariantMap{
-        {QStringLiteral("windowId"), m_window->internalId().toString()},
+        {QStringLiteral("windowId"), m_internalId.toString()},
     };
 }
 
