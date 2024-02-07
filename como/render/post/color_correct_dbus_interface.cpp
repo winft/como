@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "color_correct_dbus_interface.h"
 
-#include "colorcorrectadaptor.h"
 #include "night_color_data.h"
+#include "nightlightadaptor.h"
 
 #include <QDBusMessage>
 
@@ -15,12 +15,12 @@ namespace como::render::post
 
 static void send_changed_properties(QVariantMap const& props)
 {
-    auto message = QDBusMessage::createSignal(QStringLiteral("/ColorCorrect"),
+    auto message = QDBusMessage::createSignal(QStringLiteral("/org/kde/KWin/NightLight"),
                                               QStringLiteral("org.freedesktop.DBus.Properties"),
                                               QStringLiteral("PropertiesChanged"));
 
     message.setArguments({
-        QStringLiteral("org.kde.kwin.ColorCorrect"),
+        QStringLiteral("org.kde.KWin.NightLight"),
         props,
         QStringList(), // invalidated_properties
     });
@@ -40,14 +40,14 @@ color_correct_dbus_interface::color_correct_dbus_interface(
             this,
             &color_correct_dbus_interface::removeInhibitorService);
 
-    new ColorCorrectAdaptor(this);
-    QDBusConnection::sessionBus().registerObject(QStringLiteral("/ColorCorrect"), this);
-    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.NightColor"));
+    new NightLightAdaptor(this);
+    QDBusConnection::sessionBus().registerObject(QStringLiteral("/org/kde/KWin/NightLight"), this);
+    QDBusConnection::sessionBus().registerService(QStringLiteral("org.kde.KWin.NightLight"));
 }
 
 color_correct_dbus_interface::~color_correct_dbus_interface()
 {
-    QDBusConnection::sessionBus().unregisterService(QStringLiteral("org.kde.NightColor"));
+    QDBusConnection::sessionBus().unregisterService(QStringLiteral("org.kde.KWin.NightLight"));
 }
 
 bool color_correct_dbus_interface::isInhibited() const
@@ -179,7 +179,7 @@ void color_correct_dbus_interface::send_transition_timings() const
     send_changed_properties(props);
 }
 
-void color_correct_dbus_interface::nightColorAutoLocationUpdate(double latitude, double longitude)
+void color_correct_dbus_interface::setLocation(double latitude, double longitude)
 {
     integration.loc_update(latitude, longitude);
 }
@@ -226,6 +226,16 @@ void color_correct_dbus_interface::removeInhibitorService(const QString& service
     for (const uint& cookie : cookies) {
         uninhibit(serviceName, cookie);
     }
+}
+
+void color_correct_dbus_interface::preview(uint /*previewTemp*/)
+{
+    // TODO(romangg): implement
+}
+
+void color_correct_dbus_interface::stopPreview()
+{
+    // TODO(romangg): implement
 }
 
 }
