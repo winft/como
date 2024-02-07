@@ -156,7 +156,7 @@ qt6_add_dbus_adaptor(render_dbus_SRCS
   como::render::dbus::compositing_qobject
 )
 qt6_add_dbus_adaptor(render_dbus_SRCS
-  dbus/org.kde.kwin.ColorCorrect.xml
+  dbus/org.kde.KWin.NightLight.xml
   post/color_correct_dbus_interface.h
   como::render::post::color_correct_dbus_interface
 )
@@ -300,7 +300,7 @@ install(
 )
 install(
   FILES
-    dbus/org.kde.kwin.ColorCorrect.xml
+    dbus/org.kde.KWin.NightLight.xml
     dbus/org.kde.kwin.Compositing.xml
     effect/interface/org.kde.kwin.Effects.xml
   DESTINATION

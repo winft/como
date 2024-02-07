@@ -36,7 +36,7 @@ struct color_correct_dbus_integration {
 class COMO_EXPORT color_correct_dbus_interface : public QObject, public QDBusContext
 {
     Q_OBJECT
-    Q_CLASSINFO("D-Bus Interface", "org.kde.kwin.ColorCorrect")
+    Q_CLASSINFO("D-Bus Interface", "org.kde.KWin.NightLight")
     Q_PROPERTY(bool inhibited READ isInhibited)
     Q_PROPERTY(bool enabled READ isEnabled)
     Q_PROPERTY(bool running READ isRunning)
@@ -79,21 +79,25 @@ public:
 public Q_SLOTS:
     /**
      * @brief For receiving auto location updates, primarily through the KDE Daemon
-     * @return void
-     * @since 5.12
      */
-    void nightColorAutoLocationUpdate(double latitude, double longitude);
+    void setLocation(double latitude, double longitude);
 
     /**
      * @brief Temporarily blocks Night Color.
-     * @since 5.18
      */
     uint inhibit();
     /**
      * @brief Cancels the previous call to inhibit().
-     * @since 5.18
      */
     void uninhibit(uint cookie);
+    /**
+     * @brief Previews a given temperature for a short time (15s).
+     */
+    void preview(uint temperature);
+    /**
+     * @brief Stops an ongoing preview.
+     */
+    void stopPreview();
 
 private Q_SLOTS:
     void removeInhibitorService(const QString& serviceName);
