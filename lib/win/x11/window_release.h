@@ -102,7 +102,7 @@ void remove_controlled_window_from_space(Space& space, Win* win)
 
     space.stacking.order.update_count();
     update_space_areas(space);
-    update_tabbox(space);
+    space.tabbox->reset();
 }
 
 template<typename Win>
