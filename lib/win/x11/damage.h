@@ -10,7 +10,7 @@
 #include <xcb/damage.h>
 #include <xcb/xfixes.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 struct damage {

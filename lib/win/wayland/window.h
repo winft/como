@@ -43,7 +43,7 @@
 #include <unistd.h>
 #include <vector>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Space>

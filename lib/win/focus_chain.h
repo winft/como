@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <optional>
 #include <unordered_map>
 
-namespace KWin::win
+namespace como::win
 {
 
 /**

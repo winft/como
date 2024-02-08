@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QPluginLoader>
 #include <QStringList>
 
-namespace KWin::render
+namespace como::render
 {
 
 plugin_effect_loader::plugin_effect_loader(KSharedConfig::Ptr config)

@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace std::chrono_literals;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 namespace
@@ -58,7 +58,7 @@ QList<QAction*> ScriptedEffectWithDebugSpy::actions()
 
 ScriptedEffectWithDebugSpy::ScriptedEffectWithDebugSpy(test::setup& setup)
     : scripting::effect(
-        *KWin::effects,
+        *como::effects,
         [&]() -> render::options& { return *setup.base->mod.render->options; },
         [&] { return setup.base->topology.size; })
     , setup{setup}
@@ -81,11 +81,11 @@ bool ScriptedEffectWithDebugSpy::load(const QString& name)
     // used to find the internal effectloader and register ourselves
     auto c = effects.children();
     for (auto it = c.begin(); it != c.end(); ++it) {
-        if (qstrcmp((*it)->metaObject()->className(), "KWin::render::basic_effect_loader") != 0) {
+        if (qstrcmp((*it)->metaObject()->className(), "como::render::basic_effect_loader") != 0) {
             continue;
         }
         QMetaObject::invokeMethod(
-            *it, "effectLoaded", Q_ARG(KWin::Effect*, this), Q_ARG(QString, name));
+            *it, "effectLoaded", Q_ARG(como::Effect*, this), Q_ARG(QString, name));
         break;
     }
 
@@ -96,7 +96,7 @@ bool ScriptedEffectWithDebugSpy::load(const QString& name)
 
 TEST_CASE("scripted effects", "[effect]")
 {
-    qRegisterMetaType<KWin::Effect*>();
+    qRegisterMetaType<como::Effect*>();
     qputenv("KWIN_COMPOSE", QByteArrayLiteral("O2"));
     qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", "1");
 
@@ -289,7 +289,7 @@ TEST_CASE("scripted effects", "[effect]")
         auto* effect = new ScriptedEffectWithDebugSpy(setup); // cleaned up in ::clean
         QSignalSpy effectOutputSpy(effect, &ScriptedEffectWithDebugSpy::testOutput);
         QVERIFY(effect->load("screenEdgeTest"));
-        effect->borderActivated(KWin::ElectricTopRight);
+        effect->borderActivated(como::ElectricTopRight);
         QCOMPARE(effectOutputSpy.count(), 1);
     }
 

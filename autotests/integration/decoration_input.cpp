@@ -21,7 +21,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 Q_DECLARE_METATYPE(Qt::WindowFrameSection)
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 #define MOTION(target) pointer_motion_absolute(target, timestamp++)

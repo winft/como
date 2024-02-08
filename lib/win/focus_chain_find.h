@@ -10,7 +10,7 @@
 
 #include <optional>
 
-namespace KWin::win
+namespace como::win
 {
 
 /**

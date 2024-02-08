@@ -7,7 +7,7 @@
 
 #include <QMatrix4x4>
 
-namespace KWin
+namespace como
 {
 
 class EffectFramePrivate

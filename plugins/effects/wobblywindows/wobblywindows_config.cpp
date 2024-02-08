@@ -16,9 +16,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KPluginFactory>
 #include <kconfiggroup.h>
 
-K_PLUGIN_CLASS(KWin::WobblyWindowsEffectConfig)
+K_PLUGIN_CLASS(como::WobblyWindowsEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 //-----------------------------------------------------------------------------

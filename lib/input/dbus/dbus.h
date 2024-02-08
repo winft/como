@@ -9,7 +9,7 @@
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 inline void inform_touchpad_toggle(bool enabled)

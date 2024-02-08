@@ -18,7 +18,7 @@
 #include <xcb/xcb_keysyms.h>
 #define X11_ONLY(arg) arg, // allows to omit an argument
 
-namespace KWin::win::x11::key_server
+namespace como::win::x11::key_server
 {
 //---------------------------------------------------------------------
 // Data Structures

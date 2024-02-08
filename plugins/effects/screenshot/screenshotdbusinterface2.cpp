@@ -26,7 +26,7 @@
 #include <string.h>
 #include <unistd.h>
 
-namespace KWin
+namespace como
 {
 
 class ScreenShotWriter2 : public QRunnable
@@ -635,6 +635,6 @@ void ScreenShotDBusInterface2::takeScreenShot(EffectWindow* window,
     bind(sink, new ScreenShotSourceWindow2(m_effect, window, flags));
 }
 
-} // namespace KWin
+}
 
 #include "screenshotdbusinterface2.moc"

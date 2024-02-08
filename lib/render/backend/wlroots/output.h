@@ -18,7 +18,7 @@
 #include <chrono>
 #include <stdexcept>
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 template<typename Base, typename Backend>

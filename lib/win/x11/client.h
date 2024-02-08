@@ -18,7 +18,7 @@
 
 #include <csignal>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 inline void send_client_message(base::x11::data const& data,

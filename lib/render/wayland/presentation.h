@@ -24,7 +24,7 @@
 #include <Wrapland/Server/surface.h>
 #include <system_error>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 enum class presentation_kind {
@@ -207,4 +207,4 @@ private:
 
 }
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::render::wayland::presentation_kinds)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::render::wayland::presentation_kinds)

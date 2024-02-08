@@ -21,7 +21,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <vector>
 #include <xcb/xcb.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 /**

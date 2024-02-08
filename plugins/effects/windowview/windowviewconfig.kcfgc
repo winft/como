@@ -4,7 +4,7 @@
 
 File=windowviewconfig.kcfg
 ClassName=WindowViewConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true
 IncludeFiles=win/types.h

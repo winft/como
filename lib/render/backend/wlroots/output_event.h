@@ -9,7 +9,7 @@
 
 #include "render/wayland/presentation.h"
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 inline wayland::presentation_kinds output_flags_to_presentation_kinds(uint32_t wlr_flags)

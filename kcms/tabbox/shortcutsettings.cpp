@@ -104,7 +104,7 @@ void ShortcutItem::setProperty(const QVariant &p)
     m_action->setShortcut(p.value<QKeySequence>());
 }
 
-namespace KWin
+namespace como
 {
 namespace win
 {
@@ -167,4 +167,4 @@ bool ShortcutSettings::isDefault(const QString &name) const
 }
 
 } // namespace TabBox
-} // namespace KWin
+}

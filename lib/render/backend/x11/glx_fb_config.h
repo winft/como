@@ -11,7 +11,7 @@
 #include <deque>
 #include <epoxy/glx.h>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 class fb_config_info

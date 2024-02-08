@@ -39,10 +39,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 Q_LOGGING_CATEGORY(KWIN_KSCREEN, "kwin_effect_kscreen", QtWarningMsg)
 
-namespace KWin
+namespace como
 {
 
-void update_function(KscreenEffect& effect, KWin::effect::fade_update const& update)
+void update_function(KscreenEffect& effect, como::effect::fade_update const& update)
 {
     assert(!update.base.window);
 
@@ -152,4 +152,4 @@ bool KscreenEffect::isActive() const
     return m_state != StateNormal;
 }
 
-} // namespace KWin
+}

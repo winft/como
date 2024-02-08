@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "mock_tabbox_handler.h"
 
-namespace KWin
+namespace como
 {
 
 MockTabBoxClient::MockTabBoxClient(QString const& caption)
@@ -21,4 +21,4 @@ void MockTabBoxClient::close()
     static_cast<MockTabBoxHandler*>(win::tabbox_handle)->closeWindow(this);
 }
 
-} // namespace KWin
+}

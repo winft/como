@@ -11,7 +11,7 @@
 #include <Wrapland/Server/keyboard_pool.h>
 #include <xkbcommon/xkbcommon.h>
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect, typename KeyboardFilter>

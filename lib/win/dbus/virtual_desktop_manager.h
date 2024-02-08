@@ -15,7 +15,7 @@
 #include <QObject>
 #include <gsl/pointers>
 
-namespace KWin::win
+namespace como::win
 {
 
 class subspace;
@@ -54,7 +54,7 @@ class COMO_EXPORT subspace_manager_wrap : public QObject
     /**
      * list of key/value pairs which every one of them is representing a desktop
      */
-    Q_PROPERTY(KWin::win::dbus::subspace_data_vector desktops READ desktops NOTIFY desktopsChanged)
+    Q_PROPERTY(como::win::dbus::subspace_data_vector desktops READ desktops NOTIFY desktopsChanged)
 
 public:
     subspace_manager_wrap(win::subspace_manager_qobject* parent);
@@ -78,9 +78,9 @@ Q_SIGNALS:
     void rowsChanged(uint rows);
     void currentChanged(QString const& id);
     void navigationWrappingAroundChanged(bool wraps);
-    void desktopsChanged(KWin::win::dbus::subspace_data_vector);
-    void desktopDataChanged(QString const& id, KWin::win::dbus::subspace_data);
-    void desktopCreated(QString const& id, KWin::win::dbus::subspace_data);
+    void desktopsChanged(como::win::dbus::subspace_data_vector);
+    void desktopDataChanged(QString const& id, como::win::dbus::subspace_data);
+    void desktopCreated(QString const& id, como::win::dbus::subspace_data);
     void desktopRemoved(QString const& id);
 
 public:

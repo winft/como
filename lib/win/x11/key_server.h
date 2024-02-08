@@ -14,7 +14,7 @@
 #include <Qt>
 #include <xcb/xcb.h>
 
-namespace KWin::win::x11::key_server
+namespace como::win::x11::key_server
 {
 
 static const int MODE_SWITCH = 0x2000;

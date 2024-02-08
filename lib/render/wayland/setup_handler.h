@@ -7,7 +7,7 @@
 
 #include <render/wayland/setup_window.h>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 template<typename Handler>

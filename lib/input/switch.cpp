@@ -7,7 +7,7 @@
 
 #include "utils/algorithm.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 switch_device::switch_device() = default;

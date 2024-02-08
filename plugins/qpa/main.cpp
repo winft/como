@@ -27,7 +27,7 @@ QPlatformIntegration* KWinIntegrationPlugin::create(const QString& system,
     }
     if (system.compare(QLatin1String("wayland-org.kde.kwin.qpa"), Qt::CaseInsensitive) == 0) {
         // create our integration
-        return new KWin::QPA::Integration;
+        return new como::QPA::Integration;
     }
     return nullptr;
 }

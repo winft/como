@@ -11,7 +11,7 @@
 
 #include <xcb/composite.h>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 // 2 sec which should be enough to restart the compositor.

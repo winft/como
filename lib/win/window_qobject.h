@@ -15,7 +15,7 @@
 #include <QPalette>
 #include <QRegion>
 
-namespace KWin::win
+namespace como::win
 {
 
 class COMO_EXPORT window_qobject : public QObject
@@ -97,7 +97,7 @@ Q_SIGNALS:
     void minimizedChanged();
     void clientMinimized(bool animate);
     void clientUnminimized(bool animate);
-    void maximize_mode_changed(KWin::win::maximize_mode);
+    void maximize_mode_changed(como::win::maximize_mode);
     void quicktiling_changed();
     void keepAboveChanged(bool);
     void keepBelowChanged(bool);
@@ -113,7 +113,7 @@ Q_SIGNALS:
     void transientChanged();
     void modalChanged();
     void moveResizedChanged();
-    void moveResizeCursorChanged(KWin::win::cursor_shape);
+    void moveResizeCursorChanged(como::win::cursor_shape);
     void clientStartUserMovedResized();
     void clientStepUserMovedResized(QRect const&);
     void clientFinishUserMovedResized();

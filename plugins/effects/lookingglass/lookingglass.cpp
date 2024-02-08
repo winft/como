@@ -37,7 +37,7 @@ static void ensureResources()
     Q_INIT_RESOURCE(lookingglass);
 }
 
-namespace KWin
+namespace como
 {
 
 LookingGlassEffect::LookingGlassEffect()

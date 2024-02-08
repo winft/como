@@ -10,7 +10,7 @@
 
 #include <chrono>
 
-namespace KWin
+namespace como
 {
 
 class BlendChanges : public OffscreenEffect
@@ -53,4 +53,4 @@ private:
     State m_state = Off;
 };
 
-} // namespace KWin
+}

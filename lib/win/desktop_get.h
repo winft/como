@@ -9,7 +9,7 @@
 #include <win/subspaces_get.h>
 #include <win/types.h>
 
-namespace KWin::win
+namespace como::win
 {
 
 // TODO(romangg): Is the recommendation to prefer on_subspace() still sensible?

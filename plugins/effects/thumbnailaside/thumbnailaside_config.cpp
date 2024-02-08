@@ -22,9 +22,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QVBoxLayout>
 #include <QWidget>
 
-K_PLUGIN_CLASS(KWin::ThumbnailAsideEffectConfig)
+K_PLUGIN_CLASS(como::ThumbnailAsideEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 ThumbnailAsideEffectConfig::ThumbnailAsideEffectConfig(QObject* parent, const KPluginMetaData& data)

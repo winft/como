@@ -11,7 +11,7 @@
 
 class QAction;
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 /**

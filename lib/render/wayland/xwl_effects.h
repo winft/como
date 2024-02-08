@@ -18,7 +18,7 @@
 #include <render/x11/effect/setup_window.h>
 #include <win/wayland/space_windows.h>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 template<typename Scene>

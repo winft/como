@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 -->
 
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.6.1">
-    <!--  Documentation for global KWin effect methods. In doxygen XML format as this can be converted to MediaWiki    -->
+    <!--  Documentation for global Compositor Modules effect methods. In doxygen XML format as this can be converted to MediaWiki    -->
     <!--  Use script and XSLT from kde:scratch/graesslin/kwin-scripting-api-generator to generate the documentation    -->
     <!--  This xml is not meant to be doxygen complient    -->
     <compounddef>
@@ -15,15 +15,15 @@ SPDX-License-Identifier: GPL-2.0-or-later
         <briefdescription>Methods and properties added to the global JavaScript object.</briefdescription>
         <sectiondef kind="property">
             <memberdef kind="property" writable="no">
-                <type>KWin::EffectsHandler</type>
+                <type>como::EffectsHandler</type>
                 <definition></definition>
                 <argsstring></argsstring>
                 <name>effects</name>
                 <read></read>
-                <detaileddescription>Global property to the core wrapper of KWin Effects</detaileddescription>
+                <detaileddescription>Global property to the core wrapper of Como Effects</detaileddescription>
             </memberdef>
             <memberdef kind="property" writable="no">
-                <type>KWin::ScriptedEffect</type>
+                <type>como::ScriptedEffect</type>
                 <definition></definition>
                 <argsstring></argsstring>
                 <name>effect</name>
@@ -36,15 +36,15 @@ SPDX-License-Identifier: GPL-2.0-or-later
                 <argsstring></argsstring>
                 <name>Effect</name>
                 <read></read>
-                <detaileddescription>Provides access to enums defined in KWin::AnimationEffect and KWin::ScriptedEffect</detaileddescription>
+                <detaileddescription>Provides access to enums defined in como::AnimationEffect and como::ScriptedEffect</detaileddescription>
             </memberdef>
             <memberdef kind="property" writable="no">
                 <type>object</type>
                 <definition></definition>
                 <argsstring></argsstring>
-                <name>KWin</name>
+                <name>como</name>
                 <read></read>
-                <detaileddescription>Provides access to enums defined in KWin::WorkspaceWrapper</detaileddescription>
+                <detaileddescription>Provides access to enums defined in como::WorkspaceWrapper</detaileddescription>
             </memberdef>
             <memberdef kind="property" writable="no">
                 <type>object</type>
@@ -58,7 +58,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
         <sectiondef kind="public-func">
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE QList&lt;quint64&gt;</type>
-                <definition>QList&lt;quint64&gt; KWin::ScriptedEffect::animate</definition>
+                <definition>QList&lt;quint64&gt; como::ScriptedEffect::animate</definition>
                 <argsstring>(settings)</argsstring>
                 <name>animate</name>
                 <read></read>
@@ -93,7 +93,7 @@ At least one animation or attribute setter (see below) needs to be specified eit
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE QList&lt;quint64&gt;</type>
-                <definition>QList&lt;quint64&gt; KWin::ScriptedEffect::set</definition>
+                <definition>QList&lt;quint64&gt; como::ScriptedEffect::set</definition>
                 <argsstring>(settings)</argsstring>
                 <name>set</name>
                 <read></read>
@@ -104,18 +104,18 @@ Until then, the manipulated attribute will remain at animation target value.
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::ScriptedEffect::cancel</definition>
+                <definition>bool como::ScriptedEffect::cancel</definition>
                 <argsstring>(QList&lt;quint64&gt;)</argsstring>
                 <name>cancel</name>
                 <read></read>
                 <detaileddescription>
-Cancel one or more present animations caused and returned by KWin::ScriptedEffect::animate or KWin::ScriptedEffect::set.
+Cancel one or more present animations caused and returned by como::ScriptedEffect::animate or como::ScriptedEffect::set.
 For convenience you can pass a single quint64 as well.
                 </detaileddescription>
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE void</type>
-                <definition>void KWin::ScriptedEffect::print</definition>
+                <definition>void como::ScriptedEffect::print</definition>
                 <argsstring>(QVariant ... values)</argsstring>
                 <name>print</name>
                 <read></read>
@@ -123,7 +123,7 @@ For convenience you can pass a single quint64 as well.
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE int</type>
-                <definition>int KWin::ScriptedEffect::animationTime</definition>
+                <definition>int como::ScriptedEffect::animationTime</definition>
                 <argsstring>(int duration)</argsstring>
                 <name>animationTime</name>
                 <read></read>
@@ -131,7 +131,7 @@ For convenience you can pass a single quint64 as well.
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE int</type>
-                <definition>int KWin::ScriptedEffect::displayWidth</definition>
+                <definition>int como::ScriptedEffect::displayWidth</definition>
                 <argsstring>()</argsstring>
                 <name>displayWidth</name>
                 <read></read>
@@ -139,7 +139,7 @@ For convenience you can pass a single quint64 as well.
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE int</type>
-                <definition>int KWin::ScriptedEffect::displayHeight</definition>
+                <definition>int como::ScriptedEffect::displayHeight</definition>
                 <argsstring>()</argsstring>
                 <name>displayHeight</name>
                 <read></read>
@@ -147,7 +147,7 @@ For convenience you can pass a single quint64 as well.
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::ScriptedEffect::registerScreenEdge</definition>
+                <definition>bool como::ScriptedEffect::registerScreenEdge</definition>
                 <argsstring>(ElectricBorder border, QScriptValue callback)</argsstring>
                 <name>registerScreenEdge</name>
                 <read></read>
@@ -155,7 +155,7 @@ For convenience you can pass a single quint64 as well.
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::ScriptedEffect::registerShortcut</definition>
+                <definition>bool como::ScriptedEffect::registerShortcut</definition>
                 <argsstring>(QString title, QString text, QString keySequence, QScriptValue callback)</argsstring>
                 <name>registerShortcut</name>
                 <read></read>
@@ -163,7 +163,7 @@ For convenience you can pass a single quint64 as well.
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE uint</type>
-                <definition>uint KWin::ScriptedEffect::addFragmentShader</definition>
+                <definition>uint como::ScriptedEffect::addFragmentShader</definition>
                 <argsstring>(ShaderTrait traits, QString fragmentShaderFile)</argsstring>
                 <name>addFragmentShader</name>
                 <read></read>
@@ -171,7 +171,7 @@ For convenience you can pass a single quint64 as well.
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE uint</type>
-                <definition>void KWin::ScriptedEffect::setUniform</definition>
+                <definition>void como::ScriptedEffect::setUniform</definition>
                 <argsstring>(uint shaderId, QString name, QJSValue value)</argsstring>
                 <name>setUniform</name>
                 <read></read>
@@ -180,7 +180,7 @@ For convenience you can pass a single quint64 as well.
         </sectiondef>
     </compounddef>
     <compounddef>
-        <compoundname>KWin::FPx2</compoundname>
+        <compoundname>como::FPx2</compoundname>
         <briefdescription>This class is used to describe the animation end points, that is from which FPx2 values to which FPx2 values an animation goes. This class contains two properties to describe two animation components individually (e.g. width and height). But it's also possible to just have one value (e.g. opacity). In this case the definition of an FPx2 can be replaced by a single value.</briefdescription>
         <sectiondef kind="property">
             <memberdef kind="property" writable="yes">

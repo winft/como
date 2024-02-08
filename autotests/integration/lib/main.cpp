@@ -22,9 +22,9 @@ int main(int argc, char* argv[])
     KCrash::setDrKonqiEnabled(false);
     KLocalizedString::setApplicationDomain("kwin");
 
-    KWin::detail::test::prepare_app_env(argv[0]);
+    como::detail::test::prepare_app_env(argv[0]);
 
-    KWin::base::wayland::app_singleton app(argc, argv);
+    como::base::wayland::app_singleton app(argc, argv);
 
     auto const own_path = app.qapp->libraryPaths().constLast();
     app.qapp->removeLibraryPath(own_path);

@@ -15,7 +15,7 @@
 #include <KConfigGroup>
 #include <QtGui/private/qxkbcommon_p.h>
 
-namespace KWin::input::xkb
+namespace como::input::xkb
 {
 
 keyboard_qobject::~keyboard_qobject() = default;

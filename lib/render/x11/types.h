@@ -8,7 +8,7 @@
 #include "render/types.h"
 #include "utils/flags.h"
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 enum class suspend_reason {
@@ -33,4 +33,4 @@ enum class hidden_preview {
 
 }
 
-ENUM_FLAGS(KWin::render::x11::suspend_reason)
+ENUM_FLAGS(como::render::x11::suspend_reason)

@@ -10,7 +10,7 @@
 #include <xcb/sync.h>
 #include <xcb/xcb.h>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 /**

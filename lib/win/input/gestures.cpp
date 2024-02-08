@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <cmath>
 #include <functional>
 
-namespace KWin::win
+namespace como::win
 {
 
 gesture::~gesture() = default;

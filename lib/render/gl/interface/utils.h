@@ -13,7 +13,7 @@
 #include <QList>
 #include <epoxy/gl.h>
 
-namespace KWin
+namespace como
 {
 
 // Initializes OpenGL stuff. This includes resolving function pointers as

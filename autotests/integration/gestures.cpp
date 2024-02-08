@@ -9,7 +9,7 @@
 #include <Wrapland/Client/pointergestures.h>
 #include <Wrapland/Client/surface.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("gestures", "[input]")

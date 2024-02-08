@@ -5,7 +5,7 @@
 */
 #include "output.h"
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 output::output() = default;

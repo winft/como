@@ -8,13 +8,13 @@
 
 #include <render/effect/interface/effect_plugin_factory.h>
 
-namespace KWin
+namespace como
 {
 
 KWIN_EFFECT_FACTORY_SUPPORTED(OverviewEffect,
                               "metadata.json.stripped",
                               return OverviewEffect::supported();)
 
-} // namespace KWin
+}
 
 #include "main.moc"

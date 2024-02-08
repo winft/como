@@ -16,7 +16,7 @@
 #include <QObject>
 #include <QSize>
 
-namespace KWin::win
+namespace como::win
 {
 
 inline QString subspace_manager_get_default_subspace_name(int x11id)

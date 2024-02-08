@@ -21,7 +21,7 @@
 #include <QVector4D>
 #include <cmath>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 template<typename RefWin, typename Scene>

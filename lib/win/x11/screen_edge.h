@@ -14,7 +14,7 @@
 #include "base/x11/xcb/window.h"
 #include "win/screen_edges.h"
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Edger>

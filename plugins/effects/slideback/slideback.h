@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "motions.h"
 
-namespace KWin
+namespace como
 {
 
 class SlideBackEffect : public Effect
@@ -33,9 +33,9 @@ public:
     }
 
 public Q_SLOTS:
-    void slotWindowAdded(KWin::EffectWindow* w);
-    void slotWindowDeleted(KWin::EffectWindow* w);
-    void slotWindowUnminimized(KWin::EffectWindow* w);
+    void slotWindowAdded(como::EffectWindow* w);
+    void slotWindowDeleted(como::EffectWindow* w);
+    void slotWindowUnminimized(como::EffectWindow* w);
     void slotStackingOrderChanged();
     void slotTabBoxAdded();
     void slotTabBoxClosed();

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QIcon>
 #include <vector>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Space>

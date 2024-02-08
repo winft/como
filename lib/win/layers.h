@@ -11,7 +11,7 @@
 
 #include "utils/blocker.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 /**

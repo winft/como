@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QAction>
 #include <QMatrix4x4>
 
-namespace KWin
+namespace como
 {
 
 ThumbnailAsideEffect::ThumbnailAsideEffect()

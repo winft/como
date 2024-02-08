@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "monitor.h"
 
-namespace KWin
+namespace como
 {
 
 KWinScreenEdge::KWinScreenEdge(QWidget *parent)

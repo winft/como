@@ -12,7 +12,7 @@
 #include <QTimerEvent>
 #include <private/qtx11extras_p.h>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 static xcb_window_t get_selection_owner(xcb_connection_t* c, xcb_atom_t selection)

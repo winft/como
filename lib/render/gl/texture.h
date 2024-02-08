@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/gl/interface/texture.h>
 #include <render/gl/interface/texture_p.h>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 template<typename Backend>

@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QDBusObjectPath>
 #include <QDBusSignature>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 QVariant dbusToVariant(const QVariant& variant)

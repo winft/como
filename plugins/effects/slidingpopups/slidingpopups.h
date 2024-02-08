@@ -15,7 +15,7 @@
 
 #include <memory>
 
-namespace KWin
+namespace como
 {
 
 class SlidingPopupsEffect : public Effect

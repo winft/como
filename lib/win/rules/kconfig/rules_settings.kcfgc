@@ -4,7 +4,7 @@
 
 File=rules_settings.kcfg
 IncludeFiles=\"win/rules/ruling.h\",\"win/placement.h\",\"utils/geo.h\"
-NameSpace=KWin::win::rules
+NameSpace=como::win::rules
 ClassName=settings
 UseEnumTypes=true
 Mutators=true

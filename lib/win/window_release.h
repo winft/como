@@ -11,7 +11,7 @@
 #include "space_window_release.h"
 #include "transient.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 namespace x11

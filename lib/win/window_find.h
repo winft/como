@@ -8,7 +8,7 @@
 #include "desktop_get.h"
 #include "meta.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Space>

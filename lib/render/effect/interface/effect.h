@@ -13,7 +13,7 @@
 
 struct xcb_connection_t;
 
-namespace KWin
+namespace como
 {
 
 namespace effect

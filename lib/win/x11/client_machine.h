@@ -17,7 +17,7 @@ struct addrinfo;
 template<typename T>
 class QFutureWatcher;
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 class get_addr_info_wrapper : public QObject

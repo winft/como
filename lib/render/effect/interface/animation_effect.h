@@ -19,7 +19,7 @@
 #include <QString>
 #include <QtMath>
 
-namespace KWin
+namespace como
 {
 
 class COMO_EXPORT FPx2
@@ -558,9 +558,9 @@ private:
 private Q_SLOTS:
     void init();
     void triggerRepaint();
-    void _windowClosed(KWin::EffectWindow* w);
-    void _windowDeleted(KWin::EffectWindow* w);
-    void _windowExpandedGeometryChanged(KWin::EffectWindow* w);
+    void _windowClosed(como::EffectWindow* w);
+    void _windowDeleted(como::EffectWindow* w);
+    void _windowExpandedGeometryChanged(como::EffectWindow* w);
 
 private:
     static QElapsedTimer s_clock;
@@ -571,5 +571,5 @@ private:
 
 }
 
-Q_DECLARE_METATYPE(KWin::FPx2)
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::AnimationEffect::TerminationFlags)
+Q_DECLARE_METATYPE(como::FPx2)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::AnimationEffect::TerminationFlags)

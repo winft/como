@@ -26,7 +26,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 Q_LOGGING_CATEGORY(KWIN_MOUSEMARK, "kwin_effect_mousemark", QtWarningMsg)
 
-namespace KWin
+namespace como
 {
 
 static consteval QPoint nullPoint()

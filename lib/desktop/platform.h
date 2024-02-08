@@ -10,7 +10,7 @@
 #include <QObject>
 #include <memory>
 
-namespace KWin::desktop
+namespace como::desktop
 {
 
 class platform

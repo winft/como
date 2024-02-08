@@ -22,7 +22,7 @@
 #include <xkbcommon/xkbcommon-keysyms.h>
 #include <xkbcommon/xkbcommon.h>
 
-namespace KWin::input::xkb
+namespace como::input::xkb
 {
 
 static inline void
@@ -65,7 +65,7 @@ public:
         : context(xkb_context_new(XKB_CONTEXT_NO_FLAGS))
         , platform{platform}
     {
-        qRegisterMetaType<KWin::input::keyboard_leds>();
+        qRegisterMetaType<como::input::keyboard_leds>();
 
         if (!context) {
             // TODO(romangg): throw instead

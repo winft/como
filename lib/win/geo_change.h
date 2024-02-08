@@ -10,7 +10,7 @@
 #include "types.h"
 #include "window_area.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Space, typename Win>

@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/effect_window_visible_ref.h>
 #include <render/effect/interface/offscreen_effect.h>
 
-namespace KWin
+namespace como
 {
 
 struct FallApartAnimation {
@@ -50,9 +50,9 @@ protected:
     void apply(effect::window_paint_data& data, WindowQuadList& quads) override;
 
 public Q_SLOTS:
-    void slotWindowClosed(KWin::EffectWindow* c);
-    void slotWindowDeleted(KWin::EffectWindow* w);
-    void slotWindowDataChanged(KWin::EffectWindow* w, int role);
+    void slotWindowClosed(como::EffectWindow* c);
+    void slotWindowDeleted(como::EffectWindow* w);
+    void slotWindowDataChanged(como::EffectWindow* w, int role);
 
 private:
     QHash<EffectWindow*, FallApartAnimation> windows;

@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KAboutData>
 #include <KLocalizedString>
 
-namespace KWin
+namespace como
 {
 
 inline void app_create_about_data()

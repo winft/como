@@ -18,7 +18,7 @@
 #include <memory>
 #include <vector>
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Keys, typename Platform>

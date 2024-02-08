@@ -9,7 +9,7 @@
 
 #include <functional>
 
-namespace KWin
+namespace como
 {
 
 class EffectsHandler;

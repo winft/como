@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <xcb/xcb.h>
 #include <xcb/xcb_icccm.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("xcb size hints", "[win],[xwl]")

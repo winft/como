@@ -15,9 +15,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <KPluginFactory>
 
-K_PLUGIN_CLASS(KWin::DimInactiveEffectConfig)
+K_PLUGIN_CLASS(como::DimInactiveEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 DimInactiveEffectConfig::DimInactiveEffectConfig(QObject* parent, const KPluginMetaData& data)
@@ -41,6 +41,6 @@ void DimInactiveEffectConfig::save()
     interface.reconfigureEffect(QStringLiteral("diminactive"));
 }
 
-} // namespace KWin
+}
 
 #include "diminactive_config.moc"

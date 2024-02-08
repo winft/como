@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace Wrapland::Client;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 namespace

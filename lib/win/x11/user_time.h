@@ -10,7 +10,7 @@
 #include "base/x11/xcb/property.h"
 #include "base/x11/xcb/proto.h"
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Win>

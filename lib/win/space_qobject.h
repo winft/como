@@ -11,7 +11,7 @@
 #include <QObject>
 #include <functional>
 
-namespace KWin::win
+namespace como::win
 {
 
 class COMO_EXPORT space_qobject : public QObject

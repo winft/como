@@ -24,7 +24,7 @@
 #include <Wrapland/Server/layer_shell_v1.h>
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Win>

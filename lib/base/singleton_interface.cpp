@@ -5,7 +5,7 @@
 */
 #include "singleton_interface.h"
 
-namespace KWin::base
+namespace como::base
 {
 
 base::app_singleton* singleton_interface::app_singleton{nullptr};

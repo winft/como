@@ -26,7 +26,7 @@
 #include <memory>
 #include <stdexcept>
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 template<typename Backend>

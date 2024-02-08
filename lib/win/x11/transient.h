@@ -16,7 +16,7 @@
 #include "win/transient.h"
 #include <win/x11/tool_windows.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Space>

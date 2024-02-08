@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KLocalizedString>
 #include <KApplicationTrader>
 
-namespace KWin
+namespace como
 {
 namespace win
 {
@@ -252,6 +252,5 @@ void SwitcherItem::decrementIndex()
     setCurrentIndex(index);
 }
 
-} // namespace KWin
+}
 } // namespace win
-

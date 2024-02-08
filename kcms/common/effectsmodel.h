@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QUrl>
 #include <QWindow>
 
-namespace KWin
+namespace como
 {
 
 class COMO_EXPORT EffectsModel : public QAbstractItemModel

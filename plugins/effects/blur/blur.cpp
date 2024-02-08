@@ -30,10 +30,10 @@
 
 #include <KDecoration2/Decoration>
 
-namespace KWin
+namespace como
 {
 
-void update_function(BlurEffect& effect, KWin::effect::region_update const& update)
+void update_function(BlurEffect& effect, como::effect::region_update const& update)
 {
     if (!update.base.window) {
         // Reset requested
@@ -832,7 +832,7 @@ bool BlurEffect::provides(Effect::Feature feature)
     if (feature == Blur) {
         return true;
     }
-    return KWin::Effect::provides(feature);
+    return como::Effect::provides(feature);
 }
 
 bool BlurEffect::isActive() const

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-namespace KWin::base
+namespace como::base
 {
 
 enum class operation_mode {

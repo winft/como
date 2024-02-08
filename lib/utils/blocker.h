@@ -8,7 +8,7 @@
 
 #include <memory>
 
-namespace KWin
+namespace como
 {
 
 /**

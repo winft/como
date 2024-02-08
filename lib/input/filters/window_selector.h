@@ -20,7 +20,7 @@
 #include <Wrapland/Server/seat.h>
 #include <linux/input.h>
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect>

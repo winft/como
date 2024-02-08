@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QSGImageNode>
 #include <QSGTextureProvider>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 class ThumbnailTextureProvider : public QSGTextureProvider
 {
@@ -457,4 +457,4 @@ void window_thumbnail_item::updateOffscreenTexture(effect::screen_paint_data& da
     update();
 }
 
-} // namespace KWin
+}

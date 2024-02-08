@@ -8,7 +8,7 @@
 #include <epoxy/glx.h>
 #include <memory>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 struct glx_data {

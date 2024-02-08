@@ -19,7 +19,7 @@
 #include "win/space_setup.h"
 #include <win/space_areas_helpers.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 inline static void select_wm_input_event_mask(base::x11::data const& data)

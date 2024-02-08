@@ -20,7 +20,7 @@
 #include <string>
 #include <unordered_map>
 
-namespace KWin::input::xkb
+namespace como::input::xkb
 {
 
 template<typename T, typename U>

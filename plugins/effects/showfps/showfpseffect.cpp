@@ -14,7 +14,7 @@
 
 #include <QQmlContext>
 
-namespace KWin
+namespace como
 {
 
 ShowFpsEffect::ShowFpsEffect()
@@ -125,4 +125,4 @@ bool ShowFpsEffect::supported()
     return effects->isOpenGLCompositing();
 }
 
-} // namespace KWin
+}

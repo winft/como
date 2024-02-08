@@ -11,7 +11,7 @@
 #include <Wrapland/Server/surface.h>
 #include <cassert>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Win>

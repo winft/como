@@ -12,7 +12,7 @@
 #include "geo_move.h"
 #include "window_area.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 inline void check_offscreen_position(QRect& frame_geo, const QRect& screenArea)

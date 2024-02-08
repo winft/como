@@ -19,7 +19,7 @@
 class QAction;
 class QDBusArgument;
 
-namespace KWin::input
+namespace como::input
 {
 
 class keyboard;
@@ -107,5 +107,5 @@ COMO_EXPORT QDBusArgument const& operator>>(QDBusArgument const& argument, layou
 }
 }
 
-Q_DECLARE_METATYPE(KWin::input::dbus::keyboard_v2)
-Q_DECLARE_METATYPE(KWin::input::dbus::layout_names_v2)
+Q_DECLARE_METATYPE(como::input::dbus::keyboard_v2)
+Q_DECLARE_METATYPE(como::input::dbus::layout_names_v2)

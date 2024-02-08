@@ -10,7 +10,7 @@
 #include <QPointF>
 #include <cstdint>
 
-namespace KWin::input
+namespace como::input
 {
 class keyboard;
 class pointer;
@@ -192,6 +192,6 @@ struct switch_toggle_event {
 
 }
 
-Q_DECLARE_METATYPE(KWin::input::button_state)
-Q_DECLARE_METATYPE(KWin::input::key_event)
-Q_DECLARE_METATYPE(KWin::input::key_state)
+Q_DECLARE_METATYPE(como::input::button_state)
+Q_DECLARE_METATYPE(como::input::key_event)
+Q_DECLARE_METATYPE(como::input::key_state)

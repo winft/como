@@ -24,7 +24,7 @@
 #include <unordered_map>
 #include <vector>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 template<typename Mod>

@@ -20,7 +20,7 @@
 #include <QPixmap>
 #include <functional>
 
-namespace KWin::render
+namespace como::render
 {
 
 /**

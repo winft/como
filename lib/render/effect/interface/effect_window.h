@@ -24,7 +24,7 @@ namespace Wrapland::Server
 class Surface;
 }
 
-namespace KWin
+namespace como
 {
 
 class EffectWindowVisibleRef;
@@ -54,12 +54,12 @@ class COMO_EXPORT EffectWindow : public QObject
     Q_PROPERTY(int height READ height)
     Q_PROPERTY(qreal opacity READ opacity)
     Q_PROPERTY(QPoint pos READ pos)
-    Q_PROPERTY(KWin::EffectScreen* screen READ screen)
+    Q_PROPERTY(como::EffectScreen* screen READ screen)
     Q_PROPERTY(QSize size READ size)
     Q_PROPERTY(int width READ width)
     Q_PROPERTY(int x READ x)
     Q_PROPERTY(int y READ y)
-    Q_PROPERTY(QVector<KWin::win::subspace*> desktops READ desktops)
+    Q_PROPERTY(QVector<como::win::subspace*> desktops READ desktops)
     Q_PROPERTY(bool onAllDesktops READ isOnAllDesktops)
     Q_PROPERTY(bool onCurrentDesktop READ isOnCurrentDesktop)
     Q_PROPERTY(QRect rect READ rect)
@@ -377,7 +377,7 @@ public:
     bool isOnAllActivities() const;
     virtual QStringList activities() const = 0;
 
-    Q_SCRIPTABLE bool isOnDesktop(KWin::win::subspace* subspace) const;
+    Q_SCRIPTABLE bool isOnDesktop(como::win::subspace* subspace) const;
     bool isOnCurrentDesktop() const;
     bool isOnAllDesktops() const;
     /**
@@ -385,7 +385,7 @@ public:
      * a length of 1, on Wayland can be any subset.
      * If the list is empty it means the window is on all desktops
      */
-    virtual QVector<KWin::win::subspace*> desktops() const = 0;
+    virtual QVector<como::win::subspace*> desktops() const = 0;
 
     virtual int x() const = 0;
     virtual int y() const = 0;
@@ -584,9 +584,9 @@ public:
     virtual bool keepBelow() const = 0;
 
     virtual bool isModal() const = 0;
-    Q_SCRIPTABLE virtual KWin::EffectWindow* findModal() = 0;
-    Q_SCRIPTABLE virtual KWin::EffectWindow* transientFor() = 0;
-    Q_SCRIPTABLE virtual QList<KWin::EffectWindow*> mainWindows() const = 0;
+    Q_SCRIPTABLE virtual como::EffectWindow* findModal() = 0;
+    Q_SCRIPTABLE virtual como::EffectWindow* transientFor() = 0;
+    Q_SCRIPTABLE virtual QList<como::EffectWindow*> mainWindows() const = 0;
 
     /**
      * Returns whether the window should be excluded from window switching effects.
@@ -723,7 +723,7 @@ Q_SIGNALS:
      * @see EffectWindow::isUserResize
      * @since 4.7
      */
-    void windowStartUserMovedResized(KWin::EffectWindow* w);
+    void windowStartUserMovedResized(como::EffectWindow* w);
     /**
      * Signal emitted during a move/resize operation when the user changed the geometry.
      * Please note: KWin supports two operation modes. In one mode all changes are applied
@@ -740,7 +740,7 @@ Q_SIGNALS:
      * @see EffectWindow::isUserResize
      * @since 4.7
      */
-    void windowStepUserMovedResized(KWin::EffectWindow* w, const QRect& geometry);
+    void windowStepUserMovedResized(como::EffectWindow* w, const QRect& geometry);
     /**
      * Signal emitted when the user finishes move/resize of window @p w.
      * @param w The window which has been moved/resized
@@ -748,7 +748,7 @@ Q_SIGNALS:
      * @see windowFinishUserMovedResized
      * @since 4.7
      */
-    void windowFinishUserMovedResized(KWin::EffectWindow* w);
+    void windowFinishUserMovedResized(como::EffectWindow* w);
     /**
      * Signal emitted when the maximized state of the window @p w changed.
      * A window can be in one of four states:
@@ -761,14 +761,14 @@ Q_SIGNALS:
      * @param vertical If @c true maximized vertically
      * @since 4.7
      */
-    void windowMaximizedStateChanged(KWin::EffectWindow* w, bool horizontal, bool vertical);
+    void windowMaximizedStateChanged(como::EffectWindow* w, bool horizontal, bool vertical);
     /**
      * This signal is emitted when the frame geometry of a window changed.
      * @param window The window whose geometry changed
      * @param oldGeometry The previous geometry
      * @since 5.19
      */
-    void windowFrameGeometryChanged(KWin::EffectWindow* window, const QRect& oldGeometry);
+    void windowFrameGeometryChanged(como::EffectWindow* window, const QRect& oldGeometry);
     /**
      * Signal emitted when the windows opacity is changed.
      * @param w The window whose opacity level is changed.
@@ -776,19 +776,19 @@ Q_SIGNALS:
      * @param newOpacity The new opacity level
      * @since 4.7
      */
-    void windowOpacityChanged(KWin::EffectWindow* w, qreal oldOpacity, qreal newOpacity);
+    void windowOpacityChanged(como::EffectWindow* w, qreal oldOpacity, qreal newOpacity);
     /**
      * Signal emitted when a window is minimized or unminimized.
      * @param w The window whose minimized state has changed
      */
-    void minimizedChanged(KWin::EffectWindow* w);
+    void minimizedChanged(como::EffectWindow* w);
     /**
      * Signal emitted when a window either becomes modal (ie. blocking for its main client) or
      * looses that state.
      * @param w The window which was unminimized
      * @since 4.11
      */
-    void windowModalityChanged(KWin::EffectWindow* w);
+    void windowModalityChanged(como::EffectWindow* w);
     /**
      * Signal emitted when a window either became unresponsive (eg. app froze or crashed)
      * or respoonsive
@@ -796,7 +796,7 @@ Q_SIGNALS:
      * @param unresponsive Whether the window is responsive or unresponsive
      * @since 5.10
      */
-    void windowUnresponsiveChanged(KWin::EffectWindow* w, bool unresponsive);
+    void windowUnresponsiveChanged(como::EffectWindow* w, bool unresponsive);
     /**
      * Signal emitted when an area of a window is scheduled for repainting.
      * Use this signal in an effect if another area needs to be synced as well.
@@ -804,7 +804,7 @@ Q_SIGNALS:
      * @param r Always empty.
      * @since 4.7
      */
-    void windowDamaged(KWin::EffectWindow* w, const QRegion& r);
+    void windowDamaged(como::EffectWindow* w, const QRegion& r);
 
     /**
      * This signal is emitted when the keep above state of @p w was changed.
@@ -812,7 +812,7 @@ Q_SIGNALS:
      * @param w The window whose the keep above state was changed.
      * @since 5.15
      */
-    void windowKeepAboveChanged(KWin::EffectWindow* w);
+    void windowKeepAboveChanged(como::EffectWindow* w);
 
     /**
      * This signal is emitted when the keep below state of @p was changed.
@@ -820,7 +820,7 @@ Q_SIGNALS:
      * @param w The window whose the keep below state was changed.
      * @since 5.15
      */
-    void windowKeepBelowChanged(KWin::EffectWindow* w);
+    void windowKeepBelowChanged(como::EffectWindow* w);
 
     /**
      * This signal is emitted when the full screen state of @p w was changed.
@@ -828,15 +828,15 @@ Q_SIGNALS:
      * @param w The window whose the full screen state was changed.
      * @since 5.15
      */
-    void windowFullScreenChanged(KWin::EffectWindow* w);
+    void windowFullScreenChanged(como::EffectWindow* w);
 
     /**
      * This signal is emitted when the visible geometry of a window changed.
      */
-    void windowExpandedGeometryChanged(KWin::EffectWindow* window);
+    void windowExpandedGeometryChanged(como::EffectWindow* window);
 
     /// This signal is emitted when a window enters or leaves a virtual desktop.
-    void windowDesktopsChanged(KWin::EffectWindow* window);
+    void windowDesktopsChanged(como::EffectWindow* window);
 
     /**
      * The window @p w gets shown again. The window was previously
@@ -846,7 +846,7 @@ Q_SIGNALS:
      * @see windowAdded
      * @since 5.8
      */
-    void windowShown(KWin::EffectWindow* w);
+    void windowShown(como::EffectWindow* w);
 
     /**
      * The window @p w got hidden but not yet closed.
@@ -859,7 +859,7 @@ Q_SIGNALS:
      * @see windowClosed
      * @since 5.8
      */
-    void windowHidden(KWin::EffectWindow* w);
+    void windowHidden(como::EffectWindow* w);
 
 protected:
     friend EffectWindowVisibleRef;
@@ -873,4 +873,4 @@ private:
 
 }
 
-Q_DECLARE_METATYPE(KWin::EffectWindow*)
+Q_DECLARE_METATYPE(como::EffectWindow*)

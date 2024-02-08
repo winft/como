@@ -24,7 +24,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QTime>
 #include <cmath>
 
-namespace KWin
+namespace como
 {
 
 TrackMouseEffect::TrackMouseEffect()

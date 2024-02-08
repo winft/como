@@ -14,7 +14,7 @@
 #include <QRect>
 #include <QSize>
 
-namespace KWin
+namespace como
 {
 
 namespace effect
@@ -84,7 +84,7 @@ protected:
     void initFBO(GLTexture* texture);
 
 private:
-    friend void KWin::cleanupGL();
+    friend void como::cleanupGL();
     static void cleanup();
 
     void blit_from_current_render_target_impl(effect::render_data& data,

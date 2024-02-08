@@ -16,7 +16,7 @@
 #include <QSortFilterProxyModel>
 #include <QObject>
 
-namespace KWin
+namespace como
 {
 
 class RulesModel : public QAbstractListModel

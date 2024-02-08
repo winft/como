@@ -8,7 +8,7 @@
 #include "win/singleton_interface.h"
 #include <win/subspace_manager_qobject.h>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 subspace_model::subspace_model(QObject* parent)
@@ -94,4 +94,4 @@ int subspace_model::rowCount(const QModelIndex& parent) const
     return parent.isValid() ? 0 : m_virtualDesktops.size();
 }
 
-} // namespace KWin::ScriptingModels::V3
+}

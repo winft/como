@@ -17,7 +17,7 @@ static void forceXcb()
 }
 }
 
-namespace KWin
+namespace como
 {
 
 /**

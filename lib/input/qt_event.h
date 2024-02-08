@@ -18,7 +18,7 @@
 #include <cmath>
 #include <linux/input.h>
 
-namespace KWin::input
+namespace como::input
 {
 
 QHash<uint32_t, Qt::MouseButton> const button_map = {

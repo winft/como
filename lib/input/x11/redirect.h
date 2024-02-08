@@ -15,7 +15,7 @@
 
 #include <QtGui/private/qtx11extras_p.h>
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 template<typename Space>

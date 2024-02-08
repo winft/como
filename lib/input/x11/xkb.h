@@ -14,7 +14,7 @@
 #undef explicit
 #include <xkbcommon/xkbcommon-x11.h>
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 template<typename Keyboard>

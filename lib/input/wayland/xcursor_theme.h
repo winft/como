@@ -13,7 +13,7 @@
 
 #include <chrono>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 class xcursor_sprite_private;

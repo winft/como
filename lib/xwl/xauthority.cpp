@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QTemporaryFile>
 #include <string>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 namespace

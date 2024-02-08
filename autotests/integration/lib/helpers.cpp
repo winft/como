@@ -25,7 +25,7 @@
 
 namespace Clt = Wrapland::Client;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 output::output(QRect const& geometry)

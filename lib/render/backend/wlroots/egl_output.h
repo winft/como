@@ -20,7 +20,7 @@
 #include <memory>
 #include <optional>
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 template<typename Output>

@@ -18,7 +18,7 @@
 
 #define DEBUG_GLFRAMEBUFFER 0
 
-namespace KWin
+namespace como
 {
 
 /***  GLFramebuffer  ***/

@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "ui_diminactive_config.h"
 
-namespace KWin
+namespace como
 {
 
 class DimInactiveEffectConfig : public KCModule
@@ -29,6 +29,6 @@ private:
     ::Ui::DimInactiveEffectConfig m_ui;
 };
 
-} // namespace KWin
+}
 
 #endif

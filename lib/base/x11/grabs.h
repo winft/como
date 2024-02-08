@@ -13,7 +13,7 @@
 
 #include <xcb/xcb.h>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 void COMO_EXPORT grab_server(xcb_connection_t* con);

@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "ui_resize_config.h"
 
-namespace KWin
+namespace como
 {
 
 class ResizeEffectConfig : public KCModule

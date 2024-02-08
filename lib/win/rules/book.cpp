@@ -17,7 +17,7 @@
 #include <QFile>
 #include <QFileInfo>
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 book::book()

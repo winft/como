@@ -12,7 +12,7 @@
 #include <QAction>
 #include <QObject>
 
-namespace KWin
+namespace como
 {
 
 class Effect;

@@ -9,7 +9,7 @@
 
 #include <QRect>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename Output>

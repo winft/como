@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 template<typename Redirect>

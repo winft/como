@@ -12,7 +12,7 @@
 
 class QMatrix4x4;
 
-namespace KWin
+namespace como
 {
 
 class ContrastShader
@@ -47,6 +47,6 @@ private:
     float m_opacity;
 };
 
-} // namespace KWin
+}
 
 #endif

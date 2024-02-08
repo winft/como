@@ -13,7 +13,7 @@
 
 #include <QElapsedTimer>
 
-namespace KWin
+namespace como
 {
 
 class ShowFpsEffect : public Effect
@@ -61,4 +61,4 @@ private:
     QElapsedTimer m_paintDurationTimer;
 };
 
-} // namespace KWin
+}

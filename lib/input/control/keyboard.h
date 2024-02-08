@@ -9,7 +9,7 @@
 
 #include "input/types.h"
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 class COMO_EXPORT keyboard : public device

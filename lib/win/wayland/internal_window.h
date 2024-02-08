@@ -24,7 +24,7 @@
 #include <win/window_render_data.h>
 #include <win/window_topology.h>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Window>

@@ -7,7 +7,7 @@
 
 #include <QObject>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename EffectIntegrator>

@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Client/surface.h>
 #include <Wrapland/Client/xdg_shell.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("buffer size change", "[render]")

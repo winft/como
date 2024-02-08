@@ -3,7 +3,7 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=win_settings.kcfg
-NameSpace=KWin::win
+NameSpace=como::win
 ClassName=settings
 IncludeFiles=win/types.h
 UseEnumTypes=true

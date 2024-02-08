@@ -25,7 +25,7 @@ class Surface;
 class Display;
 }
 
-namespace KWin
+namespace como
 {
 
 class EffectFrame;
@@ -46,19 +46,19 @@ class WindowQuadList;
 class COMO_EXPORT EffectsHandler : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(KWin::win::subspace* currentDesktop READ currentDesktop WRITE setCurrentDesktop
+    Q_PROPERTY(como::win::subspace* currentDesktop READ currentDesktop WRITE setCurrentDesktop
                    NOTIFY desktopChanged)
     Q_PROPERTY(QString currentActivity READ currentActivity NOTIFY currentActivityChanged)
-    Q_PROPERTY(KWin::EffectWindow* activeWindow READ activeWindow WRITE activateWindow NOTIFY
+    Q_PROPERTY(como::EffectWindow* activeWindow READ activeWindow WRITE activateWindow NOTIFY
                    windowActivated)
     Q_PROPERTY(QSize desktopGridSize READ desktopGridSize NOTIFY desktopGridSizeChanged)
     Q_PROPERTY(int desktopGridWidth READ desktopGridWidth NOTIFY desktopGridWidthChanged)
     Q_PROPERTY(int desktopGridHeight READ desktopGridHeight NOTIFY desktopGridHeightChanged)
     Q_PROPERTY(int workspaceWidth READ workspaceWidth)
     Q_PROPERTY(int workspaceHeight READ workspaceHeight)
-    Q_PROPERTY(QList<KWin::win::subspace*> desktops READ desktops)
+    Q_PROPERTY(QList<como::win::subspace*> desktops READ desktops)
     Q_PROPERTY(bool optionRollOverDesktops READ optionRollOverDesktops)
-    Q_PROPERTY(KWin::EffectScreen* activeScreen READ activeScreen)
+    Q_PROPERTY(como::EffectScreen* activeScreen READ activeScreen)
     /**
      * Factor by which animation speed in the effect should be modified (multiplied).
      * If configurable in the effect itself, the option should have also 'default'
@@ -67,7 +67,7 @@ class COMO_EXPORT EffectsHandler : public QObject
      * if used manually.
      */
     Q_PROPERTY(qreal animationTimeFactor READ animationTimeFactor)
-    Q_PROPERTY(QList<KWin::EffectWindow*> stackingOrder READ stackingOrder)
+    Q_PROPERTY(QList<como::EffectWindow*> stackingOrder READ stackingOrder)
     /**
      * Whether window decorations use the alpha channel.
      */
@@ -83,7 +83,7 @@ class COMO_EXPORT EffectsHandler : public QObject
      * The status of the session i.e if the user is logging out
      * @since 5.18
      */
-    Q_PROPERTY(KWin::SessionState sessionState READ sessionState NOTIFY sessionStateChanged)
+    Q_PROPERTY(como::SessionState sessionState READ sessionState NOTIFY sessionStateChanged)
 
     friend class Effect;
 
@@ -254,10 +254,10 @@ public:
     virtual void unregisterTouchBorder(ElectricBorder border, QAction* action) = 0;
 
     // functions that allow controlling windows/desktop
-    virtual void activateWindow(KWin::EffectWindow* c) = 0;
-    virtual KWin::EffectWindow* activeWindow() const = 0;
+    virtual void activateWindow(como::EffectWindow* c) = 0;
+    virtual como::EffectWindow* activeWindow() const = 0;
     Q_SCRIPTABLE virtual void
-    moveWindow(KWin::EffectWindow* w, const QPoint& pos, bool snap = false, double snapAdjust = 1.0)
+    moveWindow(como::EffectWindow* w, const QPoint& pos, bool snap = false, double snapAdjust = 1.0)
         = 0;
 
     /**
@@ -268,11 +268,11 @@ public:
      * @arg desktopIds a list of desktops the window should be placed on. NET::OnAllDesktops is not
      * a valid desktop X11Id
      */
-    Q_SCRIPTABLE virtual void windowToDesktops(KWin::EffectWindow* w,
+    Q_SCRIPTABLE virtual void windowToDesktops(como::EffectWindow* w,
                                                QVector<win::subspace*> const& desktopIds)
         = 0;
 
-    Q_SCRIPTABLE virtual void windowToScreen(KWin::EffectWindow* w, EffectScreen* screen) = 0;
+    Q_SCRIPTABLE virtual void windowToScreen(como::EffectWindow* w, EffectScreen* screen) = 0;
     virtual void setShowingDesktop(bool showing) = 0;
 
     // Activities
@@ -330,31 +330,31 @@ public:
      * @returns The ID of the desktop above desktop @a id. Wraps around to the bottom of
      * the layout if @a wrap is set. If @a id is not set use the current one.
      */
-    Q_SCRIPTABLE virtual KWin::win::subspace* desktopAbove(KWin::win::subspace* subsp = nullptr,
+    Q_SCRIPTABLE virtual como::win::subspace* desktopAbove(como::win::subspace* subsp = nullptr,
                                                            bool wrap = true) const
         = 0;
     /**
      * @returns The ID of the desktop to the right of desktop @a id. Wraps around to the
      * left of the layout if @a wrap is set. If @a id is not set use the current one.
      */
-    Q_SCRIPTABLE virtual KWin::win::subspace* desktopToRight(KWin::win::subspace* subsp = nullptr,
+    Q_SCRIPTABLE virtual como::win::subspace* desktopToRight(como::win::subspace* subsp = nullptr,
                                                              bool wrap = true) const
         = 0;
     /**
      * @returns The ID of the desktop below desktop @a id. Wraps around to the top of the
      * layout if @a wrap is set. If @a id is not set use the current one.
      */
-    Q_SCRIPTABLE virtual KWin::win::subspace* desktopBelow(KWin::win::subspace* subsp = nullptr,
+    Q_SCRIPTABLE virtual como::win::subspace* desktopBelow(como::win::subspace* subsp = nullptr,
                                                            bool wrap = true) const
         = 0;
     /**
      * @returns The ID of the desktop to the left of desktop @a id. Wraps around to the
      * right of the layout if @a wrap is set. If @a id is not set use the current one.
      */
-    Q_SCRIPTABLE virtual KWin::win::subspace* desktopToLeft(KWin::win::subspace* subsp = nullptr,
+    Q_SCRIPTABLE virtual como::win::subspace* desktopToLeft(como::win::subspace* subsp = nullptr,
                                                             bool wrap = true) const
         = 0;
-    Q_SCRIPTABLE virtual QString desktopName(KWin::win::subspace* subsp) const = 0;
+    Q_SCRIPTABLE virtual QString desktopName(como::win::subspace* subsp) const = 0;
     virtual bool optionRollOverDesktops() const = 0;
 
     virtual EffectScreen* activeScreen() const = 0; // Xinerama
@@ -392,8 +392,8 @@ public:
     virtual double animationTimeFactor() const = 0;
     virtual WindowQuadType newWindowQuadType() = 0;
 
-    Q_SCRIPTABLE KWin::EffectWindow* findWindow(WId id) const;
-    Q_SCRIPTABLE KWin::EffectWindow* findWindow(Wrapland::Server::Surface* surf) const;
+    Q_SCRIPTABLE como::EffectWindow* findWindow(WId id) const;
+    Q_SCRIPTABLE como::EffectWindow* findWindow(Wrapland::Server::Surface* surf) const;
     /**
      * Finds the EffectWindow for the internal window @p w.
      * If there is no such window @c null is returned.
@@ -403,18 +403,18 @@ public:
      *
      * @since 5.16
      */
-    Q_SCRIPTABLE KWin::EffectWindow* findWindow(QWindow* w) const;
+    Q_SCRIPTABLE como::EffectWindow* findWindow(QWindow* w) const;
     /**
      * Finds the EffectWindow for the Toplevel with KWin internal @p id.
      * If there is no such window @c null is returned.
      *
      * @since 5.16
      */
-    Q_SCRIPTABLE KWin::EffectWindow* findWindow(const QUuid& id) const;
+    Q_SCRIPTABLE como::EffectWindow* findWindow(const QUuid& id) const;
 
     virtual QList<EffectWindow*> stackingOrder() const = 0;
     // window will be temporarily painted as if being at the top of the stack
-    Q_SCRIPTABLE virtual void setElevatedWindow(KWin::EffectWindow* w, bool set) = 0;
+    Q_SCRIPTABLE virtual void setElevatedWindow(como::EffectWindow* w, bool set) = 0;
 
     virtual void setTabBoxWindow(EffectWindow*) = 0;
     virtual QList<EffectWindow*> currentTabBoxWindowList() const = 0;
@@ -582,7 +582,7 @@ public:
      * @param callback The function to invoke once the interactive window selection ends
      * @since 5.9
      */
-    virtual void startInteractiveWindowSelection(std::function<void(KWin::EffectWindow*)> callback)
+    virtual void startInteractiveWindowSelection(std::function<void(como::EffectWindow*)> callback)
         = 0;
 
     /**
@@ -686,11 +686,11 @@ Q_SIGNALS:
     /**
      * This signal is emitted whenever a new @a screen is added to the system.
      */
-    void screenAdded(KWin::EffectScreen* screen);
+    void screenAdded(como::EffectScreen* screen);
     /**
      * This signal is emitted whenever a @a screen is removed from the system.
      */
-    void screenRemoved(KWin::EffectScreen* screen);
+    void screenRemoved(como::EffectScreen* screen);
     /**
      * Signal emitted when the current desktop changed.
      * @param oldDesktop The previously current desktop
@@ -698,9 +698,9 @@ Q_SIGNALS:
      * @param with The window which is taken over to the new desktop, can be NULL
      * @since 4.9
      */
-    void desktopChanged(KWin::win::subspace* oldDesktop,
-                        KWin::win::subspace* newDesktop,
-                        KWin::EffectWindow* with);
+    void desktopChanged(como::win::subspace* oldDesktop,
+                        como::win::subspace* newDesktop,
+                        como::EffectWindow* with);
 
     /**
      * Signal emmitted while desktop is changing for animation.
@@ -710,10 +710,10 @@ Q_SIGNALS:
      * Positive Values means Up and Right.
      */
     void
-    desktopChanging(KWin::win::subspace* currentDesktop, QPointF offset, KWin::EffectWindow* with);
+    desktopChanging(como::win::subspace* currentDesktop, QPointF offset, como::EffectWindow* with);
     void desktopChangingCancelled();
-    void desktopAdded(KWin::win::subspace* subsp);
-    void desktopRemoved(KWin::win::subspace* subsp);
+    void desktopAdded(como::win::subspace* subsp);
+    void desktopRemoved(como::win::subspace* subsp);
 
     /**
      * Emitted when the virtual desktop grid layout changes
@@ -745,7 +745,7 @@ Q_SIGNALS:
      * @param w The added window
      * @since 4.7
      */
-    void windowAdded(KWin::EffectWindow* w);
+    void windowAdded(como::EffectWindow* w);
     /**
      * Signal emitted when a window is being removed from the Workspace.
      * An effect which wants to animate the window closing should connect
@@ -754,13 +754,13 @@ Q_SIGNALS:
      * @param w The window which is being closed
      * @since 4.7
      */
-    void windowClosed(KWin::EffectWindow* w);
+    void windowClosed(como::EffectWindow* w);
     /**
      * Signal emitted when a window get's activated.
      * @param w The new active window, or @c NULL if there is no active window.
      * @since 4.7
      */
-    void windowActivated(KWin::EffectWindow* w);
+    void windowActivated(como::EffectWindow* w);
     /**
      * Signal emitted when a window is deleted.
      * This means that a closed window is not referenced any more.
@@ -772,7 +772,7 @@ Q_SIGNALS:
      * @see windowClosed
      * @since 4.7
      */
-    void windowDeleted(KWin::EffectWindow* w);
+    void windowDeleted(como::EffectWindow* w);
     /**
      * Signal emitted when a tabbox is added.
      * An effect who wants to replace the tabbox with itself should use refTabBox.
@@ -926,7 +926,7 @@ Q_SIGNALS:
      * @see EffectWindow::data
      * @since 5.8.4
      */
-    void windowDataChanged(KWin::EffectWindow* w, int role);
+    void windowDataChanged(como::EffectWindow* w, int role);
 
     /**
      * This signal is emitted when active fullscreen effect changed.
@@ -957,7 +957,7 @@ Q_SIGNALS:
     void startupChanged(const QString& id, const QIcon& icon);
     void startupRemoved(const QString& id);
 
-    void frameRendered(KWin::effect::screen_paint_data& data);
+    void frameRendered(como::effect::screen_paint_data& data);
 
     void globalShortcutChanged(QAction* action, QKeySequence const& seq);
 

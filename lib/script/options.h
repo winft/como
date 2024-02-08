@@ -10,7 +10,7 @@
 
 #include <QObject>
 
-namespace KWin
+namespace como
 {
 
 namespace base
@@ -67,7 +67,7 @@ class COMO_EXPORT options : public QObject
     Q_PROPERTY(bool separateScreenFocus READ isSeparateScreenFocus WRITE setSeparateScreenFocus
                    NOTIFY separateScreenFocusChanged)
     Q_PROPERTY(
-        KWin::win::placement placement READ placement WRITE setPlacement NOTIFY placementChanged)
+        como::win::placement placement READ placement WRITE setPlacement NOTIFY placementChanged)
     Q_PROPERTY(bool focusPolicyIsReasonable READ focusPolicyIsReasonable NOTIFY
                    focusPolicyIsResonableChanged)
     /**
@@ -491,5 +491,5 @@ private:
 }
 }
 
-Q_DECLARE_METATYPE(KWin::win::fsp_level)
-Q_DECLARE_METATYPE(KWin::win::placement)
+Q_DECLARE_METATYPE(como::win::fsp_level)
+Q_DECLARE_METATYPE(como::win::placement)

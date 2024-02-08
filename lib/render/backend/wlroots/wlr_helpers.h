@@ -10,7 +10,7 @@
 #include "base/wayland/output_transform.h"
 #include "wlr_includes.h"
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 inline int rotation_in_degree(base::wayland::output_transform transform)

@@ -12,7 +12,7 @@
 #include <QWindow>
 #include <optional>
 
-namespace KWin::input
+namespace como::input
 {
 
 /**

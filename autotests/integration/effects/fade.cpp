@@ -12,14 +12,14 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace Wrapland::Client;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("fade", "[effect]")
 {
     qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", "1");
     qputenv("XDG_DATA_DIRS", QCoreApplication::applicationDirPath().toUtf8());
-    qRegisterMetaType<KWin::Effect*>();
+    qRegisterMetaType<como::Effect*>();
 
     test::setup setup("fade");
 

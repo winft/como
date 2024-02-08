@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "context_attribute_builder.h"
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 QDebug context_attribute_builder::operator<<(QDebug dbg) const

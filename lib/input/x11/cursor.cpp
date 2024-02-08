@@ -16,7 +16,7 @@
 #include <QApplication>
 #include <QTimer>
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 cursor::cursor(base::x11::data const& x11_data,

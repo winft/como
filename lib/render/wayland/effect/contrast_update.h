@@ -14,7 +14,7 @@
 #include <Wrapland/Server/contrast.h>
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 template<typename EffectIntegrator>

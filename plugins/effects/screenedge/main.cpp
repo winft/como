@@ -7,11 +7,11 @@
 
 #include <render/effect/interface/effect_plugin_factory.h>
 
-namespace KWin
+namespace como
 {
 
 KWIN_EFFECT_FACTORY(ScreenEdgeEffect, "metadata.json.stripped")
 
-} // namespace KWin
+}
 
 #include "main.moc"

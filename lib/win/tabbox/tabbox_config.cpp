@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "tabbox_config.h"
 
-namespace KWin
+namespace como
 {
 namespace win
 {
@@ -174,4 +174,4 @@ void tabbox_config::set_layout_name(const QString& name)
 }
 
 } // namespace win
-} // namespace KWin
+}

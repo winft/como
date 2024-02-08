@@ -12,7 +12,7 @@
 
 class VirtualDesktopsSettings;
 
-namespace KWin
+namespace como
 {
 
 class AnimationsModel;

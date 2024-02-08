@@ -14,7 +14,7 @@
 #include <KDecoration2/Decoration>
 #include <KDecoration2/DecorationShadow>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename Shadow>

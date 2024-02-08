@@ -29,7 +29,7 @@
 #include <KConfigGroup>
 #include <memory>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 template<typename Compositor, typename Factory>

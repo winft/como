@@ -12,7 +12,7 @@
 #include "win/meta.h"
 #include "win/move.h"
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Win>

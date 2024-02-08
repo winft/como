@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <catch2/generators/catch_generators.hpp>
 #include <xcb/xcb_icccm.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("slidingpopups", "[effect]")
@@ -22,7 +22,7 @@ TEST_CASE("slidingpopups", "[effect]")
     qputenv("KWIN_COMPOSE", QByteArrayLiteral("O2"));
     qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", "1");
     qputenv("XDG_DATA_DIRS", QCoreApplication::applicationDirPath().toUtf8());
-    qRegisterMetaType<KWin::Effect*>();
+    qRegisterMetaType<como::Effect*>();
 
     test::setup setup("slidingpopups", base::operation_mode::xwayland);
 

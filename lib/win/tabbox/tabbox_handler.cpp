@@ -27,7 +27,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KPackage/PackageLoader>
 #include <KProcess>
 
-namespace KWin
+namespace como
 {
 namespace win
 {
@@ -301,7 +301,7 @@ tabbox_handler::tabbox_handler(std::function<QQmlEngine*(void)> qml_engine, QObj
     : QObject(parent)
     , qml_engine{qml_engine}
 {
-    KWin::win::tabbox_handle = this;
+    como::win::tabbox_handle = this;
     d = new tabbox_handler_private(this);
 }
 
@@ -310,7 +310,7 @@ tabbox_handler::~tabbox_handler()
     delete d;
 }
 
-const KWin::win::tabbox_config& tabbox_handler::config() const
+const como::win::tabbox_config& tabbox_handler::config() const
 {
     return d->config;
 }
@@ -525,4 +525,4 @@ bool tabbox_handler::eventFilter(QObject* watched, QEvent* e)
 tabbox_handler* tabbox_handle = nullptr;
 
 } // namespace win
-} // namespace KWin
+}

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/effect_window_visible_ref.h>
 #include <render/effect/interface/time_line.h>
 
-namespace KWin
+namespace como
 {
 
 class SheetEffect : public Effect
@@ -69,6 +69,6 @@ inline int SheetEffect::duration() const
     return m_duration.count();
 }
 
-} // namespace KWin
+}
 
 #endif

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "win/types.h"
 
-namespace KWin
+namespace como
 {
 class KWinScreenEdgeData;
 class KWinScreenEdgesConfigForm;

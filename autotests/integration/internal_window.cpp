@@ -128,7 +128,7 @@ void HelperWindow::keyReleaseEvent(QKeyEvent* event)
 
 }
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("internal window", "[win]")

@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "ui_wobblywindows_config.h"
 
-namespace KWin
+namespace como
 {
 
 class WobblyWindowsEffectConfig : public KCModule

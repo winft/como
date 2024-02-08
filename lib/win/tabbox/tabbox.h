@@ -30,7 +30,7 @@ class KLazyLocalizedString;
 class QMouseEvent;
 class QWheelEvent;
 
-namespace KWin::win
+namespace como::win
 {
 
 class COMO_EXPORT tabbox_qobject : public QObject

@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <render/effect/interface/animation_effect.h>
 
-namespace KWin
+namespace como
 {
 
 class ResizeEffect : public AnimationEffect
@@ -47,10 +47,10 @@ public:
     }
 
 public Q_SLOTS:
-    void slotWindowAdded(KWin::EffectWindow* w);
-    void slotWindowStartUserMovedResized(KWin::EffectWindow* w);
-    void slotWindowStepUserMovedResized(KWin::EffectWindow* w, const QRect& geometry);
-    void slotWindowFinishUserMovedResized(KWin::EffectWindow* w);
+    void slotWindowAdded(como::EffectWindow* w);
+    void slotWindowStartUserMovedResized(como::EffectWindow* w);
+    void slotWindowStepUserMovedResized(como::EffectWindow* w, const QRect& geometry);
+    void slotWindowFinishUserMovedResized(como::EffectWindow* w);
 
 private:
     enum Feature { TextureScale = 1 << 0, Outline = 1 << 1 };

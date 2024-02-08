@@ -18,7 +18,7 @@
 class QAction;
 class QDBusArgument;
 
-namespace KWin::input
+namespace como::input
 {
 
 namespace xkb
@@ -69,4 +69,4 @@ const QDBusArgument& operator>>(const QDBusArgument& argument,
 }
 }
 
-Q_DECLARE_METATYPE(KWin::input::dbus::keyboard_layout::LayoutNames)
+Q_DECLARE_METATYPE(como::input::dbus::keyboard_layout::LayoutNames)

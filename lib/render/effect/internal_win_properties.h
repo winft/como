@@ -9,7 +9,7 @@
 #include <string_view>
 #include <variant>
 
-namespace KWin::render
+namespace como::render
 {
 
 enum class slide_from_location_edge {
@@ -80,4 +80,4 @@ inline internal_slide_properties get_internal_slide_properties()
 
 }
 
-Q_DECLARE_METATYPE(KWin::render::slide_from_location_edge)
+Q_DECLARE_METATYPE(como::render::slide_from_location_edge)

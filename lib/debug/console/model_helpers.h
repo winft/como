@@ -14,7 +14,7 @@
 #include <QModelIndex>
 #include <QVector>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 constexpr uint32_t s_idDistance{10000};

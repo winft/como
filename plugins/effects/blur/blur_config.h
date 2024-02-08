@@ -10,7 +10,7 @@
 #include "ui_blur_config.h"
 #include <KCModule>
 
-namespace KWin
+namespace como
 {
 
 class BlurEffectConfig : public KCModule
@@ -27,6 +27,6 @@ private:
     ::Ui::BlurEffectConfig ui;
 };
 
-} // namespace KWin
+}
 
 #endif

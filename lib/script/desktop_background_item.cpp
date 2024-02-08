@@ -10,7 +10,7 @@
 #include "script/singleton_interface.h"
 #include "script/space.h"
 
-namespace KWin
+namespace como
 {
 
 desktop_background_item::desktop_background_item(QQuickItem* parent)
@@ -109,6 +109,6 @@ void desktop_background_item::updateWindow()
     setClient(clientCandidate);
 }
 
-} // namespace KWin
+}
 
 #include "moc_desktop_background_item.cpp"

@@ -8,7 +8,7 @@
 #include <unistd.h>
 #include <utility>
 
-namespace KWin
+namespace como
 {
 
 /**

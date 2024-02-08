@@ -22,7 +22,7 @@
 
 typedef struct _XDisplay Display;
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 static inline qreal fixed1616ToReal(FP1616 val)

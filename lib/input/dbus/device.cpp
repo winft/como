@@ -7,7 +7,7 @@
 
 #include <QDBusConnection>
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 void init_device(device* dev, std::string sys_name)

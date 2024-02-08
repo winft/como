@@ -8,7 +8,7 @@
 class QImage;
 class QRegion;
 
-namespace KWin::render::qpainter
+namespace como::render::qpainter
 {
 
 template<typename Scene>

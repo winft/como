@@ -10,7 +10,7 @@
 #include "animationsmodel.h"
 #include "virtualdesktopssettings.h"
 
-namespace KWin
+namespace como
 {
 
 VirtualDesktopsData::VirtualDesktopsData(QObject *parent)

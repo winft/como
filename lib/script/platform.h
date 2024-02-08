@@ -42,7 +42,7 @@ class QRecursiveMutex;
 /// @c true == javascript, @c false == qml
 typedef QList<QPair<bool, QPair<QString, QString>>> LoadScriptList;
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 class abstract_script;
@@ -127,7 +127,7 @@ public:
 
         qRegisterMetaType<QList<output*>>();
         qRegisterMetaType<QList<window*>>();
-        qRegisterMetaType<QVector<KWin::win::subspace*>>();
+        qRegisterMetaType<QVector<como::win::subspace*>>();
 
         qmlRegisterType<desktop_background_item>("org.kde.kwin", 3, 0, "DesktopBackground");
         qmlRegisterType<window_thumbnail_item>("org.kde.kwin", 3, 0, "WindowThumbnail");
@@ -139,7 +139,7 @@ public:
         qmlRegisterType<window_model>("org.kde.kwin", 3, 0, "WindowModel");
         qmlRegisterType<window_filter_model>("org.kde.kwin", 3, 0, "WindowFilterModel");
         qmlRegisterType<subspace_model>("org.kde.kwin", 3, 0, "VirtualDesktopModel");
-        qmlRegisterUncreatableType<KWin::QuickSceneView>(
+        qmlRegisterUncreatableType<como::QuickSceneView>(
             "org.kde.kwin",
             3,
             0,

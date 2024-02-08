@@ -9,7 +9,7 @@
 #include "pointer_config.h"
 #include "pointer_types.h"
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 class COMO_EXPORT pointer : public device

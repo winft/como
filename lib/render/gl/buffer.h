@@ -14,7 +14,7 @@
 
 #include <memory>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 template<typename Window, typename Scene>

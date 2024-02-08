@@ -26,7 +26,7 @@ Q_IMPORT_PLUGIN(KWinIntegrationPlugin)
 Q_IMPORT_PLUGIN(KWindowSystemKWinPlugin)
 Q_IMPORT_PLUGIN(KWinIdleTimePoller)
 
-namespace KWin
+namespace como
 {
 
 template<typename Base>
@@ -116,7 +116,7 @@ struct exit_process_t {
 
 int main(int argc, char* argv[])
 {
-    using namespace KWin;
+    using namespace como;
 
     // Redirect stderr output. This is useful as a workaround for missing logs in systemd journal
     // when launching a full Plasma session.

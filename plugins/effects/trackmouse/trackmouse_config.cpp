@@ -20,9 +20,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QLabel>
 #include <QVBoxLayout>
 
-K_PLUGIN_CLASS(KWin::TrackMouseEffectConfig)
+K_PLUGIN_CLASS(como::TrackMouseEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 static const QString s_toggleTrackMouseActionName = QStringLiteral("TrackMouse");

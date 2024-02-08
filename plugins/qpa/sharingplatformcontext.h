@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "abstractplatformcontext.h"
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {

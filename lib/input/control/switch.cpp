@@ -7,7 +7,7 @@
 
 #include "config.h"
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 switch_device::switch_device()

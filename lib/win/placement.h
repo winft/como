@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QPoint>
 #include <QRect>
 
-namespace KWin::win
+namespace como::win
 {
 
 /**

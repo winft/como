@@ -9,7 +9,7 @@
 
 #include <cassert>
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 struct wlr_non_owning_data_buffer {

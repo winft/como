@@ -14,9 +14,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QVBoxLayout>
 #include <kconfiggroup.h>
 
-K_PLUGIN_CLASS(KWin::CubeSlideEffectConfig)
+K_PLUGIN_CLASS(como::CubeSlideEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 CubeSlideEffectConfig::CubeSlideEffectConfig(QObject* parent, const KPluginMetaData& data)

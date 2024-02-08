@@ -21,7 +21,7 @@ extern "C" {
 #include <gsl/pointers>
 #include <ranges>
 
-namespace KWin::input::backend::wlroots
+namespace como::input::backend::wlroots
 {
 
 template<typename Backend>

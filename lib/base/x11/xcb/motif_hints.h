@@ -8,7 +8,7 @@
 
 #include "property.h"
 
-namespace KWin::base::x11::xcb
+namespace como::base::x11::xcb
 {
 
 class motif_hints

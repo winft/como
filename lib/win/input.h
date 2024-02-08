@@ -24,7 +24,7 @@
 #include <QMouseEvent>
 #include <QStyleHints>
 
-namespace KWin::win
+namespace como::win
 {
 
 /// Maps from global to window coordinates.

@@ -15,7 +15,7 @@
 
 class KActionCollection;
 
-namespace KWin
+namespace como
 {
 namespace win
 {

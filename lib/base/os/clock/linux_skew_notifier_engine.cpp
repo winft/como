@@ -15,7 +15,7 @@
 #define TFD_TIMER_CANCEL_ON_SET (1 << 1)
 #endif
 
-namespace KWin::base::os::clock
+namespace como::base::os::clock
 {
 
 std::unique_ptr<linux_skew_notifier_engine> linux_skew_notifier_engine::create()

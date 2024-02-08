@@ -18,7 +18,7 @@ static const QString s_path = QStringLiteral("/Test");
 static const QStringList trigger
     = QStringList{s_serviceName, s_path, s_serviceName, QStringLiteral("shortcut")};
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 class Target : public QObject

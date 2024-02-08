@@ -16,12 +16,12 @@
 #include <memory>
 #include <unordered_map>
 
-namespace KWin
+namespace como
 {
 
 class ContrastShader;
 
-class ContrastEffect : public KWin::Effect
+class ContrastEffect : public como::Effect
 {
     Q_OBJECT
 public:
@@ -42,7 +42,7 @@ public:
         return 21;
     }
 
-    void slotWindowDeleted(KWin::EffectWindow* w);
+    void slotWindowDeleted(como::EffectWindow* w);
     void reset();
 
     struct Data {
@@ -69,9 +69,9 @@ inline bool ContrastEffect::provides(Effect::Feature feature)
     if (feature == Contrast) {
         return true;
     }
-    return KWin::Effect::provides(feature);
+    return como::Effect::provides(feature);
 }
 
-} // namespace KWin
+}
 
 #endif

@@ -19,7 +19,7 @@
 #include <QPointF>
 #include <vector>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 struct subspace_manager_backend {

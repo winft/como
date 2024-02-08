@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/offscreen_effect.h>
 #include <render/effect/interface/time_line.h>
 
-namespace KWin
+namespace como
 {
 
 struct MagicLampAnimation {
@@ -42,10 +42,10 @@ protected:
     void apply(effect::window_paint_data& data, WindowQuadList& quads) override;
 
 public Q_SLOTS:
-    void slotWindowAdded(KWin::EffectWindow* w);
-    void slotWindowDeleted(KWin::EffectWindow* w);
-    void slotWindowMinimized(KWin::EffectWindow* w);
-    void slotWindowUnminimized(KWin::EffectWindow* w);
+    void slotWindowAdded(como::EffectWindow* w);
+    void slotWindowDeleted(como::EffectWindow* w);
+    void slotWindowMinimized(como::EffectWindow* w);
+    void slotWindowUnminimized(como::EffectWindow* w);
 
 private:
     std::chrono::milliseconds m_duration;

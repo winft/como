@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "effectsmodel.h"
 
-namespace KWin
+namespace como
 {
 
 class AnimationsModel : public EffectsModel

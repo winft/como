@@ -15,7 +15,7 @@
 #include "win/util.h"
 #include <win/subspace_manager.h>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Tabbox>

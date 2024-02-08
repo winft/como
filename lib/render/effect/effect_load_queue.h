@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QPair>
 #include <QQueue>
 
-namespace KWin::render
+namespace como::render
 {
 
 /**

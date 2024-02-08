@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/effect_window_visible_ref.h>
 #include <render/effect/interface/time_line.h>
 
-namespace KWin
+namespace como
 {
 
 struct GlideAnimation {
@@ -139,6 +139,6 @@ inline qreal GlideEffect::outOpacity() const
     return m_outParams.opacity.to;
 }
 
-} // namespace KWin
+}
 
 #endif

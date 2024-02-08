@@ -7,7 +7,7 @@
 
 #include <render/effect/interface/effect_plugin_factory.h>
 
-namespace KWin
+namespace como
 {
 
 KWIN_EFFECT_FACTORY_SUPPORTED_ENABLED(BlurEffect,
@@ -15,6 +15,6 @@ KWIN_EFFECT_FACTORY_SUPPORTED_ENABLED(BlurEffect,
                                       return BlurEffect::supported();
                                       , return BlurEffect::enabledByDefault();)
 
-} // namespace KWin
+}
 
 #include "main.moc"

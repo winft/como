@@ -19,7 +19,7 @@
 #include <deque>
 #include <variant>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Space>

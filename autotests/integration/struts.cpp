@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <map>
 #include <xcb/xcb_icccm.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("struts", "[win]")

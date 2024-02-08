@@ -20,7 +20,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KConfigGroup>
 #include <catch2/generators/catch_generators.hpp>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("screen edge script", "[script]")
@@ -162,7 +162,7 @@ TEST_CASE("screen edge script", "[script]")
         setup.base->mod.script->loadScript(scriptToLoad);
         auto s = setup.base->mod.script->findScript(scriptToLoad);
         auto configGroup = s->config();
-        configGroup.writeEntry("Edge", int(KWin::ElectricLeft));
+        configGroup.writeEntry("Edge", int(como::ElectricLeft));
         configGroup.sync();
         const QPoint triggerPos = QPoint(0, 512);
 

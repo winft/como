@@ -11,7 +11,7 @@
 
 #include <QPushButton>
 
-namespace KWin::win
+namespace como::win
 {
 
 shortcut_dialog::shortcut_dialog(const QKeySequence& cut)

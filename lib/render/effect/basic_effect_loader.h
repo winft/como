@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KSharedConfig>
 #include <QObject>
 
-namespace KWin
+namespace como
 {
 
 class Effect;
@@ -135,7 +135,7 @@ Q_SIGNALS:
      * @param name The internal name of the loaded Effect
      * @return void
      */
-    void effectLoaded(KWin::Effect* effect, QString const& name);
+    void effectLoaded(como::Effect* effect, QString const& name);
 
 protected:
     explicit basic_effect_loader(KSharedConfig::Ptr config);

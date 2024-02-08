@@ -13,7 +13,7 @@
 #include <cassert>
 #include <vector>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Win>

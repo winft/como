@@ -9,7 +9,7 @@
 #include <KConfigLoader>
 #include <QFile>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 ScriptedQuickSceneEffect::ScriptedQuickSceneEffect()

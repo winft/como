@@ -12,7 +12,7 @@
 #include <sys/mman.h>
 #include <xkbcommon/xkbcommon.h>
 
-namespace KWin::input::xkb
+namespace como::input::xkb
 {
 
 keymap::keymap(xkb_keymap* keymap)

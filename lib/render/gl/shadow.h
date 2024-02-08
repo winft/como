@@ -13,7 +13,7 @@
 #include <QPainter>
 #include <QSharedPointer>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 template<typename Shadow>

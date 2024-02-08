@@ -9,7 +9,7 @@
 
 #include <QRegion>
 
-namespace KWin
+namespace como
 {
 
 /**

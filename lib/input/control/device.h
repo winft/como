@@ -11,7 +11,7 @@
 #include <memory>
 #include <string>
 
-namespace KWin::input
+namespace como::input
 {
 
 namespace control

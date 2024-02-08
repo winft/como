@@ -8,7 +8,7 @@
 #include "event_filter.h"
 #include "event_filter_container.h"
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 void event_filter_manager::register_filter(event_filter* filter)

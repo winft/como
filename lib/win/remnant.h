@@ -15,7 +15,7 @@
 #include <cassert>
 #include <memory>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Space>

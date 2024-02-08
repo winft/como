@@ -12,7 +12,7 @@
 #include <QStandardPaths>
 #include <QUrl>
 
-namespace KWin::render
+namespace como::render
 {
 
 effect_frame_quick_scene::effect_frame_quick_scene(EffectFrameStyle style,

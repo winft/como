@@ -14,7 +14,7 @@ extern "C" {
 #undef static
 }
 
-namespace KWin::base::backend::wlroots
+namespace como::base::backend::wlroots
 {
 
 inline wlr_backend* get_backend(wlr_backend* backend, std::function<bool(wlr_backend*)> check)

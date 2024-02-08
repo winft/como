@@ -17,7 +17,7 @@
 class QColor;
 class QPixmap;
 
-namespace KWin
+namespace como
 {
 
 /**

@@ -177,7 +177,7 @@ endif()
 qt6_add_dbus_adaptor(win_dbus_src
   dbus/org.kde.KWin.VirtualDesktopManager.xml
   dbus/virtual_desktop_manager.h
-  KWin::win::dbus::subspace_manager_wrap
+  como::win::dbus::subspace_manager_wrap
 )
 qt6_add_dbus_interface(win_dbus_src dbus/org.kde.kappmenu.xml appmenu_interface)
 qt6_add_dbus_interface(win_dbus_src
@@ -295,7 +295,7 @@ target_sources(win-x11
 qt6_add_dbus_adaptor(win_x11_dbus_src
   dbus/org.kde.KWin.Session.xml
   x11/session_manager.h
-  KWin::win::x11::session_manager
+  como::win::x11::session_manager
 )
 
 target_sources(win-x11 PRIVATE ${win_x11_dbus_src})

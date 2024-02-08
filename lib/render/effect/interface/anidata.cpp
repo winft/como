@@ -9,13 +9,13 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "effect_window.h"
 #include "effects_handler.h"
 
-QDebug operator<<(QDebug dbg, const KWin::AniData& a)
+QDebug operator<<(QDebug dbg, const como::AniData& a)
 {
     dbg.nospace() << a.debugInfo();
     return dbg.space();
 }
 
-using namespace KWin;
+using namespace como;
 
 FullScreenEffectLock::FullScreenEffectLock(Effect* effect)
 {
@@ -90,26 +90,26 @@ bool AniData::isActive() const
     return !(terminationFlags & AnimationEffect::TerminateAtTarget);
 }
 
-static QString attributeString(KWin::AnimationEffect::Attribute attribute)
+static QString attributeString(como::AnimationEffect::Attribute attribute)
 {
     switch (attribute) {
-    case KWin::AnimationEffect::Opacity:
+    case como::AnimationEffect::Opacity:
         return QStringLiteral("Opacity");
-    case KWin::AnimationEffect::Brightness:
+    case como::AnimationEffect::Brightness:
         return QStringLiteral("Brightness");
-    case KWin::AnimationEffect::Saturation:
+    case como::AnimationEffect::Saturation:
         return QStringLiteral("Saturation");
-    case KWin::AnimationEffect::Scale:
+    case como::AnimationEffect::Scale:
         return QStringLiteral("Scale");
-    case KWin::AnimationEffect::Translation:
+    case como::AnimationEffect::Translation:
         return QStringLiteral("Translation");
-    case KWin::AnimationEffect::Rotation:
+    case como::AnimationEffect::Rotation:
         return QStringLiteral("Rotation");
-    case KWin::AnimationEffect::Position:
+    case como::AnimationEffect::Position:
         return QStringLiteral("Position");
-    case KWin::AnimationEffect::Size:
+    case como::AnimationEffect::Size:
         return QStringLiteral("Size");
-    case KWin::AnimationEffect::Clip:
+    case como::AnimationEffect::Clip:
         return QStringLiteral("Clip");
     default:
         return QStringLiteral(" ");

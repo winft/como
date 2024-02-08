@@ -13,7 +13,7 @@
 #include <QDBusConnection>
 #include <QTimer>
 
-namespace KWin
+namespace como
 {
 BlendChanges::BlendChanges()
     : OffscreenEffect()
@@ -34,7 +34,7 @@ bool BlendChanges::supported()
     return effects->isOpenGLCompositing() && effects->animationsSupported();
 }
 
-void KWin::BlendChanges::start(int delay)
+void como::BlendChanges::start(int delay)
 {
     int animationDuration = animationTime(400);
 
@@ -109,4 +109,4 @@ void BlendChanges::prePaintScreen(effect::screen_prepaint_data& data)
     effects->prePaintScreen(data);
 }
 
-} // namespace KWin
+}

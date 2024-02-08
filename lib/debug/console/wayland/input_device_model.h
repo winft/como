@@ -12,7 +12,7 @@
 #include <QAbstractItemModel>
 #include <type_traits>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 class COMO_EXPORT input_device_model : public QAbstractItemModel

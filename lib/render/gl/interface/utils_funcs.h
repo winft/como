@@ -24,7 +24,7 @@
 #define QOPENGLF_APIENTRYP GLAPIENTRYP
 #endif
 
-namespace KWin
+namespace como
 {
 
 typedef void (*resolveFuncPtr)();

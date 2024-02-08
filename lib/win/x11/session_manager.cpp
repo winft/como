@@ -20,7 +20,7 @@
 #include <pwd.h>
 #include <unistd.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 session_manager::session_manager()

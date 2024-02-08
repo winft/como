@@ -11,7 +11,7 @@
 #include "base/output_helpers.h"
 #include "utils/algorithm.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Win>

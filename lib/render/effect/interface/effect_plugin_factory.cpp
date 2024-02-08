@@ -5,7 +5,7 @@
 */
 #include "effect_plugin_factory.h"
 
-namespace KWin
+namespace como
 {
 
 EffectPluginFactory::EffectPluginFactory()

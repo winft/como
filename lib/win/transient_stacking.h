@@ -8,7 +8,7 @@
 #include "net.h"
 #include "transient.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 // check whether a transient should be actually kept above its mainwindow

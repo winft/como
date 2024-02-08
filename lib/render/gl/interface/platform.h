@@ -11,7 +11,7 @@
 #include <QByteArray>
 #include <QSet>
 
-namespace KWin
+namespace como
 {
 // forward declare method
 void cleanupGL();
@@ -395,7 +395,7 @@ public:
 
 private:
     GLPlatform();
-    friend void KWin::cleanupGL();
+    friend void como::cleanupGL();
     static void cleanup();
 
 private:

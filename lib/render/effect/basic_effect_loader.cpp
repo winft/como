@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <KConfigGroup>
 
-namespace KWin::render
+namespace como::render
 {
 
 basic_effect_loader::basic_effect_loader(KSharedConfig::Ptr config)

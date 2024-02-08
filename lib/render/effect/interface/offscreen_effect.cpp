@@ -17,7 +17,7 @@
 #include <render/gl/interface/texture.h>
 #include <render/gl/interface/vertex_buffer.h>
 
-namespace KWin
+namespace como
 {
 
 struct OffscreenData {

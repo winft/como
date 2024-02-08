@@ -12,7 +12,7 @@
 
 #include <xcb/xcb.h>
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 class keyboard : public input::keyboard

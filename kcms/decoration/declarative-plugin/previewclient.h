@@ -168,7 +168,7 @@ private:
     QString m_caption;
     QIcon m_icon;
     QString m_iconName;
-    KWin::win::deco::palette m_palette;
+    como::win::deco::palette m_palette;
     bool m_active;
     bool m_closeable;
     bool m_keepBelow;

@@ -11,7 +11,7 @@
 #include <QtGui/private/qtx11extras_p.h>
 #include <xcb/xcb.h>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 class app_singleton : public base::app_singleton

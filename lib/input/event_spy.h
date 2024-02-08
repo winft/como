@@ -14,7 +14,7 @@
 
 class QTabletEvent;
 
-namespace KWin::input
+namespace como::input
 {
 
 /**

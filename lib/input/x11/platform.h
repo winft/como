@@ -16,7 +16,7 @@
 #include <memory>
 #include <xcb/xcb_keysyms.h>
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 template<typename Base>

@@ -16,7 +16,7 @@
 #include <QMetaEnum>
 #include <QTextEdit>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 template<typename Redirect>

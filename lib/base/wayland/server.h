@@ -37,7 +37,7 @@
 #include <sys/socket.h>
 #include <vector>
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 class COMO_EXPORT server_qobject : public QObject

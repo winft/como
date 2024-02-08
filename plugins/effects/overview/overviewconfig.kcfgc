@@ -4,6 +4,6 @@
 
 File=overviewconfig.kcfg
 ClassName=OverviewConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

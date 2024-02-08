@@ -15,7 +15,7 @@
 class KConfigLoader;
 class KConfigPropertyMap;
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 /**
@@ -91,4 +91,4 @@ private:
     int m_requestedEffectChainPosition = 0;
 };
 
-} // namespace KWin
+}

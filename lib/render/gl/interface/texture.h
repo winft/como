@@ -20,7 +20,7 @@
 class QImage;
 class QPixmap;
 
-namespace KWin
+namespace como
 {
 
 namespace effect

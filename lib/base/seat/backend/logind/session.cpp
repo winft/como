@@ -53,7 +53,7 @@ const QDBusArgument& operator>>(const QDBusArgument& argument, DBusLogindSeat& s
 
 Q_DECLARE_METATYPE(DBusLogindSeat)
 
-namespace KWin::base::seat::backend::logind
+namespace como::base::seat::backend::logind
 {
 
 static QString const s_login1Name = QStringLiteral("logind");

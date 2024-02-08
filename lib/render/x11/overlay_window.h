@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QTimer>
 #include <xcb/xcb.h>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 template<typename Compositor>

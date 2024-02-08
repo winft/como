@@ -8,7 +8,7 @@
 #include <kwindowsystem_version.h>
 #include <private/kwindoweffects_p.h>
 
-namespace KWin
+namespace como
 {
 
 class WindowEffects : public QObject, public KWindowEffectsPrivate

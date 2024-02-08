@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "ui_slide_config.h"
 #include <KCModule>
 
-namespace KWin
+namespace como
 {
 
 class SlideEffectConfig : public KCModule
@@ -27,6 +27,6 @@ private:
     ::Ui::SlideEffectConfig m_ui;
 };
 
-} // namespace KWin
+}
 
 #endif

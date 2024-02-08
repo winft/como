@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QOffscreenSurface>
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {
@@ -31,4 +31,4 @@ bool OffscreenSurface::isValid() const
 }
 
 } // namespace QPA
-} // namespace KWin
+}

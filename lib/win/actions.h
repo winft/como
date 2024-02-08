@@ -9,7 +9,7 @@
 #include "rules/types.h"
 #include "scene.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Win>

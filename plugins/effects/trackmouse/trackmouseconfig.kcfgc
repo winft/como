@@ -4,6 +4,6 @@
 
 File=trackmouse.kcfg
 ClassName=TrackMouseConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

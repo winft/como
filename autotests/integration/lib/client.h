@@ -36,7 +36,7 @@
 #include <memory>
 #include <vector>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 class COMO_EXPORT client

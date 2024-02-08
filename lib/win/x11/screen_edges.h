@@ -7,7 +7,7 @@
 
 #include "base/x11/xcb/window.h"
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 /// Returns all existing screen edge windows.

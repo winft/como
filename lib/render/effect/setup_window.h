@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-namespace KWin::effect
+namespace como::effect
 {
 
 template<typename Win>

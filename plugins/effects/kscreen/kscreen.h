@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/paint_data.h>
 #include <render/effect/interface/time_line.h>
 
-namespace KWin
+namespace como
 {
 
 class KscreenEffect : public Effect
@@ -49,5 +49,5 @@ private:
     void switchState();
 };
 
-} // namespace KWin
+}
 #endif // KWIN_KSCREEN_H

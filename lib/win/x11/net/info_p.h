@@ -16,7 +16,7 @@
 #include <QSharedDataPointer>
 #include <xcb/xcb.h>
 
-namespace KWin::win::x11::net
+namespace como::win::x11::net
 {
 
 class COMO_EXPORT Atoms : public QSharedData

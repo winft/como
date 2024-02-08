@@ -23,7 +23,7 @@ static void ensureResources()
     Q_INIT_RESOURCE(colorblindnesscorrection);
 }
 
-namespace KWin
+namespace como
 {
 
 ColorBlindnessCorrectionEffect::ColorBlindnessCorrectionEffect()
@@ -81,7 +81,7 @@ void ColorBlindnessCorrectionEffect::loadData()
         effects, &EffectsHandler::windowAdded, this, &ColorBlindnessCorrectionEffect::correctColor);
 }
 
-void ColorBlindnessCorrectionEffect::correctColor(KWin::EffectWindow* w)
+void ColorBlindnessCorrectionEffect::correctColor(como::EffectWindow* w)
 {
     if (m_windows.contains(w)) {
         return;

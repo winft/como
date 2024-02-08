@@ -21,7 +21,7 @@
 
 #include <memory>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 struct space_mod {

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/effect_window.h>
 #include <render/effect/interface/time_line.h>
 
-namespace KWin
+namespace como
 {
 
 class DimInactiveEffect : public Effect
@@ -123,6 +123,6 @@ inline bool DimInactiveEffect::dimFullScreen() const
     return m_dimFullScreen;
 }
 
-} // namespace KWin
+}
 
 #endif

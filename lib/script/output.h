@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 class COMO_EXPORT output : public QObject
@@ -33,4 +33,4 @@ public:
 
 }
 
-Q_DECLARE_METATYPE(KWin::scripting::output*)
+Q_DECLARE_METATYPE(como::scripting::output*)

@@ -7,7 +7,7 @@
 #include "desktopeffectsdata.h"
 #include "effectsmodel.h"
 
-namespace KWin
+namespace como
 {
 
 DesktopEffectsData::DesktopEffectsData(QObject *parent)

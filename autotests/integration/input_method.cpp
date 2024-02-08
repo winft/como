@@ -18,7 +18,7 @@
 #include <Wrapland/Server/text_input_v3.h>
 #include <memory>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("input method", "[input],[win]")

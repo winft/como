@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <string>
 #include <vector>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 class COMO_EXPORT socket

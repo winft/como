@@ -17,7 +17,7 @@
 
 Q_LOGGING_CATEGORY(LIBKWINXRENDERUTILS, "libkwinxrenderutils", QtWarningMsg)
 
-namespace KWin
+namespace como
 {
 
 namespace XRenderUtils

@@ -6,7 +6,7 @@
 */
 #include "tablet_mode_manager.h"
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 bool tablet_mode_manager_qobject::isTabletModeAvailable() const

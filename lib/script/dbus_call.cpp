@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QDBusMessage>
 #include <QDBusPendingCall>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 dbus_call::dbus_call(QObject* parent)

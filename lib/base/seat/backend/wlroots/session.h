@@ -17,7 +17,7 @@ struct wlr_device;
 struct wlr_session;
 struct wl_display;
 
-namespace KWin::base::seat::backend::wlroots
+namespace como::base::seat::backend::wlroots
 {
 
 class session;

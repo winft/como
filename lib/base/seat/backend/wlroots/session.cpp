@@ -17,7 +17,7 @@ extern "C" {
 #include <wlr/backend/session.h>
 }
 
-namespace KWin::base::seat::backend::wlroots
+namespace como::base::seat::backend::wlroots
 {
 
 session::session(wlr_session* native, wlr_backend* backend)

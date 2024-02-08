@@ -10,7 +10,7 @@
 #include <QSet>
 #include <Wrapland/Server/filtered_display.h>
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 class COMO_EXPORT filtered_display : public Wrapland::Server::FilteredDisplay

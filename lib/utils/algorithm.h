@@ -8,7 +8,7 @@
 #include <algorithm>
 #include <variant>
 
-namespace KWin
+namespace como
 {
 
 template<class... Ts>

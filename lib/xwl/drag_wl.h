@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/pointer_pool.h>
 #include <Wrapland/Server/seat.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 using dnd_actions = Wrapland::Server::dnd_actions;

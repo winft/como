@@ -12,7 +12,7 @@
 #include <KQuickConfigModule>
 
 
-namespace KWin
+namespace como
 {
 
 namespace win::rules

@@ -11,7 +11,7 @@
 #include "kwinpluginssettings.h"
 #include "shortcutsettings.h"
 
-namespace KWin
+namespace como
 {
 namespace win
 {

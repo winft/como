@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "ftrace_impl.h"
 #endif
 
-namespace KWin
+namespace como
 {
 namespace Perf
 {

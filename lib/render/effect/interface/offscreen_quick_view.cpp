@@ -31,7 +31,7 @@
 // for QMutableEventPoint
 #include <QtGui/private/qeventpoint_p.h>
 
-namespace KWin
+namespace como
 {
 
 class Q_DECL_HIDDEN OffscreenQuickView::Private

@@ -24,7 +24,7 @@ kcmutils_generate_module_data(
     MODULE_DATA_CLASS_NAME KWinScreenEdgeData
     SETTINGS_HEADERS kwinscreenedgesettings.h
     SETTINGS_CLASSES KWinScreenEdgeSettings
-    NAMESPACE KWin
+    NAMESPACE como
 )
 
 ki18n_wrap_ui(kcm_kwinscreenedges_PART_SRCS main.ui)
@@ -52,7 +52,7 @@ kcmutils_generate_module_data(
     MODULE_DATA_CLASS_NAME KWinTouchScreenData
     SETTINGS_HEADERS kwintouchscreensettings.h
     SETTINGS_CLASSES KWinTouchScreenSettings
-    NAMESPACE KWin
+    NAMESPACE como
 )
 
 ki18n_wrap_ui(kcm_kwintouchscreenedges_PART_SRCS main.ui touch.ui)

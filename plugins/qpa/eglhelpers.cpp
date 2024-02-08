@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QOpenGLContext>
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {
@@ -128,4 +128,4 @@ QSurfaceFormat formatFromConfig(EGLDisplay display, EGLConfig config)
 }
 
 } // namespace QPA
-} // namespace KWin
+}

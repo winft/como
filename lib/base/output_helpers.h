@@ -12,7 +12,7 @@
 #include <cstddef>
 #include <vector>
 
-namespace KWin::base
+namespace como::base
 {
 
 template<typename Output>

@@ -7,7 +7,7 @@
 
 #include "window_qobject.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 property_window::property_window(window_qobject& qtwin)

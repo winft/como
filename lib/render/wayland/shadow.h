@@ -15,7 +15,7 @@
 #include <Wrapland/Server/shadow.h>
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 template<typename Shadow, typename RefWin>

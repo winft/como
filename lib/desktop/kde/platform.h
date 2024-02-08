@@ -8,7 +8,7 @@
 #include <desktop/kde/dbus/kwin.h>
 #include <desktop/platform.h>
 
-namespace KWin::desktop::kde
+namespace como::desktop::kde
 {
 
 template<typename Space>

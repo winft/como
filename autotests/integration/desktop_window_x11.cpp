@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <xcb/xcb_icccm.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("x11 desktop window", "[xwl],[win]")

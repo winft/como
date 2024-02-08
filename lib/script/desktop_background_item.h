@@ -11,7 +11,7 @@
 #include "base/output.h"
 #include <win/subspace.h>
 
-namespace KWin
+namespace como
 {
 
 /**
@@ -22,9 +22,9 @@ class COMO_EXPORT desktop_background_item : public scripting::window_thumbnail_i
 {
     Q_OBJECT
     Q_PROPERTY(QString outputName READ outputName WRITE setOutputName NOTIFY outputChanged)
-    Q_PROPERTY(KWin::base::output* output READ output WRITE setOutput NOTIFY outputChanged)
+    Q_PROPERTY(como::base::output* output READ output WRITE setOutput NOTIFY outputChanged)
     Q_PROPERTY(QString activity READ activity WRITE setActivity NOTIFY activityChanged)
-    Q_PROPERTY(KWin::win::subspace* desktop READ desktop WRITE setDesktop NOTIFY desktopChanged)
+    Q_PROPERTY(como::win::subspace* desktop READ desktop WRITE setDesktop NOTIFY desktopChanged)
 
 public:
     explicit desktop_background_item(QQuickItem* parent = nullptr);
@@ -56,4 +56,4 @@ private:
     QString m_activity;
 };
 
-} // namespace KWin
+}

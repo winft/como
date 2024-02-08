@@ -5,7 +5,7 @@
 */
 #pragma once
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 template<typename Base>

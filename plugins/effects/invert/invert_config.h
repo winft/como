@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 class KShortcutsEditor;
 
-namespace KWin
+namespace como
 {
 
 class InvertEffectConfig : public KCModule

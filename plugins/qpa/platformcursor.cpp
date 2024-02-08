@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "input/platform.h"
 #include "input/singleton_interface.h"
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {

@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #endif
 #endif
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 class MockOpenGLContextAttributeBuilder : public render::gl::context_attribute_builder

@@ -11,7 +11,7 @@
 #include <optional>
 #include <string>
 
-namespace KWin::win
+namespace como::win
 {
 
 struct appmenu_address {

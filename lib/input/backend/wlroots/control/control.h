@@ -10,7 +10,7 @@
 #include <QSizeF>
 #include <libinput.h>
 
-namespace KWin::input::backend::wlroots
+namespace como::input::backend::wlroots
 {
 
 template<typename Dev>

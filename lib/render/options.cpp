@@ -10,7 +10,7 @@
 #include "render_settings.h"
 #include "utils/algorithm.h"
 
-namespace KWin::render
+namespace como::render
 {
 
 options_qobject::options_qobject(base::operation_mode mode)

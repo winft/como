@@ -11,7 +11,7 @@
 #include "event.h"
 #include "event_spy.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Pointer>

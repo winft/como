@@ -11,7 +11,7 @@
 #include "render/gl/egl.h"
 #include "render/gl/texture.h"
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 template<typename Backend>

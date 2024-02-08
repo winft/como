@@ -7,7 +7,7 @@
 
 #include <wayland-server-core.h>
 
-namespace KWin::base
+namespace como::base
 {
 
 template<typename T>

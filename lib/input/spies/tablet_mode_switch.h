@@ -9,7 +9,7 @@
 #include "input/event_spy.h"
 #include "input/switch.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect, typename Manager>

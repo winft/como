@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <render/effect/interface/animation_effect.h>
 
-namespace KWin
+namespace como
 {
 
 class HighlightWindowEffect : public AnimationEffect
@@ -30,9 +30,9 @@ public:
     Q_SCRIPTABLE void highlightWindows(const QStringList& windows);
 
 public Q_SLOTS:
-    void slotWindowAdded(KWin::EffectWindow* w);
-    void slotWindowClosed(KWin::EffectWindow* w);
-    void slotWindowDeleted(KWin::EffectWindow* w);
+    void slotWindowAdded(como::EffectWindow* w);
+    void slotWindowClosed(como::EffectWindow* w);
+    void slotWindowDeleted(como::EffectWindow* w);
 
 private:
     quint64 startGhostAnimation(EffectWindow* window);
@@ -43,7 +43,7 @@ private:
 
     void prepareHighlighting();
     void finishHighlighting();
-    void highlightWindows(const QVector<KWin::EffectWindow*>& windows);
+    void highlightWindows(const QVector<como::EffectWindow*>& windows);
 
     QList<EffectWindow*> m_highlightedWindows;
     QHash<EffectWindow*, quint64> m_animations;

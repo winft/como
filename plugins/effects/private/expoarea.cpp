@@ -7,7 +7,7 @@
 #include "expoarea.h"
 #include "render/effect/interface/effects_handler.h"
 
-namespace KWin
+namespace como
 {
 
 ExpoArea::ExpoArea(QObject* parent)
@@ -81,4 +81,4 @@ void ExpoArea::update()
     }
 }
 
-} // namespace KWin
+}

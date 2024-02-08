@@ -9,7 +9,7 @@
 #include <render/effect/interface/quick_scene.h>
 #include <win/subspace.h>
 
-namespace KWin
+namespace como
 {
 
 class OverviewEffect : public QuickSceneEffect
@@ -66,7 +66,7 @@ public:
     void reconfigure(ReconfigureFlags flags) override;
     void grabbedKeyboardEvent(QKeyEvent* keyEvent) override;
 
-    Q_INVOKABLE void swapDesktops(KWin::win::subspace* from, KWin::win::subspace* to);
+    Q_INVOKABLE void swapDesktops(como::win::subspace* from, como::win::subspace* to);
 
 Q_SIGNALS:
     void animationDurationChanged();
@@ -110,4 +110,4 @@ private:
     int m_layout = 1;
 };
 
-} // namespace KWin
+}

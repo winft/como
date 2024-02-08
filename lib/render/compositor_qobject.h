@@ -12,7 +12,7 @@
 #include <QTimerEvent>
 #include <functional>
 
-namespace KWin::render
+namespace como::render
 {
 
 class COMO_EXPORT compositor_qobject : public QObject

@@ -16,7 +16,7 @@ namespace Ui
 class ShortcutDialog;
 }
 
-namespace KWin::win
+namespace como::win
 {
 
 class COMO_EXPORT shortcut_dialog : public QDialog

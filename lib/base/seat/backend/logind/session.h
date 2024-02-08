@@ -13,7 +13,7 @@
 
 class QDBusServiceWatcher;
 
-namespace KWin::base::seat::backend::logind
+namespace como::base::seat::backend::logind
 {
 
 class COMO_EXPORT session : public seat::session

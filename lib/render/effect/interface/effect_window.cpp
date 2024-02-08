@@ -7,7 +7,7 @@
 
 #include "effects_handler.h"
 
-namespace KWin
+namespace como
 {
 
 class Q_DECL_HIDDEN EffectWindow::Private

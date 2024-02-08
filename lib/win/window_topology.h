@@ -9,7 +9,7 @@
 #include <win/subspace.h>
 #include <win/types.h>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Output>

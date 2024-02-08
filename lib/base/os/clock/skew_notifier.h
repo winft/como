@@ -12,7 +12,7 @@
 #include <QObject>
 #include <memory>
 
-namespace KWin::base::os::clock
+namespace como::base::os::clock
 {
 
 /**

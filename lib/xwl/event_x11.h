@@ -14,7 +14,7 @@
 #include <xcb/xcb_event.h>
 #include <xcb/xfixes.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 template<typename Selection>

@@ -14,7 +14,7 @@
 #include <chrono>
 #include <stack>
 
-namespace KWin
+namespace como
 {
 
 class EffectScreen;

@@ -8,7 +8,7 @@
 
 #include <QMetaProperty>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 static const quint32 s_propertyBitMask = 0xFFFF0000;

@@ -10,7 +10,7 @@
 
 #include <QAction>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 shortcut_handler::shortcut_handler(QObject* parent)

@@ -24,7 +24,7 @@ static const QSet<QString> s_blacklist{
     QStringLiteral("spectacle org.kde.spectacle"), // wayland
 };
 
-namespace KWin
+namespace como
 {
 
 bool FallApartEffect::supported()

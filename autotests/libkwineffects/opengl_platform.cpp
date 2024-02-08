@@ -15,12 +15,12 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <epoxy/gl.h>
 
-void KWin::cleanupGL()
+void como::cleanupGL()
 {
     GLPlatform::cleanup();
 }
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 namespace

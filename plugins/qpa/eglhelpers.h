@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QSurfaceFormat>
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {
@@ -22,4 +22,4 @@ configFromFormat(EGLDisplay display, const QSurfaceFormat& surfaceFormat, EGLint
 QSurfaceFormat formatFromConfig(EGLDisplay display, EGLConfig config);
 
 } // namespace QPA
-} // namespace KWin
+}

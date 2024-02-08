@@ -17,7 +17,7 @@
 #include <unistd.h>
 #include <xcb/xfixes.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 template<typename Selection>

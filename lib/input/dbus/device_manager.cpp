@@ -12,7 +12,7 @@
 #include <QDBusPendingCall>
 #include <algorithm>
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 device_manager_qobject::device_manager_qobject()

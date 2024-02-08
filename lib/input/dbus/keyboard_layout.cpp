@@ -19,7 +19,7 @@
 #include <QDBusMetaType>
 #include <QDBusPendingCall>
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 static const QString s_keyboardService = QStringLiteral("org.kde.keyboard");

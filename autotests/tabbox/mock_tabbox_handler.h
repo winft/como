@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "win/tabbox/tabbox_handler.h"
 
-namespace KWin
+namespace como
 {
 class MockTabBoxHandler : public win::tabbox_handler
 {
@@ -100,5 +100,5 @@ private:
     std::vector<std::unique_ptr<win::tabbox_client>> m_windows;
     win::tabbox_client* m_activeClient;
 };
-} // namespace KWin
+}
 #endif

@@ -19,7 +19,7 @@
 
 class KConfigLoader;
 
-namespace KWin
+namespace como
 {
 COMO_EXPORT Q_NAMESPACE
 
@@ -28,7 +28,7 @@ COMO_EXPORT Q_NAMESPACE
 namespace scripting
 {
 
-class COMO_EXPORT effect : public KWin::AnimationEffect
+class COMO_EXPORT effect : public como::AnimationEffect
 {
     Q_OBJECT
     Q_ENUMS(DataRole)
@@ -135,7 +135,7 @@ public:
      * @param grabRole The grab role to check
      * @returns @c true if another window has grabbed the effect, @c false otherwise
      */
-    Q_SCRIPTABLE bool isGrabbed(KWin::EffectWindow* w, DataRole grabRole);
+    Q_SCRIPTABLE bool isGrabbed(como::EffectWindow* w, DataRole grabRole);
 
     /**
      * Grabs the window with the specified role.
@@ -148,7 +148,7 @@ public:
      *   pass @c true.
      * @returns @c true if the window was grabbed successfully, otherwise @c false.
      */
-    Q_SCRIPTABLE bool grab(KWin::EffectWindow* w, DataRole grabRole, bool force = false);
+    Q_SCRIPTABLE bool grab(como::EffectWindow* w, DataRole grabRole, bool force = false);
 
     /**
      * Ungrabs the window with the specified role.
@@ -157,7 +157,7 @@ public:
      * @param grabRole The grab role.
      * @returns @c true if the window was ungrabbed successfully, otherwise @c false.
      */
-    Q_SCRIPTABLE bool ungrab(KWin::EffectWindow* w, DataRole grabRole);
+    Q_SCRIPTABLE bool ungrab(como::EffectWindow* w, DataRole grabRole);
 
     /**
      * Reads the value from the configuration data for the given key.
@@ -181,7 +181,7 @@ public:
     Q_SCRIPTABLE bool registerTouchScreenEdge(int edge, const QJSValue& callback);
     Q_SCRIPTABLE bool unregisterTouchScreenEdge(int edge);
 
-    Q_SCRIPTABLE quint64 animate(KWin::EffectWindow* window,
+    Q_SCRIPTABLE quint64 animate(como::EffectWindow* window,
                                  Attribute attribute,
                                  int ms,
                                  const QJSValue& to,
@@ -194,7 +194,7 @@ public:
                                  uint shaderId = 0);
     Q_SCRIPTABLE QJSValue animate(const QJSValue& object);
 
-    Q_SCRIPTABLE quint64 set(KWin::EffectWindow* window,
+    Q_SCRIPTABLE quint64 set(como::EffectWindow* window,
                              Attribute attribute,
                              int ms,
                              const QJSValue& to,
@@ -249,7 +249,7 @@ Q_SIGNALS:
      * Signal emitted whenever the effect's config changed.
      */
     void configChanged();
-    void animationEnded(KWin::EffectWindow const* w, quint64 animationId);
+    void animationEnded(como::EffectWindow const* w, quint64 animationId);
     void isActiveFullScreenEffectChanged();
 
 protected:
@@ -259,7 +259,7 @@ protected:
 
     QJSEngine* engine() const;
     bool init(QString const& effectName, QString const& pathToScript, KSharedConfigPtr config);
-    void animationEnded(KWin::EffectWindow const* w, Attribute a, uint meta) override;
+    void animationEnded(como::EffectWindow const* w, Attribute a, uint meta) override;
 
     EffectsHandler& effects;
 

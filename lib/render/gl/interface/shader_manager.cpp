@@ -17,7 +17,7 @@
 
 #include <QFile>
 
-namespace KWin
+namespace como
 {
 
 ShaderManager* ShaderManager::s_shaderManager = nullptr;

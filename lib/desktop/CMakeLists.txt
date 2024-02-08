@@ -36,7 +36,7 @@ add_library(desktop-kde SHARED)
 qt6_add_dbus_adaptor(desktop_kde_dbus_src
   kde/dbus/org.kde.KWin.xml
   kde/dbus/kwin.h
-  KWin::desktop::kde::kwin
+  como::desktop::kde::kwin
 )
 
 target_link_libraries(desktop-kde

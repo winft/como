@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "kwinscreenedgeconfigform.h"
 #include "ui_main.h"
 
-namespace KWin
+namespace como
 {
 
 KWinScreenEdgesConfigForm::KWinScreenEdgesConfigForm(QWidget *parent)

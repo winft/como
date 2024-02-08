@@ -8,7 +8,7 @@
 #include <KSharedConfig>
 #include <string>
 
-namespace KWin::base
+namespace como::base
 {
 
 class config

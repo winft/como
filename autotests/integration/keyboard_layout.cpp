@@ -21,7 +21,7 @@ extern "C" {
 #include <wlr/interfaces/wlr_keyboard.h>
 }
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 namespace

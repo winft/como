@@ -12,7 +12,7 @@
 #include <QDateTime>
 #include <QPair>
 
-namespace KWin::render::post
+namespace como::render::post
 {
 
 using DateTimes = QPair<QDateTime, QDateTime>;

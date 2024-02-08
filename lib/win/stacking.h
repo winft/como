@@ -78,7 +78,7 @@
  and the stacking order will be updated once after it's allowed again.
 */
 
-namespace KWin::win
+namespace como::win
 {
 
 /**

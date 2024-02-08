@@ -28,7 +28,7 @@
 #include <vector>
 #include <xcb/xproto.h>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 template<typename Backend>

@@ -13,9 +13,9 @@
 #include <KPluginFactory>
 #include <kwineffects_interface.h>
 
-K_PLUGIN_CLASS(KWin::BlurEffectConfig)
+K_PLUGIN_CLASS(como::BlurEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 BlurEffectConfig::BlurEffectConfig(QObject* parent, const KPluginMetaData& data)
@@ -39,6 +39,6 @@ void BlurEffectConfig::save()
     interface.reconfigureEffect(QStringLiteral("blur"));
 }
 
-} // namespace KWin
+}
 
 #include "blur_config.moc"

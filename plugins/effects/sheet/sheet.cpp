@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QMatrix4x4>
 
-namespace KWin
+namespace como
 {
 
 SheetEffect::SheetEffect()
@@ -180,4 +180,4 @@ bool SheetEffect::isSheetWindow(EffectWindow* w) const
     return w->isModal();
 }
 
-} // namespace KWin
+}

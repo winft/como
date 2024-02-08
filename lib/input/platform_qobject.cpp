@@ -7,7 +7,7 @@
 
 #include "singleton_interface.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 platform_qobject::platform_qobject()

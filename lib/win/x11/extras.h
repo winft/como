@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QObject>
 #include <QPixmap>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 namespace net

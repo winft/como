@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QSet>
 #include <QTimeLine>
 
-namespace KWin
+namespace como
 {
 class CubeSlideEffect : public Effect
 {
@@ -68,8 +68,8 @@ private Q_SLOTS:
     void slotWindowDeleted(EffectWindow* w);
 
     void slotDesktopChanged(win::subspace* old, win::subspace* current, EffectWindow* w);
-    void slotWindowStepUserMovedResized(KWin::EffectWindow* w);
-    void slotWindowFinishUserMovedResized(KWin::EffectWindow* w);
+    void slotWindowStepUserMovedResized(como::EffectWindow* w);
+    void slotWindowFinishUserMovedResized(como::EffectWindow* w);
     void slotNumberDesktopsChanged();
 
 private:

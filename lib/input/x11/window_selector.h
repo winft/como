@@ -29,7 +29,7 @@
 
 #include "base/x11/fixx11h.h"
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 template<typename Redirect>

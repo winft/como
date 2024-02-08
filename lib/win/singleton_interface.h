@@ -25,7 +25,7 @@
 
 class QAction;
 
-namespace KWin::win
+namespace como::win
 {
 
 class subspace;

@@ -16,7 +16,7 @@
 #include <string_view>
 #include <variant>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 struct contrast_support {

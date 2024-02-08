@@ -5,7 +5,7 @@
 */
 #include "redirect_qobject.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 redirect_qobject::~redirect_qobject() = default;

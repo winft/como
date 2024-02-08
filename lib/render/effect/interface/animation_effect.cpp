@@ -17,7 +17,7 @@
 #include <QDebug>
 #include <QTimer>
 
-QDebug operator<<(QDebug dbg, const KWin::FPx2& fpx2)
+QDebug operator<<(QDebug dbg, const como::FPx2& fpx2)
 {
     dbg.nospace() << fpx2[0] << "," << fpx2[1]
                   << QString(fpx2.isValid() ? QStringLiteral(" (valid)")
@@ -25,7 +25,7 @@ QDebug operator<<(QDebug dbg, const KWin::FPx2& fpx2)
     return dbg.space();
 }
 
-namespace KWin
+namespace como
 {
 
 QElapsedTimer AnimationEffect::s_clock;
@@ -46,7 +46,7 @@ public:
 };
 }
 
-using namespace KWin;
+using namespace como;
 
 quint64 AnimationEffectPrivate::m_animCounter = 0;
 
@@ -1002,7 +1002,7 @@ void AnimationEffect::updateLayerRepaints()
     }
 }
 
-void AnimationEffect::_windowExpandedGeometryChanged(KWin::EffectWindow* w)
+void AnimationEffect::_windowExpandedGeometryChanged(como::EffectWindow* w)
 {
     Q_D(AnimationEffect);
 

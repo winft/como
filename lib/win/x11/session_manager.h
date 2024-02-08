@@ -14,7 +14,7 @@
 #include <QObject>
 #include <QRect>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 class COMO_EXPORT session_manager : public QObject

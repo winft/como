@@ -12,7 +12,7 @@
 
 #include <QQmlComponent>
 
-namespace KWin
+namespace como
 {
 
 class QuickSceneEffect;
@@ -108,7 +108,7 @@ public:
      * Get a view at the given direction from the active view
      * Returns null if no other views exist in the given direction
      */
-    Q_INVOKABLE KWin::QuickSceneView* getView(Qt::Edge edge);
+    Q_INVOKABLE como::QuickSceneView* getView(Qt::Edge edge);
 
     /**
      * Sets the given @a view as active. It will get a focusin event and all the other views will be
@@ -160,7 +160,7 @@ Q_SIGNALS:
     void itemDraggedOutOfScreen(QQuickItem* item, QList<EffectScreen const*> screens);
     void
     itemDroppedOutOfScreen(QPointF const& globalPos, QQuickItem* item, EffectScreen const* screen);
-    void activeViewChanged(KWin::QuickSceneView* view);
+    void activeViewChanged(como::QuickSceneView* view);
     void delegateChanged();
 
 protected:
@@ -184,6 +184,6 @@ private:
     friend class QuickSceneEffectPrivate;
 };
 
-} // namespace KWin
+}
 
-QML_DECLARE_TYPEINFO(KWin::QuickSceneView, QML_HAS_ATTACHED_PROPERTIES)
+QML_DECLARE_TYPEINFO(como::QuickSceneView, QML_HAS_ATTACHED_PROPERTIES)

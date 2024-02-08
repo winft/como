@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QElapsedTimer>
 
-namespace KWin::render::qpainter
+namespace como::render::qpainter
 {
 
 template<typename Platform>

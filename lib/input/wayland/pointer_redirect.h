@@ -25,7 +25,7 @@
 #include <Wrapland/Server/seat.h>
 #include <Wrapland/Server/touch_pool.h>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 template<typename Window, typename T>
@@ -421,7 +421,7 @@ public:
         process_frame();
     }
 
-    void processMotion(QPointF const& pos, uint32_t time, KWin::input::pointer* device = nullptr)
+    void processMotion(QPointF const& pos, uint32_t time, input::pointer* device = nullptr)
     {
         // Events for motion_absolute_event have positioning relative to screen size.
         auto const& space_size = redirect->platform.base.topology.size;

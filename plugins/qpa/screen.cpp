@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "base/output_helpers.h"
 #include "platformcursor.h"
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {

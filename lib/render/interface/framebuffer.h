@@ -9,7 +9,7 @@
 #include <cassert>
 #include <stack>
 
-namespace KWin::render
+namespace como::render
 {
 
 class framebuffer

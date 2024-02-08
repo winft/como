@@ -23,7 +23,7 @@
 #include <ios>
 #include <iostream>
 
-namespace KWin
+namespace como
 {
 
 GLPlatform* GLPlatform::s_platform = nullptr;

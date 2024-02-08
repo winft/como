@@ -16,7 +16,7 @@
 #include <string.h>
 #include <xcb/xproto.h>
 
-namespace KWin::win::x11::net
+namespace como::win::x11::net
 {
 
 struct root_info_private {

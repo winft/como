@@ -11,7 +11,7 @@
 #include <QObject>
 #include <QTimer>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 // Time out transfers, which have become inactive due to client errors.

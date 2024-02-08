@@ -12,7 +12,7 @@
 #include "debug/perf/ftrace.h"
 #include "win/space_qobject.h"
 
-namespace KWin::desktop::kde
+namespace como::desktop::kde
 {
 
 kwin::kwin(win::space_qobject& space)

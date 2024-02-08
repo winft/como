@@ -10,7 +10,7 @@ extern "C" {
 #include <wlr/types/wlr_input_device.h>
 }
 
-namespace KWin::input::backend::wlroots
+namespace como::input::backend::wlroots
 {
 
 template<typename Dev>

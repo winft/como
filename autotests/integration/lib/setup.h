@@ -22,7 +22,7 @@ struct wlr_pointer;
 struct wlr_keyboard;
 struct wlr_touch;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 struct setup final {

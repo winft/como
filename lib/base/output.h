@@ -13,7 +13,7 @@
 #include <QSize>
 #include <memory>
 
-namespace KWin::base
+namespace como::base
 {
 
 enum class dpms_mode {
@@ -179,4 +179,4 @@ public:
 
 }
 
-Q_DECLARE_METATYPE(KWin::base::output*);
+Q_DECLARE_METATYPE(como::base::output*);

@@ -10,7 +10,7 @@
 
 #include "rules/ruling.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Win>

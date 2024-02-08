@@ -23,7 +23,7 @@
 #include <xcb/xkb.h>
 #undef explicit
 
-namespace KWin::base::x11::xcb
+namespace como::base::x11::xcb
 {
 
 static int const COMPOSITE_MAX_MAJOR = 0;

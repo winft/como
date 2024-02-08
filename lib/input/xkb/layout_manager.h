@@ -29,7 +29,7 @@
 #include <string>
 #include <xkbcommon/xkbcommon.h>
 
-namespace KWin::input::xkb
+namespace como::input::xkb
 {
 
 inline QString translated_keyboard_layout(std::string const& layout)

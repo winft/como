@@ -10,7 +10,7 @@
 #include <QAction>
 #include <cassert>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Manager>

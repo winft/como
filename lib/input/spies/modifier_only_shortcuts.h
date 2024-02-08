@@ -21,7 +21,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QSet>
 #include <memory>
 
-namespace KWin::input
+namespace como::input
 {
 
 class COMO_EXPORT modifier_only_shortcuts_spy_qobject : public QObject

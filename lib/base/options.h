@@ -14,7 +14,7 @@
 
 #include <KConfigWatcher>
 
-namespace KWin::base
+namespace como::base
 {
 
 class COMO_EXPORT options_qobject : public QObject

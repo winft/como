@@ -12,7 +12,7 @@
 #include <QtGui/private/qxkbcommon_p.h>
 #include <xkbcommon/xkbcommon.h>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 template<typename Effects, typename Xkb>

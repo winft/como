@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <memory>
 
-namespace KWin
+namespace como
 {
 
 class GLFramebuffer;

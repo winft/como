@@ -15,7 +15,7 @@ static void ensureResources()
     Q_INIT_RESOURCE(blur);
 }
 
-namespace KWin
+namespace como
 {
 
 BlurShader::BlurShader(QObject* parent)
@@ -318,4 +318,4 @@ void BlurShader::unbind()
     ShaderManager::instance()->popShader();
 }
 
-} // namespace KWin
+}

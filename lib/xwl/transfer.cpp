@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <unistd.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 // in Bytes: equals 64KB

@@ -10,7 +10,7 @@
 
 #include "xcb/atom.h"
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 class atoms

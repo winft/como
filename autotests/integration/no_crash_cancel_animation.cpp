@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Client/shm_pool.h>
 #include <Wrapland/Client/surface.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("no crash cancel animation", "[render]")

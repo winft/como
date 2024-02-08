@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "win/tabbox/tabbox_client.h"
 #include "win/tabbox/tabbox_client_model.h"
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("tabbox client model", "[unit],[win]")

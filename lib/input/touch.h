@@ -16,7 +16,7 @@
 #include <QSizeF>
 #include <cmath>
 
-namespace KWin::input
+namespace como::input
 {
 
 class COMO_EXPORT touch_qobject : public QObject

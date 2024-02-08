@@ -151,17 +151,17 @@ kconfig_add_kcfg_files(render post/kconfig/color_correct_settings.kcfgc)
 qt6_add_dbus_adaptor(render_dbus_SRCS
   dbus/org.kde.kwin.Compositing.xml
   dbus/compositing.h
-  KWin::render::dbus::compositing_qobject
+  como::render::dbus::compositing_qobject
 )
 qt6_add_dbus_adaptor(render_dbus_SRCS
   dbus/org.kde.kwin.ColorCorrect.xml
   post/color_correct_dbus_interface.h
-  KWin::render::post::color_correct_dbus_interface
+  como::render::post::color_correct_dbus_interface
 )
 qt6_add_dbus_adaptor(render_dbus_SRCS
   effect/interface/org.kde.kwin.Effects.xml
   effects.h
-  KWin::render::effects_handler_wrap
+  como::render::effects_handler_wrap
 )
 
 target_sources(render

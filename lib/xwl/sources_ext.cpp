@@ -5,7 +5,7 @@
 */
 #include "sources_ext.h"
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 data_source_ext::data_source_ext()

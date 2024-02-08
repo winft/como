@@ -15,7 +15,7 @@
 #include <deque>
 #include <vector>
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 class ruling;

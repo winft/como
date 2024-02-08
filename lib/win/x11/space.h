@@ -33,7 +33,7 @@
 
 #include <vector>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 struct space_mod {

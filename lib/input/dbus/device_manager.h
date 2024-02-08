@@ -14,7 +14,7 @@
 #include <QStringList>
 #include <vector>
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 class device;
 

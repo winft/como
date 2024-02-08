@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-namespace KWin
+namespace como
 {
 
 /**

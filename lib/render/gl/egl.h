@@ -12,7 +12,7 @@
 #include <memory>
 #include <vector>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 template<typename Backend>

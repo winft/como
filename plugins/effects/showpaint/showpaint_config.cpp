@@ -14,9 +14,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QAction>
 
-K_PLUGIN_CLASS(KWin::ShowPaintEffectConfig)
+K_PLUGIN_CLASS(como::ShowPaintEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 ShowPaintEffectConfig::ShowPaintEffectConfig(QObject* parent, const KPluginMetaData& data)
@@ -53,6 +53,6 @@ void ShowPaintEffectConfig::defaults()
     KCModule::defaults();
 }
 
-} // namespace KWin
+}
 
 #include "showpaint_config.moc"

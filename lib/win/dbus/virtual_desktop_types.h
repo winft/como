@@ -9,7 +9,7 @@
 #include <QDBusArgument>
 #include <como_export.h>
 
-namespace KWin::win::dbus
+namespace como::win::dbus
 {
 
 struct subspace_data {
@@ -23,15 +23,15 @@ using subspace_data_vector = QVector<subspace_data>;
 }
 
 COMO_EXPORT QDBusArgument const& operator<<(QDBusArgument& argument,
-                                            KWin::win::dbus::subspace_data const& desk);
+                                            como::win::dbus::subspace_data const& desk);
 COMO_EXPORT QDBusArgument const& operator>>(QDBusArgument const& argument,
-                                            KWin::win::dbus::subspace_data& desk);
+                                            como::win::dbus::subspace_data& desk);
 
-Q_DECLARE_METATYPE(KWin::win::dbus::subspace_data)
+Q_DECLARE_METATYPE(como::win::dbus::subspace_data)
 
 COMO_EXPORT QDBusArgument const&
-operator<<(QDBusArgument& argument, KWin::win::dbus::subspace_data_vector const& deskVector);
+operator<<(QDBusArgument& argument, como::win::dbus::subspace_data_vector const& deskVector);
 COMO_EXPORT QDBusArgument const& operator>>(QDBusArgument const& argument,
-                                            KWin::win::dbus::subspace_data_vector& deskVector);
+                                            como::win::dbus::subspace_data_vector& deskVector);
 
-Q_DECLARE_METATYPE(KWin::win::dbus::subspace_data_vector)
+Q_DECLARE_METATYPE(como::win::dbus::subspace_data_vector)

@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <qpa/qplatformoffscreensurface.h>
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {
@@ -31,4 +31,4 @@ private:
 };
 
 } // namespace QPA
-} // namespace KWin
+}

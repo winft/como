@@ -7,7 +7,7 @@
 #include "virtual_desktop_types.h"
 
 // Marshall the subspace_data into a D-BUS argument
-QDBusArgument const& operator<<(QDBusArgument& argument, KWin::win::dbus::subspace_data const& desk)
+QDBusArgument const& operator<<(QDBusArgument& argument, como::win::dbus::subspace_data const& desk)
 {
     argument.beginStructure();
     argument << desk.position;
@@ -18,7 +18,7 @@ QDBusArgument const& operator<<(QDBusArgument& argument, KWin::win::dbus::subspa
 }
 
 // Retrieve
-QDBusArgument const& operator>>(QDBusArgument const& argument, KWin::win::dbus::subspace_data& desk)
+QDBusArgument const& operator>>(QDBusArgument const& argument, como::win::dbus::subspace_data& desk)
 {
     argument.beginStructure();
     argument >> desk.position;
@@ -29,9 +29,9 @@ QDBusArgument const& operator>>(QDBusArgument const& argument, KWin::win::dbus::
 }
 
 const QDBusArgument& operator<<(QDBusArgument& argument,
-                                KWin::win::dbus::subspace_data_vector const& deskVector)
+                                como::win::dbus::subspace_data_vector const& deskVector)
 {
-    argument.beginArray(qMetaTypeId<KWin::win::dbus::subspace_data>());
+    argument.beginArray(qMetaTypeId<como::win::dbus::subspace_data>());
 
     for (int i = 0; i < deskVector.size(); ++i) {
         argument << deskVector[i];
@@ -42,13 +42,13 @@ const QDBusArgument& operator<<(QDBusArgument& argument,
 }
 
 const QDBusArgument& operator>>(QDBusArgument const& argument,
-                                KWin::win::dbus::subspace_data_vector& deskVector)
+                                como::win::dbus::subspace_data_vector& deskVector)
 {
     argument.beginArray();
     deskVector.clear();
 
     while (!argument.atEnd()) {
-        KWin::win::dbus::subspace_data element;
+        como::win::dbus::subspace_data element;
         argument >> element;
         deskVector.append(element);
     }

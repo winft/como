@@ -18,7 +18,7 @@
 #include <QDBusMetaType>
 #include <QDBusPendingCall>
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 constexpr auto dbus_object_path{"/LayoutsV2"};

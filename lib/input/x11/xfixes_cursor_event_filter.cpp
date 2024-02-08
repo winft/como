@@ -9,7 +9,7 @@
 #include "base/x11/xcb/extensions.h"
 #include "cursor.h"
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 xfixes_cursor_event_filter::xfixes_cursor_event_filter(base::x11::event_filter_manager& manager,

@@ -14,7 +14,7 @@
 #include "input/redirect_qobject.h"
 #include <como_export.h>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 class COMO_EXPORT wayland_console_model : public console_model

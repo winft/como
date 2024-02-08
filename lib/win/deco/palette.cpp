@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QPalette>
 #include <QStandardPaths>
 
-namespace KWin::win::deco
+namespace como::win::deco
 {
 
 palette::palette(const QString& colorScheme)

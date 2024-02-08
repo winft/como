@@ -15,7 +15,7 @@
 #include <vector>
 #include <xcb/xcb.h>
 
-namespace KWin::base::x11::xcb
+namespace como::base::x11::xcb
 {
 
 inline void move_resize_window(xcb_connection_t* con, xcb_window_t window, QRect const& geometry)

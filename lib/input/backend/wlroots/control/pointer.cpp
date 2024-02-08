@@ -9,7 +9,7 @@
 
 #include <linux/input.h>
 
-namespace KWin::input::backend::wlroots
+namespace como::input::backend::wlroots
 {
 
 pointer_control::pointer_control(libinput_device* dev, KSharedConfigPtr input_config)

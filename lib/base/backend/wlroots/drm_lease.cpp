@@ -9,7 +9,7 @@
 
 #include <stdexcept>
 
-namespace KWin::base::backend::wlroots
+namespace como::base::backend::wlroots
 {
 
 struct outputs_array_wrap {

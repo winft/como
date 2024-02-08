@@ -22,7 +22,7 @@
 #include "rules_settings.h"
 #include "update.h"
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 window::window(std::vector<ruling*> const& rules)
@@ -36,7 +36,7 @@ window::window()
 
 bool window::contains(ruling const* rule) const
 {
-    return KWin::contains(rules, const_cast<ruling*>(rule));
+    return como::contains(rules, const_cast<ruling*>(rule));
 }
 
 void window::remove(ruling* rule)

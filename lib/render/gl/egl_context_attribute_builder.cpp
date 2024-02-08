@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <epoxy/egl.h>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 std::vector<int> egl_context_attribute_builder::build() const

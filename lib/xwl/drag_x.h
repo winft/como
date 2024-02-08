@@ -20,7 +20,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/seat.h>
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 template<typename Space>

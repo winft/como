@@ -10,7 +10,7 @@
 class ColorBlindnessCorrectionSettings;
 class ColorBlindnessCorrectionSettingsData;
 
-namespace KWin
+namespace como
 {
 class ColorBlindnessCorrectionEffectConfig : public KQuickManagedConfigModule
 {

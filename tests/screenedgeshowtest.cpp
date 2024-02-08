@@ -82,7 +82,7 @@ protected:
 private:
     uint32_t m_locationValue = 2;
     uint32_t m_actionValue = 0;
-    KWin::base::x11::xcb::atom m_atom;
+    como::base::x11::xcb::atom m_atom;
 };
 
 class ScreenEdgeHelperWayland : public ScreenEdgeHelper

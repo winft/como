@@ -29,7 +29,7 @@
 #include <Wrapland/Server/seat.h>
 #include <memory>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 class COMO_EXPORT cursor_image_qobject : public QObject

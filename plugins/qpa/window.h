@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 class QOpenGLFramebufferObject;
 
-namespace KWin::QPA
+namespace como::QPA
 {
 
 class Window : public QPlatformWindow

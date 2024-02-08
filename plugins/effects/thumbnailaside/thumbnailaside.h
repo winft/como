@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QHash>
 
-namespace KWin
+namespace como
 {
 
 class ThumbnailAsideEffect : public Effect
@@ -55,10 +55,10 @@ public:
 
 private Q_SLOTS:
     void toggleCurrentThumbnail();
-    void slotWindowAdded(KWin::EffectWindow* w);
-    void slotWindowClosed(KWin::EffectWindow* w);
-    void slotWindowFrameGeometryChanged(KWin::EffectWindow* w, const QRect& old);
-    void slotWindowDamaged(KWin::EffectWindow* w, QRegion const& damage);
+    void slotWindowAdded(como::EffectWindow* w);
+    void slotWindowClosed(como::EffectWindow* w);
+    void slotWindowFrameGeometryChanged(como::EffectWindow* w, const QRect& old);
+    void slotWindowDamaged(como::EffectWindow* w, QRegion const& damage);
     void repaintAll();
 
 private:

@@ -11,7 +11,7 @@
 #include <QTimer>
 #include <deque>
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 class ruling;

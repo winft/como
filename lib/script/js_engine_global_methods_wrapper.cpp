@@ -15,7 +15,7 @@
 #include <QPointer>
 #include <QQmlEngine>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 js_engine_global_methods_wrapper::js_engine_global_methods_wrapper(declarative_script* parent)

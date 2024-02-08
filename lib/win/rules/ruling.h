@@ -16,7 +16,7 @@
 
 class QDebug;
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 class settings;

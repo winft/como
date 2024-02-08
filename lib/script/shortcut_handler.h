@@ -14,7 +14,7 @@
 
 class QAction;
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 /**
@@ -86,4 +86,4 @@ private:
     QAction* m_action = nullptr;
 };
 
-} // namespace KWin
+}

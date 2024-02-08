@@ -42,7 +42,7 @@ void unlock()
 
 }
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 class HelperEffect : public Effect

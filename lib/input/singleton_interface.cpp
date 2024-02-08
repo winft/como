@@ -5,7 +5,7 @@
 */
 #include "singleton_interface.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 input::cursor* singleton_interface::cursor{nullptr};

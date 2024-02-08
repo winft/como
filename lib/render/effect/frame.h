@@ -13,7 +13,7 @@
 #include <QFont>
 #include <QIcon>
 
-namespace KWin
+namespace como
 {
 
 class EffectsHandler;

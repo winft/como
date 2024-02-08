@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QAction>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 screen_edge_handler::screen_edge_handler(QObject* parent)

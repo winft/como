@@ -16,7 +16,7 @@
 
 #include <QTimer>
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect>

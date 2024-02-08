@@ -11,7 +11,7 @@
 #include "input/keyboard_redirect.h"
 #include "input/xkb/keyboard.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect>

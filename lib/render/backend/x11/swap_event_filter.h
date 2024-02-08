@@ -27,7 +27,7 @@ typedef struct xcb_glx_buffer_swap_complete_event_t {
 } xcb_glx_buffer_swap_complete_event_t;
 #endif
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 template<typename Platform>

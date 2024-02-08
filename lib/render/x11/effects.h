@@ -25,7 +25,7 @@
 
 #include <memory.h>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 template<typename Scene>

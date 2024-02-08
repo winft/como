@@ -20,7 +20,7 @@ class QDebug;
 class KConfig;
 class KXMessages;
 
-namespace KWin
+namespace como
 {
 
 namespace base

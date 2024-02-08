@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QDBusUnixFileDescriptor>
 #include <QObject>
 
-namespace KWin
+namespace como
 {
 
 class ColorPickerEffect : public Effect, protected QDBusContext

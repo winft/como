@@ -31,7 +31,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 class QKeyEvent;
 class QQmlEngine;
 
-namespace KWin
+namespace como
 {
 /**
  * The tabbox is a model based view for displaying a list while switching windows.
@@ -317,6 +317,6 @@ private:
 COMO_EXPORT extern tabbox_handler* tabbox_handle;
 
 } // namespace win
-} // namespace KWin
+}
 
 #endif // TABBOXHANDLER_H

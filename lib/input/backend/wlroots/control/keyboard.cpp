@@ -9,7 +9,7 @@
 
 #include <linux/input.h>
 
-namespace KWin::input::backend::wlroots
+namespace como::input::backend::wlroots
 {
 
 bool check_alpha_numeric_keyboard(libinput_device* device)

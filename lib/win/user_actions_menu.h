@@ -31,7 +31,7 @@
 #include <QRect>
 #include <QWindow>
 
-namespace KWin::win
+namespace como::win
 {
 
 struct user_actions_menu_desktop_action_data {
@@ -847,4 +847,4 @@ private:
 
 }
 
-Q_DECLARE_METATYPE(KWin::win::user_actions_menu_desktop_action_data);
+Q_DECLARE_METATYPE(como::win::user_actions_menu_desktop_action_data);

@@ -4,6 +4,6 @@
 
 File=magiclamp.kcfg
 ClassName=MagicLampConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

@@ -11,7 +11,7 @@
 #include <QKeySequence>
 #include <functional>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 class qt_script_space;

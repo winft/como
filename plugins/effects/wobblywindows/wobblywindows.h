@@ -8,7 +8,7 @@
 
 #include <render/effect/interface/offscreen_effect.h>
 
-namespace KWin
+namespace como
 {
 
 struct ParameterSet;
@@ -87,11 +87,11 @@ protected:
     void apply(effect::window_paint_data& data, WindowQuadList& quads) override;
 
 public Q_SLOTS:
-    void slotWindowAdded(KWin::EffectWindow* w);
-    void slotWindowStartUserMovedResized(KWin::EffectWindow* w);
-    void slotWindowStepUserMovedResized(KWin::EffectWindow* w, const QRect& geometry);
-    void slotWindowFinishUserMovedResized(KWin::EffectWindow* w);
-    void slotWindowMaximizeStateChanged(KWin::EffectWindow* w, bool horizontal, bool vertical);
+    void slotWindowAdded(como::EffectWindow* w);
+    void slotWindowStartUserMovedResized(como::EffectWindow* w);
+    void slotWindowStepUserMovedResized(como::EffectWindow* w, const QRect& geometry);
+    void slotWindowFinishUserMovedResized(como::EffectWindow* w);
+    void slotWindowMaximizeStateChanged(como::EffectWindow* w, bool horizontal, bool vertical);
 
 private:
     void startMovedResized(EffectWindow* w);
@@ -164,6 +164,6 @@ private:
     void setParameterSet(const ParameterSet& pset);
 };
 
-} // namespace KWin
+}
 
 #endif // WOBBLYWINDOWS_H

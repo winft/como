@@ -10,7 +10,7 @@
 
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 template<typename Win>

@@ -17,7 +17,7 @@
 #include <linux/input.h>
 #include <memory>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 namespace

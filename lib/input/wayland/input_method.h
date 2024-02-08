@@ -26,7 +26,7 @@
 #include <memory>
 #include <vector>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 template<typename Redirect>

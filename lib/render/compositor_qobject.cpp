@@ -7,7 +7,7 @@
 
 #include "singleton_interface.h"
 
-namespace KWin::render
+namespace como::render
 {
 
 compositor_qobject::compositor_qobject(std::function<bool(QTimerEvent*)> timer_event_handler)

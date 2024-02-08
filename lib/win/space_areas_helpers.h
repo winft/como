@@ -8,7 +8,7 @@
 #include "move.h"
 #include "space_areas.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 /**

@@ -9,14 +9,14 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KConfigGroup>
 #include <xcb/xcb_icccm.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("translucency", "[effect]")
 {
     qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", "1");
     qputenv("XDG_DATA_DIRS", QCoreApplication::applicationDirPath().toUtf8());
-    qRegisterMetaType<KWin::Effect*>();
+    qRegisterMetaType<como::Effect*>();
 
     test::setup setup("translucency", base::operation_mode::xwayland);
 

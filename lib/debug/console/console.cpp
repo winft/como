@@ -20,7 +20,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <functional>
 #include <xkbcommon/xkbcommon.h>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 console_delegate::console_delegate(QObject* parent)

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QObject>
 #include <functional>
 
-namespace KWin::render::post
+namespace como::render::post
 {
 
 struct night_color_data;

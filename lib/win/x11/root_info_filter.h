@@ -10,7 +10,7 @@
 #include "base/x11/event_filter.h"
 #include <win/subspace_manager.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Info>

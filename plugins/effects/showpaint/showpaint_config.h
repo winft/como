@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "ui_showpaint_config.h"
 
-namespace KWin
+namespace como
 {
 
 class ShowPaintEffectConfig : public KCModule
@@ -28,4 +28,4 @@ private:
     Ui::ShowPaintEffectConfig m_ui;
 };
 
-} // namespace KWin
+}

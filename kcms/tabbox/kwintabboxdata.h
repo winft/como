@@ -11,7 +11,7 @@
 
 #include <KCModuleData>
 
-namespace KWin
+namespace como
 {
 namespace win
 {

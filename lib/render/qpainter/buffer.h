@@ -11,7 +11,7 @@
 #include <Wrapland/Server/buffer.h>
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::render::qpainter
+namespace como::render::qpainter
 {
 
 template<typename Window>

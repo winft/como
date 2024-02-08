@@ -10,7 +10,7 @@
 #include <QRect>
 #include <vector>
 
-namespace KWin::win
+namespace como::win
 {
 
 /// Describes important areas of a space.

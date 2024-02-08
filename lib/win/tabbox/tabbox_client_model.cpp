@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <algorithm>
 #include <cmath>
 
-namespace KWin
+namespace como
 {
 namespace win
 {
@@ -241,4 +241,4 @@ void tabbox_client_model::activate(int i)
 }
 
 } // namespace win
-} // namespace KWin
+}

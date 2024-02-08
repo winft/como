@@ -7,7 +7,7 @@
 
 #include "utils/flags.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 enum class direction {
@@ -329,9 +329,9 @@ static constexpr int x11_desktop_number_undefined{0};
 
 }
 
-ENUM_FLAGS(KWin::win::position)
-ENUM_FLAGS(KWin::win::maximize_mode)
-ENUM_FLAGS(KWin::win::same_client_check)
-ENUM_FLAGS(KWin::win::strut_area)
-ENUM_FLAGS(KWin::win::quicktiles)
-ENUM_FLAGS(KWin::win::window_type_mask)
+ENUM_FLAGS(como::win::position)
+ENUM_FLAGS(como::win::maximize_mode)
+ENUM_FLAGS(como::win::same_client_check)
+ENUM_FLAGS(como::win::strut_area)
+ENUM_FLAGS(como::win::quicktiles)
+ENUM_FLAGS(como::win::window_type_mask)

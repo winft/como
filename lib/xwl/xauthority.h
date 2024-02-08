@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 class QTemporaryFile;
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 COMO_EXPORT bool xauthority_generate_file(int display, QTemporaryFile& dest);

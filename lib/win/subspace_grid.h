@@ -12,7 +12,7 @@
 #include <QSize>
 #include <vector>
 
-namespace KWin::win
+namespace como::win
 {
 
 class COMO_EXPORT subspace_grid

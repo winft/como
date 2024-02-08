@@ -13,7 +13,7 @@
 #include <Wrapland/Server/wl_output.h>
 #include <cassert>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Win>

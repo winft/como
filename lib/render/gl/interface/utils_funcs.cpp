@@ -14,7 +14,7 @@
 #define GL_RESOLVE_WITH_EXT(function, symbolName)                                                  \
     function = (function##_func)resolveFunction(#symbolName);
 
-namespace KWin
+namespace como
 {
 
 static GLenum GetGraphicsResetStatus();
@@ -70,9 +70,9 @@ void glResolveFunctions(const std::function<resolveFuncPtr(const char*)>& resolv
         glGetnUniformfv
             = reinterpret_cast<glGetnUniformfv_func>(resolveFunction("glGetnUniformfvEXT"));
     } else {
-        glGetGraphicsResetStatus = KWin::GetGraphicsResetStatus;
-        glReadnPixels = KWin::ReadnPixels;
-        glGetnUniformfv = KWin::GetnUniformfv;
+        glGetGraphicsResetStatus = como::GetGraphicsResetStatus;
+        glReadnPixels = como::ReadnPixels;
+        glGetnUniformfv = como::GetnUniformfv;
     }
 }
 

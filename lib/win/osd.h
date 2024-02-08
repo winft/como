@@ -12,7 +12,7 @@
 
 #include <QString>
 
-namespace KWin::win
+namespace como::win
 {
 
 enum class osd_hide_flags {
@@ -22,9 +22,9 @@ enum class osd_hide_flags {
 
 }
 
-ENUM_FLAGS(KWin::win::osd_hide_flags)
+ENUM_FLAGS(como::win::osd_hide_flags)
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Space>

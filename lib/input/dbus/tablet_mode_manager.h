@@ -17,7 +17,7 @@
 #include <QObject>
 #include <memory>
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 // TODO(romangg): Is this like a regular event spy or a different kind of spy?

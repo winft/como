@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <iostream>
 #include <private/qtx11extras_p.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 // QPoint and QSize all have handy / operators which are useful for scaling, positions and sizes for

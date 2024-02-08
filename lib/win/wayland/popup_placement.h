@@ -10,7 +10,7 @@
 #include <Wrapland/Server/xdg_shell_surface.h>
 #include <functional>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Win>

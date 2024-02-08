@@ -13,7 +13,7 @@
 #include <QIcon>
 
 
-namespace KWin
+namespace como
 {
 
 class RuleItem : public QObject

@@ -5,7 +5,7 @@
 */
 #include "skew_notifier.h"
 
-namespace KWin::base::os::clock
+namespace como::base::os::clock
 {
 
 void skew_notifier::load_engine()

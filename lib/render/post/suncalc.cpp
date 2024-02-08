@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QTimeZone>
 #include <QtMath>
 
-namespace KWin::render::post
+namespace como::render::post
 {
 
 #define TWILIGHT_NAUT -12.0

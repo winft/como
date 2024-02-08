@@ -10,7 +10,7 @@
 
 #include <KPluginFactory>
 
-namespace KWin
+namespace como
 {
 
 class Effect;
@@ -51,7 +51,7 @@ public:
     /**
      * This method returns the created Effect.
      */
-    virtual KWin::Effect* createEffect() const = 0;
+    virtual como::Effect* createEffect() const = 0;
 };
 
 #define EffectPluginFactory_iid "org.kde.kwin.EffectPluginFactory" KDE_PLASMA_VERSION_STRING
@@ -75,7 +75,7 @@ public:
  * @param enabled Source code to go into the enabledByDefault() method, must return a boolean
  */
 #define KWIN_EFFECT_FACTORY_SUPPORTED_ENABLED(className, jsonFile, supported, enabled)             \
-    class KWIN_PLUGIN_FACTORY_NAME : public KWin::EffectPluginFactory                              \
+    class KWIN_PLUGIN_FACTORY_NAME : public como::EffectPluginFactory                              \
     {                                                                                              \
         Q_OBJECT                                                                                   \
         Q_PLUGIN_METADATA(IID EffectPluginFactory_iid FILE jsonFile)                               \
@@ -92,7 +92,7 @@ public:
             supported                                                                              \
         }                                                                                          \
         bool enabledByDefault() const override{                                                    \
-            enabled} KWin::Effect* createEffect() const override                                   \
+            enabled} como::Effect* createEffect() const override                                   \
         {                                                                                          \
             return new className();                                                                \
         }                                                                                          \

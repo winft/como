@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QEasingCurve>
 #include <QSharedPointer>
 
-namespace KWin
+namespace como
 {
 
 /**
@@ -94,6 +94,6 @@ public:
 
 } // namespace
 
-QDebug operator<<(QDebug dbg, const KWin::AniData& a);
+QDebug operator<<(QDebug dbg, const como::AniData& a);
 
 #endif // ANIDATA_H

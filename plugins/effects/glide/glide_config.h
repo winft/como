@@ -11,7 +11,7 @@
 #include "ui_glide_config.h"
 #include <KCModule>
 
-namespace KWin
+namespace como
 {
 
 class GlideEffectConfig : public KCModule
@@ -28,6 +28,6 @@ private:
     ::Ui::GlideEffectConfig ui;
 };
 
-} // namespace KWin
+}
 
 #endif

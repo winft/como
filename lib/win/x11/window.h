@@ -45,7 +45,7 @@
 #include <memory>
 #include <vector>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Space>

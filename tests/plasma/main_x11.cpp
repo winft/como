@@ -62,7 +62,7 @@ void crash_handler(int signal)
 
 }
 
-namespace KWin
+namespace como
 {
 
 struct space_mod {
@@ -85,7 +85,7 @@ struct base_mod {
 
 int main(int argc, char* argv[])
 {
-    using namespace KWin;
+    using namespace como;
 
     KLocalizedString::setApplicationDomain("kwin");
 
@@ -105,7 +105,7 @@ int main(int argc, char* argv[])
                      app.qapp.get(),
                      &QCoreApplication::exit);
 
-    KWin::app_create_about_data();
+    como::app_create_about_data();
 
     QCommandLineOption crashesOption(
         "crashes", i18n("Indicate that KWin has recently crashed n times"), QStringLiteral("n"));

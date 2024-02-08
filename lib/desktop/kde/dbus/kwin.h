@@ -17,7 +17,7 @@
 #include <QObject>
 #include <QtDBus>
 
-namespace KWin
+namespace como
 {
 
 namespace win

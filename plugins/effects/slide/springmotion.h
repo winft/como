@@ -10,7 +10,7 @@
 
 #include <chrono>
 
-namespace KWin
+namespace como
 {
 
 /**
@@ -98,4 +98,4 @@ private:
     qreal m_epsilon;
 };
 
-} // namespace KWin
+}

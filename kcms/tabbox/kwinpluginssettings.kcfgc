@@ -3,7 +3,7 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=kwinpluginssettings.kcfg
-NameSpace=KWin::win
+NameSpace=como::win
 ClassName=PluginsSettings
 Mutators=true
 DefaultValueGetters=true

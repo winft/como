@@ -24,7 +24,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <KDecoration2/DecorationSettings>
 
-namespace KWin::render
+namespace como::render
 {
 
 effects_handler_wrap::~effects_handler_wrap()
@@ -311,7 +311,7 @@ WindowQuadType effects_handler_wrap::newWindowQuadType()
     return WindowQuadType(next_window_quad_type++);
 }
 
-void effects_handler_wrap::setElevatedWindow(KWin::EffectWindow* w, bool set)
+void effects_handler_wrap::setElevatedWindow(como::EffectWindow* w, bool set)
 {
     elevated_windows.removeAll(w);
     if (set)

@@ -16,7 +16,7 @@
 
 Q_LOGGING_CATEGORY(KWIN_HIGHLIGHTWINDOW, "kwin_effect_highlightwindow", QtWarningMsg)
 
-namespace KWin
+namespace como
 {
 
 HighlightWindowEffect::HighlightWindowEffect()
@@ -137,7 +137,7 @@ void HighlightWindowEffect::finishHighlighting()
     m_highlightedWindows.clear();
 }
 
-void HighlightWindowEffect::highlightWindows(const QVector<KWin::EffectWindow*>& windows)
+void HighlightWindowEffect::highlightWindows(const QVector<como::EffectWindow*>& windows)
 {
     if (windows.isEmpty()) {
         finishHighlighting();

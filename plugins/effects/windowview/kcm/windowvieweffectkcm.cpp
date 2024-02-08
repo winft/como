@@ -18,9 +18,9 @@
 
 #include <QAction>
 
-K_PLUGIN_CLASS(KWin::WindowViewEffectConfig)
+K_PLUGIN_CLASS(como::WindowViewEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 WindowViewEffectConfig::WindowViewEffectConfig(QObject* parent, const KPluginMetaData& data)
@@ -84,6 +84,6 @@ void WindowViewEffectConfig::defaults()
     KCModule::defaults();
 }
 
-} // namespace KWin
+}
 
 #include "windowvieweffectkcm.moc"

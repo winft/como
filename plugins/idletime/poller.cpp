@@ -23,7 +23,7 @@ KWinIdleTimePoller::~KWinIdleTimePoller()
 
 void KWinIdleTimePoller::cleanup()
 {
-    if (auto idle_interface = KWin::input::singleton_interface::idle_qobject) {
+    if (auto idle_interface = como::input::singleton_interface::idle_qobject) {
         for (auto& listener : qAsConst(m_timeouts)) {
             idle_interface->unregister_listener(*listener);
         }
@@ -46,7 +46,7 @@ bool KWinIdleTimePoller::isAvailable()
 
 bool KWinIdleTimePoller::setUpPoller()
 {
-    auto idle_interface = KWin::input::singleton_interface::idle_qobject;
+    auto idle_interface = como::input::singleton_interface::idle_qobject;
     if (!idle_interface) {
         return false;
     }
@@ -62,7 +62,7 @@ void KWinIdleTimePoller::unloadPoller()
 
 void KWinIdleTimePoller::addTimeout(int nextTimeout)
 {
-    using namespace KWin;
+    using namespace como;
 
     nextTimeout = std::max(0, nextTimeout);
     if (m_timeouts.contains(nextTimeout)) {
@@ -90,7 +90,7 @@ void KWinIdleTimePoller::removeTimeout(int nextTimeout)
         return;
     }
 
-    if (auto idle_interface = KWin::input::singleton_interface::idle_qobject) {
+    if (auto idle_interface = como::input::singleton_interface::idle_qobject) {
         idle_interface->unregister_listener(*it.value());
     }
 
@@ -110,12 +110,12 @@ void KWinIdleTimePoller::catchIdleEvent()
         return;
     }
 
-    auto idle_interface = KWin::input::singleton_interface::idle_qobject;
+    auto idle_interface = como::input::singleton_interface::idle_qobject;
     if (!idle_interface) {
         return;
     }
 
-    m_catchResumeTimeout = new KWin::input::idle_listener({{}, {}, [this] {
+    m_catchResumeTimeout = new como::input::idle_listener({{}, {}, [this] {
                                                                stopCatchingIdleEvents();
                                                                Q_EMIT resumingFromIdle();
                                                            }});
@@ -125,7 +125,7 @@ void KWinIdleTimePoller::catchIdleEvent()
 
 void KWinIdleTimePoller::stopCatchingIdleEvents()
 {
-    if (auto idle_interface = KWin::input::singleton_interface::idle_qobject) {
+    if (auto idle_interface = como::input::singleton_interface::idle_qobject) {
         idle_interface->unregister_listener(*m_catchResumeTimeout);
     }
     delete m_catchResumeTimeout;
@@ -139,7 +139,7 @@ int KWinIdleTimePoller::forcePollRequest()
 
 void KWinIdleTimePoller::simulateUserActivity()
 {
-    if (auto idle_interface = KWin::input::singleton_interface::idle_qobject) {
+    if (auto idle_interface = como::input::singleton_interface::idle_qobject) {
         idle_interface->simulate_activity();
     }
 }

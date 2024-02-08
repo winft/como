@@ -40,7 +40,7 @@ namespace Wrapland::Server
 class Display;
 }
 
-namespace KWin::render
+namespace como::render
 {
 
 /// Implements all QObject-specific functioanlity of EffectsHandler.
@@ -57,7 +57,7 @@ public:
         : loader(std::make_unique<effect_loader>(scene.platform))
         , options{*scene.platform.options}
     {
-        qRegisterMetaType<QVector<KWin::EffectWindow*>>();
+        qRegisterMetaType<QVector<como::EffectWindow*>>();
 
         singleton_interface::effects = this;
         connect(loader.get(),
@@ -111,7 +111,7 @@ public:
     void stopMouseInterception(Effect* effect) override;
     bool isMouseInterception() const;
 
-    void setElevatedWindow(KWin::EffectWindow* w, bool set) override;
+    void setElevatedWindow(como::EffectWindow* w, bool set) override;
 
     void setActiveFullScreenEffect(Effect* e) override;
     Effect* activeFullScreenEffect() const override;
@@ -177,7 +177,7 @@ public:
     std::unique_ptr<effect_loader> loader;
 
 Q_SIGNALS:
-    void propertyNotify(KWin::EffectWindow* win, long atom);
+    void propertyNotify(como::EffectWindow* win, long atom);
     void xcbConnectionChanged();
 
 public Q_SLOTS:
@@ -498,7 +498,7 @@ public:
         get_space().input->cursor->show();
     }
 
-    void startInteractiveWindowSelection(std::function<void(KWin::EffectWindow*)> callback) override
+    void startInteractiveWindowSelection(std::function<void(como::EffectWindow*)> callback) override
     {
         get_space().input->start_interactive_window_selection([callback](auto win) {
             if (!win) {

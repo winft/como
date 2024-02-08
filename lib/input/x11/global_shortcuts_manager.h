@@ -14,7 +14,7 @@
 
 class QAction;
 
-namespace KWin::input
+namespace como::input
 {
 
 namespace x11

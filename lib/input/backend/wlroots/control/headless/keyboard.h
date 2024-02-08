@@ -8,7 +8,7 @@
 #include "input/control/keyboard.h"
 #include <como_export.h>
 
-namespace KWin::input::backend::wlroots::headless
+namespace como::input::backend::wlroots::headless
 {
 
 struct keyboard_control_data {

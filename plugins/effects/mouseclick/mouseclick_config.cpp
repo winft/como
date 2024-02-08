@@ -18,9 +18,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QAction>
 #include <QWidget>
 
-K_PLUGIN_CLASS(KWin::MouseClickEffectConfig)
+K_PLUGIN_CLASS(como::MouseClickEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 MouseClickEffectConfig::MouseClickEffectConfig(QObject* parent, const KPluginMetaData& data)

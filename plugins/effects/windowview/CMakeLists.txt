@@ -15,7 +15,11 @@ kconfig_add_kcfg_files(windowview_SOURCES
     windowviewconfig.kcfgc
 )
 
-qt_add_dbus_adaptor(windowview_SOURCES org.kde.KWin.Effect.WindowView1.xml windowvieweffect.h KWin::WindowViewEffect)
+qt_add_dbus_adaptor(windowview_SOURCES
+  org.kde.KWin.Effect.WindowView1.xml
+  windowvieweffect.h
+  como::WindowViewEffect
+)
 
 kwin_add_builtin_effect(windowview ${windowview_SOURCES})
 

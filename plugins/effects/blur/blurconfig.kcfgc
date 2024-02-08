@@ -4,6 +4,6 @@
 
 File=blur.kcfg
 ClassName=BlurConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

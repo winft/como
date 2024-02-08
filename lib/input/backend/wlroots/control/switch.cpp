@@ -7,7 +7,7 @@
 
 #include "control.h"
 
-namespace KWin::input::backend::wlroots
+namespace como::input::backend::wlroots
 {
 
 switch_control::switch_control(libinput_device* dev, KSharedConfigPtr input_config)

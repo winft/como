@@ -4,6 +4,6 @@
 
 File=slide.kcfg
 ClassName=SlideConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

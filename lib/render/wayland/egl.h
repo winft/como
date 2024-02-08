@@ -11,7 +11,7 @@
 
 #include <Wrapland/Server/display.h>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 template<typename EglBackend>

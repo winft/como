@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace Wrapland::Client;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("plasma surface", "[win]")
@@ -197,7 +197,7 @@ TEST_CASE("plasma surface", "[win]")
         QCOMPARE(panel->hasStrut(), false);
         QCOMPARE(win::space_window_area(*setup.base->mod.space, win::area_option::maximize, 0, 0),
                  QRect(0, 0, 1280, 1024));
-        QCOMPARE(win::get_layer(*panel), KWin::win::layer::above);
+        QCOMPARE(win::get_layer(*panel), win::layer::above);
 
         // create a Window
         std::unique_ptr<Surface> surface2(create_surface());
@@ -209,7 +209,7 @@ TEST_CASE("plasma surface", "[win]")
         QVERIFY(c);
         QCOMPARE(c->windowType(), win::win_type::normal);
         QVERIFY(c->control->active);
-        QCOMPARE(win::get_layer(*c), KWin::win::layer::normal);
+        QCOMPARE(win::get_layer(*c), win::layer::normal);
         win::move(c, test_data.window_geo.topLeft());
         QCOMPARE(c->geo.frame, test_data.window_geo);
 

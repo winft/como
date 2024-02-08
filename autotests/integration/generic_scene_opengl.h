@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "lib/setup.h"
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 inline std::unique_ptr<setup> generic_scene_opengl_get_setup(std::string const& test_name,

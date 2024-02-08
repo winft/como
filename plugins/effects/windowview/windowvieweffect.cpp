@@ -16,7 +16,7 @@
 #include <QTimer>
 #include <QtQml/qqml.h>
 
-namespace KWin
+namespace como
 {
 
 static const QString s_dbusServiceName = QStringLiteral("org.kde.KWin.Effect.WindowView1");
@@ -461,4 +461,4 @@ void WindowViewEffect::setSelectedIds(const QList<QUuid>& ids)
     }
 }
 
-} // namespace KWin
+}

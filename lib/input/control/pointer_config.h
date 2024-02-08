@@ -8,7 +8,7 @@
 #include "config.h"
 #include "pointer_types.h"
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 enum class pointer_config_key {

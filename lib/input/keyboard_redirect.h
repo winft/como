@@ -14,7 +14,7 @@
 
 #include <QObject>
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect, typename Keyboard>

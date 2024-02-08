@@ -7,7 +7,7 @@
 
 #include "utils/geo.h"
 
-namespace KWin
+namespace como
 {
 
 RuleItem::RuleItem(const QString &key,
@@ -205,4 +205,3 @@ QVariant RuleItem::typedValue(const QVariant &value) const
 }
 
 }   //namespace
-
