@@ -35,9 +35,9 @@
 namespace KWin::win
 {
 
-KWIN_EXPORT void lock_screen_saver_via_dbus();
+COMO_EXPORT void lock_screen_saver_via_dbus();
 
-class KWIN_EXPORT screen_edge_qobject : public QObject
+class COMO_EXPORT screen_edge_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:
@@ -925,7 +925,7 @@ private:
     std::unique_ptr<swipe_gesture> gesture;
 };
 
-class KWIN_EXPORT screen_edger_qobject : public QObject
+class COMO_EXPORT screen_edger_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

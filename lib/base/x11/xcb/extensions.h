@@ -7,7 +7,7 @@
 #pragma once
 
 #include "base/x11/data.h"
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QVector>
 #include <xcb/xcb.h>
@@ -29,7 +29,7 @@ public:
     QVector<QByteArray> errorCodes;
 };
 
-class KWIN_EXPORT extensions
+class COMO_EXPORT extensions
 {
 public:
     bool is_shape_available() const

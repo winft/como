@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <config-kwin.h>
+#include <config-como.h>
 
 #include "egl_helpers.h"
 #include "egl_output.h"

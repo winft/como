@@ -216,7 +216,7 @@ int main(int argc, char* argv[])
         flags |= base::wayland::start_options::no_global_shortcuts;
     }
 
-    qDebug("Starting KWinFT (Wayland) %s", KWIN_VERSION_STRING);
+    qDebug("Starting Wayland Compositor Modules %s for Plasma", COMO_VERSION_STRING);
 
     exit_process_t exit_process(*app.qapp);
 

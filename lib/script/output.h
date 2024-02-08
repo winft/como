@@ -5,14 +5,14 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
 namespace KWin::scripting
 {
 
-class KWIN_EXPORT output : public QObject
+class COMO_EXPORT output : public QObject
 {
     Q_OBJECT
 public:

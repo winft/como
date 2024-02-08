@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QVector>
 #include <xcb/xcb.h>
@@ -16,7 +16,7 @@ namespace KWin::base::x11
 
 class event_filter_manager;
 
-class KWIN_EXPORT event_filter
+class COMO_EXPORT event_filter
 {
 public:
     /**

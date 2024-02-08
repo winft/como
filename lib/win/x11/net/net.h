@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "win/types.h"
 
 #include <QFlags>
@@ -190,9 +190,9 @@ Q_DECLARE_FLAGS(Actions, Action)
  Compares two X timestamps, taking into account wrapping and 64bit architectures.
  Return value is like with strcmp(), 0 for equal, -1 for time1 < time2, 1 for time1 > time2.
 */
-KWIN_EXPORT int timestampCompare(unsigned long time1_, unsigned long time2_);
+COMO_EXPORT int timestampCompare(unsigned long time1_, unsigned long time2_);
 
-KWIN_EXPORT void reset_atoms();
+COMO_EXPORT void reset_atoms();
 
 }
 

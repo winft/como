@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "win/types.h"
 
 #include <QObject>
@@ -31,7 +31,7 @@ class options;
 namespace scripting
 {
 
-class KWIN_EXPORT options : public QObject
+class COMO_EXPORT options : public QObject
 {
     Q_OBJECT
 

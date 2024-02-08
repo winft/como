@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/types.h>
 
 #include <QIcon>
@@ -25,7 +25,7 @@ class GLShader;
  * another that doesn't.
  * It is recommended to use this class whenever displaying text.
  */
-class KWIN_EXPORT EffectFrame
+class COMO_EXPORT EffectFrame
 {
 public:
     EffectFrame();

@@ -122,7 +122,7 @@ int main(int argc, char* argv[])
 
     parser.process(*app.qapp);
 
-    qDebug("Starting KWinFT (X11) %s", KWIN_VERSION_STRING);
+    qDebug("Starting X11 Compositor Modules %s for Plasma", COMO_VERSION_STRING);
 
     KAboutData::applicationData().processCommandLine(&parser);
     crash_count = parser.value("crashes").toInt();

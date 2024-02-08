@@ -6,13 +6,13 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #pragma once
 
 #include "base/options.h"
+#include "como_export.h"
 #include "desktop/screen_locker_watcher.h"
 #include "input/event.h"
 #include "input/event_spy.h"
 #include "input/keyboard.h"
 #include "input/qt_event.h"
 #include "input/xkb/helpers.h"
-#include "kwin_export.h"
 
 #include <QDBusConnection>
 #include <QDBusMessage>
@@ -24,7 +24,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 namespace KWin::input
 {
 
-class KWIN_EXPORT modifier_only_shortcuts_spy_qobject : public QObject
+class COMO_EXPORT modifier_only_shortcuts_spy_qobject : public QObject
 {
 };
 

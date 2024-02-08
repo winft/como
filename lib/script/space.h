@@ -11,15 +11,15 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "base/output.h"
 #include "base/output_helpers.h"
+#include "como_export.h"
 #include "debug/support_info.h"
-#include "kwin_export.h"
 #include "win/activation.h"
 #include "win/active_window.h"
 #include "win/move.h"
 #include "win/output_space.h"
 #include "win/screen.h"
 #include <base/platform_qobject.h>
-#include <kwin_export.h>
+#include <como_export.h>
 #include <win/subspace.h>
 #include <win/subspace_manager.h>
 
@@ -36,7 +36,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 namespace KWin::scripting
 {
 
-class KWIN_EXPORT space : public QObject
+class COMO_EXPORT space : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QVector<KWin::win::subspace*> desktops READ desktops NOTIFY desktopsChanged)
@@ -458,7 +458,7 @@ private:
     Q_DISABLE_COPY(space)
 };
 
-class KWIN_EXPORT qt_script_space : public space
+class COMO_EXPORT qt_script_space : public space
 {
     Q_OBJECT
 
@@ -470,7 +470,7 @@ public:
     Q_INVOKABLE QList<KWin::scripting::window*> windowList() const;
 };
 
-class KWIN_EXPORT declarative_script_space : public space
+class COMO_EXPORT declarative_script_space : public space
 {
     Q_OBJECT
     Q_PROPERTY(QQmlListProperty<KWin::scripting::window> windows READ windows)

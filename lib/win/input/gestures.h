@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "win/types.h"
 
 #include <QMap>
@@ -18,7 +18,7 @@
 namespace KWin::win
 {
 static const qreal DEFAULT_MINIMUM_SCALE_DELTA = .2; // 20%
-class KWIN_EXPORT gesture : public QObject
+class COMO_EXPORT gesture : public QObject
 {
     Q_OBJECT
 public:
@@ -41,7 +41,7 @@ Q_SIGNALS:
     void cancelled();
 };
 
-class KWIN_EXPORT swipe_gesture : public gesture
+class COMO_EXPORT swipe_gesture : public gesture
 {
     Q_OBJECT
 public:
@@ -110,7 +110,7 @@ private:
     QSizeF m_minimumDelta;
 };
 
-class KWIN_EXPORT pinch_gesture : public gesture
+class COMO_EXPORT pinch_gesture : public gesture
 {
     Q_OBJECT
 public:
@@ -156,7 +156,7 @@ private:
     qreal m_minimumScaleDelta = DEFAULT_MINIMUM_SCALE_DELTA;
 };
 
-class KWIN_EXPORT gesture_recognizer : public QObject
+class COMO_EXPORT gesture_recognizer : public QObject
 {
     Q_OBJECT
 public:

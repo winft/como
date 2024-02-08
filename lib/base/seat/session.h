@@ -5,14 +5,14 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
 namespace KWin::base::seat
 {
 
-class KWIN_EXPORT session : public QObject
+class COMO_EXPORT session : public QObject
 {
     Q_OBJECT
 public:

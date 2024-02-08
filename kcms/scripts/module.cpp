@@ -20,7 +20,7 @@
 #include <KPackage/PackageLoader>
 #include <KSharedConfig>
 
-#include "config-kwin.h"
+#include "config-como.h"
 #include "kwinscriptsdata.h"
 
 Module::Module(QObject *parent, const KPluginMetaData &data)

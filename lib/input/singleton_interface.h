@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
@@ -17,7 +17,7 @@ class idle_qobject;
 class platform_qobject;
 
 /// Only for exceptional use in environments without dependency injection support (e.g. Qt plugins).
-struct KWIN_EXPORT singleton_interface {
+struct COMO_EXPORT singleton_interface {
     static input::cursor* cursor;
     static input::idle_qobject* idle_qobject;
     static input::platform_qobject* platform_qobject;

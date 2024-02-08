@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <win/subspace.h>
 
 #include <QObject>
@@ -14,7 +14,7 @@
 namespace KWin::win
 {
 
-class KWIN_EXPORT subspace_manager_qobject : public QObject
+class COMO_EXPORT subspace_manager_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

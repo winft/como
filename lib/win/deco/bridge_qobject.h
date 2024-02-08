@@ -5,14 +5,14 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
 namespace KWin::win::deco
 {
 
-class KWIN_EXPORT bridge_qobject : public QObject
+class COMO_EXPORT bridge_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

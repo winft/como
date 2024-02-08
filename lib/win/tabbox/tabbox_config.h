@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef TABBOXCONFIG_H
 #define TABBOXCONFIG_H
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QString>
 
@@ -35,7 +35,7 @@ class tabbox_config_private;
  * @author Martin Gräßlin <mgraesslin@kde.org>
  * @since 4.4
  */
-class KWIN_EXPORT tabbox_config
+class COMO_EXPORT tabbox_config
 {
 public:
     /**

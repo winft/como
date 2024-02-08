@@ -9,7 +9,7 @@
 #include "render/options.h"
 #include "scripting_logging.h"
 
-#include <config-kwin.h>
+#include <config-como.h>
 #include <render/effect/interface/animation_effect.h>
 
 #include <KPluginMetaData>
@@ -21,14 +21,14 @@ class KConfigLoader;
 
 namespace KWin
 {
-KWIN_EXPORT Q_NAMESPACE
+COMO_EXPORT Q_NAMESPACE
 
     class EffectsHandler;
 
 namespace scripting
 {
 
-class KWIN_EXPORT effect : public KWin::AnimationEffect
+class COMO_EXPORT effect : public KWin::AnimationEffect
 {
     Q_OBJECT
     Q_ENUMS(DataRole)

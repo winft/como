@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QImage>
 #include <QList>
@@ -20,7 +20,7 @@ class xcursor_sprite_private;
 class xcursor_theme_private;
 
 /// The xcursor_sprite class represents a single sprite in the Xcursor theme.
-class KWIN_EXPORT xcursor_sprite
+class COMO_EXPORT xcursor_sprite
 {
 public:
     xcursor_sprite();
@@ -43,7 +43,7 @@ private:
 };
 
 /// The xcursor_theme class represents an Xcursor theme.
-class KWIN_EXPORT xcursor_theme
+class COMO_EXPORT xcursor_theme
 {
 public:
     xcursor_theme();

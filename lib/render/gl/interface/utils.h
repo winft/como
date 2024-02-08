@@ -7,7 +7,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QByteArray>
 #include <QList>
@@ -20,19 +20,19 @@ namespace KWin
 //  well as checking for GL version and extensions
 //  Note that GL context has to be created by the time this function is called
 typedef void (*resolveFuncPtr)();
-void KWIN_EXPORT initGL(const std::function<resolveFuncPtr(const char*)>& resolveFunction);
+void COMO_EXPORT initGL(const std::function<resolveFuncPtr(const char*)>& resolveFunction);
 // Cleans up all resources hold by the GL Context
-void KWIN_EXPORT cleanupGL();
+void COMO_EXPORT cleanupGL();
 
-bool KWIN_EXPORT hasGLVersion(int major, int minor, int release = 0);
+bool COMO_EXPORT hasGLVersion(int major, int minor, int release = 0);
 // use for both OpenGL and GLX extensions
-bool KWIN_EXPORT hasGLExtension(const QByteArray& extension);
+bool COMO_EXPORT hasGLExtension(const QByteArray& extension);
 
-QString KWIN_EXPORT formatGLError(GLenum err);
+QString COMO_EXPORT formatGLError(GLenum err);
 
 // detect OpenGL error (add to various places in code to pinpoint the place)
-bool KWIN_EXPORT checkGLError(const char* txt);
+bool COMO_EXPORT checkGLError(const char* txt);
 
-QList<QByteArray> KWIN_EXPORT openGLExtensions();
+QList<QByteArray> COMO_EXPORT openGLExtensions();
 
 }

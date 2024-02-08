@@ -10,7 +10,7 @@
 #include "net.h"
 #include "rarray.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QSharedData>
 #include <QSharedDataPointer>
@@ -19,7 +19,7 @@
 namespace KWin::win::x11::net
 {
 
-class KWIN_EXPORT Atoms : public QSharedData
+class COMO_EXPORT Atoms : public QSharedData
 {
 public:
     explicit Atoms(xcb_connection_t* c);
@@ -35,7 +35,7 @@ private:
     xcb_connection_t* m_connection;
 };
 
-KWIN_EXPORT QSharedDataPointer<Atoms> atomsForConnection(xcb_connection_t* c);
+COMO_EXPORT QSharedDataPointer<Atoms> atomsForConnection(xcb_connection_t* c);
 
 template<typename T>
 T get_value_reply(xcb_connection_t* c,

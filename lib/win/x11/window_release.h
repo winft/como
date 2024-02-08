@@ -224,7 +224,7 @@ void release_window(Win* win, bool on_shutdown)
         return;
     }
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
     auto& tabbox = space.tabbox;
     if (tabbox->is_displayed() && tabbox->current_client()
         && tabbox->current_client() == var_win(win)) {
@@ -352,7 +352,7 @@ void destroy_window(Win* win)
         return;
     }
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
     auto& tabbox = win->space.tabbox;
     if (tabbox && tabbox->is_displayed() && tabbox->current_client() == var_win(win)) {
         tabbox->next_prev(true);

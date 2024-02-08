@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QObject>
 #include <QPoint>
 #include <Wrapland/Server/drag_pool.h>
-#include <kwin_export.h>
+#include <como_export.h>
 #include <memory>
 #include <xcb/xcb.h>
 
@@ -71,7 +71,7 @@ inline void send_client_message(xcb_connection_t* connection,
     xcb_flush(connection);
 }
 
-class KWIN_EXPORT drag_qobject : public QObject
+class COMO_EXPORT drag_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

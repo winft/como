@@ -8,14 +8,14 @@
 #include "control/switch.h"
 #include "event.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
 namespace KWin::input
 {
 
-class KWIN_EXPORT switch_device : public QObject
+class COMO_EXPORT switch_device : public QObject
 {
     Q_OBJECT
 public:

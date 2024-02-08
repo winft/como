@@ -17,7 +17,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "auroraetheme.h"
 #include "decorationoptions.h"
 
-#include <base/config-kwin.h>
+#include <base/config-como.h>
 #include <render/effect/interface/effects_handler.h>
 #include <render/effect/interface/offscreen_quick_view.h>
 

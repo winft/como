@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <render/effect/interface/effect_frame.h>
 #include <render/effect/interface/offscreen_quick_view.h>
@@ -98,7 +98,7 @@ private:
     qreal m_crossFadeProgress = 0.0;
 };
 
-class KWIN_EXPORT effect_frame_impl : public QObject, public EffectFrame
+class COMO_EXPORT effect_frame_impl : public QObject, public EffectFrame
 {
     Q_OBJECT
 public:

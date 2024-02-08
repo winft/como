@@ -8,7 +8,7 @@
 #pragma once
 
 #include "win/types.h"
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QHash>
 #include <QJSEngine>
@@ -38,7 +38,7 @@ class options;
 class platform_wrap;
 class window;
 
-class KWIN_EXPORT abstract_script : public QObject
+class COMO_EXPORT abstract_script : public QObject
 {
     Q_OBJECT
 public:
@@ -93,7 +93,7 @@ private:
 };
 
 // TODO(romangg): Give it a more specific name.
-class KWIN_EXPORT script : public abstract_script, QDBusContext
+class COMO_EXPORT script : public abstract_script, QDBusContext
 {
     Q_OBJECT
 public:

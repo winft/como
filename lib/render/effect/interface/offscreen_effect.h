@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/effect.h>
 
 namespace KWin
@@ -28,7 +28,7 @@ class OffscreenEffectPrivate;
  * If a window is redirected into offscreen texture, the apply() function will be
  * called to transform the offscreen texture.
  */
-class KWIN_EXPORT OffscreenEffect : public Effect
+class COMO_EXPORT OffscreenEffect : public Effect
 {
     Q_OBJECT
 public:

@@ -150,7 +150,7 @@ target_sources(win
     subspace_grid.cpp
 )
 
-if (KWIN_BUILD_TABBOX)
+if (COMO_BUILD_TABBOX)
   target_sources(win
     PUBLIC
       FILE_SET HEADERS
@@ -194,9 +194,9 @@ kconfig_add_kcfg_files(win rules/kconfig/rules_book_settings_base.kcfgc)
 ki18n_wrap_ui(win shortcut_dialog.ui)
 
 # Target killer helper
-add_executable(kwin_killer_helper x11/helpers/killer.cpp)
+add_executable(como_killer_helper x11/helpers/killer.cpp)
 
-target_link_libraries(kwin_killer_helper
+target_link_libraries(como_killer_helper
   KF6::AuthCore
   KF6::I18n
   KF6::WidgetsAddons
@@ -359,7 +359,7 @@ target_sources(win-wl
 set_target_properties(win win-x11 win-x11-backend win-wl PROPERTIES
    VERSION ${CMAKE_PROJECT_VERSION}
    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-   PREFIX libkwinft-
+   PREFIX libcomo-
 )
 
 install(
@@ -368,13 +368,13 @@ install(
 )
 install(
   DIRECTORY qml/onscreennotification/plasma
-  DESTINATION ${KDE_INSTALL_DATADIR}/${KWIN_NAME}/onscreennotification
+  DESTINATION ${KDE_INSTALL_DATADIR}/como/onscreennotification
 )
 
 install(TARGETS win win-x11 win-x11-backend win-wl
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft/win
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/win
 )
 
-install(TARGETS kwin_killer_helper DESTINATION ${KDE_INSTALL_LIBEXECDIR})
+install(TARGETS como_killer_helper DESTINATION ${KDE_INSTALL_LIBEXECDIR})

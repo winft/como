@@ -47,7 +47,7 @@ void book::load()
     deleteAll();
 
     if (!config) {
-        config = KSharedConfig::openConfig(QStringLiteral(KWIN_NAME "rulesrc"), KConfig::NoGlobals);
+        config = KSharedConfig::openConfig(QStringLiteral("kwinrulesrc"), KConfig::NoGlobals);
     } else {
         config->reparseConfiguration();
     }

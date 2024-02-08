@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "render/types.h"
 
 #include <QDBusContext>
@@ -33,7 +33,7 @@ struct color_correct_dbus_integration {
     night_color_data const& data;
 };
 
-class KWIN_EXPORT color_correct_dbus_interface : public QObject, public QDBusContext
+class COMO_EXPORT color_correct_dbus_interface : public QObject, public QDBusContext
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kwin.ColorCorrect")

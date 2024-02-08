@@ -6,7 +6,7 @@
 #pragma once
 
 #include "base/utils.h"
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <memory>
@@ -25,7 +25,7 @@ namespace KWin::base::backend::wlroots
 
 class non_desktop_output_wrap;
 
-class KWIN_EXPORT drm_lease : public QObject
+class COMO_EXPORT drm_lease : public QObject
 {
     Q_OBJECT
 public:

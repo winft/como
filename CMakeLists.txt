@@ -4,7 +4,7 @@
 
 cmake_minimum_required(VERSION 3.23 FATAL_ERROR)
 
-project(KWinFT VERSION 5.27.80)
+project("The Compositor Modules" VERSION 5.27.80)
 
 set(QT_MIN_VERSION "6.4.0")
 set(KF6_MIN_VERSION "5.240.0")
@@ -126,7 +126,7 @@ find_package(KDecoration2 ${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION
 find_package(KScreenLocker CONFIG REQUIRED)
 set_package_properties(KScreenLocker PROPERTIES
     TYPE REQUIRED
-    PURPOSE "For screenlocker integration in kwin_wayland"
+    PURPOSE "For screenlocker integration in the Wayland session"
 )
 
 find_package(Breeze 5.9.0 CONFIG)
@@ -148,7 +148,7 @@ add_feature_info("Breeze-Decoration" HAVE_BREEZE_DECO "Default decoration plugin
 find_package(EGL)
 set_package_properties(EGL PROPERTIES
     TYPE RUNTIME
-    PURPOSE "Required to build KWin with EGL support"
+    PURPOSE "Required to build with EGL support"
 )
 
 find_package(epoxy 1.3)
@@ -170,13 +170,13 @@ endif()
 find_package(Wayland 1.2 REQUIRED COMPONENTS Cursor Server OPTIONAL_COMPONENTS Egl)
 set_package_properties(Wayland PROPERTIES
     TYPE REQUIRED
-    PURPOSE "Required for building KWin with Wayland support"
+    PURPOSE "Required for building with Wayland support"
 )
 
 find_package(XKB 0.7.0)
 set_package_properties(XKB PROPERTIES
     TYPE REQUIRED
-    PURPOSE "Required for building KWin with Wayland support"
+    PURPOSE "Required for building with Wayland support"
 )
 
 # TODO(romangg): Only required for X11 session.
@@ -186,7 +186,7 @@ add_feature_info(XKBX11 XKBX11_FOUND "Required for handling keyboard events in X
 find_package(Threads)
 set_package_properties(Threads PROPERTIES
     TYPE REQUIRED
-    PURPOSE "Required for building KWin with Wayland support"
+    PURPOSE "Required for building with Wayland support"
 )
 
 find_package(Libinput 1.9)
@@ -241,12 +241,12 @@ set_package_properties(Freetype PROPERTIES
     DESCRIPTION "A font rendering engine"
     URL "https://www.freetype.org"
     TYPE REQUIRED
-    PURPOSE "Needed for KWin's QPA plugin."
+    PURPOSE "Needed for own QPA plugin."
 )
 find_package(Fontconfig REQUIRED)
 set_package_properties(Fontconfig PROPERTIES
     TYPE REQUIRED
-    PURPOSE "Needed for KWin's QPA plugin."
+    PURPOSE "Needed for own QPA plugin."
 )
 
 find_package(Wrapland REQUIRED)
@@ -260,13 +260,13 @@ set_package_properties(Xwayland PROPERTIES
     URL "https://x.org"
     DESCRIPTION "Xwayland X server"
     TYPE RUNTIME
-    PURPOSE "Needed for running kwin_wayland"
+    PURPOSE "Needed for running Wayland"
 )
 
 find_package(Libcap)
 set_package_properties(Libcap PROPERTIES
     TYPE OPTIONAL
-    PURPOSE "Needed for running kwin_wayland with real-time scheduling policy"
+    PURPOSE "Needed for running Wayland session with real-time scheduling policy"
 )
 set(HAVE_LIBCAP ${Libcap_FOUND})
 
@@ -290,16 +290,13 @@ ecm_find_qmlmodule(org.kde.plasma.core 2.0)
 ecm_find_qmlmodule(org.kde.plasma.components 2.0)
 
 ########### configure tests ###############
-option(KWIN_BUILD_DECORATIONS "Enable building of KWin decorations." ON)
-option(KWIN_BUILD_KCMS "Enable building of KWin configuration modules." ON)
-option(KWIN_BUILD_TABBOX "Enable building of KWin Tabbox functionality" ON)
-option(KWIN_BUILD_PERF "Build internal tools for performance analysis at runtime." ON)
+option(COMO_BUILD_DECORATIONS "Enable building of decorations." ON)
+option(COMO_BUILD_KCMS "Enable building of configuration modules." ON)
+option(COMO_BUILD_TABBOX "Enable building of Tabbox functionality" ON)
+option(COMO_BUILD_PERF "Build internal tools for performance analysis at runtime." ON)
 
-# Binary name of KWin
-set(KWIN_NAME "kwin")
-set(KWIN_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
-
-set(HAVE_PERF ${KWIN_BUILD_PERF})
+set(COMO_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
+set(HAVE_PERF ${COMO_BUILD_PERF})
 
 include_directories(${XKB_INCLUDE_DIR})
 
@@ -312,7 +309,7 @@ include(CheckSymbolExists)
 check_symbol_exists(SCHED_RESET_ON_FORK "sched.h" HAVE_SCHED_RESET_ON_FORK)
 add_feature_info("SCHED_RESET_ON_FORK"
                  HAVE_SCHED_RESET_ON_FORK
-                 "Required for running kwin_wayland with real-time scheduling")
+                 "Required for running Wayland session with real-time scheduling")
 
 ########### global ###############
 include_directories(BEFORE
@@ -327,7 +324,7 @@ add_subdirectory(kconf_update)
 add_subdirectory(lib)
 add_subdirectory(plugins)
 
-if (KWIN_BUILD_KCMS)
+if (COMO_BUILD_KCMS)
     add_subdirectory(kcms)
 endif()
 

@@ -114,8 +114,8 @@ target_compile_definitions(tests PRIVATE USE_XWL=1)
 target_link_libraries(tests
 PRIVATE
   desktop-kde
-  kwinft::wayland
-  kwinft::xwayland
+  como::wayland
+  como::xwayland
   script
   Qt::Test
   Catch2::Catch2WithMain
@@ -123,9 +123,9 @@ PRIVATE
   KF6::WindowSystem
   WraplandClient
   # Static plugins
-  KWinQpaPlugin
-  KF6WindowSystemKWinPlugin
-  KF6IdleTimeKWinPlugin
+  ComoQpaPlugin
+  KF6WindowSystemComoPlugin
+  KF6IdleTimeComoPlugin
 )
 
 add_executable(tests-wl
@@ -196,7 +196,7 @@ target_compile_definitions(tests-wl PRIVATE USE_XWL=0)
 target_link_libraries(tests-wl
 PRIVATE
   desktop-kde
-  kwinft::wayland
+  como::wayland
   script
   Qt::Test
   Catch2::Catch2WithMain
@@ -204,9 +204,9 @@ PRIVATE
   KF6::WindowSystem
   WraplandClient
   # Static plugins
-  KWinQpaPlugin
-  KF6WindowSystemKWinPlugin
-  KF6IdleTimeKWinPlugin
+  ComoQpaPlugin
+  KF6WindowSystemComoPlugin
+  KF6IdleTimeComoPlugin
 )
 
 include(Catch)

@@ -5,10 +5,10 @@
 add_executable(minico main.cpp)
 
 target_link_libraries(minico
-  kwinft::wayland
-  KF6IdleTimeKWinPlugin
-  KF6WindowSystemKWinPlugin
-  KWinQpaPlugin
+  como::wayland
+  KF6IdleTimeComoPlugin
+  KF6WindowSystemComoPlugin
+  ComoQpaPlugin
 )
 
 install(TARGETS minico)

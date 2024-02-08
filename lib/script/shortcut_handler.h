@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QKeySequence>
 #include <QObject>
@@ -30,7 +30,7 @@ namespace KWin::scripting
  * }
  * @endcode
  */
-class KWIN_EXPORT shortcut_handler : public QObject, public QQmlParserStatus
+class COMO_EXPORT shortcut_handler : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
     Q_INTERFACES(QQmlParserStatus)

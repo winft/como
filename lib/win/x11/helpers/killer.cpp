@@ -20,11 +20,11 @@ SPDX-License-Identifier: MIT
 
 int main(int argc, char* argv[])
 {
-    KLocalizedString::setApplicationDomain("kwin");
+    KLocalizedString::setApplicationDomain("como");
     qputenv("QT_QPA_PLATFORM", QByteArrayLiteral("xcb"));
     QApplication app(argc, argv);
     QApplication::setWindowIcon(QIcon::fromTheme(QStringLiteral("dialog-warning")));
-    QCoreApplication::setApplicationName(QStringLiteral("kwin_killer_helper"));
+    QCoreApplication::setApplicationName(QStringLiteral("como_killer_helper"));
     QCoreApplication::setOrganizationDomain(QStringLiteral("kde.org"));
     QApplication::setApplicationDisplayName(i18n("Window Manager"));
     QCoreApplication::setApplicationVersion(QStringLiteral("1.0"));
@@ -45,7 +45,7 @@ int main(int argc, char* argv[])
     QCommandLineOption timestampOption(
         QStringLiteral("timestamp"), i18n("Time of user action causing termination"), i18n("time"));
     QCommandLineParser parser;
-    parser.setApplicationDescription(i18n("KWin helper utility"));
+    parser.setApplicationDescription(i18n("The Compositor Modules helper utility"));
     parser.addHelpOption();
     parser.addVersionOption();
 

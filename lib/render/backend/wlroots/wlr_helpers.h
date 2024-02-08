@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "config-kwin.h"
+#include "config-como.h"
 
 #include "base/wayland/output_transform.h"
 #include "wlr_includes.h"

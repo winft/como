@@ -8,7 +8,7 @@
 #include "control/pointer.h"
 
 #include "base/utils.h"
-#include "config-kwin.h"
+#include "config-como.h"
 #include "input/pointer.h"
 #include <input/backend/wlroots/device_helpers.h>
 

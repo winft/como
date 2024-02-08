@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/types.h>
 
 #include <KSharedConfig>
@@ -92,7 +92,7 @@ class WindowQuadList;
  *
  * There is in general no need to call the matching doneCurrent method.
  */
-class KWIN_EXPORT Effect : public QObject
+class COMO_EXPORT Effect : public QObject
 {
     Q_OBJECT
 public:

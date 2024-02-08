@@ -11,6 +11,7 @@
 #include "input/event_spy.h"
 #include "input/keyboard.h"
 #include "input/xkb/keyboard.h"
+#include <como_export.h>
 
 #include <Wrapland/Server/keyboard_pool.h>
 #include <Wrapland/Server/seat.h>
@@ -22,7 +23,7 @@
 namespace KWin::input
 {
 
-class KWIN_EXPORT keyboard_repeat_spy_qobject : public QObject
+class COMO_EXPORT keyboard_repeat_spy_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

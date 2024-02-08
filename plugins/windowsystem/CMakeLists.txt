@@ -8,9 +8,9 @@ set(kwindowsystem_plugin_SRCS
     windowsystem.cpp
 )
 
-add_library(KF6WindowSystemKWinPlugin OBJECT ${kwindowsystem_plugin_SRCS})
-target_compile_definitions(KF6WindowSystemKWinPlugin PRIVATE QT_STATICPLUGIN)
-target_link_libraries(KF6WindowSystemKWinPlugin
+add_library(KF6WindowSystemComoPlugin OBJECT ${kwindowsystem_plugin_SRCS})
+target_compile_definitions(KF6WindowSystemComoPlugin PRIVATE QT_STATICPLUGIN)
+target_link_libraries(KF6WindowSystemComoPlugin
 PRIVATE
   render
   win

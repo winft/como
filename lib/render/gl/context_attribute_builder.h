@@ -5,14 +5,14 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QDebug>
 
 namespace KWin::render::gl
 {
 
-class KWIN_EXPORT context_attribute_builder
+class COMO_EXPORT context_attribute_builder
 {
 public:
     virtual ~context_attribute_builder()

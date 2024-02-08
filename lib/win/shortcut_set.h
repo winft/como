@@ -9,7 +9,7 @@
 #include "meta.h"
 #include "shortcut_dialog.h"
 
-#include "config-kwin.h"
+#include "config-como.h"
 
 #include <QRegularExpression>
 
@@ -204,7 +204,7 @@ void window_shortcut_updated(Space& space, Win* window)
             // new shortcut
             action = new QAction(space.qobject.get());
             space.base.mod.input->setup_action_for_global_accel(action);
-            action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+            action->setProperty("componentName", QStringLiteral("kwin"));
             action->setObjectName(key);
             action->setText(i18n("Activate Window (%1)", win::caption(window)));
             QObject::connect(action, &QAction::triggered, window->qobject.get(), [&space, window] {

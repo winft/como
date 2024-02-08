@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "virtual_desktop_types.h"
 #include <win/subspace_manager.h>
 #include <win/subspaces_get.h>
@@ -26,7 +26,7 @@ namespace dbus
 
 // TODO: disable all of this in case of kiosk?
 
-class KWIN_EXPORT subspace_manager_wrap : public QObject
+class COMO_EXPORT subspace_manager_wrap : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KWin.VirtualDesktopManager")

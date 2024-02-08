@@ -13,8 +13,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "tabbox_handler_impl.h"
 #include "tabbox_logging.h"
 
-#include <config-kwin.h>
-#include <kwin_export.h>
+#include <como_export.h>
+#include <config-como.h>
 #include <win/activation.h>
 
 #include <KLazyLocalizedString>
@@ -33,7 +33,7 @@ class QWheelEvent;
 namespace KWin::win
 {
 
-class KWIN_EXPORT tabbox_qobject : public QObject
+class COMO_EXPORT tabbox_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:
@@ -909,7 +909,7 @@ private:
              const QKeySequence& shortcut = QKeySequence())
     {
         auto a = new QAction(qobject.get());
-        a->setProperty("componentName", QStringLiteral(KWIN_NAME));
+        a->setProperty("componentName", QStringLiteral("kwin"));
         a->setObjectName(QString::fromUtf8(action_name.untranslatedText()));
         a->setText(action_name.toString());
 

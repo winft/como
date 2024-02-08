@@ -10,7 +10,7 @@
 
 #include "render/qpainter/backend.h"
 #include "render/qpainter/scene.h"
-#include <config-kwin.h>
+#include <config-como.h>
 
 namespace KWin::render::backend::wlroots
 {

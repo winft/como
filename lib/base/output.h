@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "utils/gamma_ramp.h"
 
 #include <QObject>
@@ -23,7 +23,7 @@ enum class dpms_mode {
     off,
 };
 
-class KWIN_EXPORT output_qobject : public QObject
+class COMO_EXPORT output_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QObject>
 #include <QString>
@@ -13,7 +13,7 @@
 namespace KWin::win
 {
 
-class KWIN_EXPORT subspace : public QObject
+class COMO_EXPORT subspace : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString id READ id CONSTANT)

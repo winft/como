@@ -4,13 +4,12 @@
     SPDX-License-Identifier: GPL-2.0-or-later
 */
 
-#cmakedefine01 KWIN_BUILD_DECORATIONS
-#cmakedefine01 KWIN_BUILD_TABBOX
-#define KWIN_NAME "${KWIN_NAME}"
-#define KWIN_CONFIG "${KWIN_NAME}rc"
-#define KWIN_VERSION_STRING "${CMAKE_PROJECT_VERSION}"
+#cmakedefine01 COMO_BUILD_DECORATIONS
+#cmakedefine01 COMO_BUILD_TABBOX
+#define KWIN_CONFIG "kwinrc"
+#define COMO_VERSION_STRING "${CMAKE_PROJECT_VERSION}"
 #define XCB_VERSION_STRING "${XCB_VERSION}"
-#define KWIN_KILLER_BIN "${CMAKE_INSTALL_FULL_LIBEXECDIR}/kwin_killer_helper"
+#define COMO_KILLER_BIN "${CMAKE_INSTALL_FULL_LIBEXECDIR}/como_killer_helper"
 #cmakedefine01 HAVE_PERF
 #cmakedefine01 HAVE_BREEZE_DECO
 #cmakedefine01 HAVE_SCHED_RESET_ON_FORK

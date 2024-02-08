@@ -6,6 +6,7 @@
 #pragma once
 
 #include "input/control/touch.h"
+#include <como_export.h>
 
 #include <KSharedConfig>
 #include <QMatrix4x4>
@@ -15,7 +16,7 @@
 namespace KWin::input::backend::wlroots
 {
 
-class KWIN_EXPORT touch_control : public input::control::touch
+class COMO_EXPORT touch_control : public input::control::touch
 {
     Q_OBJECT
 

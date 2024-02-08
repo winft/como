@@ -8,7 +8,7 @@
 
 #include "base/options.h"
 #include "base/output_helpers.h"
-#include "kwin_export.h"
+#include "como_export.h"
 #include "ruling.h"
 #include "win/types.h"
 
@@ -33,7 +33,7 @@ namespace win::rules
 
 class ruling;
 
-class KWIN_EXPORT window
+class COMO_EXPORT window
 {
 public:
     explicit window(std::vector<ruling*> const& rules);

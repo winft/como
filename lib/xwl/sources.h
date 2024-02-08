@@ -24,7 +24,7 @@ namespace KWin::xwl
  * QObject attribute of a wl_source.
  * This is a hack around having a template QObject.
  */
-class KWIN_EXPORT q_wl_source : public QObject
+class COMO_EXPORT q_wl_source : public QObject
 {
     Q_OBJECT
 
@@ -79,7 +79,7 @@ private:
  * QObject attribute of a x11_source.
  * This is a hack around having a template QObject.
  */
-class KWIN_EXPORT q_x11_source : public QObject
+class COMO_EXPORT q_x11_source : public QObject
 {
     Q_OBJECT
 

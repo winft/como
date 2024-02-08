@@ -6,14 +6,14 @@
 #pragma once
 
 #include "base/x11/selection_owner.h"
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
 namespace KWin::render::x11
 {
 
-class KWIN_EXPORT compositor_selection_owner : public base::x11::selection_owner
+class COMO_EXPORT compositor_selection_owner : public base::x11::selection_owner
 {
     Q_OBJECT
 public:

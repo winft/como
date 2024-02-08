@@ -7,7 +7,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/window_quad.h>
 
 #include <QRegion>
@@ -60,7 +60,7 @@ struct GLVertexAttrib {
  * @author Martin Gräßlin <mgraesslin@kde.org>
  * @since 4.6
  */
-class KWIN_EXPORT GLVertexBuffer
+class COMO_EXPORT GLVertexBuffer
 {
 public:
     /**

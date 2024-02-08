@@ -77,7 +77,7 @@ TEST_CASE("global shortcuts", "[input]")
         QKeySequence const seq(mod_test_data.qt | key_test_data.qt);
 
         auto action = std::make_unique<QAction>();
-        action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+        action->setProperty("componentName", "kwin");
         action->setObjectName("globalshortcuts-test-non-latin-layout");
 
         QSignalSpy triggeredSpy(action.get(), &QAction::triggered);
@@ -103,7 +103,7 @@ TEST_CASE("global shortcuts", "[input]")
     {
         // Verifies that a shortcut with a consumed shift modifier triggers create the action.
         auto action = std::make_unique<QAction>();
-        action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+        action->setProperty("componentName", "kwin");
         action->setObjectName(QStringLiteral("globalshortcuts-test-consumed-shift"));
 
         QSignalSpy triggeredSpy(action.get(), &QAction::triggered);
@@ -134,7 +134,7 @@ TEST_CASE("global shortcuts", "[input]")
         // another key should stop triggering the shortcut.
 
         auto action = std::make_unique<QAction>();
-        action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+        action->setProperty("componentName", "kwin");
         action->setObjectName(QStringLiteral("globalshortcuts-test-consumed-shift"));
 
         QSignalSpy triggeredSpy(action.get(), &QAction::triggered);
@@ -204,7 +204,7 @@ TEST_CASE("global shortcuts", "[input]")
     {
         // BUG 370341
         auto action = std::make_unique<QAction>();
-        action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+        action->setProperty("componentName", QStringLiteral("kwin"));
         action->setObjectName(QStringLiteral("globalshortcuts-test-meta-shift-w"));
         QSignalSpy triggeredSpy(action.get(), &QAction::triggered);
         QVERIFY(triggeredSpy.isValid());
@@ -234,7 +234,7 @@ TEST_CASE("global shortcuts", "[input]")
     {
         // BUG 390110
         auto action = std::make_unique<QAction>();
-        action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+        action->setProperty("componentName", QStringLiteral("kwin"));
         action->setObjectName(QStringLiteral("globalshortcuts-accent"));
 
         QSignalSpy triggeredSpy(action.get(), &QAction::triggered);

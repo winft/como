@@ -8,7 +8,7 @@
 #include "kcm.h"
 #include "decorationmodel.h"
 #include "declarative-plugin/buttonsmodel.h"
-#include <config-kwin.h>
+#include <config-como.h>
 
 #include <KConfigGroup>
 #include <KLocalizedString>

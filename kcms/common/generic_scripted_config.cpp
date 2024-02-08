@@ -5,7 +5,7 @@
 */
 #include "generic_scripted_config.h"
 
-#include <base/config-kwin.h>
+#include <base/config-como.h>
 #include <kwineffects_interface.h>
 
 #include <KLocalizedString>
@@ -65,7 +65,7 @@ void generic_scripted_config::createUi()
 
     const QString packageRoot = QStandardPaths::locate(
         QStandardPaths::GenericDataLocation,
-        QLatin1String(KWIN_NAME) + QLatin1Char('/') + typeName() + QLatin1Char('/') + m_packageName,
+        "kwin" + QLatin1Char('/') + typeName() + QLatin1Char('/') + m_packageName,
         QStandardPaths::LocateDirectory);
     if (packageRoot.isEmpty()) {
         layout->addWidget(new QLabel(i18nc("Error message", "Could not locate package metadata")));

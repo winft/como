@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "outline.h"
 
 #include "base/logging.h"
-#include "config-kwin.h"
+#include "config-como.h"
 
 #include <KConfigGroup>
 #include <QQmlComponent>
@@ -145,7 +145,7 @@ void composited_outline_visual::show()
         const QString fileName = QStandardPaths::locate(
             QStandardPaths::GenericDataLocation,
             config.main->group(QStringLiteral("Outline"))
-                .readEntry("QmlPath", QStringLiteral(KWIN_NAME "/outline/plasma/outline.qml")));
+                .readEntry("QmlPath", QStringLiteral("como/outline/plasma/outline.qml")));
         if (fileName.isEmpty()) {
             qCDebug(KWIN_CORE) << "Could not locate outline.qml";
             return;

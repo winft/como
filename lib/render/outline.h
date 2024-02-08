@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "types.h"
 
 #include "base/config.h"
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <QRect>
@@ -36,7 +36,7 @@ using outline_visual_factory = std::function<std::unique_ptr<outline_visual>()>;
  * @author Arthur Arlt
  * @since 4.7
  */
-class KWIN_EXPORT outline : public QObject
+class COMO_EXPORT outline : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QRect geometry READ geometry NOTIFY geometryChanged)
@@ -145,7 +145,7 @@ private:
     outline_visual_factory visual_factory;
 };
 
-class KWIN_EXPORT outline_visual
+class COMO_EXPORT outline_visual
 {
 public:
     outline_visual(render::outline* outline);
@@ -161,7 +161,7 @@ private:
     render::outline* m_outline;
 };
 
-class KWIN_EXPORT composited_outline_visual : public outline_visual
+class COMO_EXPORT composited_outline_visual : public outline_visual
 {
 public:
     composited_outline_visual(render::outline* outline, QQmlEngine& engine, base::config& config);

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "config-kwin.h"
+#include "config-como.h"
 
 #include <KLocalizedString>
 #include <QAction>
@@ -17,7 +17,7 @@ template<typename Input, typename NightColor>
 void init_night_color_shortcuts(Input& input, NightColor& manager)
 {
     auto toggleAction = new QAction(manager.qobject.get());
-    toggleAction->setProperty("componentName", QStringLiteral(KWIN_NAME));
+    toggleAction->setProperty("componentName", "kwin");
     toggleAction->setObjectName(QStringLiteral("Toggle Night Color"));
     toggleAction->setText(i18n("Toggle Night Light"));
 

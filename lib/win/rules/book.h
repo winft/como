@@ -16,14 +16,14 @@ namespace KWin::win::rules
 
 class ruling;
 
-class KWIN_EXPORT book_qobject : public QObject
+class COMO_EXPORT book_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:
     void updates_enabled();
 };
 
-class KWIN_EXPORT book
+class COMO_EXPORT book
 {
 public:
     book();

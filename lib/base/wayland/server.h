@@ -10,7 +10,7 @@
 #include "output_helpers.h"
 
 #include "base/logging.h"
-#include "kwin_export.h"
+#include "como_export.h"
 #include <base/wayland/platform_helpers.h>
 
 #include <KScreenLocker/KsldApp>
@@ -40,7 +40,7 @@
 namespace KWin::base::wayland
 {
 
-class KWIN_EXPORT server_qobject : public QObject
+class COMO_EXPORT server_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

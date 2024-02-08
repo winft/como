@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/effect_integration.h>
 #include <render/effect/interface/paint_data.h>
 #include <render/effect/interface/types.h>
@@ -43,7 +43,7 @@ class WindowQuadList;
  *  desktop or create a special input window to receive mouse and keyboard
  *  events.
  */
-class KWIN_EXPORT EffectsHandler : public QObject
+class COMO_EXPORT EffectsHandler : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(KWin::win::subspace* currentDesktop READ currentDesktop WRITE setCurrentDesktop
@@ -975,6 +975,6 @@ protected:
 /**
  * Pointer to the global EffectsHandler object.
  */
-extern KWIN_EXPORT EffectsHandler* effects;
+extern COMO_EXPORT EffectsHandler* effects;
 
 }

@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "model_helpers.h"
 #include "ui_debug_console.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <render/gl/interface/platform.h>
 #include <render/gl/interface/utils.h>
@@ -30,7 +30,7 @@ class property_window;
 namespace debug
 {
 
-class KWIN_EXPORT console_model : public QAbstractItemModel
+class COMO_EXPORT console_model : public QAbstractItemModel
 {
     Q_OBJECT
 public:
@@ -75,7 +75,7 @@ public:
     std::vector<std::unique_ptr<win::property_window>> m_unmanageds;
 };
 
-class KWIN_EXPORT console_delegate : public QStyledItemDelegate
+class COMO_EXPORT console_delegate : public QStyledItemDelegate
 {
     Q_OBJECT
 public:
@@ -95,7 +95,7 @@ public:
         , space{space}
     {
         setAttribute(Qt::WA_ShowWithoutActivating);
-        this->setWindowTitle("kwin_debugconsole");
+        this->setWindowTitle("como_debugconsole");
 
         m_ui->setupUi(this);
 

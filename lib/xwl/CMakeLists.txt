@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
 add_library(xwayland SHARED)
-add_library(kwinft::xwayland ALIAS xwayland)
+add_library(como::xwayland ALIAS xwayland)
 
 target_link_libraries(xwayland
   PUBLIC
@@ -51,11 +51,11 @@ target_sources(xwayland
 set_target_properties(xwayland PROPERTIES
   VERSION ${CMAKE_PROJECT_VERSION}
   SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-  PREFIX libkwinft-
+  PREFIX libcomo-
 )
 
 install(TARGETS xwayland
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft/xwl
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/xwl
 )

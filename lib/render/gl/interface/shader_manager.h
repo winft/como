@@ -7,7 +7,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/gl/interface/utils_funcs.h>
 
 #include <QByteArray>
@@ -42,7 +42,7 @@ Q_DECLARE_FLAGS(ShaderTraits, ShaderTrait)
  * @author Martin Gräßlin <mgraesslin@kde.org>
  * @since 4.7
  */
-class KWIN_EXPORT ShaderManager
+class COMO_EXPORT ShaderManager
 {
 public:
     /**
@@ -183,7 +183,7 @@ private:
  *
  * @since 4.10
  */
-class KWIN_EXPORT ShaderBinder
+class COMO_EXPORT ShaderBinder
 {
 public:
     /**

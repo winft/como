@@ -7,7 +7,7 @@
 
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include "input/platform_qobject.h"
 #include "input/redirect_qobject.h"
@@ -60,7 +60,7 @@ private:
     Manager& manager;
 };
 
-class KWIN_EXPORT tablet_mode_manager_qobject : public QObject
+class COMO_EXPORT tablet_mode_manager_qobject : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KWin.TabletModeManager")

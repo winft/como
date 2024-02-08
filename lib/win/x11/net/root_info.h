@@ -8,7 +8,7 @@
 #include "geo.h"
 #include "net.h"
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QSize>
 #include <xcb/xcb.h>
@@ -18,7 +18,7 @@ namespace KWin::win::x11::net
 
 struct root_info_private;
 
-class KWIN_EXPORT root_info
+class COMO_EXPORT root_info
 {
 public:
     /**

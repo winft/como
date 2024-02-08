@@ -6,6 +6,7 @@
 #pragma once
 
 #include "input/control/switch.h"
+#include <como_export.h>
 
 #include <KSharedConfig>
 #include <libinput.h>
@@ -13,7 +14,7 @@
 namespace KWin::input::backend::wlroots
 {
 
-class KWIN_EXPORT switch_control : public input::control::switch_device
+class COMO_EXPORT switch_control : public input::control::switch_device
 {
     Q_OBJECT
 public:

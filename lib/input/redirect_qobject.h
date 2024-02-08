@@ -7,7 +7,7 @@
 
 #include "event.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <QPointF>
@@ -15,7 +15,7 @@
 namespace KWin::input
 {
 
-class KWIN_EXPORT redirect_qobject : public QObject
+class COMO_EXPORT redirect_qobject : public QObject
 {
     Q_OBJECT
 public:

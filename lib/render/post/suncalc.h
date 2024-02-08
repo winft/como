@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QDate>
 #include <QPair>
@@ -22,7 +22,7 @@ namespace KWin::render::post
  * @since 5.12
  */
 
-KWIN_EXPORT QPair<QDateTime, QDateTime> calculate_sun_timings(const QDateTime& dateTime,
+COMO_EXPORT QPair<QDateTime, QDateTime> calculate_sun_timings(const QDateTime& dateTime,
                                                               double latitude,
                                                               double longitude,
                                                               bool at_morning);

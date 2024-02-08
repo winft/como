@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QByteArray>
 #include <QSet>
@@ -151,7 +151,7 @@ enum class gl_interface {
     glx,
 };
 
-class KWIN_EXPORT GLPlatform
+class COMO_EXPORT GLPlatform
 {
 public:
     ~GLPlatform();

@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <QString>
@@ -60,7 +60,7 @@ namespace KWin::scripting
  *  }
  * @endcode
  */
-class KWIN_EXPORT dbus_call : public QObject
+class COMO_EXPORT dbus_call : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString service READ service WRITE setService NOTIFY serviceChanged)

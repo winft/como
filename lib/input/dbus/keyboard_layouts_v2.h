@@ -5,8 +5,8 @@
 */
 #pragma once
 
+#include "como_export.h"
 #include "input/platform_qobject.h"
-#include "kwin_export.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -46,7 +46,7 @@ struct layout_names_v2 {
     QString long_name;
 };
 
-class KWIN_EXPORT keyboard_layouts_v2 : public QObject
+class COMO_EXPORT keyboard_layouts_v2 : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KeyboardLayoutsV2")
@@ -99,10 +99,10 @@ private:
     uint keyboard_index{0};
 };
 
-KWIN_EXPORT QDBusArgument& operator<<(QDBusArgument& argument, keyboard_v2 const& keyboard);
-KWIN_EXPORT QDBusArgument const& operator>>(QDBusArgument const& argument, keyboard_v2& keyboard);
-KWIN_EXPORT QDBusArgument& operator<<(QDBusArgument& argument, layout_names_v2 const& names);
-KWIN_EXPORT QDBusArgument const& operator>>(QDBusArgument const& argument, layout_names_v2& names);
+COMO_EXPORT QDBusArgument& operator<<(QDBusArgument& argument, keyboard_v2 const& keyboard);
+COMO_EXPORT QDBusArgument const& operator>>(QDBusArgument const& argument, keyboard_v2& keyboard);
+COMO_EXPORT QDBusArgument& operator<<(QDBusArgument& argument, layout_names_v2 const& names);
+COMO_EXPORT QDBusArgument const& operator>>(QDBusArgument const& argument, layout_names_v2& names);
 
 }
 }

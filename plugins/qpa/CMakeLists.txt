@@ -18,10 +18,10 @@ set(QPA_SOURCES
 include(ECMQtDeclareLoggingCategory)
 ecm_qt_declare_logging_category(QPA_SOURCES HEADER logging.h IDENTIFIER KWIN_QPA CATEGORY_NAME kwin_qpa_plugin DEFAULT_SEVERITY Critical)
 
-add_library(KWinQpaPlugin OBJECT ${QPA_SOURCES})
-target_compile_definitions(KWinQpaPlugin PRIVATE QT_STATICPLUGIN)
+add_library(ComoQpaPlugin OBJECT ${QPA_SOURCES})
+target_compile_definitions(ComoQpaPlugin PRIVATE QT_STATICPLUGIN)
 
-target_link_libraries(KWinQpaPlugin PRIVATE
+target_link_libraries(ComoQpaPlugin PRIVATE
     Qt::CorePrivate
     Qt::GuiPrivate
     Freetype::Freetype # Must be after Qt platform support libs

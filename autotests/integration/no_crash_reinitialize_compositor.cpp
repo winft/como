@@ -21,7 +21,7 @@ TEST_CASE("no crash reinit compositor", "[render]")
     using namespace Wrapland::Client;
 
     qputenv("XDG_DATA_DIRS", QCoreApplication::applicationDirPath().toUtf8());
-    qputenv("KWIN_EFFECTS_FORCE_ANIMATIONS", QByteArrayLiteral("1"));
+    qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", QByteArrayLiteral("1"));
     qputenv("KWIN_COMPOSE", QByteArrayLiteral("O2"));
 
     test::setup setup("no-crash-reinit-compositor");

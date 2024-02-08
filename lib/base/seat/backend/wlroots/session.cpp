@@ -8,7 +8,7 @@
 #include "base/backend/wlroots/helpers.h"
 #include "base/logging.h"
 #include "base/wayland/server.h"
-#include <base/config-kwin.h>
+#include <base/config-como.h>
 
 #include <Wrapland/Server/display.h>
 

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include <win/subspace.h>
 
 #include <QObject>
@@ -18,7 +18,7 @@ class window_qobject;
 /**
  * Provides a common interface for interacting with windows via Qt's property system.
  */
-class KWIN_EXPORT property_window : public QObject
+class COMO_EXPORT property_window : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QString resourceName READ resourceName NOTIFY windowClassChanged)

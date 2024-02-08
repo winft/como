@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QQmlParserStatus>
 
@@ -26,7 +26,7 @@ namespace KWin::scripting
  * }
  * @endcode
  */
-class KWIN_EXPORT SwipeGestureHandler : public QObject, public QQmlParserStatus
+class COMO_EXPORT SwipeGestureHandler : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
     Q_INTERFACES(QQmlParserStatus)
@@ -97,7 +97,7 @@ private:
  * }
  * @endcode
  */
-class KWIN_EXPORT PinchGestureHandler : public QObject, public QQmlParserStatus
+class COMO_EXPORT PinchGestureHandler : public QObject, public QQmlParserStatus
 {
     Q_OBJECT
     Q_INTERFACES(QQmlParserStatus)

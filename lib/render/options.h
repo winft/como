@@ -9,7 +9,7 @@
 #include "x11/types.h"
 
 #include "base/types.h"
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <KConfigWatcher>
 
@@ -18,7 +18,7 @@ namespace KWin::render
 
 class settings;
 
-class KWIN_EXPORT options_qobject : public QObject
+class COMO_EXPORT options_qobject : public QObject
 {
     Q_OBJECT
 
@@ -147,7 +147,7 @@ private:
     friend class options;
 };
 
-class KWIN_EXPORT options
+class COMO_EXPORT options
 {
 public:
     using hidden_preview_t = x11::hidden_preview;

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/outline.h>
 
 #include <QObject>
@@ -15,7 +15,7 @@
 namespace KWin::render
 {
 
-class KWIN_EXPORT compositor_qobject : public QObject
+class COMO_EXPORT compositor_qobject : public QObject
 {
     Q_OBJECT
 public:

@@ -7,8 +7,8 @@
 */
 #pragma once
 
+#include <como_export.h>
 #include <epoxy/gl.h>
-#include <kwin_export.h>
 #include <render/interface/framebuffer.h>
 
 #include <QRect>
@@ -30,7 +30,7 @@ void cleanupGL();
  * Framebuffer object enables you to render onto a texture. This texture can later be used to e.g.
  * do post-processing of the scene.
  */
-class KWIN_EXPORT GLFramebuffer : public render::framebuffer
+class COMO_EXPORT GLFramebuffer : public render::framebuffer
 {
 public:
     GLFramebuffer() = default;

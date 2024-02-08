@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include <QObject>
 
 namespace KWin::win
@@ -32,7 +32,7 @@ enum Shape {
 /**
  * @brief Wrapper round Qt::CursorShape with extensions enums into a single entity
  */
-class KWIN_EXPORT cursor_shape
+class COMO_EXPORT cursor_shape
 {
 public:
     cursor_shape() = default;

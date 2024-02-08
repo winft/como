@@ -12,7 +12,7 @@
 namespace KWin::input::control
 {
 
-class KWIN_EXPORT keyboard : public device
+class COMO_EXPORT keyboard : public device
 {
     Q_OBJECT
 

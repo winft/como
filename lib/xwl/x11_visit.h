@@ -20,7 +20,7 @@
 namespace KWin::xwl
 {
 
-class KWIN_EXPORT x11_visit_qobject : public QObject
+class COMO_EXPORT x11_visit_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

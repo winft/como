@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QRegion>
 
@@ -21,7 +21,7 @@ namespace KWin
  * is destroyed, the restriction will be removed.
  * Note that all painting code must use paintArea() to actually perform the clipping.
  */
-class KWIN_EXPORT PaintClipper
+class COMO_EXPORT PaintClipper
 {
 public:
     /**
@@ -60,7 +60,7 @@ public:
      *     }
      * @endcode
      */
-    class KWIN_EXPORT Iterator
+    class COMO_EXPORT Iterator
     {
     public:
         Iterator();

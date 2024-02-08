@@ -13,7 +13,7 @@
 #include "tablet_redirect.h"
 #include "touch_redirect.h"
 
-// TODO(romangg): should only be included when KWIN_BUILD_TABBOX is defined.
+// TODO(romangg): should only be included when COMO_BUILD_TABBOX is defined.
 #include "input/filters/tabbox.h"
 
 #include "base/wayland/output_helpers.h"
@@ -371,7 +371,7 @@ private:
             m_filters.emplace_back(new screen_edge_filter(*this));
         }
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
         m_filters.emplace_back(new tabbox_filter(*this));
 #endif
 

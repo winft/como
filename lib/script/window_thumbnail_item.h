@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "window.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include <render/effect/interface/paint_data.h>
 
 #include <QQuickItem>
@@ -26,7 +26,7 @@ namespace scripting
 {
 class ThumbnailTextureProvider;
 
-class KWIN_EXPORT window_thumbnail_item : public QQuickItem
+class COMO_EXPORT window_thumbnail_item : public QQuickItem
 {
     Q_OBJECT
     Q_PROPERTY(QUuid wId READ wId WRITE setWId NOTIFY wIdChanged)

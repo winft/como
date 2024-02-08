@@ -83,10 +83,10 @@ void kill_process(Win* win, bool ask, xcb_timestamp_t timestamp = XCB_TIME_CURRE
             : QString::fromUtf8(win->client_machine->hostname());
         // execute helper from build dir or the system installed one
         QFileInfo const buildDirBinary{QDir{QCoreApplication::applicationDirPath()},
-                                       QStringLiteral("kwin_killer_helper")};
+                                       QStringLiteral("como_killer_helper")};
         QProcess::startDetached(
             buildDirBinary.exists() ? buildDirBinary.absoluteFilePath()
-                                    : QStringLiteral(KWIN_KILLER_BIN),
+                                    : QStringLiteral(COMO_KILLER_BIN),
             QStringList() << QStringLiteral("--pid") << QString::number(unsigned(pid))
                           << QStringLiteral("--hostname") << hostname
                           << QStringLiteral("--windowname") << win->meta.caption.normal

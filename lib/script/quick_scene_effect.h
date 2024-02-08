@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/quick_scene.h>
 
 #include <KConfigPropertyMap>
@@ -40,7 +40,7 @@ namespace KWin::scripting
  * }
  * @endcode
  */
-class KWIN_EXPORT ScriptedQuickSceneEffect : public QuickSceneEffect
+class COMO_EXPORT ScriptedQuickSceneEffect : public QuickSceneEffect
 {
     Q_OBJECT
     Q_PROPERTY(QQmlListProperty<QObject> data READ data)

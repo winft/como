@@ -7,7 +7,7 @@
 
 #include "types.h"
 
-#include "kwin_export.h"
+#include <como_export.h>
 
 #include <Wrapland/Client/appmenu.h>
 #include <Wrapland/Client/compositor.h>
@@ -39,7 +39,7 @@
 namespace KWin::detail::test
 {
 
-class KWIN_EXPORT client
+class COMO_EXPORT client
 {
 public:
     Wrapland::Client::ConnectionThread* connection{nullptr};

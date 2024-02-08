@@ -7,7 +7,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/types.h>
 
 #include <QMatrix4x4>
@@ -33,7 +33,7 @@ class GLTexturePrivate;
 
 enum TextureCoordinateType { NormalizedCoordinates = 0, UnnormalizedCoordinates };
 
-class KWIN_EXPORT GLTexture
+class COMO_EXPORT GLTexture
 {
 public:
     GLTexture();

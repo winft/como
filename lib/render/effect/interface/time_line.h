@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QEasingCurve>
 #include <QMetaType>
@@ -19,7 +19,7 @@ namespace KWin
 /**
  * The TimeLine class is a helper for controlling animations.
  */
-class KWIN_EXPORT TimeLine
+class COMO_EXPORT TimeLine
 {
 public:
     /**

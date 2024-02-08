@@ -7,7 +7,7 @@
 
 #include "types.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 // Must be included before QOpenGLFramebufferObject.
 #include <epoxy/gl.h>
@@ -71,7 +71,7 @@ public:
 };
 
 /// Only for exceptional use in environments without dependency injection support (e.g. Qt plugins).
-struct KWIN_EXPORT singleton_interface {
+struct COMO_EXPORT singleton_interface {
     static screen_edger_singleton* edger;
     static subspaces_singleton* subspaces;
 

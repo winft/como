@@ -8,7 +8,7 @@
 
 #include "config.h"
 
-#include "config-kwin.h"
+#include "config-como.h"
 
 namespace KWin::input::control
 {

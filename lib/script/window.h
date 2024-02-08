@@ -7,8 +7,8 @@
 
 #include "output.h"
 
+#include "como_export.h"
 #include "input/cursor.h"
-#include "kwin_export.h"
 #include "win/actions.h"
 #include "win/activation.h"
 #include "win/controlling.h"
@@ -24,7 +24,7 @@
 namespace KWin::scripting
 {
 
-class KWIN_EXPORT window : public win::property_window
+class COMO_EXPORT window : public win::property_window
 {
     Q_OBJECT
 

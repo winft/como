@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #pragma once
 
 #include "base/x11/data.h"
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <memory>
@@ -51,7 +51,7 @@ private:
     QFutureWatcher<int>* m_ownAddressWatcher;
 };
 
-class KWIN_EXPORT client_machine : public QObject
+class COMO_EXPORT client_machine : public QObject
 {
     Q_OBJECT
 public:

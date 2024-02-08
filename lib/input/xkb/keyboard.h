@@ -9,6 +9,7 @@
 
 #include "input/event.h"
 #include "input/types.h"
+#include <como_export.h>
 
 #include <QObject>
 #include <functional>
@@ -26,7 +27,7 @@ struct modifiers {
     xkb_mod_index_t locked{0};
 };
 
-class KWIN_EXPORT keyboard_qobject : public QObject
+class COMO_EXPORT keyboard_qobject : public QObject
 {
     Q_OBJECT
 public:
@@ -38,7 +39,7 @@ Q_SIGNALS:
     void leds_changed(keyboard_leds leds);
 };
 
-class KWIN_EXPORT keyboard
+class COMO_EXPORT keyboard
 {
 public:
     keyboard(xkb_context* context, xkb_compose_table* compose_table);

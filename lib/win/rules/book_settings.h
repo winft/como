@@ -11,8 +11,8 @@
 #include "rules_book_settings_base.h"
 
 #include <KSharedConfig>
+#include <como_export.h>
 #include <deque>
-#include <kwin_export.h>
 #include <vector>
 
 namespace KWin::win::rules
@@ -21,7 +21,7 @@ namespace KWin::win::rules
 class ruling;
 class settings;
 
-class KWIN_EXPORT book_settings : public book_settings_base
+class COMO_EXPORT book_settings : public book_settings_base
 {
 public:
     book_settings(KSharedConfig::Ptr config, QObject* parent = nullptr);

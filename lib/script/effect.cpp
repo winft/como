@@ -203,10 +203,9 @@ bool effect::init(QString const& effectName, QString const& pathToScript, KShare
     m_scriptFile = pathToScript;
 
     // does the effect contain an KConfigXT file?
-    const QString kconfigXTFile
-        = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                 QLatin1String(KWIN_NAME "/effects/") + m_effectName
-                                     + QLatin1String("/contents/config/main.xml"));
+    const QString kconfigXTFile = QStandardPaths::locate(
+        QStandardPaths::GenericDataLocation,
+        QLatin1String("kwin/effects/") + m_effectName + QLatin1String("/contents/config/main.xml"));
     if (!kconfigXTFile.isNull()) {
         auto cg = config->group(QStringLiteral("Effect-%1").arg(m_effectName));
         QFile xmlFile(kconfigXTFile);
@@ -837,7 +836,7 @@ uint effect::addFragmentShader(ShaderTrait traits, const QString& fragmentShader
         m_engine->throwError(QStringLiteral("Failed to make OpenGL context current"));
         return 0;
     }
-    const QString shaderDir{QLatin1String(KWIN_NAME "/effects/") + m_effectName
+    const QString shaderDir{QLatin1String("kwin/effects/") + m_effectName
                             + QLatin1String("/contents/shaders/")};
     const QString fragment = fragmentShaderFile.isEmpty()
         ? QString{}

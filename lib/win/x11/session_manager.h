@@ -9,7 +9,7 @@
 
 #include "types.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <QRect>
@@ -17,7 +17,7 @@
 namespace KWin::win::x11
 {
 
-class KWIN_EXPORT session_manager : public QObject
+class COMO_EXPORT session_manager : public QObject
 {
     Q_OBJECT
 public:

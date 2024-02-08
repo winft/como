@@ -14,6 +14,6 @@ add_subdirectory(scripts)
 add_subdirectory(desktop)
 add_subdirectory(effects)
 
-if (KWIN_BUILD_TABBOX)
+if (COMO_BUILD_TABBOX)
     add_subdirectory(tabbox)
 endif()

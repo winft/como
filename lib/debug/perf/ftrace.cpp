@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "ftrace.h"
 
-#include "config-kwin.h"
+#include "config-como.h"
 
 #if HAVE_PERF
 #include "ftrace_impl.h"

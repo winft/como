@@ -12,6 +12,7 @@
 #include "win/space_qobject.h"
 #include "win/util.h"
 #include "win/window_qobject.h"
+#include <como_export.h>
 #include <win/subspace.h>
 
 #include <KConfigGroup>
@@ -32,7 +33,7 @@ uint32_t get_layout(T const& layouts, U const& reference)
     return it->second;
 }
 
-class KWIN_EXPORT layout_policy_qobject : public QObject
+class COMO_EXPORT layout_policy_qobject : public QObject
 {
 public:
     ~layout_policy_qobject() override;

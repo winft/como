@@ -6,7 +6,7 @@
 #pragma once
 
 #include <base/app_singleton.h>
-#include <base/config-kwin.h>
+#include <base/config-como.h>
 
 namespace KWin::base::wayland
 {

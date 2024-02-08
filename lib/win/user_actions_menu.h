@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "config-kwin.h"
+#include "config-como.h"
 
 #include "desktop_space.h"
 #include "move.h"
@@ -17,7 +17,7 @@
 
 #include "base/logging.h"
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
 #include "tabbox/tabbox.h"
 #endif
 

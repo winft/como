@@ -9,12 +9,12 @@
 
 #include <QApplication>
 #include <QObject>
-#include <kwin_export.h>
+#include <como_export.h>
 
 namespace KWin::base
 {
 
-class KWIN_EXPORT app_singleton : public QObject
+class COMO_EXPORT app_singleton : public QObject
 {
     Q_OBJECT
 public:
