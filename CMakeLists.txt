@@ -331,49 +331,6 @@ if (KWIN_BUILD_KCMS)
     add_subdirectory(kcms)
 endif()
 
-add_executable(kwin_x11 ${kwin_X11_SRCS} main_x11.cpp)
-target_link_libraries(kwin_x11
-  desktop-kde
-  kwinft::script
-  kwinft::x11
-  KF6::Crash
-)
-
-install(TARGETS kwin_x11)
-
-kcoreaddons_target_static_plugins(kwin_x11 NAMESPACE "kwin/effects/plugins")
-
-add_executable(kwin_wayland main_wayland.cpp)
-target_link_libraries(kwin_wayland
-  desktop-kde
-  kwinft::script
-  kwinft::wayland
-  kwinft::xwayland
-  KF6IdleTimeKWinPlugin
-  KF6WindowSystemKWinPlugin
-  KWinQpaPlugin
-  KF6::DBusAddons
-)
-
-install(TARGETS kwin_wayland)
-if (HAVE_LIBCAP)
-    install(
-    CODE "execute_process(
-            COMMAND
-                ${SETCAP_EXECUTABLE}
-                CAP_SYS_NICE=+ep
-                \$ENV{DESTDIR}${CMAKE_INSTALL_FULL_BINDIR}/kwin_wayland)"
-    )
-endif()
-
-kcoreaddons_target_static_plugins(kwin_wayland NAMESPACE "kwin/effects/plugins")
-
-# Required for Plasma Wayland session. It expects a binary with this name to launch on startup.
-add_custom_target(kwin_wayland_wrapper ALL COMMAND
-    ${CMAKE_COMMAND} -E create_symlink
-    kwin_wayland ${CMAKE_CURRENT_BINARY_DIR}/bin/kwin_wayland_wrapper
-)
-
 ########### install files ###############
 
 if (BUILD_TESTING)
@@ -386,8 +343,3 @@ if (KF6DocTools_FOUND)
 endif()
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
-
-install(
-    FILES ${CMAKE_CURRENT_BINARY_DIR}/bin/kwin_wayland_wrapper
-    DESTINATION ${CMAKE_INSTALL_FULL_BINDIR}
-)

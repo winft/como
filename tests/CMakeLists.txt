@@ -3,6 +3,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
 add_subdirectory(minico)
+add_subdirectory(plasma)
 
 set(normalhintsbasesizetest_SRCS normalhintsbasesizetest.cpp)
 add_executable(normalhintsbasesizetest ${normalhintsbasesizetest_SRCS})
