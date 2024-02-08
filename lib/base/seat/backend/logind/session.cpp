@@ -8,7 +8,7 @@
 
 #include "base/logging.h"
 
-#include "config-kwin.h"
+#include <config-como.h>
 
 #include <QCoreApplication>
 #include <QDBusConnectionInterface>

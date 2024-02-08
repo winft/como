@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <config-kwin.h>
+#include <config-como.h>
 
 namespace KWin::win
 {
@@ -13,7 +13,7 @@ namespace KWin::win
 template<typename Space>
 void update_tabbox(Space& space)
 {
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
     // Need to reset the client model even if the task switcher is hidden otherwise there
     // might be dangling pointers. Consider rewriting client model logic!
     space.tabbox->reset(true);

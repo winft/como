@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QPointer>
 
@@ -14,7 +14,7 @@ namespace KWin::base::x11
 class event_filter;
 class event_filter_container;
 
-class KWIN_EXPORT event_filter_manager
+class COMO_EXPORT event_filter_manager
 {
 public:
     std::vector<QPointer<event_filter_container>> filters;

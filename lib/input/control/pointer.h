@@ -12,7 +12,7 @@
 namespace KWin::input::control
 {
 
-class KWIN_EXPORT pointer : public device
+class COMO_EXPORT pointer : public device
 {
     Q_OBJECT
 public:

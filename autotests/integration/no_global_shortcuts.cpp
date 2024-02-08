@@ -168,7 +168,7 @@ TEST_CASE("no global shortcuts", "[input]")
     SECTION("kglobalaccel")
     {
         std::unique_ptr<QAction> action(new QAction(nullptr));
-        action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+        action->setProperty("componentName", "kwin");
         action->setObjectName(QStringLiteral("globalshortcuts-test-meta-shift-w"));
         QSignalSpy triggeredSpy(action.get(), &QAction::triggered);
         QVERIFY(triggeredSpy.isValid());

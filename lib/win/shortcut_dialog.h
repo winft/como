@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QDialog>
 #include <memory>
@@ -19,7 +19,7 @@ class ShortcutDialog;
 namespace KWin::win
 {
 
-class KWIN_EXPORT shortcut_dialog : public QDialog
+class COMO_EXPORT shortcut_dialog : public QDialog
 {
     Q_OBJECT
 public:

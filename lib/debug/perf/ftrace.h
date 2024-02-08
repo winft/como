@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <QString>
@@ -21,11 +21,11 @@ namespace Ftrace
 /**
  * Internal perf API for consumers
  */
-void KWIN_EXPORT mark(const QString& message);
-void KWIN_EXPORT begin(const QString& message, ulong ctx);
-void KWIN_EXPORT end(const QString& message, ulong ctx);
+void COMO_EXPORT mark(const QString& message);
+void COMO_EXPORT begin(const QString& message, ulong ctx);
+void COMO_EXPORT end(const QString& message, ulong ctx);
 
-bool KWIN_EXPORT setEnabled(bool enable);
+bool COMO_EXPORT setEnabled(bool enable);
 
 }
 }

@@ -12,11 +12,12 @@
 
 #include "debug/console/console.h"
 #include "input/redirect_qobject.h"
+#include <como_export.h>
 
 namespace KWin::debug
 {
 
-class KWIN_EXPORT wayland_console_model : public console_model
+class COMO_EXPORT wayland_console_model : public console_model
 {
     Q_OBJECT
 public:
@@ -43,7 +44,7 @@ public:
     std::vector<std::unique_ptr<win::property_window>> internal_windows;
 };
 
-class KWIN_EXPORT wayland_console_delegate : public console_delegate
+class COMO_EXPORT wayland_console_delegate : public console_delegate
 {
     Q_OBJECT
 public:
@@ -53,7 +54,7 @@ public:
 };
 
 template<typename Space>
-class KWIN_EXPORT wayland_console : public console<Space>
+class COMO_EXPORT wayland_console : public console<Space>
 {
 public:
     wayland_console(Space& space)

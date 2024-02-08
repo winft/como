@@ -8,8 +8,6 @@
 */
 #pragma once
 
-#include "kwin_export.h"
-
 #include <KDecoration2/Private/DecoratedClientPrivate>
 #include <QWindow>
 #include <optional>

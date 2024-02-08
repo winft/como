@@ -3,7 +3,7 @@
 # SPDX-License-Identifier: GPL-2.0-or-later
 
 add_library(script SHARED)
-add_library(kwinft::script ALIAS script)
+add_library(como::script ALIAS script)
 
 target_link_libraries(script
   PUBLIC
@@ -72,11 +72,11 @@ target_sources(script
 set_target_properties(script PROPERTIES
   VERSION ${CMAKE_PROJECT_VERSION}
   SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-  PREFIX libkwinft-
+  PREFIX libcomo-
 )
 
 install(TARGETS script
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft/script
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/script
 )

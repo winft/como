@@ -6,11 +6,12 @@
 #pragma once
 
 #include "render/gl/context_attribute_builder.h"
+#include <como_export.h>
 
 namespace KWin::render::backend::x11
 {
 
-class KWIN_EXPORT glx_context_attribute_builder : public gl::context_attribute_builder
+class COMO_EXPORT glx_context_attribute_builder : public gl::context_attribute_builder
 {
 public:
     std::vector<int> build() const override;

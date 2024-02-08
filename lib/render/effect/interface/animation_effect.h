@@ -10,7 +10,7 @@
 #include <render/effect/interface/offscreen_effect.h>
 #include <render/gl/interface/utils.h>
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QEasingCurve>
 #include <QElapsedTimer>
@@ -22,7 +22,7 @@
 namespace KWin
 {
 
-class KWIN_EXPORT FPx2
+class COMO_EXPORT FPx2
 {
 public:
     FPx2()
@@ -192,7 +192,7 @@ class AnimationEffectPrivate;
  *
  * @since 4.8
  */
-class KWIN_EXPORT AnimationEffect : public OffscreenEffect
+class COMO_EXPORT AnimationEffect : public OffscreenEffect
 {
     Q_OBJECT
 public:

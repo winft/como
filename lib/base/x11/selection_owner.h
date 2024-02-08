@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QObject>
 #include <memory>
@@ -15,7 +15,7 @@
 namespace KWin::base::x11
 {
 
-class KWIN_EXPORT selection_owner : public QObject
+class COMO_EXPORT selection_owner : public QObject
 {
     Q_OBJECT
 public:

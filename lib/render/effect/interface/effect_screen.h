@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QObject>
 
@@ -15,7 +15,7 @@ namespace KWin
 /**
  * The EffectScreen class represents a screen used by/for Effect classes.
  */
-class KWIN_EXPORT EffectScreen : public QObject
+class COMO_EXPORT EffectScreen : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QRect geometry READ geometry NOTIFY geometryChanged)

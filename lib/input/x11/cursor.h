@@ -8,6 +8,7 @@
 
 #include "input/cursor.h"
 #include <base/x11/data.h>
+#include <como_export.h>
 
 #include <memory>
 #include <utility>
@@ -28,7 +29,7 @@ namespace input::x11
 
 class xfixes_cursor_event_filter;
 
-class KWIN_EXPORT cursor : public input::cursor
+class COMO_EXPORT cursor : public input::cursor
 {
     Q_OBJECT
 public:

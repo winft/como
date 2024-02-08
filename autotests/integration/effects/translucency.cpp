@@ -14,7 +14,7 @@ namespace KWin::detail::test
 
 TEST_CASE("translucency", "[effect]")
 {
-    qputenv("KWIN_EFFECTS_FORCE_ANIMATIONS", "1");
+    qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", "1");
     qputenv("XDG_DATA_DIRS", QCoreApplication::applicationDirPath().toUtf8());
     qRegisterMetaType<KWin::Effect*>();
 

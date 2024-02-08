@@ -646,7 +646,7 @@ TEST_CASE("lockscreen", "[base]")
         QSignalSpy actionSpy(action.get(), &QAction::triggered);
         QVERIFY(actionSpy.isValid());
 
-        action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+        action->setProperty("componentName", "kwin");
         action->setObjectName("LockScreentestKeyboardShortcut");
 
         KGlobalAccel::self()->setDefaultShortcut(

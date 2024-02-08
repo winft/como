@@ -7,6 +7,7 @@
 
 #include "base/seat/session.h"
 #include "base/utils.h"
+#include <como_export.h>
 
 #include <vector>
 #include <wayland-server-core.h>
@@ -21,7 +22,7 @@ namespace KWin::base::seat::backend::wlroots
 
 class session;
 
-class KWIN_EXPORT session : public seat::session
+class COMO_EXPORT session : public seat::session
 {
     Q_OBJECT
 public:

@@ -8,7 +8,7 @@
 #include "types.h"
 #include "x11/types.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <KConfigWatcher>
 #include <QObject>
@@ -18,7 +18,7 @@ namespace KWin::win
 
 class settings;
 
-class KWIN_EXPORT options_qobject : public QObject
+class COMO_EXPORT options_qobject : public QObject
 {
     Q_OBJECT
 
@@ -494,7 +494,7 @@ private:
     friend class options;
 };
 
-class KWIN_EXPORT options
+class COMO_EXPORT options
 {
 public:
     options(KSharedConfigPtr config);

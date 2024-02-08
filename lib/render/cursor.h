@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QImage>
 #include <QObject>
@@ -15,7 +15,7 @@
 namespace KWin::render
 {
 
-class KWIN_EXPORT cursor_qobject : public QObject
+class COMO_EXPORT cursor_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

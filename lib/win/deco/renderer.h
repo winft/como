@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "decorations_logging.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "win/damage.h"
 
 #include <KDecoration2/DecoratedClient>
@@ -28,7 +28,7 @@ public:
     virtual ~render_data() = default;
 };
 
-class KWIN_EXPORT renderer_qobject : public QObject
+class COMO_EXPORT renderer_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

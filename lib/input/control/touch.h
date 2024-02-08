@@ -10,7 +10,7 @@
 namespace KWin::input::control
 {
 
-class KWIN_EXPORT touch : public device
+class COMO_EXPORT touch : public device
 {
     Q_OBJECT
 public:

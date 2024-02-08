@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QAbstractListModel>
 #include <vector>
@@ -24,7 +24,7 @@ namespace scripting
 /**
  * The subspace_model class provides a data model for the virtual desktops.
  */
-class KWIN_EXPORT subspace_model : public QAbstractListModel
+class COMO_EXPORT subspace_model : public QAbstractListModel
 {
     Q_OBJECT
 

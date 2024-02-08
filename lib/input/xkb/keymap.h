@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <cstdint>
 
@@ -15,7 +15,7 @@ struct xkb_keymap;
 namespace KWin::input::xkb
 {
 
-class KWIN_EXPORT keymap
+class COMO_EXPORT keymap
 {
 public:
     keymap(xkb_keymap* keymap);

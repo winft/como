@@ -13,12 +13,13 @@
 
 #include "debug/console/console.h"
 #include "input/redirect_qobject.h"
+#include <como_export.h>
 
 namespace KWin::debug
 {
 
 template<typename Space>
-class KWIN_EXPORT xwl_console : public console<Space>
+class COMO_EXPORT xwl_console : public console<Space>
 {
 public:
     xwl_console(Space& space)

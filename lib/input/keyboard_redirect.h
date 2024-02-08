@@ -10,7 +10,7 @@
 #include "event_spy.h"
 #include "keyboard.h"
 
-#include "kwin_export.h"
+#include <como_export.h>
 
 #include <QObject>
 
@@ -25,7 +25,7 @@ void keyboard_redirect_prepare_key(Keyboard& keys, key_event const& event)
                   std::bind(&event_spy<Redirect>::key, std::placeholders::_1, event));
 }
 
-class KWIN_EXPORT keyboard_redirect_qobject : public QObject
+class COMO_EXPORT keyboard_redirect_qobject : public QObject
 {
 public:
     ~keyboard_redirect_qobject() override;

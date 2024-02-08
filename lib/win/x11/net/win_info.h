@@ -8,7 +8,7 @@
 #include "geo.h"
 #include "net.h"
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <vector>
 #include <xcb/xcb.h>
@@ -20,7 +20,7 @@ struct win_info_private;
 template<class Z>
 class rarray;
 
-class KWIN_EXPORT win_info
+class COMO_EXPORT win_info
 {
 public:
     // update also win_info_private::properties[] size when extending this

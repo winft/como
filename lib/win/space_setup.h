@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <config-kwin.h>
+#include <config-como.h>
 
 #include "dbus/virtual_desktop_manager.h"
 #include "rules.h"
@@ -41,7 +41,7 @@ void init_space(Space& space)
     // dbus interface
     new dbus::subspace_manager(*space.subspace_manager);
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
     // need to create the tabbox before compositing scene is setup
     space.tabbox = std::make_unique<win::tabbox<Space>>(space);
 #endif

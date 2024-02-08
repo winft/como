@@ -10,8 +10,6 @@
 #include "xkb/helpers.h"
 #include "xkb/keyboard.h"
 
-#include "kwin_export.h"
-
 #include <QEvent>
 #include <QHash>
 #include <QKeyEvent>

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/types.h>
 
 #include <QRegion>
@@ -127,7 +127,7 @@ private:
  */
 // NOTE: This class expects the (original) vertices to be in the clockwise order starting from
 // topleft.
-class KWIN_EXPORT WindowQuad
+class COMO_EXPORT WindowQuad
 {
 public:
     explicit WindowQuad(WindowQuadType type, int id = -1);
@@ -165,7 +165,7 @@ private:
     int quadID;
 };
 
-class KWIN_EXPORT WindowQuadList : public QVector<WindowQuad>
+class COMO_EXPORT WindowQuadList : public QVector<WindowQuad>
 {
 public:
     WindowQuadList splitAtX(double x) const;

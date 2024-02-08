@@ -7,6 +7,7 @@
 #pragma once
 
 #include "base/seat/session.h"
+#include <como_export.h>
 
 #include <QDBusConnection>
 
@@ -15,7 +16,7 @@ class QDBusServiceWatcher;
 namespace KWin::base::seat::backend::logind
 {
 
-class KWIN_EXPORT session : public seat::session
+class COMO_EXPORT session : public seat::session
 {
     Q_OBJECT
 public:

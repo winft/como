@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include <base/config-kwin.h>
+#include <base/config-como.h>
 
 #include "bridge_qobject.h"
 #include "client_impl.h"

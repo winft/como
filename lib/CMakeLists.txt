@@ -14,7 +14,7 @@ add_subdirectory(debug)
 add_subdirectory(desktop)
 
 add_library(x11 SHARED)
-add_library(kwinft::x11 ALIAS x11)
+add_library(como::x11 ALIAS x11)
 
 target_link_libraries(x11
   PUBLIC
@@ -33,7 +33,7 @@ target_sources(x11
 )
 
 add_library(wayland SHARED)
-add_library(kwinft::wayland ALIAS wayland)
+add_library(como::wayland ALIAS wayland)
 
 target_link_libraries(wayland
   PUBLIC
@@ -89,22 +89,22 @@ target_sources(wayland
 set_target_properties(x11 wayland PROPERTIES
    VERSION ${CMAKE_PROJECT_VERSION}
    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-   PREFIX libkwinft-
+   PREFIX libcomo-
 )
 
 target_compile_definitions(wayland PUBLIC WLR_USE_UNSTABLE)
 
 kcoreaddons_target_static_plugins(wayland
-  NAMESPACE "kwin/effects/plugins"
+  NAMESPACE "como/effects/plugins"
 )
 
 install(TARGETS x11 wayland
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como
 )
 
-install(EXPORT kwinft-export
-  NAMESPACE kwinft::
-  DESTINATION ${KDE_INSTALL_CMAKEPACKAGEDIR}/kwinft
+install(EXPORT como-export
+  NAMESPACE como::
+  DESTINATION ${KDE_INSTALL_CMAKEPACKAGEDIR}/como
 )

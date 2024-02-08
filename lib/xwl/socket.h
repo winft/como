@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <string>
 #include <vector>
@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 namespace KWin::xwl
 {
 
-class KWIN_EXPORT socket
+class COMO_EXPORT socket
 {
 public:
     enum class mode {

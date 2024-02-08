@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QObject>
 #include <memory>
@@ -31,7 +31,7 @@ class GLTexture;
  * blitting is performed when we update our FBO to keep kwin's render loop
  * as fast as possible.
  */
-class KWIN_EXPORT OffscreenQuickView : public QObject
+class COMO_EXPORT OffscreenQuickView : public QObject
 {
     Q_OBJECT
 public:
@@ -143,7 +143,7 @@ private:
  * The OffscreenQuickScene class extends OffscreenQuickView adding QML support. This will represent
  * a context powered by an engine
  */
-class KWIN_EXPORT OffscreenQuickScene : public OffscreenQuickView
+class COMO_EXPORT OffscreenQuickScene : public OffscreenQuickView
 {
 public:
     explicit OffscreenQuickScene(ExportMode exportMode = ExportMode::Texture, bool alpha = true);

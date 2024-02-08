@@ -37,7 +37,7 @@ QAction* add_subspace_action(Manager& manager,
                              Slot slot)
 {
     auto a = new QAction(manager.qobject.get());
-    a->setProperty("componentName", QStringLiteral(KWIN_NAME));
+    a->setProperty("componentName", QStringLiteral("kwin"));
     a->setObjectName(name);
     a->setText(label);
 
@@ -57,7 +57,7 @@ QAction* add_subspace_action(Manager& manager,
                              Slot slot)
 {
     auto a = new QAction(manager.qobject.get());
-    a->setProperty("componentName", QStringLiteral(KWIN_NAME));
+    a->setProperty("componentName", QStringLiteral("kwin"));
     a->setObjectName(name.arg(value));
     a->setText(label.subs(value).toString());
     a->setData(value);
@@ -272,7 +272,7 @@ QAction* prepare_shortcut_action(Space& space,
                                  QVariant const& data)
 {
     auto action = new QAction(space.qobject.get());
-    action->setProperty("componentName", QStringLiteral(KWIN_NAME));
+    action->setProperty("componentName", QStringLiteral("kwin"));
     action->setObjectName(actionName);
     action->setText(description);
 
@@ -542,7 +542,7 @@ void init_shortcuts(Space& space)
          space.base.mod.render->qobject.get(),
          [render = space.base.mod.render.get()] { render->invertScreen(); });
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
     space.tabbox->init_shortcuts();
 #endif
     shortcuts_init_subspaces(space);

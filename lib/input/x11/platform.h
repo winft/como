@@ -8,7 +8,7 @@
 #include "global_shortcuts_manager.h"
 #include "redirect.h"
 
-#include "config-kwin.h"
+#include "config-como.h"
 #include "input/platform.h"
 
 #include <KGlobalAccel>

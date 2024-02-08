@@ -59,7 +59,7 @@ configure_file(aurorae.knsrc.cmake ${CMAKE_CURRENT_BINARY_DIR}/aurorae.knsrc)
 
 ########### install files ###############
 
-if (KWIN_BUILD_KCMS)
+if (COMO_BUILD_KCMS)
     add_subdirectory(config)
     install(FILES ${CMAKE_CURRENT_BINARY_DIR}/aurorae.knsrc DESTINATION ${KDE_INSTALL_KNSRCDIR})
 endif()

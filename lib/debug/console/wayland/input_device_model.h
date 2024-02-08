@@ -7,6 +7,7 @@
 #pragma once
 
 #include "input/dbus/device.h"
+#include <como_export.h>
 
 #include <QAbstractItemModel>
 #include <type_traits>
@@ -14,7 +15,7 @@
 namespace KWin::debug
 {
 
-class KWIN_EXPORT input_device_model : public QAbstractItemModel
+class COMO_EXPORT input_device_model : public QAbstractItemModel
 {
     Q_OBJECT
 public:

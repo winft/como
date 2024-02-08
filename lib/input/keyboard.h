@@ -9,14 +9,14 @@
 #include "event.h"
 #include "xkb/keyboard.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
 namespace KWin::input
 {
 
-class KWIN_EXPORT keyboard : public QObject
+class COMO_EXPORT keyboard : public QObject
 {
     Q_OBJECT
 public:

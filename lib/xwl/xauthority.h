@@ -5,13 +5,13 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 class QTemporaryFile;
 
 namespace KWin::xwl
 {
 
-KWIN_EXPORT bool xauthority_generate_file(int display, QTemporaryFile& dest);
+COMO_EXPORT bool xauthority_generate_file(int display, QTemporaryFile& dest);
 
 }

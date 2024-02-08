@@ -67,11 +67,11 @@ target_sources(debug-wl
 set_target_properties(debug-common debug-wl PROPERTIES
   VERSION ${CMAKE_PROJECT_VERSION}
   SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-  PREFIX libkwinft-
+  PREFIX libcomo-
 )
 
 install(TARGETS debug-common debug-wl
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft/debug
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/debug
 )

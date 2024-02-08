@@ -78,7 +78,7 @@ LoadScriptList platform_wrap::queryScriptsToLoad()
     }
 
     QMap<QString, QString> pluginStates = KConfigGroup(config.main, "Plugins").entryMap();
-    const QString scriptFolder = QStringLiteral(KWIN_NAME "/scripts/");
+    const QString scriptFolder = QStringLiteral("kwin/scripts/");
     const auto offers = KPackage::PackageLoader::self()->listPackages(QStringLiteral("KWin/Script"),
                                                                       scriptFolder);
     LoadScriptList scriptsToLoad;

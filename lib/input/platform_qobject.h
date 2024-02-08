@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <functional>
@@ -18,7 +18,7 @@ class pointer;
 class switch_device;
 class touch;
 
-class KWIN_EXPORT platform_qobject : public QObject
+class COMO_EXPORT platform_qobject : public QObject
 {
     Q_OBJECT
 public:

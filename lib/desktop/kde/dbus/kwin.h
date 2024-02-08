@@ -6,8 +6,8 @@
 */
 #pragma once
 
+#include "como_export.h"
 #include "debug/support_info.h"
-#include "kwin_export.h"
 #include "win/kill_window.h"
 #include "win/placement.h"
 #include <win/activation.h>
@@ -42,7 +42,7 @@ namespace desktop::kde
  *
  * @author Martin Gräßlin <mgraesslin@kde.org>
  */
-class KWIN_EXPORT kwin : public QObject, protected QDBusContext
+class COMO_EXPORT kwin : public QObject, protected QDBusContext
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KWin")

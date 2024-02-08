@@ -22,7 +22,7 @@
 #include "window_model.h"
 #include "window_thumbnail_item.h"
 
-#include <base/kwin_export.h>
+#include <base/como_export.h>
 #include <render/effect/interface/quick_scene.h>
 #include <script/gesture_handler.h>
 #include <script/quick_scene_effect.h>
@@ -51,7 +51,7 @@ class options;
 /**
  * The heart of Scripting. Infinite power lies beyond
  */
-class KWIN_EXPORT platform_wrap : public QObject
+class COMO_EXPORT platform_wrap : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kwin.Scripting")

@@ -10,10 +10,10 @@
 #include "helpers.h"
 #include "layout_policies.h"
 
+#include "como_export.h"
 #include "input/dbus/keyboard_layout.h"
 #include "input/dbus/keyboard_layouts_v2.h"
 #include "input/keyboard.h"
-#include "kwin_export.h"
 
 #include <KConfigGroup>
 #include <KLocalizedString>
@@ -37,7 +37,7 @@ inline QString translated_keyboard_layout(std::string const& layout)
     return i18nd("xkeyboard-config", layout.c_str());
 }
 
-class KWIN_EXPORT layout_manager_qobject : public QObject
+class COMO_EXPORT layout_manager_qobject : public QObject
 {
     Q_OBJECT
 public:

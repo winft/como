@@ -44,7 +44,7 @@ namespace KWin::render
 {
 
 /// Implements all QObject-specific functioanlity of EffectsHandler.
-class KWIN_EXPORT effects_handler_wrap : public EffectsHandler
+class COMO_EXPORT effects_handler_wrap : public EffectsHandler
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kwin.Effects")
@@ -286,7 +286,7 @@ public:
 
     bool animationsSupported() const override
     {
-        static const QByteArray forceEnvVar = qgetenv("KWIN_EFFECTS_FORCE_ANIMATIONS");
+        static const QByteArray forceEnvVar = qgetenv("COMO_EFFECTS_FORCE_ANIMATIONS");
         if (!forceEnvVar.isEmpty()) {
             static const int forceValue = forceEnvVar.toInt();
             return forceValue == 1;
@@ -746,7 +746,7 @@ public:
 
     void setTabBoxWindow([[maybe_unused]] EffectWindow* w) override
     {
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
         std::visit(overload{[&, this](auto&& win) {
                        if (win->control) {
                            get_space().tabbox->set_current_client(win);
@@ -758,7 +758,7 @@ public:
 
     QList<EffectWindow*> currentTabBoxWindowList() const override
     {
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
         const auto clients = get_space().tabbox->current_client_list();
         QList<EffectWindow*> ret;
         ret.reserve(clients.size());
@@ -775,28 +775,28 @@ public:
 
     void refTabBox() override
     {
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
         get_space().tabbox->reference();
 #endif
     }
 
     void unrefTabBox() override
     {
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
         get_space().tabbox->unreference();
 #endif
     }
 
     void closeTabBox() override
     {
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
         get_space().tabbox->close();
 #endif
     }
 
     EffectWindow* currentTabBoxWindow() const override
     {
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
         if (auto win = get_space().tabbox->current_client()) {
             return std::visit(overload{[](auto&& win) { return win->render->effect.get(); }}, *win);
         }

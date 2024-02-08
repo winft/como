@@ -7,12 +7,13 @@
 #pragma once
 
 #include "base/x11/event_filter.h"
+#include <como_export.h>
 
 namespace KWin::input::x11
 {
 class cursor;
 
-class KWIN_EXPORT xfixes_cursor_event_filter : public base::x11::event_filter
+class COMO_EXPORT xfixes_cursor_event_filter : public base::x11::event_filter
 {
 public:
     explicit xfixes_cursor_event_filter(base::x11::event_filter_manager& manager, cursor* cursor);

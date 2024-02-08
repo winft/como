@@ -6,6 +6,7 @@
 #pragma once
 
 #include "input/control/keyboard.h"
+#include <como_export.h>
 
 namespace KWin::input::backend::wlroots::headless
 {
@@ -18,7 +19,7 @@ struct keyboard_control_data {
     bool is_alpha_numeric_keyboard{false};
 };
 
-class KWIN_EXPORT keyboard_control : public input::control::keyboard
+class COMO_EXPORT keyboard_control : public input::control::keyboard
 {
     Q_OBJECT
 

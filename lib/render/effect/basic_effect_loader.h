@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "render/types.h"
 #include "utils/flags.h"
 
@@ -36,7 +36,7 @@ namespace render
  * to be queried at the same time. Thus the idea is to have one implementation per type and one
  * implementation which makes use of all of them and combines the loading.
  */
-class KWIN_EXPORT basic_effect_loader : public QObject
+class COMO_EXPORT basic_effect_loader : public QObject
 {
     Q_OBJECT
 public:

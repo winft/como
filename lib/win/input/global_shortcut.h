@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "win/types.h"
 
 #include <QKeySequence>
@@ -82,7 +82,7 @@ using Shortcut = std::variant<KeyboardShortcut,
                               RealtimeFeedbackSwipeShortcut,
                               RealtimeFeedbackPinchShortcut>;
 
-class KWIN_EXPORT global_shortcut
+class COMO_EXPORT global_shortcut
 {
 public:
     global_shortcut(Shortcut&& shortcut, QAction* action);

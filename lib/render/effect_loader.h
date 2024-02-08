@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "effect/basic_effect_loader.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <KPluginMetaData>
 #include <memory>
@@ -22,7 +22,7 @@ class EffectsHandler;
 namespace render
 {
 
-class KWIN_EXPORT plugin_effect_loader : public basic_effect_loader
+class COMO_EXPORT plugin_effect_loader : public basic_effect_loader
 {
 public:
     explicit plugin_effect_loader(KSharedConfig::Ptr config);
@@ -47,7 +47,7 @@ private:
     QString m_pluginSubDirectory;
 };
 
-class KWIN_EXPORT effect_loader : public basic_effect_loader
+class COMO_EXPORT effect_loader : public basic_effect_loader
 {
 public:
     template<typename Platform>

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QSet>
 #include <Wrapland/Server/filtered_display.h>
@@ -13,7 +13,7 @@
 namespace KWin::base::wayland
 {
 
-class KWIN_EXPORT filtered_display : public Wrapland::Server::FilteredDisplay
+class COMO_EXPORT filtered_display : public Wrapland::Server::FilteredDisplay
 {
     Q_OBJECT
 public:

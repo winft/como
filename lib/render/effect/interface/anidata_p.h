@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "time_line.h"
 
 #include "render/gl/interface/utils.h"
+#include <como_export.h>
 
 #include <QEasingCurve>
 #include <QSharedPointer>
@@ -50,7 +51,7 @@ private:
 };
 typedef QSharedPointer<PreviousWindowPixmapLock> PreviousWindowPixmapLockPtr;
 
-class KWIN_EXPORT AniData
+class COMO_EXPORT AniData
 {
 public:
     AniData();

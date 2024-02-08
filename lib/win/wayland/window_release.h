@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "config-kwin.h"
+#include "config-como.h"
 
 #include "utils/blocker.h"
 #include "win/remnant.h"
@@ -15,7 +15,7 @@
 #include "win/window_release.h"
 #include <win/wayland/space_windows.h>
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
 #include "win/tabbox/tabbox.h"
 #endif
 
@@ -50,7 +50,7 @@ void destroy_window(Win* win)
     Q_EMIT win->qobject->closed();
 
     if (win->control) {
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
         auto& tabbox = win->space.tabbox;
         if (tabbox->is_displayed() && tabbox->current_client()
             && *tabbox->current_client() == var_win(win)) {

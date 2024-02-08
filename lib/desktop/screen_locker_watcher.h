@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
@@ -18,7 +18,7 @@ class QDBusPendingCallWatcher;
 namespace KWin::desktop
 {
 
-class KWIN_EXPORT screen_locker_watcher : public QObject
+class COMO_EXPORT screen_locker_watcher : public QObject
 {
     Q_OBJECT
 public:

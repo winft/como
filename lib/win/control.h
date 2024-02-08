@@ -6,7 +6,7 @@
 #pragma once
 
 #include "appmenu.h"
-#include "config-kwin.h"
+#include "config-como.h"
 #include "geo.h"
 #include "stacking.h"
 #include "structs.h"

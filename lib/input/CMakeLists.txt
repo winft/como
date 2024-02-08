@@ -188,7 +188,7 @@ target_sources(input-wl
 set_target_properties(input input-x11-backend input-wl PROPERTIES
   VERSION ${CMAKE_PROJECT_VERSION}
   SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-  PREFIX libkwinft-
+  PREFIX libcomo-
 )
 
 qt6_generate_dbus_interface(dbus/device.h org.kde.kwin.InputDevice.xml OPTIONS -A)
@@ -203,7 +203,7 @@ install(
 )
 
 install(TARGETS input input-x11-backend input-wl
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft/input
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/input
 )

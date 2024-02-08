@@ -7,6 +7,7 @@
 
 #include <base/output.h>
 #include <base/output_topology.h>
+#include <como_export.h>
 
 #include <QObject>
 #include <functional>
@@ -14,7 +15,7 @@
 namespace KWin::base
 {
 
-class KWIN_EXPORT platform_qobject : public QObject
+class COMO_EXPORT platform_qobject : public QObject
 {
     Q_OBJECT
 

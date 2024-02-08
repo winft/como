@@ -7,7 +7,7 @@
 
 #include "input/types.h"
 #include "win/input/global_shortcut.h"
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QObject>
 #include <memory>
@@ -20,7 +20,7 @@ namespace KWin::input
 namespace x11
 {
 
-class KWIN_EXPORT global_shortcuts_manager : public QObject
+class COMO_EXPORT global_shortcuts_manager : public QObject
 {
     Q_OBJECT
 public:

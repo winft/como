@@ -7,7 +7,7 @@
 
 #include "skew_notifier_engine.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <memory>
@@ -22,7 +22,7 @@ namespace KWin::base::os::clock
  * the system clock. Such changes are usually initiated by the user adjusting values
  * in the Date and Time KCM or calls made to functions like settimeofday().
  */
-class KWIN_EXPORT skew_notifier : public QObject
+class COMO_EXPORT skew_notifier : public QObject
 {
     Q_OBJECT
 public:

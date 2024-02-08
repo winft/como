@@ -9,7 +9,7 @@
 #include "event.h"
 
 #include "base/wayland/output_transform.h"
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <QPointF>
@@ -19,7 +19,7 @@
 namespace KWin::input
 {
 
-class KWIN_EXPORT touch_qobject : public QObject
+class COMO_EXPORT touch_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

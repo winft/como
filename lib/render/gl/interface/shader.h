@@ -7,7 +7,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <QByteArray>
 #include <QString>
@@ -22,7 +22,7 @@ class QMatrix4x4;
 namespace KWin
 {
 
-class KWIN_EXPORT GLShader
+class COMO_EXPORT GLShader
 {
 public:
     enum Flags {

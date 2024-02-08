@@ -6,6 +6,7 @@
 #pragma once
 
 #include "input/control/pointer.h"
+#include <como_export.h>
 
 #include <KSharedConfig>
 #include <QSizeF>
@@ -14,7 +15,7 @@
 namespace KWin::input::backend::wlroots
 {
 
-class KWIN_EXPORT pointer_control : public input::control::pointer
+class COMO_EXPORT pointer_control : public input::control::pointer
 {
     Q_OBJECT
 

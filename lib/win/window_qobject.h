@@ -9,7 +9,7 @@
 #include "types.h"
 
 #include "base/output.h"
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <QPalette>
@@ -18,7 +18,7 @@
 namespace KWin::win
 {
 
-class KWIN_EXPORT window_qobject : public QObject
+class COMO_EXPORT window_qobject : public QObject
 {
     Q_OBJECT
 public:

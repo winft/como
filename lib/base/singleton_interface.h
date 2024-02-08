@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <functional>
 #include <vector>
@@ -18,7 +18,7 @@ class output;
 class platform_qobject;
 
 /// Only for exceptional use in environments without dependency injection support (e.g. Qt plugins).
-struct KWIN_EXPORT singleton_interface {
+struct COMO_EXPORT singleton_interface {
     static base::app_singleton* app_singleton;
     static base::platform_qobject* platform;
     static std::function<std::vector<output*>()> get_outputs;

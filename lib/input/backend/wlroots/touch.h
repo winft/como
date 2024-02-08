@@ -9,7 +9,7 @@
 #include <input/backend/wlroots/device_helpers.h>
 
 #include "base/utils.h"
-#include "config-kwin.h"
+#include "config-como.h"
 #include "input/platform.h"
 #include "input/touch.h"
 

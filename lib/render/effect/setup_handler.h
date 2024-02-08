@@ -8,9 +8,9 @@
 #include <render/effect/setup_window.h>
 #include <win/screen_edges.h>
 
-#include <config-kwin.h>
+#include <config-como.h>
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
 #include <win/tabbox/tabbox.h>
 #endif
 
@@ -187,7 +187,7 @@ void setup_handler(Handler& handler)
                      &handler,
                      &EffectsHandler::stackingOrderChanged);
 
-#if KWIN_BUILD_TABBOX
+#if COMO_BUILD_TABBOX
     auto qt_tabbox = ws->tabbox->qobject.get();
     QObject::connect(qt_tabbox,
                      &win::tabbox_qobject::tabbox_added,

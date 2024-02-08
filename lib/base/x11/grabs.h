@@ -9,15 +9,15 @@
 
 #include "data.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <xcb/xcb.h>
 
 namespace KWin::base::x11
 {
 
-void KWIN_EXPORT grab_server(xcb_connection_t* con);
-void KWIN_EXPORT ungrab_server(xcb_connection_t* con);
+void COMO_EXPORT grab_server(xcb_connection_t* con);
+void COMO_EXPORT ungrab_server(xcb_connection_t* con);
 
 /**
  * Small helper class which performs grabXServer in the ctor and

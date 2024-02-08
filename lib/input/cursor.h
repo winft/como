@@ -8,7 +8,7 @@
 
 #include "win/cursor_shape.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <KSharedConfig>
 #include <QObject>
@@ -34,7 +34,7 @@ namespace KWin::input
  * fetch the position and warp pointer to set the position. It can provide X11 cursors through the
  * XCursor library.
  */
-class KWIN_EXPORT cursor : public QObject
+class COMO_EXPORT cursor : public QObject
 {
     Q_OBJECT
 public:

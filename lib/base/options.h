@@ -10,14 +10,14 @@
 
 #include "types.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <KConfigWatcher>
 
 namespace KWin::base
 {
 
-class KWIN_EXPORT options_qobject : public QObject
+class COMO_EXPORT options_qobject : public QObject
 {
     Q_OBJECT
 
@@ -29,7 +29,7 @@ Q_SIGNALS:
     void configChanged();
 };
 
-class KWIN_EXPORT options
+class COMO_EXPORT options
 {
 public:
     options(base::operation_mode mode, KSharedConfigPtr config);

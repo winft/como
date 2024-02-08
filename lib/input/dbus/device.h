@@ -11,7 +11,7 @@
 #include "input/control/switch.h"
 #include "input/control/touch.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <QSizeF>
@@ -19,7 +19,7 @@
 namespace KWin::input::dbus
 {
 
-class KWIN_EXPORT device : public QObject
+class COMO_EXPORT device : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KWin.InputDevice")

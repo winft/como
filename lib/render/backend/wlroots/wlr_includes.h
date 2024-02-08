@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "config-kwin.h"
+#include "config-como.h"
 
 // Must be included before wlr/render/gles2.h
 #include <epoxy/egl.h>

@@ -9,6 +9,6 @@ add_subdirectory(scripts)
 add_subdirectory(qpa)
 add_subdirectory(windowsystem)
 
-if (KWIN_BUILD_DECORATIONS)
+if (COMO_BUILD_DECORATIONS)
     add_subdirectory(kdecorations)
 endif()

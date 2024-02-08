@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef TABBOXHANDLER_H
 #define TABBOXHANDLER_H
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "tabbox_client.h"
 #include "tabbox_config.h"
 
@@ -80,7 +80,7 @@ using tabbox_client_list = std::vector<tabbox_client*>;
  * @author Martin Gräßlin <mgraesslin@kde.org>
  * @since 4.4
  */
-class KWIN_EXPORT tabbox_handler : public QObject
+class COMO_EXPORT tabbox_handler : public QObject
 {
     Q_OBJECT
 public:
@@ -314,7 +314,7 @@ private:
 /**
  * Pointer to the global tabbox_handler object.
  */
-KWIN_EXPORT extern tabbox_handler* tabbox_handle;
+COMO_EXPORT extern tabbox_handler* tabbox_handle;
 
 } // namespace win
 } // namespace KWin

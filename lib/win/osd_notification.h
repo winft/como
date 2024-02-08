@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "config-kwin.h"
-#include "kwin_export.h"
+#include "como_export.h"
+#include "config-como.h"
 
 #include <epoxy/gl.h>
 
@@ -50,7 +50,7 @@ private:
     Osd& osd;
 };
 
-class KWIN_EXPORT osd_notification_qobject : public QObject
+class COMO_EXPORT osd_notification_qobject : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(bool visible READ isVisible WRITE setVisible NOTIFY visibleChanged)
@@ -198,8 +198,7 @@ private:
         auto const fileName = QStandardPaths::locate(
             QStandardPaths::GenericDataLocation,
             m_config->group(QStringLiteral("OnScreenNotification"))
-                .readEntry("QmlPath",
-                           QStringLiteral(KWIN_NAME "/onscreennotification/plasma/main.qml")));
+                .readEntry("QmlPath", QStringLiteral("como/onscreennotification/plasma/main.qml")));
 
         if (fileName.isEmpty()) {
             return;

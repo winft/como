@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "zoom_config.h"
 // KConfigSkeleton
 #include "zoomconfig.h"
-#include <config-kwin.h>
+#include <config-como.h>
 #include <kwineffects_interface.h>
 
 #include <QAction>

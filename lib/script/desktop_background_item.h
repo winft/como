@@ -18,7 +18,7 @@ namespace KWin
  * The desktop_background_item type is a convenience helper that represents the desktop
  * background on the specified screen, virtual desktop, and activity.
  */
-class KWIN_EXPORT desktop_background_item : public scripting::window_thumbnail_item
+class COMO_EXPORT desktop_background_item : public scripting::window_thumbnail_item
 {
     Q_OBJECT
     Q_PROPERTY(QString outputName READ outputName WRITE setOutputName NOTIFY outputChanged)

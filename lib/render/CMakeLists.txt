@@ -269,13 +269,13 @@ target_sources(render-wl
 set_target_properties(render render-x11 render-x11-backend render-wl PROPERTIES
   VERSION ${CMAKE_PROJECT_VERSION}
   SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-  PREFIX libkwinft-
+  PREFIX libcomo-
 )
 
 install(
   FILES post/kconfig/color_correct_settings.kcfg
   DESTINATION ${KDE_INSTALL_KCFGDIR}
-  RENAME ${KWIN_NAME}_colorcorrect.kcfg
+  RENAME kwin_colorcorrect.kcfg
 )
 install(
   FILES
@@ -285,11 +285,11 @@ install(
     ${KDE_INSTALL_DBUSINTERFACEDIR}
 )
 
-install(DIRECTORY qml/outline/plasma DESTINATION ${KDE_INSTALL_DATADIR}/${KWIN_NAME}/outline)
-install(DIRECTORY qml/frames/plasma DESTINATION ${KDE_INSTALL_DATADIR}/${KWIN_NAME}/frames)
+install(DIRECTORY qml/outline/plasma DESTINATION ${KDE_INSTALL_DATADIR}/como/outline)
+install(DIRECTORY qml/frames/plasma DESTINATION ${KDE_INSTALL_DATADIR}/como/frames)
 
 install(TARGETS render render-x11 render-x11-backend render-wl
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft/render
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/render
 )

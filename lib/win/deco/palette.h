@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <KColorScheme>
 #include <KConfigWatcher>
@@ -21,7 +21,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 namespace KWin::win::deco
 {
 
-class KWIN_EXPORT palette : public QObject
+class COMO_EXPORT palette : public QObject
 {
     Q_OBJECT
 public:

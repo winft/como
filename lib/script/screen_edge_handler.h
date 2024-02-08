@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
@@ -29,7 +29,7 @@ namespace KWin::scripting
  * }
  * @endcode
  */
-class KWIN_EXPORT screen_edge_handler : public QObject
+class COMO_EXPORT screen_edge_handler : public QObject
 {
     Q_OBJECT
     /**

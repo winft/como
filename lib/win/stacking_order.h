@@ -7,7 +7,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "net.h"
 #include "stacking.h"
 #include "transient_stacking.h"
@@ -38,7 +38,7 @@ auto render_stack(Order& order)
     return stack;
 }
 
-class KWIN_EXPORT stacking_order_qobject : public QObject
+class COMO_EXPORT stacking_order_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

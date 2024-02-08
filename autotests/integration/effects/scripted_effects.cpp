@@ -98,7 +98,7 @@ TEST_CASE("scripted effects", "[effect]")
 {
     qRegisterMetaType<KWin::Effect*>();
     qputenv("KWIN_COMPOSE", QByteArrayLiteral("O2"));
-    qputenv("KWIN_EFFECTS_FORCE_ANIMATIONS", "1");
+    qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", "1");
 
 #if USE_XWL
     auto operation_mode = GENERATE(base::operation_mode::wayland, base::operation_mode::xwayland);

@@ -18,7 +18,7 @@ namespace net
 class win_info;
 }
 
-class KWIN_EXPORT extras : public QObject
+class COMO_EXPORT extras : public QObject
 {
     Q_OBJECT
 public:

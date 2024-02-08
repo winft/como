@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 #include <memory>
@@ -18,7 +18,7 @@ namespace control
 {
 class device_config;
 
-class KWIN_EXPORT device : public QObject
+class COMO_EXPORT device : public QObject
 {
     Q_OBJECT
 

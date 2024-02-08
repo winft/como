@@ -6,14 +6,14 @@
 #pragma once
 
 #include <base/x11/selection_owner.h>
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <xcb/xcb.h>
 
 namespace KWin::base::backend::x11
 {
 
-class KWIN_EXPORT wm_selection_owner : public base::x11::selection_owner
+class COMO_EXPORT wm_selection_owner : public base::x11::selection_owner
 {
 public:
     wm_selection_owner(xcb_connection_t* con, int screen);

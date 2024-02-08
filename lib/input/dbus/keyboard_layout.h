@@ -7,7 +7,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>
@@ -29,7 +29,7 @@ class keyboard;
 namespace dbus
 {
 
-class KWIN_EXPORT keyboard_layout : public QObject
+class COMO_EXPORT keyboard_layout : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KeyboardLayouts")

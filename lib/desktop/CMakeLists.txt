@@ -61,13 +61,13 @@ target_sources(desktop-kde
 set_target_properties(desktop desktop-kde PROPERTIES
   VERSION ${CMAKE_PROJECT_VERSION}
   SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-  PREFIX libkwinft-
+  PREFIX libcomo-
 )
 
 # TODO(romangg): Below should only be installed as part of a consumer install linking desktop-kde.
 install(FILES kde/kwin.notifyrc
   DESTINATION ${KDE_INSTALL_KNOTIFYRCDIR}
-  RENAME ${KWIN_NAME}.notifyrc
+  RENAME kwin.notifyrc
 )
 install(
   FILES
@@ -101,7 +101,7 @@ ecm_install_configured_files(
 )
 
 install(TARGETS desktop desktop-kde
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft/desktop
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/desktop
 )

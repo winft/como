@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include "win/appmenu.h"
 
@@ -74,7 +74,7 @@ appmenu_callbacks create_appmenu_callbacks(Space const& space)
     return callbacks;
 }
 
-class KWIN_EXPORT appmenu : public QObject
+class COMO_EXPORT appmenu : public QObject
 {
     Q_OBJECT
 

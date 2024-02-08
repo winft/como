@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 #include "script/window.h"
 
 #include <QAbstractListModel>
@@ -18,7 +18,7 @@ namespace KWin::scripting
 
 class window;
 
-class KWIN_EXPORT window_model : public QAbstractListModel
+class COMO_EXPORT window_model : public QAbstractListModel
 {
     Q_OBJECT
 
@@ -46,7 +46,7 @@ private:
     QList<QUuid> m_windows;
 };
 
-class KWIN_EXPORT window_filter_model : public QSortFilterProxyModel
+class COMO_EXPORT window_filter_model : public QSortFilterProxyModel
 {
     Q_OBJECT
     Q_PROPERTY(

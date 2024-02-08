@@ -6,7 +6,7 @@
 #pragma once
 
 #include "render/effect/interface/effect_screen.h"
-#include <kwin_export.h>
+#include <como_export.h>
 #include <render/effect/interface/types.h>
 #include <win/subspace.h>
 
@@ -46,7 +46,7 @@ public:
  * The purpose is to hide internal data and also to serve as a single
  *  representation for the case when Client/Unmanaged becomes Deleted.
  */
-class KWIN_EXPORT EffectWindow : public QObject
+class COMO_EXPORT EffectWindow : public QObject
 {
     Q_OBJECT
     Q_PROPERTY(QRect geometry READ frameGeometry)

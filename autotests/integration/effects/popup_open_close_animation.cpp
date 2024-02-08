@@ -17,7 +17,7 @@ namespace KWin::detail::test
 
 TEST_CASE("popup open close animation", "[effect]")
 {
-    qputenv("KWIN_EFFECTS_FORCE_ANIMATIONS", QByteArrayLiteral("1"));
+    qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", QByteArrayLiteral("1"));
     qputenv("XDG_DATA_DIRS", QCoreApplication::applicationDirPath().toUtf8());
 
 #if USE_XWL

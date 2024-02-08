@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 #include <win/subspace.h>
 
 #include <QPoint>
@@ -15,7 +15,7 @@
 namespace KWin::win
 {
 
-class KWIN_EXPORT subspace_grid
+class COMO_EXPORT subspace_grid
 {
 public:
     subspace_grid();

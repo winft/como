@@ -10,7 +10,7 @@
 
 #include "base/wayland/screen_lock.h"
 #include "base/wayland/server.h"
-#include "kwin_export.h"
+#include "como_export.h"
 #include "win/space_qobject.h"
 #include "win/window_qobject.h"
 #include <input/wayland/xcursor_theme.h>
@@ -32,7 +32,7 @@
 namespace KWin::input::wayland
 {
 
-class KWIN_EXPORT cursor_image_qobject : public QObject
+class COMO_EXPORT cursor_image_qobject : public QObject
 {
     Q_OBJECT
 Q_SIGNALS:

@@ -7,8 +7,8 @@
 
 #include "device_helpers.h"
 
+#include "como_export.h"
 #include "input/platform_qobject.h"
-#include "kwin_export.h"
 
 #include <QObject>
 #include <QStringList>
@@ -18,7 +18,7 @@ namespace KWin::input::dbus
 {
 class device;
 
-class KWIN_EXPORT device_manager_qobject : public QObject
+class COMO_EXPORT device_manager_qobject : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.KWin.InputDeviceManager")

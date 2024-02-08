@@ -57,8 +57,8 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
   )
 endif()
 
-configure_file(config-kwin.h.cmake config-kwin.h)
-generate_export_header(base BASE_NAME kwin)
+configure_file(config-como.h.cmake config-como.h)
+generate_export_header(base BASE_NAME como)
 
 add_library(base-x11 SHARED)
 
@@ -157,11 +157,11 @@ target_sources(base-wl
 set_target_properties(base base-x11 base-wl PROPERTIES
    VERSION ${CMAKE_PROJECT_VERSION}
    SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
-   PREFIX libkwinft-
+   PREFIX libcomo-
 )
 
 install(TARGETS base base-x11 base-x11-backend base-wl
-  EXPORT kwinft-export
+  EXPORT como-export
   LIBRARY NAMELINK_SKIP
-  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/kwinft/base
+  FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/base
 )

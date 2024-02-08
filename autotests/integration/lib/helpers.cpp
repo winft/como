@@ -573,7 +573,7 @@ void keyboard_key_pressed(uint32_t key, uint32_t time, wlr_keyboard* keyboard)
     keyboard_key_impl(key, time, true, WL_KEYBOARD_KEY_STATE_PRESSED, keyboard);
 }
 
-KWIN_EXPORT void keyboard_key_released(uint32_t key, uint32_t time, wlr_keyboard* keyboard)
+void keyboard_key_released(uint32_t key, uint32_t time, wlr_keyboard* keyboard)
 {
     keyboard_key_impl(key, time, true, WL_KEYBOARD_KEY_STATE_RELEASED, keyboard);
 }

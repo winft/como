@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include "render/compositor_qobject.h"
 #include "render/types.h"
@@ -33,7 +33,7 @@ struct compositing_integration {
     std::function<void(void)> reinit;
 };
 
-class KWIN_EXPORT compositing_qobject : public QObject
+class COMO_EXPORT compositing_qobject : public QObject
 {
     Q_OBJECT
     Q_CLASSINFO("D-Bus Interface", "org.kde.kwin.Compositing")

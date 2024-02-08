@@ -6,6 +6,7 @@
 #pragma once
 
 #include "input/control/keyboard.h"
+#include <como_export.h>
 
 #include <KSharedConfig>
 #include <libinput.h>
@@ -13,7 +14,7 @@
 namespace KWin::input::backend::wlroots
 {
 
-class KWIN_EXPORT keyboard_control : public input::control::keyboard
+class COMO_EXPORT keyboard_control : public input::control::keyboard
 {
     Q_OBJECT
 

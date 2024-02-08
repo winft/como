@@ -8,14 +8,14 @@
 #include "control/pointer.h"
 #include "event.h"
 
-#include "kwin_export.h"
+#include "como_export.h"
 
 #include <QObject>
 
 namespace KWin::input
 {
 
-class KWIN_EXPORT pointer : public QObject
+class COMO_EXPORT pointer : public QObject
 {
     Q_OBJECT
 public:

@@ -6,7 +6,7 @@
 #pragma once
 
 #include "base/options.h"
-#include <base/config-kwin.h>
+#include <base/config-como.h>
 #include <render/gl/interface/platform.h>
 
 #include <KLocalizedString>
@@ -44,8 +44,8 @@ QString get_support_info(Space const& space)
     support.append(QStringLiteral("\n==========================\n\n"));
     support.append(QStringLiteral("Version\n"));
     support.append(QStringLiteral("=======\n"));
-    support.append(QStringLiteral("KWinFT version: "));
-    support.append(QStringLiteral(KWIN_VERSION_STRING));
+    support.append(QStringLiteral("The Compositor Modules version: "));
+    support.append(QStringLiteral(COMO_VERSION_STRING));
     support.append(QStringLiteral("\n"));
     support.append(QStringLiteral("Qt Version: "));
     support.append(QString::fromUtf8(qVersion()));
@@ -70,12 +70,10 @@ QString get_support_info(Space const& space)
     support.append(QStringLiteral("Build Options\n"));
     support.append(QStringLiteral("=============\n"));
 
-    support.append(QStringLiteral("KWIN_BUILD_DECORATIONS: "));
-    support.append(KWIN_BUILD_DECORATIONS ? yes : no);
-    support.append(QStringLiteral("KWIN_BUILD_TABBOX: "));
-    support.append(KWIN_BUILD_TABBOX ? yes : no);
-    support.append(QStringLiteral("KWIN_BUILD_ACTIVITIES (deprecated): "));
-    support.append(no);
+    support.append(QStringLiteral("COMO_BUILD_DECORATIONS: "));
+    support.append(COMO_BUILD_DECORATIONS ? yes : no);
+    support.append(QStringLiteral("COMO_BUILD_TABBOX: "));
+    support.append(COMO_BUILD_TABBOX ? yes : no);
     support.append(QStringLiteral("HAVE_PERF: "));
     support.append(HAVE_PERF ? yes : no);
     support.append(QStringLiteral("HAVE_EPOXY_GLX: "));

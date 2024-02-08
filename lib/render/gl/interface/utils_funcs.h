@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include <kwin_export.h>
+#include <como_export.h>
 
 #include <epoxy/gl.h>
 #include <functional>
@@ -28,7 +28,7 @@ namespace KWin
 {
 
 typedef void (*resolveFuncPtr)();
-void KWIN_EXPORT
+void COMO_EXPORT
 glResolveFunctions(const std::function<resolveFuncPtr(const char*)>& resolveFunction);
 
 // GL_ARB_robustness / GL_EXT_robustness
@@ -44,8 +44,8 @@ using glReadnPixels_func = void (*)(GLint x,
 using glGetnUniformfv_func
     = void (*)(GLuint program, GLint location, GLsizei bufSize, GLfloat* params);
 
-extern KWIN_EXPORT glGetGraphicsResetStatus_func glGetGraphicsResetStatus;
-extern KWIN_EXPORT glReadnPixels_func glReadnPixels;
-extern KWIN_EXPORT glGetnUniformfv_func glGetnUniformfv;
+extern COMO_EXPORT glGetGraphicsResetStatus_func glGetGraphicsResetStatus;
+extern COMO_EXPORT glReadnPixels_func glReadnPixels;
+extern COMO_EXPORT glGetnUniformfv_func glGetnUniformfv;
 
 }

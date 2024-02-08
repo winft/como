@@ -7,7 +7,7 @@
 
 #include "base/logging.h"
 
-#include "config-kwin.h"
+#include "config-como.h"
 #include "utils/algorithm.h"
 #include "win_settings.h"
 
@@ -476,7 +476,7 @@ void options::syncFromKcfgc()
     qobject->setFocusStealingPreventionLevel(
         static_cast<fsp_level>(m_settings->focusStealingPreventionLevel()));
 
-#if KWIN_BUILD_DECORATIONS
+#if COMO_BUILD_DECORATIONS
     qobject->setPlacement(static_cast<win::placement>(m_settings->placement()));
 #else
     qobject->setPlacement(win::placement::maximizing);

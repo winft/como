@@ -52,7 +52,7 @@ macro(kwin_add_builtin_effect name)
     kcoreaddons_add_plugin(${name} STATIC SOURCES ${ARGN} INSTALL_NAMESPACE "kwin/effects/plugins")
     target_compile_definitions(${name} PRIVATE -DTRANSLATION_DOMAIN=\"kwin\")
     kwin_strip_builtin_effect_metadata(${name} metadata.json)
-    install(FILES metadata.json DESTINATION ${KDE_INSTALL_DATADIR}/${KWIN_NAME}/builtin-effects/ RENAME ${name}.json)
+    install(FILES metadata.json DESTINATION ${KDE_INSTALL_DATADIR}/kwin/builtin-effects/ RENAME ${name}.json)
 endmacro()
 
 function(kwin_add_scripted_effect name source)

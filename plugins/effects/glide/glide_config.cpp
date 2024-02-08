@@ -9,7 +9,7 @@
 // KConfigSkeleton
 #include "glideconfig.h"
 
-#include <base/config-kwin.h>
+#include <base/config-como.h>
 
 #include <KPluginFactory>
 #include <kwineffects_interface.h>
