@@ -9,7 +9,7 @@
 #include <cstdint>
 #include <deque>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 template<typename Device>

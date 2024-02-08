@@ -5,7 +5,7 @@
 */
 #include "space_qobject.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 space_qobject::space_qobject(std::function<void()> reconfigure_callback)

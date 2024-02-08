@@ -13,7 +13,7 @@
 #include <Wrapland/Server/client.h>
 #include <unistd.h>
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 QSet<QByteArray> const interfacesBlackList = {

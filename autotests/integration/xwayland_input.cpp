@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/seat.h>
 #include <xcb/xcb_icccm.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 namespace

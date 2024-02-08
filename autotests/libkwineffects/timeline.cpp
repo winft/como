@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace std::chrono_literals;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("timeline", "[effect],[unit]")

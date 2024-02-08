@@ -9,7 +9,7 @@
 
 #include <QAction>
 
-namespace KWin::win
+namespace como::win
 {
 
 static inline unsigned int get_action_data_as_uint(QAction* act)

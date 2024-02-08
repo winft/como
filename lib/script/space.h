@@ -33,16 +33,16 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <memory>
 #include <vector>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 class COMO_EXPORT space : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(QVector<KWin::win::subspace*> desktops READ desktops NOTIFY desktopsChanged)
-    Q_PROPERTY(KWin::win::subspace* currentDesktop READ currentDesktop WRITE setCurrentDesktop
+    Q_PROPERTY(QVector<como::win::subspace*> desktops READ desktops NOTIFY desktopsChanged)
+    Q_PROPERTY(como::win::subspace* currentDesktop READ currentDesktop WRITE setCurrentDesktop
                    NOTIFY currentDesktopChanged)
-    Q_PROPERTY(KWin::scripting::window* activeWindow READ activeWindow WRITE setActiveWindow NOTIFY
+    Q_PROPERTY(como::scripting::window* activeWindow READ activeWindow WRITE setActiveWindow NOTIFY
                    windowActivated)
     // TODO: write and notify?
     Q_PROPERTY(QSize desktopGridSize READ desktopGridSize NOTIFY desktopLayoutChanged)
@@ -52,8 +52,8 @@ class COMO_EXPORT space : public QObject
     Q_PROPERTY(int workspaceHeight READ workspaceHeight)
     Q_PROPERTY(QSize workspaceSize READ workspaceSize)
 
-    Q_PROPERTY(KWin::scripting::output* activeScreen READ activeScreen)
-    Q_PROPERTY(QList<KWin::scripting::output*> screens READ screens NOTIFY screensChanged)
+    Q_PROPERTY(como::scripting::output* activeScreen READ activeScreen)
+    Q_PROPERTY(QList<como::scripting::output*> screens READ screens NOTIFY screensChanged)
 
     Q_PROPERTY(QString currentActivity READ currentActivity WRITE setCurrentActivity NOTIFY
                    currentActivityChanged)
@@ -75,7 +75,7 @@ class COMO_EXPORT space : public QObject
      * List of Clients currently managed by KWin, orderd by
      * their visibility (later ones cover earlier ones).
      */
-    Q_PROPERTY(QList<KWin::scripting::window*> stackingOrder READ stackingOrder)
+    Q_PROPERTY(QList<como::scripting::window*> stackingOrder READ stackingOrder)
 
 public:
     //------------------------------------------------------------------
@@ -117,7 +117,7 @@ public:
 
     virtual win::subspace* currentDesktop() const = 0;
     virtual void setCurrentDesktop(win::subspace* desktop) = 0;
-    virtual QVector<KWin::win::subspace*> desktops() const = 0;
+    virtual QVector<como::win::subspace*> desktops() const = 0;
 
     Q_INVOKABLE output* screenAt(QPointF const& pos) const
     {
@@ -177,13 +177,13 @@ public:
      * @param client The Client for which the area should be retrieved
      * @returns The specified screen geometry
      */
-    Q_SCRIPTABLE QRect clientArea(ClientAreaOption option, KWin::scripting::window* window) const
+    Q_SCRIPTABLE QRect clientArea(ClientAreaOption option, como::scripting::window* window) const
     {
         return client_area_impl(static_cast<win::area_option>(option), window);
     }
 
     Q_SCRIPTABLE QRect clientArea(ClientAreaOption option,
-                                  KWin::scripting::window const* window) const
+                                  como::scripting::window const* window) const
     {
         return client_area_impl(static_cast<win::area_option>(option), window);
     }
@@ -247,13 +247,13 @@ public:
     /**
      * List of Clients managed by KWin, orderd by their visibility (later ones cover earlier ones).
      */
-    virtual QList<KWin::scripting::window*> stackingOrder() const = 0;
+    virtual QList<como::scripting::window*> stackingOrder() const = 0;
 
     /**
      * Raises a Window  above all others on the screen.
      * @param window The Window to raise
      */
-    Q_INVOKABLE void raiseWindow(KWin::scripting::window* window)
+    Q_INVOKABLE void raiseWindow(como::scripting::window* window)
     {
         raise_window_impl(window);
     }
@@ -263,7 +263,7 @@ public:
      * @param windowId The window Id of the Client
      * @return The found Client or @c null
      */
-    Q_SCRIPTABLE KWin::scripting::window* getClient(qulonglong windowId);
+    Q_SCRIPTABLE como::scripting::window* getClient(qulonglong windowId);
 
     /**
      * Finds up to count windows at a particular location, prioritizing the topmost one first.  A
@@ -272,7 +272,7 @@ public:
      * @param count The number of clients to return
      * @return A list of Client objects
      */
-    Q_INVOKABLE QList<KWin::scripting::window*> windowAt(QPointF const& pos, int count = 1) const
+    Q_INVOKABLE QList<como::scripting::window*> windowAt(QPointF const& pos, int count = 1) const
     {
         return window_at_impl(pos, count);
     }
@@ -357,7 +357,7 @@ public Q_SLOTS:
     /**
      * Sends the window to the given @p screen.
      */
-    virtual void sendClientToScreen(KWin::scripting::window* client, scripting::output* output) = 0;
+    virtual void sendClientToScreen(como::scripting::window* client, scripting::output* output) = 0;
 
     /**
      * Shows an outline at the specified @p geometry.
@@ -375,9 +375,9 @@ public Q_SLOTS:
     virtual void hideOutline() = 0;
 
 Q_SIGNALS:
-    void windowAdded(KWin::scripting::window*);
-    void windowRemoved(KWin::scripting::window*);
-    void windowActivated(KWin::scripting::window*);
+    void windowAdded(como::scripting::window*);
+    void windowRemoved(como::scripting::window*);
+    void windowActivated(como::scripting::window*);
 
     /// This signal is emitted when a virtual desktop is added or removed.
     void desktopsChanged();
@@ -467,13 +467,13 @@ public:
     ~qt_script_space() override;
 
     /// List of windows managed by KWin.
-    Q_INVOKABLE QList<KWin::scripting::window*> windowList() const;
+    Q_INVOKABLE QList<como::scripting::window*> windowList() const;
 };
 
 class COMO_EXPORT declarative_script_space : public space
 {
     Q_OBJECT
-    Q_PROPERTY(QQmlListProperty<KWin::scripting::window> windows READ windows)
+    Q_PROPERTY(QQmlListProperty<como::scripting::window> windows READ windows)
 
 public:
     declarative_script_space() = default;
@@ -565,7 +565,7 @@ public:
         return ref_space->subspace_manager->current;
     }
 
-    QVector<KWin::win::subspace*> desktops() const override
+    QVector<como::win::subspace*> desktops() const override
     {
         QVector<win::subspace*> ret;
         auto const& subs = ref_space->subspace_manager->subspaces;
@@ -970,9 +970,9 @@ protected:
         return debug::get_support_info(*ref_space);
     }
 
-    QList<KWin::scripting::window*> stackingOrder() const override
+    QList<como::scripting::window*> stackingOrder() const override
     {
-        QList<KWin::scripting::window*> ret;
+        QList<como::scripting::window*> ret;
         for (auto&& win : ref_space->stacking.order.stack) {
             if (auto swin = get_window(win)) {
                 ret << swin;
@@ -981,15 +981,15 @@ protected:
         return ret;
     }
 
-    void raise_window_impl(KWin::scripting::window* window) override
+    void raise_window_impl(como::scripting::window* window) override
     {
         std::visit(overload{[this](auto&& win) { win::raise_window(*ref_space, win); }},
                    static_cast<window_t*>(window)->client());
     }
 
-    QList<KWin::scripting::window*> window_at_impl(QPointF const& pos, int count) const override
+    QList<como::scripting::window*> window_at_impl(QPointF const& pos, int count) const override
     {
-        QList<KWin::scripting::window*> result;
+        QList<como::scripting::window*> result;
 
         int found = 0;
         auto const& stacking = ref_space->stacking.order.stack;

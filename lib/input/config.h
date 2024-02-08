@@ -7,7 +7,7 @@
 
 #include <KSharedConfig>
 
-namespace KWin::input
+namespace como::input
 {
 
 class config

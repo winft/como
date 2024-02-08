@@ -22,7 +22,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             <default>true</default>
         </entry>
         <entry name="Mode" type="Enum">
-            <choices name="KWin::render::night_color_mode">
+            <choices name="como::render::night_color_mode">
                 <choice name="Automatic"/>
                 <choice name="Location"/>
                 <choice name="Times"/>

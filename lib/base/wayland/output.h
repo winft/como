@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/output.h>
 #include <memory>
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 template<typename Platform>

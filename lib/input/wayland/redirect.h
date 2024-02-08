@@ -48,7 +48,7 @@
 #include <Wrapland/Server/virtual_keyboard_v1.h>
 #include <unordered_map>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 template<typename Space>

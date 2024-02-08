@@ -16,7 +16,7 @@ target_link_libraries(script
 qt6_add_dbus_adaptor(script_dbus_srcs
   org.kde.kwin.Script.xml
   script.h
-  KWin::scripting::abstract_script
+  como::scripting::abstract_script
 )
 
 target_sources(script

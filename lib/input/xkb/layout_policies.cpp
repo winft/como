@@ -6,7 +6,7 @@
 */
 #include "layout_policies.h"
 
-namespace KWin
+namespace como
 {
 
 namespace input::xkb

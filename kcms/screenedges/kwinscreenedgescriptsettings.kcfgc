@@ -3,7 +3,7 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=kwinscreenedgescriptsettings.kcfg
-NameSpace=KWin
+NameSpace=como
 ClassName=KWinScreenEdgeScriptSettings
 IncludeFiles=win/types.h
 Mutators=true

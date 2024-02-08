@@ -4,6 +4,6 @@
 
 File=thumbnailaside.kcfg
 ClassName=ThumbnailAsideConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

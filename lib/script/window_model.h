@@ -13,7 +13,7 @@
 
 #include <optional>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 class window;
@@ -53,7 +53,7 @@ class COMO_EXPORT window_filter_model : public QSortFilterProxyModel
         window_model* windowModel READ windowModel WRITE setWindowModel NOTIFY windowModelChanged)
     Q_PROPERTY(
         QString activity READ activity WRITE setActivity RESET resetActivity NOTIFY activityChanged)
-    Q_PROPERTY(KWin::win::subspace* desktop READ desktop WRITE setDesktop RESET resetDesktop NOTIFY
+    Q_PROPERTY(como::win::subspace* desktop READ desktop WRITE setDesktop RESET resetDesktop NOTIFY
                    desktopChanged)
     Q_PROPERTY(QString filter READ filter WRITE setFilter NOTIFY filterChanged)
     Q_PROPERTY(QString screenName READ screenName WRITE setScreenName RESET resetScreenName NOTIFY

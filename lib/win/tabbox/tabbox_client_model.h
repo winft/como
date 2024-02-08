@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
  * @since 4.4
  */
 
-namespace KWin
+namespace como
 {
 namespace win
 {
@@ -94,6 +94,6 @@ private:
 };
 
 } // namespace win
-} // namespace KWin
+}
 
 #endif // CLIENTMODEL_H

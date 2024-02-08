@@ -11,7 +11,7 @@
 #include <QIcon>
 #include <QRegion>
 
-namespace KWin
+namespace como
 {
 
 class EffectFramePrivate;

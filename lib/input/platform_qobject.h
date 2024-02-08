@@ -10,7 +10,7 @@
 #include <QObject>
 #include <functional>
 
-namespace KWin::input
+namespace como::input
 {
 
 class keyboard;
@@ -26,15 +26,15 @@ public:
     ~platform_qobject() override;
 
 Q_SIGNALS:
-    void keyboard_added(KWin::input::keyboard*);
-    void pointer_added(KWin::input::pointer*);
-    void switch_added(KWin::input::switch_device*);
-    void touch_added(KWin::input::touch*);
+    void keyboard_added(como::input::keyboard*);
+    void pointer_added(como::input::pointer*);
+    void switch_added(como::input::switch_device*);
+    void touch_added(como::input::touch*);
 
-    void keyboard_removed(KWin::input::keyboard*);
-    void pointer_removed(KWin::input::pointer*);
-    void switch_removed(KWin::input::switch_device*);
-    void touch_removed(KWin::input::touch*);
+    void keyboard_removed(como::input::keyboard*);
+    void pointer_removed(como::input::pointer*);
+    void switch_removed(como::input::switch_device*);
+    void touch_removed(como::input::touch*);
 };
 
 }

@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "shortcutsettings.h"
 #include "ui_main.h"
 
-namespace KWin
+namespace como
 {
 
 using namespace win;

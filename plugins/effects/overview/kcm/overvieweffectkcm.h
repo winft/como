@@ -10,7 +10,7 @@
 
 #include "ui_overvieweffectkcm.h"
 
-namespace KWin
+namespace como
 {
 
 class OverviewEffectConfig : public KCModule
@@ -28,4 +28,4 @@ private:
     ::Ui::OverviewEffectConfig ui;
 };
 
-} // namespace KWin
+}

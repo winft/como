@@ -4,6 +4,6 @@
 
 File=fallapart.kcfg
 ClassName=FallApartConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

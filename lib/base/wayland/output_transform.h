@@ -5,7 +5,7 @@
 */
 #pragma once
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 enum class output_transform {

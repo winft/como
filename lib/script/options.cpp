@@ -9,7 +9,7 @@
 #include "render/options.h"
 #include "win/options.h"
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 enum CompositingType {

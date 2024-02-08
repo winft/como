@@ -7,7 +7,7 @@
 
 #include <QRect>
 
-namespace KWin
+namespace como
 {
 
 EffectScreen::EffectScreen(QObject* parent)

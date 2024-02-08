@@ -13,7 +13,7 @@
 
 class QTimer;
 
-namespace KWin::xwl
+namespace como::xwl
 {
 class wl_to_x11_transfer;
 class x11_to_wl_transfer;

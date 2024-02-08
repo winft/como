@@ -13,7 +13,7 @@
 #include "stacking.h"
 #include "window_operation.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Space>

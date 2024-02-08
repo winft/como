@@ -12,7 +12,7 @@
 #include <chrono>
 #include <functional>
 
-namespace KWin
+namespace como
 {
 
 class Effect;

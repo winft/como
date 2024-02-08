@@ -23,7 +23,7 @@ extern "C" {
 
 #include <iostream>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 static setup* current_setup{nullptr};

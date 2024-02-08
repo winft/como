@@ -8,7 +8,7 @@
 #include "base/options.h"
 #include "win/meta.h"
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Space>

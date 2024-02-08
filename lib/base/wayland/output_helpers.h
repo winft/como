@@ -17,7 +17,7 @@
 #include <Wrapland/Server/wlr_output_configuration_v1.h>
 #include <algorithm>
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 template<typename Base>

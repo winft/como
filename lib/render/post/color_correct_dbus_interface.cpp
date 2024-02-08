@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QDBusMessage>
 
-namespace KWin::render::post
+namespace como::render::post
 {
 
 static void send_changed_properties(QVariantMap const& props)

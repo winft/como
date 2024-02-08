@@ -3,7 +3,7 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=kwintouchscreenscriptsettings.kcfg
-NameSpace=KWin
+NameSpace=como
 ClassName=KWinTouchScreenScriptSettings
 IncludeFiles=win/types.h
 Mutators=true

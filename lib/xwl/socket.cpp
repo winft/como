@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <sys/stat.h>
 #include <sys/un.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 struct socket_address {

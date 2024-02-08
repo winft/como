@@ -13,7 +13,7 @@
 #include <vector>
 #include <xcb/xcb.h>
 
-namespace KWin::win::x11::net
+namespace como::win::x11::net
 {
 
 struct win_info_private;

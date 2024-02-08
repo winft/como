@@ -26,7 +26,7 @@
 #include <QVector3D>
 #include <QVector4D>
 
-namespace KWin
+namespace como
 {
 
 //****************************************

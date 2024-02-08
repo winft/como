@@ -15,7 +15,7 @@
 #include <QDBusConnection>
 #include <QHash>
 
-namespace KWin::input
+namespace como::input
 {
 
 cursor::cursor(KSharedConfigPtr config)

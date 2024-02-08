@@ -16,7 +16,7 @@
 class QAction;
 class KGlobalAccelD;
 
-namespace KWin::input
+namespace como::input
 {
 
 namespace wayland

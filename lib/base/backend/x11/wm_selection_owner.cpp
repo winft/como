@@ -14,7 +14,7 @@
 #include <QTimerEvent>
 #include <private/qtx11extras_p.h>
 
-namespace KWin::base::backend::x11
+namespace como::base::backend::x11
 {
 
 xcb_atom_t wm_selection_owner::xa_version{XCB_ATOM_NONE};

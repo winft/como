@@ -16,7 +16,7 @@
 
 class QTimer;
 
-namespace KWin
+namespace como
 {
 
 namespace base::x11

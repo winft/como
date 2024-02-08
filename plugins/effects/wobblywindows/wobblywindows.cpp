@@ -28,7 +28,7 @@
 
 Q_LOGGING_CATEGORY(KWIN_WOBBLYWINDOWS, "kwin_effect_wobblywindows", QtWarningMsg)
 
-namespace KWin
+namespace como
 {
 
 struct ParameterSet {
@@ -1238,4 +1238,4 @@ bool WobblyWindowsEffect::isResizeWobble() const
     return m_resizeWobble;
 }
 
-} // namespace KWin
+}

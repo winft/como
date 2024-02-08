@@ -12,7 +12,7 @@
 #include "render/qpainter/scene.h"
 #include <config-como.h>
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 template<typename Platform>

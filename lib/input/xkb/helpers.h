@@ -7,7 +7,7 @@
 
 #include <Qt>
 
-namespace KWin::input::xkb
+namespace como::input::xkb
 {
 
 /**

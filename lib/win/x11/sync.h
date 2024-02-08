@@ -10,7 +10,7 @@
 #include <QRect>
 #include <xcb/sync.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 struct sync_request {

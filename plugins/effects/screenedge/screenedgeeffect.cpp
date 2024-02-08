@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QTimer>
 #include <QVector4D>
 
-namespace KWin
+namespace como
 {
 
 ScreenEdgeEffect::ScreenEdgeEffect()

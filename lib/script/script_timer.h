@@ -9,7 +9,7 @@
 
 #include <QTimer>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 /**

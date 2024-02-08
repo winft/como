@@ -4,6 +4,6 @@
 
 File=kscreen.kcfg
 ClassName=KscreenConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

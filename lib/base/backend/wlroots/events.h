@@ -10,7 +10,7 @@
 #include <base/logging.h>
 #include <base/utils.h>
 
-namespace KWin::base::backend::wlroots
+namespace como::base::backend::wlroots
 {
 
 template<typename Backend>

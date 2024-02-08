@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <epoxy/gl.h>
 
-namespace KWin
+namespace como
 {
 
 class EffectWindow;
@@ -30,7 +30,7 @@ class COMO_EXPORT window_thumbnail_item : public QQuickItem
 {
     Q_OBJECT
     Q_PROPERTY(QUuid wId READ wId WRITE setWId NOTIFY wIdChanged)
-    Q_PROPERTY(KWin::scripting::window* client READ client WRITE setClient NOTIFY clientChanged)
+    Q_PROPERTY(como::scripting::window* client READ client WRITE setClient NOTIFY clientChanged)
     Q_PROPERTY(QSize sourceSize READ sourceSize WRITE setSourceSize NOTIFY sourceSizeChanged)
 
 public:
@@ -63,7 +63,7 @@ private:
     QImage fallbackImage() const;
     QRectF paintedRect() const;
     void invalidateOffscreenTexture();
-    void updateOffscreenTexture(KWin::effect::screen_paint_data& data);
+    void updateOffscreenTexture(como::effect::screen_paint_data& data);
     void destroyOffscreenTexture();
     void updateImplicitSize();
     void update_render_notifier();

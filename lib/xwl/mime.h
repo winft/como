@@ -11,7 +11,7 @@
 #include <string>
 #include <xcb/xcb.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 inline xcb_atom_t mime_type_to_atom_literal(xcb_connection_t* xcb_con, std::string const& mime_type)

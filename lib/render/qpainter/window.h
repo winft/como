@@ -12,7 +12,7 @@
 
 #include "win/scene.h"
 
-namespace KWin::render::qpainter
+namespace como::render::qpainter
 {
 
 template<typename RefWin, typename Scene>

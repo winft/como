@@ -7,7 +7,7 @@
 
 #include <QObject>
 
-namespace KWin::win::deco
+namespace como::win::deco
 {
 
 /**

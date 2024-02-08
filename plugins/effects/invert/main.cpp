@@ -7,13 +7,13 @@
 
 #include <render/effect/interface/effect_plugin_factory.h>
 
-namespace KWin
+namespace como
 {
 
 KWIN_EFFECT_FACTORY_SUPPORTED(InvertEffect,
                               "metadata.json.stripped",
                               return InvertEffect::supported();)
 
-} // namespace KWin
+}
 
 #include "main.moc"

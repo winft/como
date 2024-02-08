@@ -15,7 +15,7 @@
 #include <QPointF>
 #include <QSet>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 template<typename Redirect>

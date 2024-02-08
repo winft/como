@@ -19,7 +19,7 @@
 #include <QPointF>
 #include <Wrapland/Server/display.h>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 struct platform_mod {

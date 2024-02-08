@@ -21,14 +21,14 @@
 
 #include <variant>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 class COMO_EXPORT window : public win::property_window
 {
     Q_OBJECT
 
-    Q_PROPERTY(KWin::scripting::output* output READ output NOTIFY outputChanged)
+    Q_PROPERTY(como::scripting::output* output READ output NOTIFY outputChanged)
 
     /// @deprecated
     Q_PROPERTY(QStringList activities READ activities NOTIFY activitiesChanged)
@@ -61,31 +61,31 @@ Q_SIGNALS:
     void quickTileModeChanged();
 
     void moveResizeCursorChanged(win::cursor_shape);
-    void clientStartUserMovedResized(KWin::scripting::window* window);
-    void clientStepUserMovedResized(KWin::scripting::window* window, const QRect&);
-    void clientFinishUserMovedResized(KWin::scripting::window* window);
+    void clientStartUserMovedResized(como::scripting::window* window);
+    void clientStepUserMovedResized(como::scripting::window* window, const QRect&);
+    void clientFinishUserMovedResized(como::scripting::window* window);
 
     void minimizeableChanged(bool);
     void shadeableChanged(bool);
     void maximizeableChanged(bool);
 
-    void activitiesChanged(KWin::scripting::window* client);
+    void activitiesChanged(como::scripting::window* client);
 
     void shadeChanged();
 
     void paletteChanged(const QPalette& p);
 
-    void clientMinimized(KWin::scripting::window* window);
-    void clientUnminimized(KWin::scripting::window* window);
+    void clientMinimized(como::scripting::window* window);
+    void clientUnminimized(como::scripting::window* window);
 
     void
-    clientMaximizedStateChanged(KWin::scripting::window* window, bool horizontal, bool vertical);
+    clientMaximizedStateChanged(como::scripting::window* window, bool horizontal, bool vertical);
 
-    void damaged(KWin::scripting::window* client, const QRegion& damage);
+    void damaged(como::scripting::window* client, const QRegion& damage);
     void stackingOrderChanged();
 
     // TODO: this signal is never emitted - remove?
-    void clientMaximizeSet(KWin::scripting::window* window, bool horizontal, bool vertical);
+    void clientMaximizeSet(como::scripting::window* window, bool horizontal, bool vertical);
 };
 
 template<typename RefWin, typename Space>
@@ -752,4 +752,4 @@ private:
 
 }
 
-Q_DECLARE_METATYPE(QList<KWin::scripting::window*>)
+Q_DECLARE_METATYPE(QList<como::scripting::window*>)

@@ -11,7 +11,7 @@
 #include <vector>
 #include <xcb/xcb.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 enum class drag_event_reply {

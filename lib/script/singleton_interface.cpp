@@ -5,7 +5,7 @@
 */
 #include "singleton_interface.h"
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 scripting::qt_script_space* singleton_interface::qt_script_space{nullptr};

@@ -12,7 +12,7 @@
 #include <xcb/xcb.h>
 #include <xcb/xproto.h>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 class COMO_EXPORT selection_owner : public QObject

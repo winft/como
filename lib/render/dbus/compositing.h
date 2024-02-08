@@ -18,7 +18,7 @@
 // Must be included before.
 #include <QOpenGLContext>
 
-namespace KWin::render::dbus
+namespace como::render::dbus
 {
 
 struct compositing_integration {

@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-namespace KWin
+namespace como
 {
 
 class WindowSystem : public QObject, public KWindowSystemPrivateV2

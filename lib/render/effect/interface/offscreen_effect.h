@@ -9,7 +9,7 @@
 #include <como_export.h>
 #include <render/effect/interface/effect.h>
 
-namespace KWin
+namespace como
 {
 
 class GLShader;

@@ -16,7 +16,7 @@
 
 #include <KDecoration2/DecoratedClient>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Win>

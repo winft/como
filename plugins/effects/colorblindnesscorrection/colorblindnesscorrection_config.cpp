@@ -15,10 +15,10 @@
 #include "colorblindnesscorrection_settings.h"
 #include "colorblindnesscorrection_settingsdata.h"
 
-K_PLUGIN_CLASS_WITH_JSON(KWin::ColorBlindnessCorrectionEffectConfig,
+K_PLUGIN_CLASS_WITH_JSON(como::ColorBlindnessCorrectionEffectConfig,
                          "kwin_colorblindnesscorrection_config.json")
 
-namespace KWin
+namespace como
 {
 
 ColorBlindnessCorrectionEffectConfig::ColorBlindnessCorrectionEffectConfig(

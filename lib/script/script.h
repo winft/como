@@ -23,7 +23,7 @@ class QAction;
 class QMenu;
 class KConfigGroup;
 
-namespace KWin
+namespace como
 {
 
 namespace base

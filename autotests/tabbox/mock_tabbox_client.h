@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QIcon>
 #include <QUuid>
 
-namespace KWin
+namespace como
 {
 class MockTabBoxClient : public win::tabbox_client
 {
@@ -63,5 +63,5 @@ public:
 private:
     QString m_caption;
 };
-} // namespace KWin
+}
 #endif

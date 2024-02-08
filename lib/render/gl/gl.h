@@ -10,7 +10,7 @@
 
 #include <epoxy/egl.h>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 template<typename ProcAddrGetter>

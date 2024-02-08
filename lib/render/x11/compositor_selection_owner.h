@@ -10,7 +10,7 @@
 
 #include <QObject>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 class COMO_EXPORT compositor_selection_owner : public base::x11::selection_owner

@@ -19,11 +19,11 @@
 static QVector<uint32_t> readShadow(quint32 windowId)
 {
     auto con = QX11Info::connection();
-    KWin::base::x11::xcb::atom atom(QByteArrayLiteral("_KDE_NET_WM_SHADOW"), false, con);
+    como::base::x11::xcb::atom atom(QByteArrayLiteral("_KDE_NET_WM_SHADOW"), false, con);
     QVector<uint32_t> ret;
 
     if (windowId != XCB_WINDOW) {
-        KWin::base::x11::xcb::property property(
+        como::base::x11::xcb::property property(
             con, false, windowId, atom, XCB_ATOM_CARDINAL, 0, 12);
         uint32_t* shadow = property.value<uint32_t*>();
         if (shadow) {
@@ -44,11 +44,11 @@ static QVector<QPixmap> getPixmaps(const QVector<uint32_t>& data)
 {
     QVector<QPixmap> ret;
     static const int ShadowElementsCount = 8;
-    QVector<KWin::base::x11::xcb::geometry> pixmapGeometries;
+    QVector<como::base::x11::xcb::geometry> pixmapGeometries;
     QVector<xcb_get_image_cookie_t> getImageCookies(ShadowElementsCount);
     auto c = QX11Info::connection();
     for (int i = 0; i < ShadowElementsCount; ++i) {
-        pixmapGeometries.push_back(KWin::base::x11::xcb::geometry(c, data[i]));
+        pixmapGeometries.push_back(como::base::x11::xcb::geometry(c, data[i]));
     }
     auto discardReplies = [&getImageCookies](int start) {
         for (int i = start; i < getImageCookies.size(); ++i) {

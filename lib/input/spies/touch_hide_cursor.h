@@ -8,7 +8,7 @@
 
 #include "input/event_spy.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect>

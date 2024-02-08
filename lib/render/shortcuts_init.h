@@ -7,7 +7,7 @@
 
 #include "post/night_color_setup.h"
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename Platform>

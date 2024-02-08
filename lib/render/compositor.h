@@ -9,7 +9,7 @@
 
 #include <QRegion>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename Compositor>

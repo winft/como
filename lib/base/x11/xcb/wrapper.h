@@ -8,7 +8,7 @@
 
 #include <xcb/xcb.h>
 
-namespace KWin::base::x11::xcb
+namespace como::base::x11::xcb
 {
 
 /**

@@ -17,7 +17,7 @@
 #include <set>
 #include <unordered_set>
 
-namespace KWin::input
+namespace como::input
 {
 
 struct idle_listener {

@@ -18,7 +18,7 @@
 #include <QQuickWindow>
 #include <QStandardPaths>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 platform_wrap::platform_wrap(base::options& options,
@@ -32,7 +32,7 @@ platform_wrap::platform_wrap(base::options& options,
     , options{std::make_unique<scripting::options>(options, win_opts, render_opts)}
     , m_scriptsLock(new QRecursiveMutex)
 {
-    qRegisterMetaType<KWin::SessionState>();
+    qRegisterMetaType<como::SessionState>();
 
     QDBusConnection::sessionBus().registerObject(QStringLiteral("/Scripting"),
                                                  this,

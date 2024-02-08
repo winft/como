@@ -5,7 +5,7 @@
 */
 #include "singleton_interface.h"
 
-namespace KWin::render
+namespace como::render
 {
 
 render::compositor_qobject* singleton_interface::compositor{nullptr};

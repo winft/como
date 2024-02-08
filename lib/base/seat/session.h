@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-namespace KWin::base::seat
+namespace como::base::seat
 {
 
 class COMO_EXPORT session : public QObject

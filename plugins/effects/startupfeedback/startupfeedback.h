@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <chrono>
 
 class KSelectionOwner;
-namespace KWin
+namespace como
 {
 class GLShader;
 class GLTexture;

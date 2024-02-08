@@ -9,7 +9,7 @@
 
 #include "win/space_qobject.h"
 
-namespace KWin::debug
+namespace como::debug
 {
 
 template<typename Model, typename Space>

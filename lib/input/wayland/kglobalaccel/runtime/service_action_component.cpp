@@ -161,7 +161,7 @@ void KServiceActionComponent::emitGlobalShortcutPressed(const GlobalShortcut& sh
 
     auto const serviceName = m_serviceStorageId.chopped(strlen(".desktop"));
 
-    auto& token_setter = KWin::win::singleton_interface::set_activation_token;
+    auto& token_setter = como::win::singleton_interface::set_activation_token;
     assert(token_setter);
 
     auto token = token_setter(serviceName.toStdString());

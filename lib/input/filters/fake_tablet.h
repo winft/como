@@ -10,7 +10,7 @@
 #include "input/pointer_redirect.h"
 #include "input/qt_event.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 /**

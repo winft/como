@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QAbstractItemModel>
 
-namespace KWin
+namespace como
 {
 namespace win
 {

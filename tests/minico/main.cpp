@@ -16,7 +16,7 @@ Q_IMPORT_PLUGIN(KWinIdleTimePoller)
 
 int main(int argc, char* argv[])
 {
-    using namespace KWin;
+    using namespace como;
 
     base::wayland::app_singleton app(argc, argv);
 

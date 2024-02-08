@@ -15,7 +15,7 @@
 #include <QSizeF>
 #include <QVector>
 
-namespace KWin::win
+namespace como::win
 {
 static const qreal DEFAULT_MINIMUM_SCALE_DELTA = .2; // 20%
 class COMO_EXPORT gesture : public QObject

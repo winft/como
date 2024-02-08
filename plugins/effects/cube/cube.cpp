@@ -40,7 +40,7 @@ static void ensureResources()
     Q_INIT_RESOURCE(cube);
 }
 
-namespace KWin
+namespace como
 {
 
 CubeEffect::CubeEffect()

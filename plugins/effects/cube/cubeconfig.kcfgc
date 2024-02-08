@@ -4,7 +4,7 @@
 
 File=cube.kcfg
 ClassName=CubeConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true
 IncludeFiles=kcolorscheme.h

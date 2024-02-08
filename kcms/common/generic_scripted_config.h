@@ -11,7 +11,7 @@
 
 class KLocalizedTranslator;
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 class generic_scripted_config_factory : public KPluginFactory

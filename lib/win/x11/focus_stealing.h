@@ -13,7 +13,7 @@
 
 #include <xcb/xcb.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 // focus_in -> the window got FocusIn event

@@ -21,7 +21,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QTimer>
 #include <QToolTip>
 
-namespace KWin::win::deco
+namespace como::win::deco
 {
 
 template<typename Window>

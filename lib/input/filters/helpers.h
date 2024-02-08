@@ -19,7 +19,7 @@
 
 #include <QWheelEvent>
 
-namespace KWin
+namespace como
 {
 
 namespace input

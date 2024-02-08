@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QTimeLine>
 #include <memory>
 
-namespace KWin
+namespace como
 {
 
 #if HAVE_ACCESSIBILITY

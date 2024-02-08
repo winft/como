@@ -3,7 +3,7 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=kwintouchscreenedgeeffectsettings.kcfg
-NameSpace=KWin
+NameSpace=como
 ClassName=KWinTouchScreenEdgeEffectSettings
 IncludeFiles=win/types.h
 Mutators=true

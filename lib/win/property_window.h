@@ -10,7 +10,7 @@
 
 #include <QObject>
 
-namespace KWin::win
+namespace como::win
 {
 
 class window_qobject;
@@ -58,7 +58,7 @@ class COMO_EXPORT property_window : public QObject
 
     Q_PROPERTY(bool fullScreen READ isFullScreen WRITE setFullScreen NOTIFY fullScreenChanged)
 
-    Q_PROPERTY(QVector<KWin::win::subspace*> desktops READ desktops WRITE setDesktops NOTIFY
+    Q_PROPERTY(QVector<como::win::subspace*> desktops READ desktops WRITE setDesktops NOTIFY
                    desktopsChanged)
     Q_PROPERTY(
         bool onAllDesktops READ isOnAllDesktops WRITE setOnAllDesktops NOTIFY desktopsChanged)
@@ -114,7 +114,7 @@ class COMO_EXPORT property_window : public QObject
     Q_PROPERTY(bool unresponsive READ unresponsive NOTIFY unresponsiveChanged)
 
     Q_PROPERTY(bool transient READ isTransient NOTIFY transientChanged)
-    Q_PROPERTY(KWin::win::property_window* transientFor READ transientFor NOTIFY transientChanged)
+    Q_PROPERTY(como::win::property_window* transientFor READ transientFor NOTIFY transientChanged)
     Q_PROPERTY(bool modal READ isModal NOTIFY modalChanged)
 
     Q_PROPERTY(bool decorationHasAlpha READ decorationHasAlpha)
@@ -253,12 +253,12 @@ Q_SIGNALS:
     void iconChanged();
 
     void geometryChanged();
-    void frameGeometryChanged(KWin::win::property_window* window, QRect old_frame_geometry);
+    void frameGeometryChanged(como::win::property_window* window, QRect old_frame_geometry);
 
     void moveResizedChanged();
 
     void hasAlphaChanged();
-    void opacityChanged(KWin::win::property_window* window, qreal old_opacity);
+    void opacityChanged(como::win::property_window* window, qreal old_opacity);
     void fullScreenChanged();
 
     void desktopsChanged();

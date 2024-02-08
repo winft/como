@@ -11,7 +11,7 @@
 #include <functional>
 #include <memory>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename Buffer>

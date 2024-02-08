@@ -14,7 +14,7 @@
 #include <QWidget>
 #include <cassert>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 static int server_grab_count = 0;

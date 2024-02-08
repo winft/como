@@ -16,7 +16,7 @@
 #include <KScreenLocker/KsldApp>
 #include <memory>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 template<typename Redirect>

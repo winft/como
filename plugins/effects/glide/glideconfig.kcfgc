@@ -4,6 +4,6 @@
 
 File=glide.kcfg
 ClassName=GlideConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

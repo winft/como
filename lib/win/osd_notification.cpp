@@ -6,7 +6,7 @@
 */
 #include "osd_notification.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 osd_notification_qobject::osd_notification_qobject(QTimer& timer)

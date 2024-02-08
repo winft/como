@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-namespace KWin::render::post
+namespace como::render::post
 {
 
 static const int MSC_DAY = 86400000;

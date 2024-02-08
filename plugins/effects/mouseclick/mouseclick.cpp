@@ -20,7 +20,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <cmath>
 
-namespace KWin
+namespace como
 {
 
 MouseClickEffect::MouseClickEffect()

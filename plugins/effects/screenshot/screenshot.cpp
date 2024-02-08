@@ -17,7 +17,7 @@
 
 Q_LOGGING_CATEGORY(KWIN_SCREENSHOT, "kwin_effect_screenshot", QtWarningMsg)
 
-namespace KWin
+namespace como
 {
 
 struct ScreenShotWindowData {
@@ -428,4 +428,4 @@ void ScreenShotEffect::handleWindowClosed(EffectWindow* window)
                   [window](const auto& screenshot) { return screenshot.window == window; });
 }
 
-} // namespace KWin
+}

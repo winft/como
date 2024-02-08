@@ -14,9 +14,9 @@
 #include <KPluginFactory>
 #include <kwineffects_interface.h>
 
-K_PLUGIN_CLASS(KWin::GlideEffectConfig)
+K_PLUGIN_CLASS(como::GlideEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 GlideEffectConfig::GlideEffectConfig(QObject* parent, const KPluginMetaData& data)
@@ -39,6 +39,6 @@ void GlideEffectConfig::save()
     interface.reconfigureEffect(QStringLiteral("glide"));
 }
 
-} // namespace KWin
+}
 
 #include "glide_config.moc"

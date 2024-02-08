@@ -23,7 +23,7 @@ namespace Wrapland::Server
 class PlasmaVirtualDesktopManager;
 }
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 class subspace_manager

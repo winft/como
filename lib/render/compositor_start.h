@@ -15,7 +15,7 @@
 
 #include <render/effect/interface/effects_handler.h>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename Compositor>

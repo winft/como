@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QDirIterator>
 #include <QStandardPaths>
 
-namespace KWin
+namespace como
 {
 
 static QString translatedCategory(const QString &category)

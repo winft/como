@@ -14,7 +14,7 @@
 #include <QVector>
 #include <span>
 
-namespace KWin
+namespace como
 {
 
 struct GLVertex2D {

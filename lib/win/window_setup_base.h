@@ -13,7 +13,7 @@
 #include "base/output_helpers.h"
 #include <base/platform_qobject.h>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Win>

@@ -11,7 +11,7 @@
 
 #include <QRegion>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Space>

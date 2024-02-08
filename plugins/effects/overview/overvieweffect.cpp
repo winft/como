@@ -15,7 +15,7 @@
 #include <QQuickItem>
 #include <QTimer>
 
-namespace KWin
+namespace como
 {
 
 OverviewEffect::OverviewEffect()
@@ -421,4 +421,4 @@ void OverviewEffect::swapDesktops(win::subspace* from, win::subspace* to)
     }
 }
 
-} // namespace KWin
+}

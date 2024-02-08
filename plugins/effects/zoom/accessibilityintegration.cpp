@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace QAccessibleClient; // Whatever, sue me...
 
-namespace KWin
+namespace como
 {
 
 ZoomAccessibilityIntegration::ZoomAccessibilityIntegration(QObject* parent)
@@ -97,4 +97,4 @@ void ZoomAccessibilityIntegration::slotFocusChanged(const AccessibleObject& obje
     Q_EMIT focusPointChanged(object.focusPoint());
 }
 
-} // namespace KWin
+}

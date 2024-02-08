@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 -->
 
 <ui version="4.0">
- <class>KWin::MagicLampEffectConfigForm</class>
- <widget class="QWidget" name="KWin::MagicLampEffectConfigForm">
+ <class>como::MagicLampEffectConfigForm</class>
+ <widget class="QWidget" name="como::MagicLampEffectConfigForm">
   <property name="geometry">
    <rect>
     <x>0</x>

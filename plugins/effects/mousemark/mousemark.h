@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/effect.h>
 #include <render/gl/interface/utils.h>
 
-namespace KWin
+namespace como
 {
 
 class MouseMarkEffect : public Effect

@@ -14,7 +14,7 @@
 #include <QOpenGLContext>
 #include <QProcess>
 
-namespace KWin::win
+namespace como::win
 {
 
 void options_qobject::setFocusPolicy(focus_policy focusPolicy)

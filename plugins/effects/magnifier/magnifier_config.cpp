@@ -23,9 +23,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QVBoxLayout>
 #include <QWidget>
 
-K_PLUGIN_CLASS(KWin::MagnifierEffectConfig)
+K_PLUGIN_CLASS(como::MagnifierEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 MagnifierEffectConfig::MagnifierEffectConfig(QObject* parent, const KPluginMetaData& data)

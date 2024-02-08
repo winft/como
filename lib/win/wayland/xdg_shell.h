@@ -36,7 +36,7 @@
 #include <functional>
 #include <memory>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Win, typename Space>

@@ -17,7 +17,7 @@
 #include <QObject>
 #include <variant>
 
-namespace KWin::effect
+namespace como::effect
 {
 
 template<typename Handler>
@@ -147,7 +147,7 @@ void setup_handler(Handler& handler)
         QObject::connect(ws->session_manager.get(),
                          &decltype(ws->session_manager)::element_type::stateChanged,
                          &handler,
-                         &KWin::EffectsHandler::sessionStateChanged);
+                         &como::EffectsHandler::sessionStateChanged);
     }
 
     QObject::connect(vds->qobject.get(),

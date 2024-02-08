@@ -27,7 +27,7 @@
 #include <map>
 #include <vector>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 #define SWAP_TIME_DEBUG 0

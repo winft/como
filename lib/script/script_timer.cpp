@@ -7,7 +7,7 @@
 */
 #include "script_timer.h"
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 script_timer::script_timer(QObject* parent)

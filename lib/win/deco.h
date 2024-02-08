@@ -10,7 +10,7 @@
 #include <KDecoration2/Decoration>
 #include <QObject>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Win>

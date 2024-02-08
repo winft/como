@@ -8,7 +8,7 @@
 #include <chrono>
 #include <epoxy/gl.h>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 class timer_query

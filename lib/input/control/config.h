@@ -14,7 +14,7 @@
 #include <unordered_map>
 #include <variant>
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 enum class config_key {

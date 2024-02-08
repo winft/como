@@ -18,7 +18,7 @@ class QQmlContext;
 class QQmlComponent;
 class QQmlEngine;
 
-namespace KWin::render
+namespace como::render
 {
 
 class composited_outline_visual;

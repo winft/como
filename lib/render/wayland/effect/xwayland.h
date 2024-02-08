@@ -13,7 +13,7 @@
 #include <render/x11/effect/slide_update.h>
 #include <render/x11/effect/update.h>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 template<typename EffectIntegrator>

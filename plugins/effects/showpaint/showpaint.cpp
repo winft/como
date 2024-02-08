@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QAction>
 #include <QPainter>
 
-namespace KWin
+namespace como
 {
 
 static const qreal s_alpha = 0.2;
@@ -103,4 +103,4 @@ void ShowPaintEffect::toggle()
     effects->addRepaintFull();
 }
 
-} // namespace KWin
+}

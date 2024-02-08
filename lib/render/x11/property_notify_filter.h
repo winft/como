@@ -10,7 +10,7 @@
 #include "win/x11/unmanaged.h"
 #include "win/x11/window_find.h"
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 template<typename Effects, typename Space>

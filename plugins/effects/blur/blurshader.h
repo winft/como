@@ -16,7 +16,7 @@
 #include <QVector2D>
 #include <QVector4D>
 
-namespace KWin
+namespace como
 {
 
 class BlurShader : public QObject
@@ -94,6 +94,6 @@ inline bool BlurShader::isValid() const
     return m_valid;
 }
 
-} // namespace KWin
+}
 
 #endif

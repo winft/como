@@ -10,7 +10,7 @@
 #include "kscreenlocker_interface.h"
 #include "screenlocker_interface.h"
 
-namespace KWin::desktop
+namespace como::desktop
 {
 
 static QString const SCREEN_LOCKER_SERVICE_NAME = QStringLiteral("org.freedesktop.ScreenSaver");

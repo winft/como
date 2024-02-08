@@ -16,7 +16,7 @@
 #include <QApplication>
 #include <string>
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 enum class start_options {
@@ -83,4 +83,4 @@ int exec(Platform& platform, app_singleton& app)
 
 }
 
-ENUM_FLAGS(KWin::base::wayland::start_options)
+ENUM_FLAGS(como::base::wayland::start_options)

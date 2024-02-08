@@ -9,7 +9,7 @@
 
 #include <QPainter>
 
-namespace KWin::render::qpainter
+namespace como::render::qpainter
 {
 
 template<typename Window>

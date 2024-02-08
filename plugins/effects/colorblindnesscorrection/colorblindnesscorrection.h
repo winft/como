@@ -11,7 +11,7 @@
 
 #include <unordered_set>
 
-namespace KWin
+namespace como
 {
 
 /**
@@ -39,17 +39,17 @@ public:
     static bool supported();
 
 public Q_SLOTS:
-    void slotWindowDeleted(KWin::EffectWindow* w);
+    void slotWindowDeleted(como::EffectWindow* w);
 
 private Q_SLOTS:
-    void correctColor(KWin::EffectWindow* w);
+    void correctColor(como::EffectWindow* w);
 
 private:
     void loadData();
 
     Mode m_mode = Protanopia;
 
-    std::unordered_set<KWin::EffectWindow*> m_windows;
+    std::unordered_set<como::EffectWindow*> m_windows;
     std::unique_ptr<GLShader> m_shader;
 };
 

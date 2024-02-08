@@ -9,7 +9,7 @@
 #include "como_export.h"
 #include <QObject>
 
-namespace KWin::win
+namespace como::win
 {
 
 namespace extended_cursor
@@ -332,4 +332,4 @@ inline std::vector<std::string> cursor_shape_get_alternative_names(std::string c
 
 }
 
-Q_DECLARE_METATYPE(KWin::win::cursor_shape)
+Q_DECLARE_METATYPE(como::win::cursor_shape)

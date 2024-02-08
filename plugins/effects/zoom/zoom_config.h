@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "ui_zoom_config.h"
 
-namespace KWin
+namespace como
 {
 
 class ZoomEffectConfig : public KCModule

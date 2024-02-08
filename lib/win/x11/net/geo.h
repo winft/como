@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QRect>
 
-namespace KWin::win::x11::net
+namespace como::win::x11::net
 {
 
 struct point {

@@ -26,7 +26,7 @@
 #include <netwm_def.h>
 
 
-namespace KWin
+namespace como
 {
 
 RulesModel::RulesModel(QObject *parent)
@@ -39,8 +39,8 @@ RulesModel::RulesModel(QObject *parent)
     qmlRegisterUncreatableType<OptionsModel>("org.kde.kcms.kwinrules", 1, 0, "OptionsModel",
                                              QStringLiteral("Do not create objects of type OptionsModel"));
 
-    qDBusRegisterMetaType<KWin::win::dbus::subspace_data>();
-    qDBusRegisterMetaType<KWin::win::dbus::subspace_data_vector>();
+    qDBusRegisterMetaType<como::win::dbus::subspace_data>();
+    qDBusRegisterMetaType<como::win::dbus::subspace_data_vector>();
 
     populateRuleList();
 }
@@ -915,7 +915,7 @@ void RulesModel::updateVirtualDesktops()
                 if (!reply.isValid()) {
                     return;
                 }
-                m_virtualDesktops = qdbus_cast<KWin::win::dbus::subspace_data_vector>(reply.value());
+                m_virtualDesktops = qdbus_cast<como::win::dbus::subspace_data_vector>(reply.value());
                 Q_EMIT virtualDesktopsUpdated();
             }
     );

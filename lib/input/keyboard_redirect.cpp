@@ -6,7 +6,7 @@
 */
 #include "keyboard_redirect.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 keyboard_redirect_qobject::~keyboard_redirect_qobject() = default;

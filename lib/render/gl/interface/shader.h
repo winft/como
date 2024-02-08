@@ -19,7 +19,7 @@ class QVector3D;
 class QVector4D;
 class QMatrix4x4;
 
-namespace KWin
+namespace como
 {
 
 class COMO_EXPORT GLShader

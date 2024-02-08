@@ -14,7 +14,7 @@
 #include <Wrapland/Server/subcompositor.h>
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 template<typename Space>

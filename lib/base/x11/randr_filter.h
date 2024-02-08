@@ -13,7 +13,7 @@
 #include <memory>
 #include <xcb/xcb.h>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 template<typename Platform>

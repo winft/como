@@ -10,7 +10,7 @@
 
 #include <QDBusConnection>
 
-namespace KWin::render::dbus
+namespace como::render::dbus
 {
 
 compositing_qobject::compositing_qobject()

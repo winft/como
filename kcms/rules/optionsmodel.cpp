@@ -11,7 +11,7 @@
 #include <KLocalizedString>
 
 
-namespace KWin
+namespace como
 {
 
 QHash<int, QByteArray> OptionsModel::roleNames() const

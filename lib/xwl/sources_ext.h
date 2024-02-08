@@ -10,7 +10,7 @@
 #include <Wrapland/Server/data_source.h>
 #include <Wrapland/Server/primary_selection.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 class COMO_EXPORT data_source_ext : public Wrapland::Server::data_source_ext

@@ -9,7 +9,7 @@
 #include "linux_skew_notifier_engine.h"
 #endif
 
-namespace KWin::base::os::clock
+namespace como::base::os::clock
 {
 
 std::unique_ptr<skew_notifier_engine> skew_notifier_engine::create()

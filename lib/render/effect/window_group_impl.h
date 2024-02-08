@@ -9,7 +9,7 @@
 
 #include <render/effect/interface/effect_window.h>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename Group>

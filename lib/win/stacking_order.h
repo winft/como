@@ -19,7 +19,7 @@
 #include <vector>
 #include <xcb/xcb.h>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Order>

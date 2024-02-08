@@ -30,7 +30,7 @@ typedef struct xcb_ge_generic_event_t {
 } xcb_ge_generic_event_t;
 #endif
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 static std::vector<std::string> const xcb_errors({

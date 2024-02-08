@@ -10,7 +10,7 @@
 
 #include <QUuid>
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 book_settings::book_settings(KSharedConfig::Ptr config, QObject* parent)

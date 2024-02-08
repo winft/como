@@ -18,10 +18,10 @@ KWindowSystemKWinPlugin::~KWindowSystemKWinPlugin()
 
 KWindowEffectsPrivate* KWindowSystemKWinPlugin::createEffects()
 {
-    return new KWin::WindowEffects();
+    return new como::WindowEffects();
 }
 
 KWindowSystemPrivate* KWindowSystemKWinPlugin::createWindowSystem()
 {
-    return new KWin::WindowSystem();
+    return new como::WindowSystem();
 }

@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QHash>
 
-namespace KWin::input
+namespace como::input
 {
 struct idle_listener;
 }
@@ -41,8 +41,8 @@ public Q_SLOTS:
 private:
     void cleanup();
 
-    KWin::input::idle_listener* m_catchResumeTimeout{nullptr};
-    QHash<int, KWin::input::idle_listener*> m_timeouts;
+    como::input::idle_listener* m_catchResumeTimeout{nullptr};
+    QHash<int, como::input::idle_listener*> m_timeouts;
 };
 
 #endif

@@ -12,7 +12,7 @@
 
 #include <QObject>
 
-namespace KWin::input
+namespace como::input
 {
 
 class COMO_EXPORT pointer : public QObject

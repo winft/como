@@ -4,6 +4,6 @@
 
 File=mousemark.kcfg
 ClassName=MouseMarkConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

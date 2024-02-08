@@ -10,7 +10,7 @@
 #include <QAbstractListModel>
 #include <vector>
 
-namespace KWin
+namespace como
 {
 
 namespace win

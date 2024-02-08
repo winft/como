@@ -41,10 +41,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 K_PLUGIN_FACTORY_WITH_JSON(KWinTabBoxConfigFactory,
                            "kcm_kwintabbox.json",
-                           registerPlugin<KWin::KWinTabBoxConfig>();
-                           registerPlugin<KWin::win::KWinTabboxData>();)
+                           registerPlugin<como::KWinTabBoxConfig>();
+                           registerPlugin<como::win::KWinTabboxData>();)
 
-namespace KWin
+namespace como
 {
 
 using namespace win;

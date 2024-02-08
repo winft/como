@@ -10,7 +10,7 @@
 #include <KLocalizedString>
 #include <QAction>
 
-namespace KWin::render::post
+namespace como::render::post
 {
 
 template<typename Input, typename NightColor>

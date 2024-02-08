@@ -11,7 +11,7 @@
 #include <QObject>
 #include <QVariant>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 class declarative_script;

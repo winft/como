@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <memory>
 
-namespace KWin
+namespace como
 {
 
 class GLShader;
@@ -38,7 +38,7 @@ public:
 public Q_SLOTS:
     void toggleScreenInversion();
     void toggleWindow();
-    void slotWindowClosed(KWin::EffectWindow* w);
+    void slotWindowClosed(como::EffectWindow* w);
 
 protected:
     bool loadData();

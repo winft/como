@@ -16,7 +16,7 @@
 #include <QMatrix4x4>
 #include <QRegion>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 inline void create_view_projection(QRect const& world_geo, QMatrix4x4& view, QMatrix4x4& projection)

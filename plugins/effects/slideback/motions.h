@@ -10,7 +10,7 @@
 
 #include <QPointF>
 
-namespace KWin
+namespace como
 {
 
 class EffectWindow;

@@ -9,7 +9,7 @@
 
 #include <QMetaType>
 
-namespace KWin::input
+namespace como::input
 {
 
 enum class keyboard_leds {
@@ -27,5 +27,5 @@ enum class TabletEventType {
 
 }
 
-ENUM_FLAGS(KWin::input::keyboard_leds)
-Q_DECLARE_METATYPE(KWin::input::keyboard_leds)
+ENUM_FLAGS(como::input::keyboard_leds)
+Q_DECLARE_METATYPE(como::input::keyboard_leds)

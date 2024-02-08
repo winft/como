@@ -19,7 +19,7 @@
 #include "win/tabbox/tabbox.h"
 #endif
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Win>

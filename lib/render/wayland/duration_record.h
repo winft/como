@@ -7,7 +7,7 @@
 
 #include <chrono>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 /**

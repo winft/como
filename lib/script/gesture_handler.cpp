@@ -10,7 +10,7 @@
 #include <QAction>
 #include <functional>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 SwipeGestureHandler::SwipeGestureHandler(QObject* parent)

@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/data_source.h>
 #include <Wrapland/Server/seat.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 /**

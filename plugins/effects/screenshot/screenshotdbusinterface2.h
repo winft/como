@@ -14,7 +14,7 @@
 #include <QObject>
 #include <QVariantMap>
 
-namespace KWin
+namespace como
 {
 
 class ScreenShotEffect;
@@ -67,4 +67,4 @@ private:
     ScreenShotEffect* m_effect;
 };
 
-} // namespace KWin
+}

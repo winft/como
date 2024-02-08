@@ -15,7 +15,7 @@
 #include <QObject>
 #include <unistd.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 inline void send_selection_notify(xcb_connection_t* connection,

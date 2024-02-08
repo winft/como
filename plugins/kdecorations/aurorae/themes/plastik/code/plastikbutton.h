@@ -16,7 +16,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #include <QQuickImageProvider>
 
-namespace KWin
+namespace como
 {
 
 class PlastikButtonProvider : public QQuickImageProvider

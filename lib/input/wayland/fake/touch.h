@@ -9,7 +9,7 @@
 
 #include <Wrapland/Server/fake_input.h>
 
-namespace KWin::input::wayland::fake
+namespace como::input::wayland::fake
 {
 
 template<typename Redirect>

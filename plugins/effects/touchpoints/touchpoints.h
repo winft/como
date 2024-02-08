@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <render/effect/interface/effect.h>
 
-namespace KWin
+namespace como
 {
 
 class TouchPointsEffect : public Effect

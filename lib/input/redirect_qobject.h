@@ -12,7 +12,7 @@
 #include <QObject>
 #include <QPointF>
 
-namespace KWin::input
+namespace como::input
 {
 
 class COMO_EXPORT redirect_qobject : public QObject

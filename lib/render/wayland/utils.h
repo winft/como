@@ -7,7 +7,7 @@
 
 #include "win/scene.h"
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 template<typename Win>

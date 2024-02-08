@@ -10,7 +10,7 @@
 #include <QTimer>
 #include <xcb/xcb.h>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 class deco_render_data : public win::deco::render_data

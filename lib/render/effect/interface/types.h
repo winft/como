@@ -17,7 +17,7 @@
 #define KWIN_EFFECT_API_VERSION                                                                    \
     KWIN_EFFECT_API_MAKE_VERSION(KWIN_EFFECT_API_VERSION_MAJOR, KWIN_EFFECT_API_VERSION_MINOR)
 
-namespace KWin
+namespace como
 {
 
 class Effect;

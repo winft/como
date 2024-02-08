@@ -7,7 +7,7 @@
 */
 #include "layout_manager.h"
 
-namespace KWin::input::xkb
+namespace como::input::xkb
 {
 
 layout_manager_qobject::layout_manager_qobject(std::function<void()> reconfigure_callback)

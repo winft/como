@@ -12,7 +12,7 @@
 #include <QAbstractListModel>
 
 
-namespace KWin
+namespace como
 {
 
 class RuleBookModel : public QAbstractListModel

@@ -9,7 +9,7 @@
 #include "win/desktop_get.h"
 #include "win/space_areas.h"
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Window>

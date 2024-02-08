@@ -7,7 +7,7 @@
 
 #include <QUuid>
 
-namespace KWin::win
+namespace como::win
 {
 
 static QString generateDesktopId()

@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KLocalizedString>
 #include <QFont>
 
-namespace KWin
+namespace como
 {
 
 #define BUTTON_COUNT 3

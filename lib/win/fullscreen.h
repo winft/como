@@ -10,7 +10,7 @@
 #include "placement.h"
 #include "types.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Win>

@@ -13,7 +13,7 @@
 #include <QMetaProperty>
 #include <QString>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 // TODO(romangg): This method should be split up into the seperate modules input, render, win, etc.

@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <memory>
 #include <xcb/xcb.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 // version of DnD support in X

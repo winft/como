@@ -10,7 +10,7 @@
 #include <QObject>
 #include <QString>
 
-namespace KWin::win
+namespace como::win
 {
 
 class COMO_EXPORT subspace : public QObject

@@ -19,7 +19,7 @@
 #include <render/gl/interface/shader_manager.h>
 #include <render/gl/interface/vertex_buffer.h>
 
-namespace KWin
+namespace como
 {
 // Variables
 // List of all supported GL extensions

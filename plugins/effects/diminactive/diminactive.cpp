@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/effects_handler.h>
 #include <render/effect/interface/paint_data.h>
 
-namespace KWin
+namespace como
 {
 
 /**
@@ -400,4 +400,4 @@ void DimInactiveEffect::updateActiveWindow(EffectWindow* w)
     m_activeWindow = canDimWindow(w) ? w : nullptr;
 }
 
-} // namespace KWin
+}

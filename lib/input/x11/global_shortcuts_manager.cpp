@@ -10,7 +10,7 @@
 #include <KGlobalAccel>
 #include <QAction>
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 
 using global_shortcut = win::global_shortcut;

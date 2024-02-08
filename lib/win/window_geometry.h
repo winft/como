@@ -11,7 +11,7 @@
 #include <QRect>
 #include <QSize>
 
-namespace KWin::win
+namespace como::win
 {
 
 struct window_geometry {

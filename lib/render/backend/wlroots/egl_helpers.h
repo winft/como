@@ -7,7 +7,7 @@
 
 #include "render/wayland/egl_data.h"
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 inline void load_egl_proc(void* proc_ptr, const char* name)

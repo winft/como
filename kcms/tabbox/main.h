@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <kcmodule.h>
 #include <ksharedconfig.h>
 
-namespace KWin
+namespace como
 {
 class KWinTabBoxConfigForm;
 namespace win

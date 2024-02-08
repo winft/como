@@ -26,7 +26,7 @@
 
 #include <QHash>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename Window>

@@ -12,7 +12,7 @@
 #include <vector>
 #include <xcb/randr.h>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 template<typename Base, typename Resources>

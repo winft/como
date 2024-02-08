@@ -17,7 +17,7 @@
 #include "input/switch.h"
 #include "input/touch.h"
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 template<typename Dev, typename Target, typename... Ctrl>

@@ -3,7 +3,7 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=color_correct_settings.kcfg
-NameSpace=KWin::render::post
+NameSpace=como::render::post
 ClassName=Settings
 Singleton=true
 Mutators=true

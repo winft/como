@@ -11,7 +11,7 @@
 #include <QRect>
 #include <xcb/randr.h>
 
-namespace KWin::base::x11::xcb::randr
+namespace como::base::x11::xcb::randr
 {
 
 XCB_WRAPPER(screen_info, xcb_randr_get_screen_info, xcb_window_t)

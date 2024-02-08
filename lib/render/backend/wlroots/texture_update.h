@@ -30,7 +30,7 @@
 #define EGL_WAYLAND_Y_INVERTED_WL 0x31DB
 #endif
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 template<typename Texture>

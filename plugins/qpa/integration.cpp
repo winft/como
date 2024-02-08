@@ -29,7 +29,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QtGui/private/qspiaccessiblebridge_p.h>
 #include <QtGui/private/qunixeventdispatcher_qpa_p.h>
 
-namespace KWin
+namespace como
 {
 
 namespace QPA

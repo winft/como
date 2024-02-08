@@ -11,7 +11,7 @@
 #include <QColor>
 #include <xcb/render.h>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 non_composited_outline::non_composited_outline(base::x11::data const& data,

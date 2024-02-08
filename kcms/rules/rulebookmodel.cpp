@@ -7,7 +7,7 @@
 
 #include "utils/algorithm.h"
 
-namespace KWin
+namespace como
 {
 
 RuleBookModel::RuleBookModel(QObject *parent)

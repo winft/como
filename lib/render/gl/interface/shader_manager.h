@@ -17,7 +17,7 @@
 #include <memory>
 #include <stack>
 
-namespace KWin
+namespace como
 {
 
 class GLShader;
@@ -236,4 +236,4 @@ inline GLShader* ShaderBinder::shader()
 
 }
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::ShaderTraits)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::ShaderTraits)

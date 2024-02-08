@@ -11,7 +11,7 @@
 #include "win/types.h"
 #include "win/window_qobject.h"
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 template<typename Ruling, typename RefWin>

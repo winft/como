@@ -9,7 +9,7 @@
 #include "base/x11/event_filter.h"
 #include <como_export.h>
 
-namespace KWin::input::x11
+namespace como::input::x11
 {
 class cursor;
 

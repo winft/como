@@ -15,7 +15,7 @@
 
 #include <QWindow>
 
-namespace KWin
+namespace como
 {
 namespace input::wayland
 {

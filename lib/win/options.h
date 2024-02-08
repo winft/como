@@ -13,7 +13,7 @@
 #include <KConfigWatcher>
 #include <QObject>
 
-namespace KWin::win
+namespace como::win
 {
 
 class settings;

@@ -9,7 +9,7 @@
 
 #include <xcb/xcb.h>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 // for delayed supportproperty management of effects

@@ -13,7 +13,7 @@
 #include <QByteArray>
 #include <QList>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 struct egl_data {

@@ -7,7 +7,7 @@
 
 #include "utils/flags.h"
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 enum class global_selection {
@@ -28,4 +28,4 @@ enum class global_selection {
 
 }
 
-ENUM_FLAGS(KWin::detail::test::global_selection)
+ENUM_FLAGS(como::detail::test::global_selection)

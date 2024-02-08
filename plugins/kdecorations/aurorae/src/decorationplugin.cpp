@@ -20,6 +20,6 @@ void DecorationPlugin::registerTypes(const char* uri)
 {
     Q_ASSERT(QLatin1String(uri) == QLatin1String("org.kde.kwin.decoration"));
     qmlRegisterType<ColorHelper>(uri, 0, 1, "ColorHelper");
-    qmlRegisterType<KWin::DecorationOptions>(uri, 0, 1, "DecorationOptions");
-    qmlRegisterType<KWin::Borders>(uri, 0, 1, "Borders");
+    qmlRegisterType<como::DecorationOptions>(uri, 0, 1, "DecorationOptions");
+    qmlRegisterType<como::Borders>(uri, 0, 1, "Borders");
 }

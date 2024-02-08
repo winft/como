@@ -15,9 +15,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QVBoxLayout>
 
-K_PLUGIN_CLASS(KWin::MagicLampEffectConfig)
+K_PLUGIN_CLASS(como::MagicLampEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 MagicLampEffectConfig::MagicLampEffectConfig(QObject* parent, const KPluginMetaData& data)

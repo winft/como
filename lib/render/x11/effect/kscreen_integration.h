@@ -15,7 +15,7 @@
 #include <map>
 #include <string_view>
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 template<typename Effects>

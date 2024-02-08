@@ -19,7 +19,7 @@
 #include "book_settings.h"
 #include "rules_settings.h"
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 ruling::ruling()

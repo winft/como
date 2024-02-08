@@ -10,7 +10,7 @@
 
 #include <QStack>
 
-namespace KWin
+namespace como
 {
 
 QStack<QRegion>* PaintClipper::areas = nullptr;

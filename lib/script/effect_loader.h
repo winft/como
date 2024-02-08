@@ -20,7 +20,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QtConcurrentRun>
 #include <string_view>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 /**

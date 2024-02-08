@@ -7,7 +7,7 @@
 
 #include "utils/algorithm.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 keyboard::keyboard(xkb_context* context, xkb_compose_table* compose_table)

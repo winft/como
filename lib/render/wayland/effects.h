@@ -14,7 +14,7 @@
 #include <render/wayland/setup_handler.h>
 #include <win/wayland/space_windows.h>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 // KScreen effect is only available on X11.

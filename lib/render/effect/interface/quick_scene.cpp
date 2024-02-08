@@ -15,7 +15,7 @@
 #include <QQuickItem>
 #include <QQuickWindow>
 
-namespace KWin
+namespace como
 {
 
 static QHash<QQuickWindow*, QuickSceneView*> s_views;
@@ -297,7 +297,7 @@ QuickSceneView* QuickSceneEffect::activeView() const
     return it == d->views.end() ? d->views[effects->activeScreen()].get() : it->second.get();
 }
 
-KWin::QuickSceneView* QuickSceneEffect::getView(Qt::Edge edge)
+como::QuickSceneView* QuickSceneEffect::getView(Qt::Edge edge)
 {
     auto screenView = activeView();
 
@@ -623,6 +623,6 @@ bool QuickSceneEffect::touchUp(qint32 id, quint32 time)
     return false;
 }
 
-} // namespace KWin
+}
 
 #include <moc_quick_scene.cpp>

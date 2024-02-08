@@ -20,9 +20,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QVBoxLayout>
 
-K_PLUGIN_CLASS(KWin::ZoomEffectConfig)
+K_PLUGIN_CLASS(como::ZoomEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 ZoomEffectConfig::ZoomEffectConfig(QObject* parent, const KPluginMetaData& data)

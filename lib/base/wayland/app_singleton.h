@@ -8,7 +8,7 @@
 #include <base/app_singleton.h>
 #include <base/config-como.h>
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 class app_singleton : public base::app_singleton

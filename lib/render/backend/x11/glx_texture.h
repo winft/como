@@ -18,7 +18,7 @@
 #include <epoxy/glx.h>
 #include <xcb/glx.h>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 /// Texture using an GLXPixmap.

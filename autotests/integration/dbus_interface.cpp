@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
 
 using namespace Wrapland::Client;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 const QString s_destination{QStringLiteral("org.kde.KWin")};

@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "win/x11/key_server.h"
 #include <base/x11/data.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Tabbox>

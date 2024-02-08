@@ -8,7 +8,7 @@
 #include <QRegion>
 #include <vector>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Output>

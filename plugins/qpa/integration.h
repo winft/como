@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QtGui/private/qgenericunixservices_p.h>
 #include <qpa/qplatformintegration.h>
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {

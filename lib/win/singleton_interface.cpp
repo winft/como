@@ -5,7 +5,7 @@
 */
 #include "singleton_interface.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 screen_edger_singleton* singleton_interface::edger{nullptr};

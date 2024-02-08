@@ -8,7 +8,7 @@
 #include <QByteArray>
 #include <QUuid>
 
-namespace KWin::win
+namespace como::win
 {
 
 struct window_metadata {

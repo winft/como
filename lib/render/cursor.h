@@ -12,7 +12,7 @@
 #include <QPoint>
 #include <memory>
 
-namespace KWin::render
+namespace como::render
 {
 
 class COMO_EXPORT cursor_qobject : public QObject

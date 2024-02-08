@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QFontDatabase>
 #include <QObject>
 
-namespace KWin::win::deco
+namespace como::win::deco
 {
 
 template<typename Space>

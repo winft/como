@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QMatrix4x4>
 #include <QSet>
 
-namespace KWin
+namespace como
 {
 
 static const QSet<QString> s_blacklist{
@@ -278,4 +278,4 @@ bool GlideEffect::isGlideWindow(EffectWindow* w) const
     return w->isNormalWindow() || w->isDialog();
 }
 
-} // namespace KWin
+}

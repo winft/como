@@ -10,7 +10,7 @@
 #include "script/singleton_interface.h"
 #include "script/space.h"
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 window_model::window_model(QObject* parent)

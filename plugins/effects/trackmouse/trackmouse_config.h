@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 class KActionCollection;
 
-namespace KWin
+namespace como
 {
 
 class TrackMouseEffectConfig : public KCModule

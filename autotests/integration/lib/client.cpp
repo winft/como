@@ -17,7 +17,7 @@
 
 namespace Clt = Wrapland::Client;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 client::client(global_selection globals)

@@ -13,7 +13,7 @@
 #include <QMargins>
 #include <QRect>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Win1, typename Win2>

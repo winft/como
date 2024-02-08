@@ -30,7 +30,7 @@
 
 #include "scriptadaptor.h"
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 static QRect scriptValueToRect(const QJSValue& value)

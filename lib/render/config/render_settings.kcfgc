@@ -3,7 +3,7 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=render_settings.kcfg
-NameSpace=KWin::render
+NameSpace=como::render
 ClassName=settings
 IncludeFiles=render/types.h
 UseEnumTypes=true

@@ -30,7 +30,7 @@
 #define unlikely(x) (x)
 #endif
 
-namespace KWin
+namespace como
 {
 
 static const uint16_t indices[] = {

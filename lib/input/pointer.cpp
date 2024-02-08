@@ -7,7 +7,7 @@
 
 #include "utils/algorithm.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 pointer::pointer() = default;

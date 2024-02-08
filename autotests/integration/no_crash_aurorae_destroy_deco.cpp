@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QQuickItem>
 #include <linux/input.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("no crash aurorae destroy deco", "[win],[xwl]")

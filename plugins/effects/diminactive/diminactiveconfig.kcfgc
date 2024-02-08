@@ -4,6 +4,6 @@
 
 File=diminactive.kcfg
 ClassName=DimInactiveConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

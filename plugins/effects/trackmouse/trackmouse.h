@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 class QAction;
 
-namespace KWin
+namespace como
 {
 
 class GLTexture;

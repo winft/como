@@ -33,7 +33,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 Q_LOGGING_CATEGORY(KWIN_ZOOM, "kwin_effect_zoom", QtWarningMsg)
 
-namespace KWin
+namespace como
 {
 
 ZoomEffect::ZoomEffect()

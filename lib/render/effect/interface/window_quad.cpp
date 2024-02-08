@@ -8,7 +8,7 @@
 #include <QMatrix4x4>
 #include <QtMath>
 
-namespace KWin
+namespace como
 {
 
 WindowQuad::WindowQuad(WindowQuadType t, int id)

@@ -7,7 +7,7 @@
 
 #include "../console.h"
 
-namespace KWin::debug
+namespace como::debug
 {
 
 template<typename Space>

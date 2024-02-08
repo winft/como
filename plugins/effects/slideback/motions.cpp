@@ -7,7 +7,7 @@
 
 #include <render/effect/interface/effects_handler.h>
 
-namespace KWin
+namespace como
 {
 
 /***************************************************************

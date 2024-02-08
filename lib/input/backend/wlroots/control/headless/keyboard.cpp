@@ -5,7 +5,7 @@
 */
 #include "keyboard.h"
 
-namespace KWin::input::backend::wlroots::headless
+namespace como::input::backend::wlroots::headless
 {
 
 bool keyboard_control::supports_disable_events() const

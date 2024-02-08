@@ -15,7 +15,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QPainter>
 
-namespace KWin
+namespace como
 {
 
 static const int s_lineWidth = 4;
@@ -277,4 +277,4 @@ bool SnapHelperEffect::isActive() const
     return m_window != nullptr || m_animation.active;
 }
 
-} // namespace KWin
+}

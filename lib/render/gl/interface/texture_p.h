@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QSize>
 #include <epoxy/gl.h>
 
-namespace KWin
+namespace como
 {
 // forward declarations
 class GLVertexBuffer;
@@ -77,7 +77,7 @@ public:
     static uint s_textureObjectCounter;
 
 private:
-    friend void KWin::cleanupGL();
+    friend void como::cleanupGL();
     static void cleanup();
     Q_DISABLE_COPY(GLTexturePrivate)
 };

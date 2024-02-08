@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QDBusObjectPath>
 #include <QDBusServiceWatcher>
 
-namespace KWin::win::dbus
+namespace como::win::dbus
 {
 
 static const QString s_viewService(QStringLiteral("org.kde.kappmenuview"));

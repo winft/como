@@ -15,7 +15,7 @@
 
 Q_DECLARE_METATYPE(KWindowEffects::SlideFromLocation)
 
-namespace KWin
+namespace como
 {
 
 WindowEffects::WindowEffects()

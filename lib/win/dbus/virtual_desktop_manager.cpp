@@ -10,14 +10,14 @@
 
 #include <win/subspace_manager_qobject.h>
 
-namespace KWin::win::dbus
+namespace como::win::dbus
 {
 
 subspace_manager_wrap::subspace_manager_wrap(win::subspace_manager_qobject* parent)
     : QObject(parent)
 {
-    qDBusRegisterMetaType<KWin::win::dbus::subspace_data>();
-    qDBusRegisterMetaType<KWin::win::dbus::subspace_data_vector>();
+    qDBusRegisterMetaType<como::win::dbus::subspace_data>();
+    qDBusRegisterMetaType<como::win::dbus::subspace_data_vector>();
 
     new VirtualDesktopManagerAdaptor(this);
     QDBusConnection::sessionBus().registerObject(

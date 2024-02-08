@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "como_export.h"
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 class COMO_EXPORT egl_context_attribute_builder : public context_attribute_builder

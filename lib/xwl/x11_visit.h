@@ -17,7 +17,7 @@
 #include <Wrapland/Server/seat.h>
 #include <memory>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 class COMO_EXPORT x11_visit_qobject : public QObject

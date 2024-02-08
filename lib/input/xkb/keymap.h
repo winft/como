@@ -12,7 +12,7 @@
 struct xkb_context;
 struct xkb_keymap;
 
-namespace KWin::input::xkb
+namespace como::input::xkb
 {
 
 class COMO_EXPORT keymap

@@ -27,7 +27,7 @@
 #include <win/tabbox/tabbox_client_impl.h>
 #include <win/x11/xcb_cursor.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Win>

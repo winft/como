@@ -11,7 +11,7 @@
 #define GLX_GENERATE_RESET_ON_VIDEO_MEMORY_PURGE_NV 0x20F7
 #endif
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 std::vector<int> glx_context_attribute_builder::build() const

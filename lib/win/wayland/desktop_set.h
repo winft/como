@@ -10,7 +10,7 @@
 
 #include <Wrapland/Server/plasma_window.h>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Win>

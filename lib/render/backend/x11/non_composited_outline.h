@@ -10,7 +10,7 @@
 #include "render/outline.h"
 #include <como_export.h>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 class COMO_EXPORT non_composited_outline : public outline_visual

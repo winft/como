@@ -7,7 +7,7 @@
 
 #include <render/effect/interface/effect_window.h>
 
-namespace KWin
+namespace como
 {
 
 class EffectWindow;

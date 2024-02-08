@@ -21,7 +21,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QObject>
 #include <QPalette>
 
-namespace KWin
+namespace como
 {
 
 // TODO: move to deco API

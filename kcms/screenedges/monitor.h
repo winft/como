@@ -24,7 +24,7 @@ namespace KSvg
 class FrameSvg;
 }
 
-namespace KWin
+namespace como
 {
 
 class Monitor

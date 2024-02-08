@@ -32,7 +32,7 @@
 #include <memory>
 #include <vector>
 
-namespace KWin::win
+namespace como::win
 {
 
 COMO_EXPORT void lock_screen_saver_via_dbus();

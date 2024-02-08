@@ -10,7 +10,7 @@
 #include <QObject>
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 // Check if @p window inhibits idle.

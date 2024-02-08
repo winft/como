@@ -16,7 +16,7 @@
 #include <Wrapland/Server/primary_selection.h>
 #include <Wrapland/Server/seat.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 template<typename Space>

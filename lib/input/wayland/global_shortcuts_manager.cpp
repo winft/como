@@ -12,7 +12,7 @@
 #include <KGlobalAccel>
 #include <QAction>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 using global_shortcut = win::global_shortcut;

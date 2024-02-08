@@ -27,7 +27,7 @@
 
 Q_DECLARE_METATYPE(KSharedConfigPtr)
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 struct AnimationSettings {
@@ -141,7 +141,7 @@ AnimationSettings animationSettingsFromObject(const QJSValue& object,
     return settings;
 }
 
-static KWin::FPx2 fpx2FromScriptValue(const QJSValue& value)
+static como::FPx2 fpx2FromScriptValue(const QJSValue& value)
 {
     if (value.isNull()) {
         return FPx2();
@@ -230,7 +230,7 @@ bool effect::init(QString const& effectName, QString const& pathToScript, KShare
     globalObject.setProperty(QStringLiteral("KWin"),
                              m_engine->newQMetaObject(&qt_script_space::staticMetaObject));
     globalObject.setProperty(QStringLiteral("Globals"),
-                             m_engine->newQMetaObject(&KWin::staticMetaObject));
+                             m_engine->newQMetaObject(&como::staticMetaObject));
     globalObject.setProperty(QStringLiteral("QEasingCurve"),
                              m_engine->newQMetaObject(&QEasingCurve::staticMetaObject));
 
@@ -275,7 +275,7 @@ bool effect::init(QString const& effectName, QString const& pathToScript, KShare
     return true;
 }
 
-void effect::animationEnded(KWin::EffectWindow const* w, Attribute a, uint meta)
+void effect::animationEnded(como::EffectWindow const* w, Attribute a, uint meta)
 {
     AnimationEffect::animationEnded(w, a, meta);
     Q_EMIT animationEnded(w, 0);
@@ -479,8 +479,8 @@ QJSValue effect::animate_helper(const QJSValue& object, AnimationType animationT
     return array;
 }
 
-quint64 effect::animate(KWin::EffectWindow* window,
-                        KWin::AnimationEffect::Attribute attribute,
+quint64 effect::animate(como::EffectWindow* window,
+                        como::AnimationEffect::Attribute attribute,
                         int ms,
                         const QJSValue& to,
                         const QJSValue& from,
@@ -514,8 +514,8 @@ QJSValue effect::animate(const QJSValue& object)
     return animate_helper(object, AnimationType::Animate);
 }
 
-quint64 effect::set(KWin::EffectWindow* window,
-                    KWin::AnimationEffect::Attribute attribute,
+quint64 effect::set(como::EffectWindow* window,
+                    como::AnimationEffect::Attribute attribute,
                     int ms,
                     const QJSValue& to,
                     const QJSValue& from,
@@ -617,7 +617,7 @@ bool effect::cancel(const QList<quint64>& animationIds)
 
 bool effect::isGrabbed(EffectWindow* w, effect::DataRole grabRole)
 {
-    void* e = w->data(static_cast<KWin::DataRole>(grabRole)).value<void*>();
+    void* e = w->data(static_cast<como::DataRole>(grabRole)).value<void*>();
     if (e) {
         return e != this;
     } else {
@@ -764,7 +764,7 @@ bool effect::registerRealtimeScreenEdge(int edge, const QJSValue& callback)
             }
         });
         effects.registerRealtimeTouchBorder(
-            static_cast<KWin::ElectricBorder>(edge),
+            static_cast<como::ElectricBorder>(edge),
             triggerAction,
             [this](ElectricBorder border, const QSizeF& deltaProgress, EffectScreen* screen) {
                 auto it = realtimeScreenEdgeCallbacks().constFind(border);
@@ -809,7 +809,7 @@ bool effect::registerTouchScreenEdge(int edge, const QJSValue& callback)
 
     auto action = new QAction(this);
     connect(action, &QAction::triggered, this, [callback]() { QJSValue(callback).call(); });
-    effects.registerTouchBorder(KWin::ElectricBorder(edge), action);
+    effects.registerTouchBorder(como::ElectricBorder(edge), action);
     touch_border_callbacks.insert({edge, action});
     return true;
 }
@@ -844,7 +844,7 @@ uint effect::addFragmentShader(ShaderTrait traits, const QString& fragmentShader
                                  shaderDir + fragmentShaderFile);
 
     auto shader = ShaderManager::instance()->generateShaderFromFile(
-        static_cast<KWin::ShaderTraits>(int(traits)), {}, fragment);
+        static_cast<como::ShaderTraits>(int(traits)), {}, fragment);
     if (!shader->isValid()) {
         m_engine->throwError(QStringLiteral("Shader failed to load"));
         // 0 is never a valid shader identifier, it's ensured the first shader gets id 1

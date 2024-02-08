@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QString>
 #include <QVariant>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 /**

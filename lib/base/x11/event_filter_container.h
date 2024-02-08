@@ -10,7 +10,7 @@
 
 #include <QObject>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 class event_filter;

@@ -13,7 +13,7 @@
 // DBus generated
 #include "screenlocker_interface.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 void lock_screen_saver_via_dbus()

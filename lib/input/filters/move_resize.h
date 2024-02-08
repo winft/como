@@ -14,7 +14,7 @@
 #include "win/input.h"
 #include "win/move.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect>

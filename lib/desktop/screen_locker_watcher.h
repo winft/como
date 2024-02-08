@@ -15,7 +15,7 @@ class OrgKdeScreensaverInterface;
 class QDBusServiceWatcher;
 class QDBusPendingCallWatcher;
 
-namespace KWin::desktop
+namespace como::desktop
 {
 
 class COMO_EXPORT screen_locker_watcher : public QObject

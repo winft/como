@@ -21,7 +21,7 @@
 
 #include <memory>
 
-namespace KWin::render::wayland
+namespace como::render::wayland
 {
 
 template<typename Base>

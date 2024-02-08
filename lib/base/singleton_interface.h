@@ -10,7 +10,7 @@
 #include <functional>
 #include <vector>
 
-namespace KWin::base
+namespace como::base
 {
 
 class app_singleton;

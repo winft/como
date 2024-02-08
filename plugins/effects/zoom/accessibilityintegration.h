@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <qaccessibilityclient/registry.h>
 
-namespace KWin
+namespace como
 {
 
 class ZoomAccessibilityIntegration : public QObject
@@ -40,4 +40,4 @@ private:
     bool m_isTextCaretTrackingEnabled = false;
 };
 
-} // namespace KWin
+}

@@ -10,7 +10,7 @@
 
 #include "base/output_helpers.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Space>

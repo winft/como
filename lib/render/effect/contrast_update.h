@@ -7,7 +7,7 @@
 
 #include <QMatrix4x4>
 
-namespace KWin::render
+namespace como::render
 {
 
 inline QMatrix4x4 get_contrast_color_matrix(double contrast, double intensity, double saturation)

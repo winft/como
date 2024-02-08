@@ -17,9 +17,9 @@
 
 #include <QAction>
 
-K_PLUGIN_CLASS(KWin::OverviewEffectConfig)
+K_PLUGIN_CLASS(como::OverviewEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 OverviewEffectConfig::OverviewEffectConfig(QObject* parent, const KPluginMetaData& data)
@@ -88,6 +88,6 @@ void OverviewEffectConfig::defaults()
     KCModule::defaults();
 }
 
-} // namespace KWin
+}
 
 #include "overvieweffectkcm.moc"

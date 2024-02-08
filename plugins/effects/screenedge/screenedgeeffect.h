@@ -17,7 +17,7 @@ namespace KSvg
 class Svg;
 }
 
-namespace KWin
+namespace como
 {
 class Glow;
 class GLTexture;

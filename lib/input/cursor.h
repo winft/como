@@ -14,7 +14,7 @@
 #include <QObject>
 #include <QPoint>
 
-namespace KWin::input
+namespace como::input
 {
 
 /**

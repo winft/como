@@ -10,7 +10,7 @@
 
 #include <QImage>
 
-namespace KWin::render::qpainter
+namespace como::render::qpainter
 {
 
 enum class DecorationPart : int {

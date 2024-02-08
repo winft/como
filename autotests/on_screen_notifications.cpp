@@ -16,7 +16,7 @@
 #include <QQmlEngine>
 #include <QSignalSpy>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 class mock_pointer

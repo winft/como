@@ -19,7 +19,7 @@ namespace Ui
 class KWinTabBoxConfigForm;
 }
 
-namespace KWin
+namespace como
 {
 
 namespace win

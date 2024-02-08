@@ -24,7 +24,7 @@
 #include <memory>
 #include <vector>
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 template<typename Mod>

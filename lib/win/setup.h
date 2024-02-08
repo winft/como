@@ -13,7 +13,7 @@
 
 #include <KDecoration2/Decoration>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Space, typename Win>

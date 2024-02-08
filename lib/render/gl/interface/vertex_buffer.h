@@ -16,7 +16,7 @@
 #include <ranges>
 #include <span>
 
-namespace KWin
+namespace como
 {
 
 namespace effect

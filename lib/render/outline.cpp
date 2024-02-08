@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QStandardPaths>
 #include <cassert>
 
-namespace KWin::render
+namespace como::render
 {
 
 outline::outline(outline_visual_factory visual_factory)

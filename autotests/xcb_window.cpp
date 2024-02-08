@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "base/x11/xcb/proto.h"
 #include "base/x11/xcb/window.h"
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("xcb window", "[unit],[win],[xwl]")

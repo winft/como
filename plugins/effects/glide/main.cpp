@@ -7,13 +7,13 @@
 
 #include <render/effect/interface/effect_plugin_factory.h>
 
-namespace KWin
+namespace como
 {
 
 KWIN_EFFECT_FACTORY_SUPPORTED(GlideEffect,
                               "metadata.json.stripped",
                               return GlideEffect::supported();)
 
-} // namespace KWin
+}
 
 #include "main.moc"

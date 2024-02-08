@@ -11,7 +11,7 @@
 #include <QFileInfo>
 #include <QProcess>
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 template<typename Book, typename RefWin>

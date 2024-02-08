@@ -12,7 +12,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <functional>
 #include <qpa/qplatformscreen.h>
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {

@@ -17,7 +17,7 @@
 
 #include <cmath>
 
-using namespace KWin;
+using namespace como;
 
 ContrastShader::ContrastShader()
     : mValid(false)

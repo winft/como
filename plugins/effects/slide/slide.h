@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <unordered_map>
 
-namespace KWin
+namespace como
 {
 
 /*
@@ -160,6 +160,6 @@ inline int SlideEffect::requestedEffectChainPosition() const
     return 50;
 }
 
-} // namespace KWin
+}
 
 #endif

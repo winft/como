@@ -16,7 +16,7 @@
 
 #include <QFile>
 
-namespace KWin
+namespace como
 {
 
 GLShader::GLShader(unsigned int flags)

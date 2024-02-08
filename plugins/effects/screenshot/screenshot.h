@@ -17,7 +17,7 @@
 
 Q_DECLARE_LOGGING_CATEGORY(KWIN_SCREENSHOT)
 
-namespace KWin
+namespace como
 {
 
 /**
@@ -105,6 +105,6 @@ private:
     EffectScreen const* m_paintedScreen{nullptr};
 };
 
-} // namespace KWin
+}
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::ScreenShotFlags)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::ScreenShotFlags)

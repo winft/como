@@ -21,7 +21,7 @@
 #include <netwm_def.h>
 
 
-namespace KWin
+namespace como
 {
 
 KCMKWinRules::KCMKWinRules(QObject *parent, const KPluginMetaData &metaData, const QVariantList &arguments)

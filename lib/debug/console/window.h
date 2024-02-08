@@ -11,7 +11,7 @@
 #include <win/move.h>
 #include <win/property_window.h>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 template<typename RefWin>

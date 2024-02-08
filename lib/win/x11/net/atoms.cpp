@@ -10,7 +10,7 @@
 #include <QHash>
 #include <xcb/xproto.h>
 
-namespace KWin::win::x11::net
+namespace como::win::x11::net
 {
 
 typedef QHash<xcb_connection_t*, QSharedDataPointer<Atoms>> AtomHash;

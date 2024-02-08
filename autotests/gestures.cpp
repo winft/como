@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QSignalSpy>
 #include <catch2/generators/catch_generators.hpp>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("gestures unit", "[input],[unit]")

@@ -22,7 +22,7 @@
 #include <unistd.h>
 #define _POSIX_C_SOURCE 200809L
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 namespace

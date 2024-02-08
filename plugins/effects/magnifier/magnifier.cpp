@@ -22,7 +22,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KStandardAction>
 #include <QAction>
 
-namespace KWin
+namespace como
 {
 
 const int FRAME_WIDTH = 5;

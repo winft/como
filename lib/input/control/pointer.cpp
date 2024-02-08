@@ -10,7 +10,7 @@
 #include <algorithm>
 #include <variant>
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 pointer::pointer()

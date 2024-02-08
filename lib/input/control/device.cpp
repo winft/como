@@ -10,7 +10,7 @@
 
 #include "config-como.h"
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 device::device(device_config* config)

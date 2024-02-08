@@ -10,7 +10,7 @@
 
 #include "win/x11/control.h"
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Win>

@@ -10,7 +10,7 @@
 
 #include <QCoreApplication>
 
-namespace KWin::base::backend::x11
+namespace como::base::backend::x11
 {
 
 template<typename Platform>

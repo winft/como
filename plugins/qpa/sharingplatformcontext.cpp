@@ -16,7 +16,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QOpenGLFramebufferObject>
 #include <private/qopenglcontext_p.h>
 
-namespace KWin
+namespace como
 {
 
 namespace QPA

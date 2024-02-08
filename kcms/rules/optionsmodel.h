@@ -14,7 +14,7 @@
 #include <QVariant>
 
 
-namespace KWin {
+namespace como {
 
 class OptionsModel : public QAbstractListModel
 {

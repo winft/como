@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <epoxy/egl.h>
 #include <qpa/qplatformopenglcontext.h>
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {

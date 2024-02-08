@@ -20,9 +20,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QDebug>
 #include <QWidget>
 
-K_PLUGIN_CLASS(KWin::MouseMarkEffectConfig)
+K_PLUGIN_CLASS(como::MouseMarkEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 MouseMarkEffectConfig::MouseMarkEffectConfig(QObject* parent, const KPluginMetaData& data)

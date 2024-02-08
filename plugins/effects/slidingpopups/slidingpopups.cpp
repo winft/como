@@ -15,7 +15,7 @@
 #include <QFontMetrics>
 #include <QGuiApplication>
 
-namespace KWin
+namespace como
 {
 
 void sanitize_anim_data(effect::anim_update& data,
@@ -69,7 +69,7 @@ void sanitize_anim_data(effect::anim_update& data,
     }
 }
 
-void update_function(SlidingPopupsEffect& effect, KWin::effect::anim_update const& update)
+void update_function(SlidingPopupsEffect& effect, como::effect::anim_update const& update)
 {
     // Should always come with a window.
     auto window = update.base.window;

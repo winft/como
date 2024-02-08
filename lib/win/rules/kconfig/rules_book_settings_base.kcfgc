@@ -3,7 +3,7 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=rules_book_settings_base.kcfg
-NameSpace=KWin
+NameSpace=como
 ClassName=book_settings_base
 Mutators=true
 ParentInConstructor=true

@@ -13,7 +13,7 @@
 #include <QSharedDataPointer>
 #include <chrono>
 
-namespace KWin
+namespace como
 {
 
 /**
@@ -265,5 +265,5 @@ private:
 
 }
 
-Q_DECLARE_METATYPE(KWin::TimeLine)
-Q_DECLARE_METATYPE(KWin::TimeLine::Direction)
+Q_DECLARE_METATYPE(como::TimeLine)
+Q_DECLARE_METATYPE(como::TimeLine::Direction)

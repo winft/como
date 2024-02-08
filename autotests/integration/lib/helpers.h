@@ -41,7 +41,7 @@ class SubSurface;
 class Surface;
 }
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 class client;

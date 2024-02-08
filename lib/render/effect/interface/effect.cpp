@@ -11,7 +11,7 @@
 
 #include <KConfigGroup>
 
-namespace KWin
+namespace como
 {
 
 Effect::Effect(QObject* parent)

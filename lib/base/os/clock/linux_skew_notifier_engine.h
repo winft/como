@@ -7,7 +7,7 @@
 
 #include "skew_notifier_engine.h"
 
-namespace KWin::base::os::clock
+namespace como::base::os::clock
 {
 
 class linux_skew_notifier_engine : public skew_notifier_engine

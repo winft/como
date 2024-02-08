@@ -21,7 +21,7 @@ class OrgKdeKappmenuInterface;
 class QDBusObjectPath;
 class QDBusServiceWatcher;
 
-namespace KWin::win::dbus
+namespace como::win::dbus
 {
 
 struct appmenu_callbacks {

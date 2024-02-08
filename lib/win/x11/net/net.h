@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QFlags>
 
-namespace KWin::win::x11::net
+namespace como::win::x11::net
 {
 
 enum Property {
@@ -196,8 +196,8 @@ COMO_EXPORT void reset_atoms();
 
 }
 
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::win::x11::net::Properties)
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::win::x11::net::Properties2)
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::win::x11::net::States)
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::win::x11::net::Actions)
-Q_DECLARE_OPERATORS_FOR_FLAGS(KWin::win::x11::net::Protocols)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::win::x11::net::Properties)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::win::x11::net::Properties2)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::win::x11::net::States)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::win::x11::net::Actions)
+Q_DECLARE_OPERATORS_FOR_FLAGS(como::win::x11::net::Protocols)

@@ -8,7 +8,7 @@
 */
 #include "options.h"
 
-namespace KWin::base
+namespace como::base
 {
 
 options_qobject::options_qobject(operation_mode mode)

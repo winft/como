@@ -8,7 +8,7 @@
 #include "effect.h"
 #include "effects_handler.h"
 
-namespace KWin
+namespace como
 {
 
 EffectTogglableState::EffectTogglableState(Effect* effect)

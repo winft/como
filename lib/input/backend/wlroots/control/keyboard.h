@@ -11,7 +11,7 @@
 #include <KSharedConfig>
 #include <libinput.h>
 
-namespace KWin::input::backend::wlroots
+namespace como::input::backend::wlroots
 {
 
 class COMO_EXPORT keyboard_control : public input::control::keyboard

@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <sys/types.h>
 #include <unistd.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 static QByteArray get_hostname_helper()

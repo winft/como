@@ -22,12 +22,12 @@ private Q_SLOTS:
 
 void BlendPictureTest::initTestCase()
 {
-    KWin::XRenderUtils::init(QX11Info::connection(), QX11Info::appRootWindow());
+    como::XRenderUtils::init(QX11Info::connection(), QX11Info::appRootWindow());
 }
 
 void BlendPictureTest::cleanupTestCase()
 {
-    KWin::XRenderUtils::cleanup();
+    como::XRenderUtils::cleanup();
 }
 
 void BlendPictureTest::testDontCrashOnTeardown()
@@ -35,9 +35,9 @@ void BlendPictureTest::testDontCrashOnTeardown()
     // this test uses xrenderBlendPicture - the only idea is to trigger the creation
     // closing the application should not crash
     // see BUG 363251
-    const auto picture = KWin::xRenderBlendPicture(0.5);
+    const auto picture = como::xRenderBlendPicture(0.5);
     // and a second one
-    const auto picture2 = KWin::xRenderBlendPicture(0.6);
+    const auto picture2 = como::xRenderBlendPicture(0.6);
     Q_UNUSED(picture)
     Q_UNUSED(picture2)
 }

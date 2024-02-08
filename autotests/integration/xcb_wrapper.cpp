@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <catch2/generators/catch_generators.hpp>
 #include <xcb/xcb.h>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("xcb wrapper", "[win],[xwl]")

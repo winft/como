@@ -9,7 +9,7 @@
 #include <QList>
 #include <epoxy/egl.h>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 struct egl_data {

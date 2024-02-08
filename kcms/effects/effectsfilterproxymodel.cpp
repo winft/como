@@ -8,7 +8,7 @@
 
 #include "effectsmodel.h"
 
-namespace KWin
+namespace como
 {
 
 EffectsFilterProxyModel::EffectsFilterProxyModel(QObject *parent)
@@ -90,4 +90,4 @@ bool EffectsFilterProxyModel::filterAcceptsRow(int sourceRow, const QModelIndex 
     return true;
 }
 
-} // namespace KWin
+}

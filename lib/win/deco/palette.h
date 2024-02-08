@@ -18,7 +18,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <optional>
 
-namespace KWin::win::deco
+namespace como::win::deco
 {
 
 class COMO_EXPORT palette : public QObject

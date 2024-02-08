@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QApplication>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 QStringList space::activityList() const

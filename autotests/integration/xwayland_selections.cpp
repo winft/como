@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QProcessEnvironment>
 #include <catch2/generators/catch_generators.hpp>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("xwayland selections", "[win],[xwl]")

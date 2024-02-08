@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <memory>
 #include <xcb/xcb.h>
 
-namespace KWin::win::deco
+namespace como::win::deco
 {
 
 class render_data

@@ -15,7 +15,7 @@
 #include "input/redirect_qobject.h"
 #include <como_export.h>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 template<typename Space>

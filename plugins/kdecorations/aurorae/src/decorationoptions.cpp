@@ -19,7 +19,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include <QGuiApplication>
 #include <QStyleHints>
 
-namespace KWin
+namespace como
 {
 
 ColorSettings::ColorSettings(const QPalette& pal)

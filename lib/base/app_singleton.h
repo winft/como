@@ -11,7 +11,7 @@
 #include <QObject>
 #include <como_export.h>
 
-namespace KWin::base
+namespace como::base
 {
 
 class COMO_EXPORT app_singleton : public QObject

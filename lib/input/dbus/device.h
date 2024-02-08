@@ -16,7 +16,7 @@
 #include <QObject>
 #include <QSizeF>
 
-namespace KWin::input::dbus
+namespace como::input::dbus
 {
 
 class COMO_EXPORT device : public QObject
@@ -302,4 +302,4 @@ Q_SIGNALS:
 
 }
 
-Q_DECLARE_METATYPE(KWin::input::dbus::device*)
+Q_DECLARE_METATYPE(como::input::dbus::device*)

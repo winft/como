@@ -8,7 +8,7 @@
 #include <Qt>
 #include <xcb/xcb.h>
 
-namespace KWin::base::x11::xcb
+namespace como::base::x11::xcb
 {
 
 inline Qt::MouseButton to_qt_mouse_button(int button)

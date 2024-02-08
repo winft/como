@@ -15,7 +15,7 @@
 
 #include <QWindow>
 
-namespace KWin::render
+namespace como::render
 {
 
 template<typename EffectIntegrator>

@@ -8,7 +8,7 @@
 #include <cstdlib>
 #include <memory>
 
-namespace KWin
+namespace como
 {
 
 struct free_deleter {

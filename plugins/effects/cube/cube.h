@@ -19,7 +19,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QQueue>
 #include <unordered_map>
 
-namespace KWin
+namespace como
 {
 
 class CubeEffect : public Effect

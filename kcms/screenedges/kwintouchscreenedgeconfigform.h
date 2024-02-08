@@ -15,7 +15,7 @@ namespace Ui
 class KWinTouchScreenConfigUi;
 }
 
-namespace KWin
+namespace como
 {
 
 class KWinTouchScreenEdgeConfigForm : public KWinScreenEdge

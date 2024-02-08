@@ -16,7 +16,7 @@
 #include <Wrapland/Server/seat.h>
 #include <Wrapland/Server/touch_pool.h>
 
-namespace KWin::input
+namespace como::input
 {
 
 /**

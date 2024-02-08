@@ -29,7 +29,7 @@ static void ensureResources()
     Q_INIT_RESOURCE(invert);
 }
 
-namespace KWin
+namespace como
 {
 
 InvertEffect::InvertEffect()

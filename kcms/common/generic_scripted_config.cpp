@@ -18,7 +18,7 @@
 #include <QUiLoader>
 #include <QVBoxLayout>
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 QObject* generic_scripted_config_factory::create(const char* iface,

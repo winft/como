@@ -12,7 +12,7 @@
 #include <QRect>
 #include <vector>
 
-namespace KWin::win
+namespace como::win
 {
 
 class strut_rect : public QRect

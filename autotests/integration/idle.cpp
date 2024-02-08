@@ -12,7 +12,7 @@
 #include <Wrapland/Server/idle_notify_v1.h>
 #include <catch2/generators/catch_generators.hpp>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("idle", "[input]")

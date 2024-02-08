@@ -92,13 +92,13 @@ SPDX-License-Identifier: GPL-2.0-or-later
             <default>false</default>
         </entry>
         <entry name="FocusPolicy" type="Enum">
-            <choices name="KWin::win::focus_policy">
+            <choices name="como::win::focus_policy">
                 <choice name="ClickToFocus"/>
                 <choice name="FocusFollowsMouse"/>
                 <choice name="FocusUnderMouse"/>
                 <choice name="FocusStrictlyUnderMouse"/>
             </choices>
-            <default>static_cast&lt;int&gt;(KWin::win::focus_policy::click)</default>
+            <default>static_cast&lt;int&gt;(como::win::focus_policy::click)</default>
         </entry>
         <entry name="NextFocusPrefersMouse" type="Bool">
             <default>false</default>
@@ -107,7 +107,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             <default>false</default>
         </entry>
         <entry name="ActiveMouseScreen" type="Bool">
-            <default code="true">focusPolicy() != KWin::win::focus_policy::click</default>
+            <default code="true">focusPolicy() != como::win::focus_policy::click</default>
         </entry>
         <entry name="RollOverDesktops" type="Bool">
             <default>true</default>

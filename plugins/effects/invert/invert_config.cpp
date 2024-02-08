@@ -17,9 +17,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QVBoxLayout>
 
-K_PLUGIN_CLASS(KWin::InvertEffectConfig)
+K_PLUGIN_CLASS(como::InvertEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 InvertEffectConfig::InvertEffectConfig(QObject* parent, const KPluginMetaData& data)

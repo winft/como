@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 -->
 
 <doxygen xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="compound.xsd" version="1.7.6.1">
-    <!--  Documentation for global KWin scripting methods. In doxygen XML format as this can be converted to MediaWiki    -->
+    <!--  Documentation for global Compositor Modules scripting methods. In doxygen XML format as this can be converted to MediaWiki    -->
     <!--  Use script and XSLT from https://invent.kde.org/graesslin/kwin-scripting-api-generator to generate the documentation    -->
     <!--  This xml is not meant to be doxygen complient    -->
     <compounddef>
@@ -15,34 +15,34 @@ SPDX-License-Identifier: GPL-2.0-or-later
         <briefdescription>Methods and properties added to the global JavaScript object.</briefdescription>
         <sectiondef kind="property">
             <memberdef kind="property" writable="no">
-                <type>KWin::Options</type>
+                <type>como::Options</type>
                 <definition></definition>
                 <argsstring></argsstring>
                 <name>options</name>
                 <read></read>
-                <detaileddescription>Global property to all configuration values of KWin core.</detaileddescription>
+                <detaileddescription>Global property to all configuration values of como core.</detaileddescription>
             </memberdef>
             <memberdef kind="property" writable="no">
-                <type>KWin::Workspace</type>
+                <type>como::Workspace</type>
                 <definition></definition>
                 <argsstring></argsstring>
                 <name>workspace</name>
                 <read></read>
-                <detaileddescription>Global property to the core wrapper of KWin.</detaileddescription>
+                <detaileddescription>Global property to the core wrapper of como.</detaileddescription>
             </memberdef>
             <memberdef kind="property" writable="no">
                 <type>object</type>
                 <definition></definition>
                 <argsstring></argsstring>
-                <name>KWin</name>
+                <name>como</name>
                 <read></read>
-                <detaileddescription>Provides access to enums defined in KWin::WorkspaceWrapper</detaileddescription>
+                <detaileddescription>Provides access to enums defined in como::WorkspaceWrapper</detaileddescription>
             </memberdef>
         </sectiondef>
         <sectiondef kind="public-func">
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE void</type>
-                <definition>void KWin::Scripting::print</definition>
+                <definition>void como::Scripting::print</definition>
                 <argsstring>(QVariant ... values)</argsstring>
                 <name>print</name>
                 <read></read>
@@ -50,7 +50,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE QVariant</type>
-                <definition>QVariant KWin::Scripting::readConfig</definition>
+                <definition>QVariant como::Scripting::readConfig</definition>
                 <argsstring>(QString key, QVariant defaultValue = QVariant())</argsstring>
                 <name>readConfig</name>
                 <read></read>
@@ -58,7 +58,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::registerScreenEdge</definition>
+                <definition>bool como::Scripting::registerScreenEdge</definition>
                 <argsstring>(ElectricBorder border, QScriptValue callback)</argsstring>
                 <name>registerScreenEdge</name>
                 <read></read>
@@ -68,7 +68,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::unregisterScreenEdge</definition>
+                <definition>bool como::Scripting::unregisterScreenEdge</definition>
                 <argsstring>(ElectricBorder border)</argsstring>
                 <name>unregisterScreenEdge</name>
                 <read></read>
@@ -76,7 +76,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::registerShortcut</definition>
+                <definition>bool como::Scripting::registerShortcut</definition>
                 <argsstring>(QString title, QString text, QString keySequence, QScriptValue callback)</argsstring>
                 <name>registerShortcut</name>
                 <read></read>
@@ -84,7 +84,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::assert</definition>
+                <definition>bool como::Scripting::assert</definition>
                 <argsstring>(bool value, QString message = QString())</argsstring>
                 <name>assert</name>
                 <read></read>
@@ -92,7 +92,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::assertTrue</definition>
+                <definition>bool como::Scripting::assertTrue</definition>
                 <argsstring>(bool value, QString message = QString())</argsstring>
                 <name>assertTrue</name>
                 <read></read>
@@ -100,7 +100,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::assertFalse</definition>
+                <definition>bool como::Scripting::assertFalse</definition>
                 <argsstring>(bool value, QString message = QString())</argsstring>
                 <name>assertFalse</name>
                 <read></read>
@@ -108,7 +108,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::assertEquals</definition>
+                <definition>bool como::Scripting::assertEquals</definition>
                 <argsstring>(QVariant expected, QVariant actual, QString message = QString())</argsstring>
                 <name>assertEquals</name>
                 <read></read>
@@ -116,7 +116,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::assertNull</definition>
+                <definition>bool como::Scripting::assertNull</definition>
                 <argsstring>(QVariant value, QString message = QString())</argsstring>
                 <name>assertNull</name>
                 <read></read>
@@ -124,7 +124,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE bool</type>
-                <definition>bool KWin::Scripting::assertNotNull</definition>
+                <definition>bool como::Scripting::assertNotNull</definition>
                 <argsstring>(QVariant value, QString message = QString())</argsstring>
                 <name>assertNotNull</name>
                 <read></read>
@@ -132,7 +132,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE void</type>
-                <definition>void KWin::Scripting::callDBus</definition>
+                <definition>void como::Scripting::callDBus</definition>
                 <argsstring>(QString service, QString path, QString interface, QString method, QVariant arg..., QScriptValue callback = QScriptValue())</argsstring>
                 <name>callDBus</name>
                 <read></read>
@@ -140,7 +140,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
             </memberdef>
             <memberdef kind="function">
                 <type>Q_SCRIPTABLE void</type>
-                <definition>void KWin::Scripting::registerUserActionsMenu</definition>
+                <definition>void como::Scripting::registerUserActionsMenu</definition>
                 <argsstring>(QScriptValue callback)</argsstring>
                 <name>registerUserActionsMenu</name>
                 <read></read>

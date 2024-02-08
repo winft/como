@@ -7,7 +7,7 @@
 
 #include <algorithm>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Window, typename Space>

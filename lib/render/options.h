@@ -13,7 +13,7 @@
 
 #include <KConfigWatcher>
 
-namespace KWin::render
+namespace como::render
 {
 
 class settings;

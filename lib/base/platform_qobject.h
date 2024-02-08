@@ -12,7 +12,7 @@
 #include <QObject>
 #include <functional>
 
-namespace KWin::base
+namespace como::base
 {
 
 class COMO_EXPORT platform_qobject : public QObject
@@ -28,15 +28,15 @@ public:
     std::function<double()> get_scale;
 
 Q_SIGNALS:
-    void output_added(KWin::base::output*);
-    void output_removed(KWin::base::output*);
-    void topology_changed(KWin::base::output_topology const& old_topo,
-                          KWin::base::output_topology const& topo);
+    void output_added(como::base::output*);
+    void output_removed(como::base::output*);
+    void topology_changed(como::base::output_topology const& old_topo,
+                          como::base::output_topology const& topo);
 
     // TODO(romangg): Either remove since it's only used in a test or find a better way to design
     //                the API. The current output is part of the output topology, but it shouldn't
     //                reuse the topology_changed signal, as this implies too much of a change.
-    void current_output_changed(KWin::base::output const* old, KWin::base::output const* current);
+    void current_output_changed(como::base::output const* old, como::base::output const* current);
 
     // Only relevant on Wayland with Xwayland being (re-)started later.
     // TODO(romangg): Move to Wayland platform?

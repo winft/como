@@ -10,7 +10,7 @@
 
 #include <xcb/xcb.h>
 
-namespace KWin::base::backend::x11
+namespace como::base::backend::x11
 {
 
 class COMO_EXPORT wm_selection_owner : public base::x11::selection_owner

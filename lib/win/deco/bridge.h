@@ -29,7 +29,7 @@ namespace KDecoration2
 class DecorationSettings;
 }
 
-namespace KWin::win::deco
+namespace como::win::deco
 {
 
 static const QString s_aurorae = QStringLiteral("org.kde.kwin.aurorae");

@@ -5,21 +5,21 @@
 */
 #include "effects_handler.h"
 
-namespace KWin
+namespace como
 {
 
 EffectsHandler* effects{nullptr};
 
 EffectsHandler::EffectsHandler()
 {
-    KWin::effects = this;
+    como::effects = this;
 }
 
 EffectsHandler::~EffectsHandler()
 {
     // All effects should already be unloaded by Impl dtor
     Q_ASSERT(loaded_effects.count() == 0);
-    KWin::effects = nullptr;
+    como::effects = nullptr;
 }
 
 EffectWindow* EffectsHandler::findWindow(WId id) const

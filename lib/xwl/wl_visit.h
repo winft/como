@@ -14,7 +14,7 @@
 #include <QObject>
 #include <memory>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 class COMO_EXPORT wl_visit_qobject : public QObject

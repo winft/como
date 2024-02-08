@@ -18,7 +18,7 @@
 #include <stack>
 #include <vector>
 
-namespace KWin
+namespace como
 {
 
 static const int borderSize = 5;
@@ -44,7 +44,7 @@ struct blur_render_data {
     std::stack<GLFramebuffer*> stack;
 };
 
-class BlurEffect : public KWin::Effect
+class BlurEffect : public como::Effect
 {
     Q_OBJECT
 

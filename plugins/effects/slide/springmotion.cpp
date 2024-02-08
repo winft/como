@@ -8,7 +8,7 @@
 
 #include <cmath>
 
-namespace KWin
+namespace como
 {
 
 static qreal lerp(qreal a, qreal b, qreal t)
@@ -161,4 +161,4 @@ void SpringMotion::advance(std::chrono::milliseconds delta)
     }
 }
 
-} // namespace KWin
+}

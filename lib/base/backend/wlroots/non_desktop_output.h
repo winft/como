@@ -11,7 +11,7 @@
 
 struct wlr_output;
 
-namespace KWin::base::backend::wlroots
+namespace como::base::backend::wlroots
 {
 
 class drm_lease;

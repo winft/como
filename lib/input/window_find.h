@@ -8,7 +8,7 @@
 #include "win/geo.h"
 #include "win/wayland/input.h"
 
-namespace KWin::input
+namespace como::input
 {
 
 template<typename Redirect>

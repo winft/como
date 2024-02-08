@@ -7,13 +7,13 @@
 
 #include <render/effect/interface/effect_plugin_factory.h>
 
-namespace KWin
+namespace como
 {
 
 KWIN_EFFECT_FACTORY_SUPPORTED(SlidingPopupsEffect,
                               "metadata.json.stripped",
                               return SlidingPopupsEffect::supported();)
 
-} // namespace KWin
+}
 
 #include "main.moc"

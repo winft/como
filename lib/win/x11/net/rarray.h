@@ -7,7 +7,7 @@
 
 #include <stdlib.h>
 
-namespace KWin::win::x11::net
+namespace como::win::x11::net
 {
 
 template<class Z>

@@ -229,7 +229,7 @@ void Helper::init()
         }
     }
     m_engine->importPlugin(pluginPath, "org.kde.kwin.decoration", nullptr);
-    qmlRegisterType<KWin::Borders>("org.kde.kwin.decoration", 0, 1, "Borders");
+    qmlRegisterType<como::Borders>("org.kde.kwin.decoration", 0, 1, "Borders");
 
     qmlRegisterAnonymousType<KDecoration2::Decoration>("org.kde.kwin.decoration", 0);
     qmlRegisterAnonymousType<KDecoration2::DecoratedClient>("org.kde.kwin.decoration", 0);
@@ -316,15 +316,15 @@ bool Decoration::init()
         m_item->setParentItem(visualParent.value<QQuickItem*>());
         visualParent.value<QQuickItem*>()->setProperty("drawBackground", false);
     } else {
-        m_view = std::make_unique<KWin::OffscreenQuickView>(
-            KWin::OffscreenQuickView::ExportMode::Image);
+        m_view = std::make_unique<como::OffscreenQuickView>(
+            como::OffscreenQuickView::ExportMode::Image);
         m_item->setParentItem(m_view->contentItem());
         auto updateSize = [this]() { m_item->setSize(m_view->contentItem()->size()); };
         updateSize();
         connect(m_view->contentItem(), &QQuickItem::widthChanged, m_item, updateSize);
         connect(m_view->contentItem(), &QQuickItem::heightChanged, m_item, updateSize);
         connect(m_view.get(),
-                &KWin::OffscreenQuickView::repaintNeeded,
+                &como::OffscreenQuickView::repaintNeeded,
                 this,
                 &Decoration::updateBuffer);
     }
@@ -334,33 +334,33 @@ bool Decoration::init()
     setupBorders(m_item);
 
     // TODO: Is there a more efficient way to react to border changes?
-    auto trackBorders = [this](KWin::Borders* borders) {
+    auto trackBorders = [this](como::Borders* borders) {
         if (!borders) {
             return;
         }
-        connect(borders, &KWin::Borders::leftChanged, this, &Decoration::updateBorders);
-        connect(borders, &KWin::Borders::rightChanged, this, &Decoration::updateBorders);
-        connect(borders, &KWin::Borders::topChanged, this, &Decoration::updateBorders);
-        connect(borders, &KWin::Borders::bottomChanged, this, &Decoration::updateBorders);
+        connect(borders, &como::Borders::leftChanged, this, &Decoration::updateBorders);
+        connect(borders, &como::Borders::rightChanged, this, &Decoration::updateBorders);
+        connect(borders, &como::Borders::topChanged, this, &Decoration::updateBorders);
+        connect(borders, &como::Borders::bottomChanged, this, &Decoration::updateBorders);
     };
     trackBorders(m_borders);
     trackBorders(m_maximizedBorders);
     if (m_extendedBorders) {
         updateExtendedBorders();
         connect(m_extendedBorders,
-                &KWin::Borders::leftChanged,
+                &como::Borders::leftChanged,
                 this,
                 &Decoration::updateExtendedBorders);
         connect(m_extendedBorders,
-                &KWin::Borders::rightChanged,
+                &como::Borders::rightChanged,
                 this,
                 &Decoration::updateExtendedBorders);
         connect(m_extendedBorders,
-                &KWin::Borders::topChanged,
+                &como::Borders::topChanged,
                 this,
                 &Decoration::updateExtendedBorders);
         connect(m_extendedBorders,
-                &KWin::Borders::bottomChanged,
+                &como::Borders::bottomChanged,
                 this,
                 &Decoration::updateExtendedBorders);
     }
@@ -412,15 +412,15 @@ QVariant Decoration::readConfig(const QString& key, const QVariant& defaultValue
 
 void Decoration::setupBorders(QQuickItem* item)
 {
-    m_borders = item->findChild<KWin::Borders*>(QStringLiteral("borders"));
-    m_maximizedBorders = item->findChild<KWin::Borders*>(QStringLiteral("maximizedBorders"));
-    m_extendedBorders = item->findChild<KWin::Borders*>(QStringLiteral("extendedBorders"));
-    m_padding = item->findChild<KWin::Borders*>(QStringLiteral("padding"));
+    m_borders = item->findChild<como::Borders*>(QStringLiteral("borders"));
+    m_maximizedBorders = item->findChild<como::Borders*>(QStringLiteral("maximizedBorders"));
+    m_extendedBorders = item->findChild<como::Borders*>(QStringLiteral("extendedBorders"));
+    m_padding = item->findChild<como::Borders*>(QStringLiteral("padding"));
 }
 
 void Decoration::updateBorders()
 {
-    KWin::Borders* b = m_borders;
+    como::Borders* b = m_borders;
     if (client()->isMaximized() && m_maximizedBorders) {
         b = m_maximizedBorders;
     }

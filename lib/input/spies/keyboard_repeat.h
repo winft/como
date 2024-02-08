@@ -20,7 +20,7 @@
 #include <QTimer>
 #include <memory>
 
-namespace KWin::input
+namespace como::input
 {
 
 class COMO_EXPORT keyboard_repeat_spy_qobject : public QObject

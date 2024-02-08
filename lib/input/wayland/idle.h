@@ -11,7 +11,7 @@
 #include <Wrapland/Server/kde_idle.h>
 #include <memory>
 
-namespace KWin::input::wayland
+namespace como::input::wayland
 {
 
 static inline void idle_setup_kde_device(input::idle& idle_manager,

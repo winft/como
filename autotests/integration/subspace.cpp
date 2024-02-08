@@ -11,7 +11,7 @@
 
 using namespace Wrapland::Client;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 struct subspace_north {

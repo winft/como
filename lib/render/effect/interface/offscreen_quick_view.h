@@ -17,7 +17,7 @@ class QQuickItem;
 class QQuickWindow;
 class QWindow;
 
-namespace KWin
+namespace como
 {
 
 class GLTexture;

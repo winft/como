@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <memory>
 
-namespace KWin
+namespace como
 {
 
 class GLFramebuffer;
@@ -46,7 +46,7 @@ public:
     QRect magnifierArea() const;
 
 public Q_SLOTS:
-    void slotWindowAdded(KWin::EffectWindow* w);
+    void slotWindowAdded(como::EffectWindow* w);
     void toggle();
     void zoomIn();
     void zoomOut();

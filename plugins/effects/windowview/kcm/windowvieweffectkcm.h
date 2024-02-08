@@ -10,7 +10,7 @@
 
 #include "ui_windowvieweffectkcm.h"
 
-namespace KWin
+namespace como
 {
 
 class WindowViewEffectConfig : public KCModule
@@ -28,4 +28,4 @@ private:
     ::Ui::WindowViewEffectConfig ui;
 };
 
-} // namespace KWin
+}

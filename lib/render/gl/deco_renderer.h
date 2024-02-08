@@ -16,7 +16,7 @@
 
 #include <cmath>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 // Rotates the given source rect 90° counter-clockwise,

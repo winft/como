@@ -20,7 +20,7 @@
 #include "utils/blocker.h"
 #include <base/logging.h>
 
-namespace KWin::win
+namespace como::win
 {
 
 /**

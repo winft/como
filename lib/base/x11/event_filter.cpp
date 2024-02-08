@@ -8,7 +8,7 @@
 
 #include "event_filter_manager.h"
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 event_filter::event_filter(event_filter_manager& manager, QVector<int> const& eventTypes)

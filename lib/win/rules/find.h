@@ -10,7 +10,7 @@
 #include "base/logging.h"
 #include "win/rules.h"
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 template<typename Win>

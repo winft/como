@@ -24,7 +24,7 @@
 #include <X11/Xlib-xcb.h>
 #include <base/x11/fixx11h.h>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 template<typename Base>

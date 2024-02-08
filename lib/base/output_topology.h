@@ -9,7 +9,7 @@
 
 #include <QSize>
 
-namespace KWin::base
+namespace como::base
 {
 
 struct output_topology {
@@ -20,4 +20,4 @@ struct output_topology {
 
 }
 
-Q_DECLARE_METATYPE(KWin::base::output_topology);
+Q_DECLARE_METATYPE(como::base::output_topology);

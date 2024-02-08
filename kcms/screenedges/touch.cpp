@@ -23,9 +23,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "kwintouchscreensettings.h"
 #include "kwintouchscreenscriptsettings.h"
 
-K_PLUGIN_FACTORY_WITH_JSON(KWinScreenEdgesConfigFactory, "kcm_kwintouchscreen.json", registerPlugin<KWin::KWinScreenEdgesConfig>(); registerPlugin<KWin::KWinTouchScreenData>();)
+K_PLUGIN_FACTORY_WITH_JSON(KWinScreenEdgesConfigFactory, "kcm_kwintouchscreen.json", registerPlugin<como::KWinScreenEdgesConfig>(); registerPlugin<como::KWinTouchScreenData>();)
 
-namespace KWin
+namespace como
 {
 
 KWinScreenEdgesConfig::KWinScreenEdgesConfig(QObject *parent, const KPluginMetaData &data)

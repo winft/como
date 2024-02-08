@@ -19,7 +19,7 @@
 
 #include <memory>
 
-namespace KWin
+namespace como
 {
 
 namespace win

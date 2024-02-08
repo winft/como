@@ -14,7 +14,7 @@
 
 struct wlr_renderer;
 
-namespace KWin::render::backend::wlroots
+namespace como::render::backend::wlroots
 {
 
 template<typename Output>

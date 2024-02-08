@@ -20,7 +20,7 @@ extern "C" {
 
 #include <Wrapland/Server/drm_lease_v1.h>
 
-namespace KWin::base::backend::wlroots
+namespace como::base::backend::wlroots
 {
 
 class non_desktop_output_wrap;

@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("no xdg runtime dir", "[base]")

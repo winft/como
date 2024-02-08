@@ -18,7 +18,7 @@
 
 #include <Wrapland/Server/surface.h>
 
-namespace KWin::debug
+namespace como::debug
 {
 
 wayland_console_model::wayland_console_model(QObject* parent)

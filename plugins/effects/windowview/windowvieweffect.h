@@ -13,7 +13,7 @@
 
 class QAction;
 
-namespace KWin
+namespace como
 {
 
 class WindowViewEffect : public QuickSceneEffect
@@ -122,4 +122,4 @@ private:
     bool m_gestureInProgress = false;
 };
 
-} // namespace KWin
+}

@@ -9,7 +9,7 @@
 
 #include <cstdint>
 
-namespace KWin::win::rules
+namespace como::win::rules
 {
 
 enum class type : uint32_t {
@@ -67,4 +67,4 @@ enum class force_rule {
 
 }
 
-ENUM_FLAGS(KWin::win::rules::type)
+ENUM_FLAGS(como::win::rules::type)

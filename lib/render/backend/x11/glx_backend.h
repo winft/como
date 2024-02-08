@@ -24,7 +24,7 @@
 #include <unordered_map>
 #include <xcb/glx.h>
 
-namespace KWin::render::backend::x11
+namespace como::render::backend::x11
 {
 
 /// OpenGL Backend using GLX over an X overlay window.

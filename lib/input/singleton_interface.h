@@ -9,7 +9,7 @@
 
 #include <QObject>
 
-namespace KWin::input
+namespace como::input
 {
 
 class cursor;

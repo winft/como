@@ -12,7 +12,7 @@
 #include <ranges>
 #include <vector>
 
-namespace KWin::base
+namespace como::base
 {
 
 template<typename Platform>

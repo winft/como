@@ -8,7 +8,7 @@
 #include <QPoint>
 #include <climits>
 
-namespace KWin::geo
+namespace como::geo
 {
 
 // TODO(romangg): The goal is to have no Qt types at all in the utils directory. Replace with our

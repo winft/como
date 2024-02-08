@@ -9,7 +9,7 @@
 #include <QString>
 #include <QUuid>
 
-namespace KWin::win
+namespace como::win
 {
 
 class tabbox_client

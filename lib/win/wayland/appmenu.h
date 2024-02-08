@@ -8,7 +8,7 @@
 #include "xdg_shell.h"
 #include <win/wayland/space_windows.h>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Space>

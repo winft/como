@@ -11,7 +11,7 @@
 #include <functional>
 #include <xcb/xcb.h>
 
-namespace KWin::base::x11
+namespace como::base::x11
 {
 
 class user_interaction_filter : public event_filter

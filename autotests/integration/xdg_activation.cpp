@@ -12,7 +12,7 @@
 
 namespace Clt = Wrapland::Client;
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("xdg activation", "[win]")

@@ -26,7 +26,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QTimer>
 #include <memory>
 
-namespace KWin::render::post
+namespace como::render::post
 {
 
 constexpr int QUICK_ADJUST_DURATION = 2000;

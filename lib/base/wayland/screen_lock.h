@@ -5,7 +5,7 @@
 */
 #pragma once
 
-namespace KWin::base::wayland
+namespace como::base::wayland
 {
 
 template<typename Base>

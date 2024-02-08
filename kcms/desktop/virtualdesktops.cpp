@@ -22,10 +22,10 @@
 
 K_PLUGIN_FACTORY_WITH_JSON(VirtualDesktopsFactory,
                            "kcm_kwin_virtualdesktops.json",
-                           registerPlugin<KWin::VirtualDesktops>();
-                           registerPlugin<KWin::VirtualDesktopsData>();)
+                           registerPlugin<como::VirtualDesktops>();
+                           registerPlugin<como::VirtualDesktopsData>();)
 
-namespace KWin
+namespace como
 {
 
 VirtualDesktops::VirtualDesktops(QObject *parent, const KPluginMetaData &metaData)
@@ -36,7 +36,7 @@ VirtualDesktops::VirtualDesktops(QObject *parent, const KPluginMetaData &metaDat
 
     setButtons(Apply | Default | Help);
 
-    QObject::connect(m_data->desktopsModel(), &KWin::DesktopsModel::userModifiedChanged,
+    QObject::connect(m_data->desktopsModel(), &como::DesktopsModel::userModifiedChanged,
         this, &VirtualDesktops::settingsChanged);
     connect(m_data->animationsModel(), &AnimationsModel::animationEnabledChanged,
         this, &VirtualDesktops::settingsChanged);

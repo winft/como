@@ -27,7 +27,7 @@ namespace Wrapland::Server
 class PlasmaWindow;
 }
 
-namespace KWin::win
+namespace como::win
 {
 
 // TODO(romangg): Copied over temporarily for checking if the resize effect is provided. We need to

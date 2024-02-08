@@ -9,7 +9,7 @@
 
 #include <QMatrix4x4>
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 touch::touch()

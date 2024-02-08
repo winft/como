@@ -17,10 +17,10 @@
 
 #include <QMatrix4x4>
 
-namespace KWin
+namespace como
 {
 
-void update_function(ContrastEffect& effect, KWin::effect::color_update const& update)
+void update_function(ContrastEffect& effect, como::effect::color_update const& update)
 {
     if (!update.base.window) {
         // Reset requested
@@ -325,4 +325,4 @@ bool ContrastEffect::isActive() const
     return !effects->isScreenLocked();
 }
 
-} // namespace KWin
+}

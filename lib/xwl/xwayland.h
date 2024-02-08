@@ -37,7 +37,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <memory>
 #include <xcb/xproto.h>
 
-namespace KWin::xwl
+namespace como::xwl
 {
 
 template<typename Space>

@@ -15,7 +15,7 @@
 
 Q_DECLARE_METATYPE(NET::WindowType)
 
-namespace KWin
+namespace como
 {
 
 WindowSystem::WindowSystem()

@@ -29,7 +29,7 @@
 
 #include <xcb/damage.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 static inline xcb_window_t find_event_window(xcb_generic_event_t* event)

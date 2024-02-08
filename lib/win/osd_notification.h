@@ -25,7 +25,7 @@
 #include <functional>
 #include <memory>
 
-namespace KWin::win
+namespace como::win
 {
 
 template<typename Osd, typename Input>

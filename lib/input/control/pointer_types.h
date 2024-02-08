@@ -5,7 +5,7 @@
 */
 #pragma once
 
-namespace KWin::input::control
+namespace como::input::control
 {
 
 enum class accel_profile {

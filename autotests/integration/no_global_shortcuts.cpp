@@ -59,7 +59,7 @@ void Target::shortcut()
 
 }
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("no global shortcuts", "[input]")

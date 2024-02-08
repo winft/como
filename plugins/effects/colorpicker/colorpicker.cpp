@@ -34,7 +34,7 @@ const QDBusArgument& operator>>(const QDBusArgument& argument, QColor& color)
     return argument;
 }
 
-namespace KWin
+namespace como
 {
 
 bool ColorPickerEffect::supported()

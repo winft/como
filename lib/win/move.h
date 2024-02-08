@@ -22,7 +22,7 @@
 #include <QApplication>
 #include <QWidget>
 
-namespace KWin::win
+namespace como::win
 {
 
 inline int sign(int v)

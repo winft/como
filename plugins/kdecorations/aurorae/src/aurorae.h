@@ -29,7 +29,7 @@ class QQmlEngine;
 
 class KConfigLoader;
 
-namespace KWin
+namespace como
 {
 class Borders;
 class OffscreenQuickView;
@@ -83,13 +83,13 @@ private:
                          // was created.
     QQuickItem* m_item = nullptr;
     QQmlContext* m_qmlContext = nullptr;
-    KWin::Borders* m_borders;
-    KWin::Borders* m_maximizedBorders;
-    KWin::Borders* m_extendedBorders;
-    KWin::Borders* m_padding;
+    como::Borders* m_borders;
+    como::Borders* m_maximizedBorders;
+    como::Borders* m_extendedBorders;
+    como::Borders* m_padding;
     QString m_themeName;
 
-    std::unique_ptr<KWin::OffscreenQuickView> m_view;
+    std::unique_ptr<como::OffscreenQuickView> m_view;
 };
 
 class ThemeProvider : public KDecoration2::DecorationThemeProvider

@@ -5,7 +5,7 @@
 */
 #include "compositor_selection_owner.h"
 
-namespace KWin::render::x11
+namespace como::render::x11
 {
 
 compositor_selection_owner::compositor_selection_owner(char const* selection,

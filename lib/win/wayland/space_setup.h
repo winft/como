@@ -30,7 +30,7 @@
 #include <Wrapland/Server/subcompositor.h>
 #include <Wrapland/Server/xdg_shell.h>
 
-namespace KWin::win::wayland
+namespace como::win::wayland
 {
 
 template<typename Space>

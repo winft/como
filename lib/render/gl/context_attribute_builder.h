@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QDebug>
 
-namespace KWin::render::gl
+namespace como::render::gl
 {
 
 class COMO_EXPORT context_attribute_builder

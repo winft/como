@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <render/effect/interface/effect.h>
 #include <render/effect/interface/time_line.h>
 
-namespace KWin
+namespace como
 {
 
 class SnapHelperEffect : public Effect
@@ -48,6 +48,6 @@ private:
     Animation m_animation;
 };
 
-} // namespace KWin
+}
 
 #endif

@@ -5,7 +5,7 @@
 */
 #include "window.h"
 
-namespace KWin::scripting
+namespace como::scripting
 {
 
 window::window(win::window_qobject& qtwin)

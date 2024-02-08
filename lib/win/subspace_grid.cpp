@@ -5,7 +5,7 @@
 */
 #include "subspace_grid.h"
 
-namespace KWin::win
+namespace como::win
 {
 
 subspace_grid::subspace_grid()

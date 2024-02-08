@@ -9,13 +9,13 @@
 #include <render/effect/interface/effect.h>
 #include <render/effect/interface/effect_screen.h>
 
-namespace KWin
+namespace como
 {
 
 class ExpoArea : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(KWin::EffectScreen* screen READ screen WRITE setScreen NOTIFY screenChanged)
+    Q_PROPERTY(como::EffectScreen* screen READ screen WRITE setScreen NOTIFY screenChanged)
     Q_PROPERTY(int x READ x NOTIFY xChanged)
     Q_PROPERTY(int y READ y NOTIFY yChanged)
     Q_PROPERTY(int width READ width NOTIFY widthChanged)
@@ -46,4 +46,4 @@ private:
     EffectScreen* m_screen = nullptr;
 };
 
-} // namespace KWin
+}

@@ -7,7 +7,7 @@
 
 #include "utils/flags.h"
 
-namespace KWin::render
+namespace como::render
 {
 
 enum class image_filter_type {
@@ -102,5 +102,5 @@ enum class opengl_safe_point {
 
 }
 
-ENUM_FLAGS(KWin::render::paint_type)
-ENUM_FLAGS(KWin::render::load_effect_flags)
+ENUM_FLAGS(como::render::paint_type)
+ENUM_FLAGS(como::render::load_effect_flags)

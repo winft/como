@@ -11,7 +11,7 @@
 #include "win/tabbox.h"
 #include <win/space_areas_helpers.h>
 
-namespace KWin::win::x11
+namespace como::win::x11
 {
 
 template<typename Space, typename Win>

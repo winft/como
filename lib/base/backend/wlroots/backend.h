@@ -25,7 +25,7 @@ extern "C" {
 #undef static
 }
 
-namespace KWin::base::backend::wlroots
+namespace como::base::backend::wlroots
 {
 
 template<typename Frontend>

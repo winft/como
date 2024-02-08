@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/surface.h>
 #include <catch2/generators/catch_generators.hpp>
 
-namespace KWin::detail::test
+namespace como::detail::test
 {
 
 TEST_CASE("transient placement", "[win]")

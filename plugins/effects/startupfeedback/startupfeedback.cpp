@@ -39,7 +39,7 @@ static void ensureResources()
     Q_INIT_RESOURCE(startupfeedback);
 }
 
-namespace KWin
+namespace como
 {
 
 // number of key frames for bouncing animation

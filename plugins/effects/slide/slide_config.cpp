@@ -14,9 +14,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <KPluginFactory>
 
-K_PLUGIN_CLASS(KWin::SlideEffectConfig)
+K_PLUGIN_CLASS(como::SlideEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 SlideEffectConfig::SlideEffectConfig(QObject* parent, const KPluginMetaData& data)
@@ -40,6 +40,6 @@ void SlideEffectConfig::save()
     interface.reconfigureEffect(QStringLiteral("slide"));
 }
 
-} // namespace KWin
+}
 
 #include "slide_config.moc"

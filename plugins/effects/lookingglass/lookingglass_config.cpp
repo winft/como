@@ -24,9 +24,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QVBoxLayout>
 #include <QWidget>
 
-K_PLUGIN_CLASS(KWin::LookingGlassEffectConfig)
+K_PLUGIN_CLASS(como::LookingGlassEffectConfig)
 
-namespace KWin
+namespace como
 {
 
 LookingGlassEffectConfig::LookingGlassEffectConfig(QObject* parent, const KPluginMetaData& data)

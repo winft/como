@@ -13,7 +13,7 @@
 #include <QSizeF>
 #include <libinput.h>
 
-namespace KWin::input::backend::wlroots
+namespace como::input::backend::wlroots
 {
 
 class COMO_EXPORT touch_control : public input::control::touch

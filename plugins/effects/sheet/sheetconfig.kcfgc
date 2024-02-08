@@ -4,6 +4,6 @@
 
 File=sheet.kcfg
 ClassName=SheetConfig
-NameSpace=KWin
+NameSpace=como
 Singleton=true
 Mutators=true

@@ -8,7 +8,7 @@
 
 #include <optional>
 
-namespace KWin
+namespace como
 {
 
 class Q_DECL_HIDDEN TimeLine::Data : public QSharedData

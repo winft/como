@@ -17,7 +17,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QPainter>
 #include <cmath>
 
-namespace KWin
+namespace como
 {
 
 TouchPointsEffect::TouchPointsEffect()

@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <win/wayland/internal_window.h>
 
-namespace KWin
+namespace como
 {
 namespace QPA
 {
