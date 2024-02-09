@@ -460,6 +460,9 @@ void QuickSceneEffect::addScreen(EffectScreen const* screen)
                         view.get(),
                         &QuickSceneView::scheduleRepaint);
                 view->scheduleRepaint();
+
+                // view is returned via invokables elsewhere
+                QJSEngine::setObjectOwnership(view.get(), QJSEngine::CppOwnership);
                 d->views[screen] = std::move(view);
             } else if (incubator->isError()) {
                 qCWarning(KWIN_CORE)
