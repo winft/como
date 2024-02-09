@@ -25,9 +25,9 @@ QString get_support_info(Space const& space)
     const QString no = QStringLiteral("no\n");
 
     support.append(ki18nc("Introductory text shown in the support information.",
-                          "KWinFT Support Information:\n"
+                          "Support Information for the Compositor Modules:\n"
                           "The following information should be provided when openning an issue\n"
-                          "ticket on https://gitlab.com/kwinft/kwinft.\n"
+                          "ticket on https://github.com/winft/como.\n"
                           "It gives information about the currently running instance, which\n"
                           "options are used, what OpenGL driver and which effects are running.\n"
                           "Please paste the information provided underneath this introductory\n"
