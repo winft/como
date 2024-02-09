@@ -325,12 +325,6 @@ add_subdirectory(kconf_update)
 add_subdirectory(lib)
 add_subdirectory(plugins)
 
-if (COMO_BUILD_KCMS)
-    add_subdirectory(kcms)
-endif()
-
-########### install files ###############
-
 if (BUILD_TESTING)
     add_subdirectory(autotests)
     add_subdirectory(tests)
