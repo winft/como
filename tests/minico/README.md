@@ -5,13 +5,13 @@ SPDX-License-Identifier: GPL-2.0-or-later
 -->
 
 # Minico - The Mini Wayland Compositor
-Minico is a "minimum viable product" Wayland compositor based on the KWinFT libraries.
-It is intended to serve as an example for creating a compositor using KWinFT libraries with as few lines of code as possible.
+Minico is a "minimum viable product" Wayland compositor based on the Compositor Modules libraries.
+It is intended to serve as an example for creating a compositor using the Compositor Modules with as few lines of code as possible.
 In this regard, it shares similarities with wlroot's [TinyWL](https://gitlab.freedesktop.org/wlroots/wlroots/-/tree/master/tinywl).
-However, while TinyWL is more of a demo unit, Minico can be used in production as it includes all of KWinFT's windowing logic.
+However, while TinyWL is more of a demo unit, Minico can be used in production as it includes all the windowing logic the Compositor Modules provide.
 
 ## Building Minico
-o build Minico, configure the build using CMake.
+To build Minico, configure the build using CMake.
 Then, build Minico with the following command: `cmake --build <build-dir> --target minico`.
 
 ## Running Minico

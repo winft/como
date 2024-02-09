@@ -1,67 +1,75 @@
 <!--
-SPDX-FileCopyrightText: 2023 Roman Gilg <subdiff@gmail.com>
+SPDX-FileCopyrightText: 2024 Roman Gilg <subdiff@gmail.com>
 
 SPDX-License-Identifier: GPL-2.0-or-later
 -->
 
-# KWinFT
-
-KWinFT (KWin Fast Track) is a robust, fast and versatile yet
-easy to use composited window manager for the
-[Wayland](https://wayland.freedesktop.org/) and
-[X11](https://en.wikipedia.org/wiki/X_Window_System)
-windowing systems on Linux.
+<div align="center">
+<p>
+    <picture>
+      <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark-wide.png">
+      <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-bright-wide.png">
+      <img alt="The Compositor Modules wide logo" src="docs/assets/logo-bright-wide.png" width="600">
+    </picture>
+</p>
 
 <p>
-  <div align="center">
-    <img style="float:left;box-shadow: 7px 7px 7px #666666;" src="docs/assets/desktop-screenshot.png"
-         alt="KWinFT Plasma Wayland session"
-         width="800">
-  </div>
-</p>
+<i>The Compositor Modules (COMO)</i> are a robust and versatile set of libraries
 <br>
+to create compositors for the Wayland and X11 windowing systems on Linux.
+</p>
+</div>
 
-KWinFT is intended to be used as part of a
-[KDE Plasma Desktop](https://kde.org/plasma-desktop/).
-The KWinFT project is a reboot of KDE's
-[KWin](https://en.wikipedia.org/wiki/KWin).
-KWinFT differentates itself from KWin in some important aspects:
-* KWinFT values stability and robustness.
-  This is achieved through upholding strict development standards
-  and deploying modern development methods to prevent regressions and code smell.
-* KWinFT values collaboration with competitors and and upstream partners.
-  We want to overcome antiquated notions on community divisions
-  and work together on the best possible Linux graphics platform.
-* KWinFT values the knowledge of experts but also the curiosity of beginners.
-  Well defined and transparent decision processes enable expert knowledge to proliferate
-  and new contributors to easily find help on their first steps.
+# Features
 
-## Installation
-Your distribution might provide KWinFT already as a package:
-  * Arch(AUR): [kwinft](https://aur.archlinux.org/packages/kwinft)
-  * Manjaro: `sudo pacman -S kwinft`
+**Compatibility**
+<br>
+The Compositor Modules currently integrate primarily with
+KDE's Plasma Desktop but can be used with other desktop environments as well.
+This cross-desktop interoperability will be expanded upon in the future.
 
-Alternatively KWinFT can be compiled from source.
+**Ease of Use**
+<br>
+With the Compositor Modules a Wayland compositor can be created with a handful of lines only.
+See our MVP [Minico](tests/minico) for an example of that.
+
+**Customizability**
+<br>
+The Compositor Modules make heavy use of C++ templates. This allows consumers to replace
+many functions and types with customized versions when required.
+
+# Values
+
+**Stability and robustness**
+
+This is achieved through upholding strict development standards
+and deploying modern development methods to prevent regressions and code smell.
+
+**Collaboration with competitors and upstream partners**
+
+We want to overcome antiquated notions on community divisions
+and work together on the best possible Linux graphics platform.
+
+**Value the knowledge of experts but also the curiosity of beginners**
+
+Well defined and transparent decision processes enable expert knowledge to proliferate
+and new contributors to easily find help on their first steps.
+
+# Installation
+The Compositor Modules can be compiled from source.
 If you do that manually you have to check for your specific distribution
 how to best get the required dependencies.
+
 You can also make use of the FDBuild tool to automate that process as described
 [here](CONTRIBUTING.md#compiling).
 
-## Usage
-KWinFT can be used as a drop-in replacement for KWin inside a KDE Plasma Desktop session.
-After installation and a system restart the KWinFT binary will execute.
-All configuration, plugins and shell interaction transfer over.
+# Usage
+It's easiest to link via CMake to the Compositor Modules libraries that you want to use.
+As an example check out the test code of [Minico](tests/minico) and the [Plasma binaries](tests/plasma).
 
-## Development
+# Development
 The [CONTRIBUTING.md](CONTRIBUTING.md) document contains all information
 on how to get started with:
 * providing useful debug information,
-* building KWinFT
+* building the Compositor Modules
 * and doing your first code submission to the project.
-
-If you want to write an effect or script for KWinFT
-you can do this as usual with the respective APIs that KWinFT provides.
-We try to keep these APIs compatible with the ones of KWin
-but there is no guarantee on that.
-If there are incompatible changes or API-breaking changes in general,
-this will be announced in the changelog.

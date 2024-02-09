@@ -4,7 +4,7 @@
 
 [Global]
 IconName=kwin
-Comment=KWinFT Window Manager
+Comment=Compositor Modules Based Window Manager
 
 [Event/graphicsreset]
 Name=Graphics Reset
