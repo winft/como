@@ -143,6 +143,10 @@ target_sources(input-wl
       wayland/cursor.h
       wayland/cursor_image.h
       wayland/device_redirect.h
+      wayland/fake/devices.h
+      wayland/fake/keyboard.h
+      wayland/fake/pointer.h
+      wayland/fake/touch.h
       wayland/global_shortcuts_manager.h
       wayland/idle.h
       wayland/input_method.h
@@ -206,4 +210,5 @@ install(TARGETS input input-x11-backend input-wl
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/input
+  INCLUDES DESTINATION ${KDE_INSTALL_INCLUDEDIR}
 )

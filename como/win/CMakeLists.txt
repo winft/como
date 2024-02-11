@@ -236,6 +236,7 @@ target_sources(win-x11
       x11/control.h
       x11/control_create.h
       x11/damage.h
+      x11/debug.h
       x11/deco.h
       x11/desktop_space.h
       x11/event.h
@@ -257,6 +258,7 @@ target_sources(win-x11
       x11/root_info_filter.h
       x11/scene.h
       x11/screen_edge.h
+      x11/screen_edges.h
       x11/screen_edges_filter.h
       x11/session.h
       x11/session_manager.h
@@ -280,6 +282,7 @@ target_sources(win-x11
       x11/window_release.h
       x11/win_info.h
       x11/xcb.h
+      x11/xcb_cursor.h
       x11/xcb_event_filter.h
       x11/xcb_windows.h
   PRIVATE
@@ -342,6 +345,8 @@ target_sources(win-wl
       wayland/setup.h
       wayland/space.h
       wayland/space_areas.h
+      wayland/space_setup.h
+      wayland/space_windows.h
       wayland/subspace_manager.h
       wayland/subsurface.h
       wayland/surface.h
@@ -363,6 +368,12 @@ set_target_properties(win win-x11 win-x11-backend win-wl PROPERTIES
 )
 
 install(
+  FILES
+    rules/kconfig/rules_settings.kcfg
+    rules/kconfig/rules_book_settings_base.kcfg
+  DESTINATION ${KDE_INSTALL_KCFGDIR}
+)
+install(
   FILES dbus/org.kde.KWin.VirtualDesktopManager.xml
   DESTINATION ${KDE_INSTALL_DBUSINTERFACEDIR}
 )
@@ -375,6 +386,15 @@ install(TARGETS win win-x11 win-x11-backend win-wl
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/win
+  INCLUDES DESTINATION ${KDE_INSTALL_INCLUDEDIR}
 )
 
 install(TARGETS como_killer_helper DESTINATION ${KDE_INSTALL_LIBEXECDIR})
+
+install(
+  FILES
+    ${CMAKE_CURRENT_BINARY_DIR}/rules_book_settings_base.h
+    ${CMAKE_CURRENT_BINARY_DIR}/rules_settings.h
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/como/win/rules
+  COMPONENT Devel
+)

@@ -51,6 +51,7 @@ target_sources(desktop-kde
   PUBLIC
     FILE_SET HEADERS
     FILES
+      kde/dbus/kwin.h
       kde/platform.h
       kde/service_utils.h
   PRIVATE
@@ -104,4 +105,5 @@ install(TARGETS desktop desktop-kde
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/desktop
+  INCLUDES DESTINATION ${KDE_INSTALL_INCLUDEDIR}
 )

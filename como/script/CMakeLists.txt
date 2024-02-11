@@ -23,6 +23,7 @@ target_sources(script
   PUBLIC
     FILE_SET HEADERS
     FILES
+      dbus_call.h
       desktop_background_item.h
       effect.h
       effect_loader.h
@@ -79,4 +80,5 @@ install(TARGETS script
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/script
+  INCLUDES DESTINATION ${KDE_INSTALL_INCLUDEDIR}
 )

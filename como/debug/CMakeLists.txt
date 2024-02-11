@@ -18,6 +18,7 @@ target_sources(debug-common
       console/console.h
       console/model_helpers.h
       console/window.h
+      console/x11/x11_console.h
       perf/ftrace.h
       support_info.h
   PRIVATE
@@ -74,4 +75,11 @@ install(TARGETS debug-common debug-wl
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/debug
+  INCLUDES DESTINATION ${KDE_INSTALL_INCLUDEDIR}
+)
+
+install(
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/ui_debug_console.h
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/como/debug
+  COMPONENT Devel
 )

@@ -121,8 +121,11 @@ target_sources(base-x11-backend
       backend/x11/wm_selection.h
       backend/x11/wm_selection_owner.h
       x11/app_singleton.h
+      x11/output.h
+      x11/output_helpers.h
       x11/platform.h
       x11/platform_helpers.h
+      x11/randr_filter.h
   PRIVATE
     backend/x11/wm_selection_owner.cpp
 )
@@ -140,7 +143,6 @@ target_link_libraries(base-wl
 target_sources(base-wl
   PUBLIC
     FILE_SET HEADERS
-    BASE_DIRS wayland
     FILES
       wayland/app_singleton.h
       wayland/filtered_display.h
@@ -148,8 +150,10 @@ target_sources(base-wl
       wayland/output_helpers.h
       wayland/output_transform.h
       wayland/platform.h
+      wayland/platform_helpers.h
       wayland/screen_lock.h
       wayland/server.h
+      wayland/xwl_platform.h
   PRIVATE
     wayland/filtered_display.cpp
 )
@@ -164,4 +168,17 @@ install(TARGETS base base-x11 base-x11-backend base-wl
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/base
+  INCLUDES DESTINATION ${KDE_INSTALL_INCLUDEDIR}
+)
+
+install(
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/como_export.h
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/como/base
+  COMPONENT Devel
+)
+
+install(
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/config-como.h
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/como/base
+  COMPONENT Devel
 )

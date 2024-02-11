@@ -65,6 +65,14 @@ include(ECMOptionalAddSubdirectory)
 include(ECMConfiguredInstall)
 include(ECMQmlModule)
 include(ECMGenerateQmlTypes)
+include(ECMSetupVersion)
+
+ecm_setup_version(PROJECT
+  VARIABLE_PREFIX COMO
+  VERSION_HEADER "${CMAKE_CURRENT_BINARY_DIR}/como_version.h"
+  PACKAGE_VERSION_FILE "${CMAKE_CURRENT_BINARY_DIR}/como-config-version.cmake"
+  SOVERSION 0
+)
 
 # required frameworks by Core
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
@@ -198,7 +206,9 @@ set_package_properties(Pixman PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required for building wlroots backend."
 )
-find_package(wlroots 0.17.0)
+
+set(WLROOTS_MIN_VERSION "0.17.0")
+find_package(wlroots ${WLROOTS_MIN_VERSION})
 set_package_properties(wlroots PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required for building wlroots backend."
@@ -331,5 +341,40 @@ endif()
 if (KF6DocTools_FOUND)
     add_subdirectory(docs)
 endif()
+
+# create a Config.cmake and a ConfigVersion.cmake file and install them
+set(CMAKECONFIG_INSTALL_DIR "${CMAKE_INSTALL_LIBDIR}/cmake/como")
+
+configure_package_config_file(
+  "${CMAKE_CURRENT_SOURCE_DIR}/como-config.cmake.in"
+  "${CMAKE_CURRENT_BINARY_DIR}/como-config.cmake" INSTALL_DESTINATION ${CMAKECONFIG_INSTALL_DIR}
+)
+
+install(
+  FILES "${CMAKE_CURRENT_BINARY_DIR}/como-config.cmake"
+        "${CMAKE_CURRENT_BINARY_DIR}/como-config-version.cmake"
+  DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+  COMPONENT Devel
+)
+
+install(
+  EXPORT como-export
+  FILE como-targets.cmake
+  NAMESPACE como::
+  DESTINATION "${CMAKECONFIG_INSTALL_DIR}"
+)
+
+install(
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/como_version.h
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
+  COMPONENT Devel
+)
+
+install(
+  FILES
+    como/cmake/modules/FindPixman.cmake
+    como/cmake/modules/Findwlroots.cmake
+  DESTINATION ${CMAKECONFIG_INSTALL_DIR}/modules
+)
 
 feature_summary(WHAT ALL INCLUDE_QUIET_PACKAGES FATAL_ON_MISSING_REQUIRED_PACKAGES)
