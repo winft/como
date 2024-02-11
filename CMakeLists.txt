@@ -30,7 +30,7 @@ add_definitions(-DEGL_NO_PLATFORM_SPECIFIC_TYPES)
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/como/cmake/modules ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/modules ${ECM_MODULE_PATH})
 
 include(FeatureSummary)
 include(WriteBasicConfigVersionFile)
@@ -372,8 +372,8 @@ install(
 
 install(
   FILES
-    como/cmake/modules/FindPixman.cmake
-    como/cmake/modules/Findwlroots.cmake
+    cmake/modules/FindPixman.cmake
+    cmake/modules/Findwlroots.cmake
   DESTINATION ${CMAKECONFIG_INSTALL_DIR}/modules
 )
 
