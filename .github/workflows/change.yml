@@ -32,3 +32,9 @@ jobs:
           |scene opengl|opengl shadow|no crash reinit compositor|buffer size change\
           |no crash aurorae destroy deco|slidingpopups|scripted effects|window open close animation\
           |subspace switching animation|minimize animation'"
+
+  package:
+    uses: ./.github/workflows/package.yml
+    needs: build
+    with:
+      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
