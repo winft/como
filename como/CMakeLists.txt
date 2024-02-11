@@ -57,7 +57,14 @@ target_sources(wayland
       base/backend/wlroots/helpers.h
       base/backend/wlroots/non_desktop_output.h
       base/backend/wlroots/output.h
+      base/seat/backend/wlroots/session.h
       input/backend/wlroots/backend.h
+      input/backend/wlroots/control/control.h
+      input/backend/wlroots/control/headless/keyboard.h
+      input/backend/wlroots/control/keyboard.h
+      input/backend/wlroots/control/pointer.h
+      input/backend/wlroots/control/switch.h
+      input/backend/wlroots/control/touch.h
       input/backend/wlroots/device_helpers.h
       input/backend/wlroots/keyboard.h
       input/backend/wlroots/pointer.h
@@ -102,9 +109,5 @@ install(TARGETS x11 wayland
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como
-)
-
-install(EXPORT como-export
-  NAMESPACE como::
-  DESTINATION ${KDE_INSTALL_CMAKEPACKAGEDIR}/como
+  INCLUDES DESTINATION ${KDE_INSTALL_INCLUDEDIR}
 )

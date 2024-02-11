@@ -42,6 +42,7 @@ target_sources(render
       effect/interface/effect_screen.h
       effect/interface/effect_togglable_state.h
       effect/interface/effect_window.h
+      effect/interface/effect_window_visible_ref.h
       effect/interface/effects_handler.h
       effect/interface/offscreen_quick_view.h
       effect/interface/paint_clipper.h
@@ -70,6 +71,7 @@ target_sources(render
       gl/interface/shader.h
       gl/interface/shader_manager.h
       gl/interface/texture.h
+      gl/interface/texture_p.h
       gl/interface/utils.h
       gl/interface/utils_funcs.h
       gl/interface/vertex_buffer.h
@@ -184,8 +186,17 @@ target_sources(render-x11
     FILE_SET HEADERS
     FILES
       x11/compositor_selection_owner.h
+      x11/effect/blur_integration.h
+      x11/effect/blur_update.h
+      x11/effect/contrast_integration.h
+      x11/effect/contrast_update.h
+      x11/effect/kscreen_integration.h
+      x11/effect/kscreen_update.h
       x11/effect/setup_handler.h
       x11/effect/setup_window.h
+      x11/effect/slide_integration.h
+      x11/effect/slide_update.h
+      x11/effect/update.h
       x11/keyboard_intercept_filter.h
       x11/mouse_intercept_filter.h
       x11/property_notify_filter.h
@@ -210,7 +221,17 @@ target_sources(render-x11-backend
   PUBLIC
     FILE_SET HEADERS
     FILES
+      backend/x11/deco_renderer.h
+      backend/x11/glx_backend.h
+      backend/x11/glx_context_attribute_builder.h
+      backend/x11/glx_data.h
+      backend/x11/glx_fb_config.h
+      backend/x11/glx_texture.h
+      backend/x11/glx.h
       backend/x11/non_composited_outline.h
+      backend/x11/output.h
+      backend/x11/platform.h
+      backend/x11/swap_event_filter.h
       x11/buffer.h
       x11/compositor_start.h
       x11/effect.h
@@ -281,6 +302,7 @@ install(
   FILES
     dbus/org.kde.kwin.ColorCorrect.xml
     dbus/org.kde.kwin.Compositing.xml
+    effect/interface/org.kde.kwin.Effects.xml
   DESTINATION
     ${KDE_INSTALL_DBUSINTERFACEDIR}
 )
@@ -292,4 +314,11 @@ install(TARGETS render render-x11 render-x11-backend render-wl
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/render
+  INCLUDES DESTINATION ${KDE_INSTALL_INCLUDEDIR}
+)
+
+install(
+  FILES ${CMAKE_CURRENT_BINARY_DIR}/color_correct_settings.h
+  DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/como/render/post
+  COMPONENT Devel
 )
