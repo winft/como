@@ -106,7 +106,7 @@ add_executable(tests
   ../libkwineffects/mock_gl.cpp
   ../tabbox/mock_tabbox_client.cpp
   ../tabbox/mock_tabbox_handler.cpp
-  ../../lib/render/backend/x11/glx_context_attribute_builder.cpp
+  ../../como/render/backend/x11/glx_context_attribute_builder.cpp
 )
 
 target_compile_definitions(tests PRIVATE USE_XWL=1)

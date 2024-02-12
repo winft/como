@@ -13,5 +13,5 @@ RUN_SCRIPT_URL="https://gitlab.com/kwinft/tooling/-/raw/master/analysis/run-clan
 
 python <(curl -s $RUN_SCRIPT_URL) -r \
     ${SOURCE_DIR}/autotests \
-    ${SOURCE_DIR}/lib \
+    ${SOURCE_DIR}/como \
     ${SOURCE_DIR}/plugins \
