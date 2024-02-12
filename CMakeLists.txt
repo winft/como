@@ -30,7 +30,7 @@ add_definitions(-DEGL_NO_PLATFORM_SPECIFIC_TYPES)
 find_package(ECM ${KF6_MIN_VERSION} REQUIRED NO_MODULE)
 
 # where to look first for cmake modules, before ${CMAKE_ROOT}/Modules/ is checked
-set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/lib/cmake/modules ${ECM_MODULE_PATH})
+set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/como/cmake/modules ${ECM_MODULE_PATH})
 
 include(FeatureSummary)
 include(WriteBasicConfigVersionFile)
@@ -314,15 +314,15 @@ add_feature_info("SCHED_RESET_ON_FORK"
 
 ########### global ###############
 include_directories(BEFORE
-    ${CMAKE_CURRENT_BINARY_DIR}/lib
-    ${CMAKE_CURRENT_BINARY_DIR}/lib/effect
+    ${CMAKE_CURRENT_BINARY_DIR}/como
+    ${CMAKE_CURRENT_BINARY_DIR}/como/effect
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib
-    ${CMAKE_CURRENT_SOURCE_DIR}/lib/effect
+    ${CMAKE_CURRENT_SOURCE_DIR}/como
+    ${CMAKE_CURRENT_SOURCE_DIR}/como/effect
 )
 
 add_subdirectory(kconf_update)
-add_subdirectory(lib)
+add_subdirectory(como)
 add_subdirectory(plugins)
 
 if (BUILD_TESTING)
