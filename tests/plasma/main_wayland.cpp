@@ -22,10 +22,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QProcess>
 #include <sys/resource.h>
 
-Q_IMPORT_PLUGIN(KWinIntegrationPlugin)
-Q_IMPORT_PLUGIN(KWindowSystemKWinPlugin)
-Q_IMPORT_PLUGIN(KWinIdleTimePoller)
-
 namespace como
 {
 

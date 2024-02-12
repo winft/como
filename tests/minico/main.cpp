@@ -8,12 +8,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <input/wayland/platform.h>
 #include <script/platform.h>
 
-#include <QtPlugin>
-
-Q_IMPORT_PLUGIN(KWinIntegrationPlugin)
-Q_IMPORT_PLUGIN(KWindowSystemKWinPlugin)
-Q_IMPORT_PLUGIN(KWinIdleTimePoller)
-
 int main(int argc, char* argv[])
 {
     using namespace como;

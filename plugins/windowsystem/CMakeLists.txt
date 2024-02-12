@@ -8,11 +8,19 @@ set(kwindowsystem_plugin_SRCS
     windowsystem.cpp
 )
 
-add_library(KF6WindowSystemComoPlugin OBJECT ${kwindowsystem_plugin_SRCS})
-target_compile_definitions(KF6WindowSystemComoPlugin PRIVATE QT_STATICPLUGIN)
+add_library(KF6WindowSystemComoPlugin MODULE ${kwindowsystem_plugin_SRCS})
+set_target_properties(KF6WindowSystemComoPlugin PROPERTIES
+  LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/bin/kf6/kwindowsystem/"
+)
+
 target_link_libraries(KF6WindowSystemComoPlugin
 PRIVATE
   render
   win
   KF6::WindowSystem
+)
+
+install(
+  TARGETS KF6WindowSystemComoPlugin
+  DESTINATION ${KDE_INSTALL_PLUGINDIR}/kf6/kwindowsystem
 )
