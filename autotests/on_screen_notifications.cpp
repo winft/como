@@ -7,8 +7,8 @@
 */
 #include "integration/lib/catch_macros.h"
 
-#include "input/event_spy.h"
-#include "win/osd_notification.h"
+#include "como/input/event_spy.h"
+#include "como/win/osd_notification.h"
 
 #include <KConfigGroup>
 #include <KSharedConfig>

@@ -5,13 +5,13 @@
 */
 #pragma once
 
-#include "base/logging.h"
-#include "base/x11/xcb/extensions.h"
-#include "utils/memory.h"
-#include "win/meta.h"
-#include "win/setup.h"
-#include <base/x11/xcb/property.h>
-#include <win/x11/net/net.h>
+#include <como/base/logging.h>
+#include <como/base/x11/xcb/extensions.h>
+#include <como/base/x11/xcb/property.h>
+#include <como/utils/memory.h>
+#include <como/win/meta.h>
+#include <como/win/setup.h>
+#include <como/win/x11/net/net.h>
 
 #include <xcb/sync.h>
 #include <xcb/xcb_icccm.h>

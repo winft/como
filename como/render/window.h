@@ -12,10 +12,10 @@
 #include "shadow.h"
 #include "types.h"
 
-#include "win/desktop_get.h"
-#include "win/geo.h"
+#include <como/win/desktop_get.h>
+#include <como/win/geo.h>
 
-#include <render/effect/interface/paint_data.h>
+#include <como/render/effect/interface/paint_data.h>
 
 #include <functional>
 #include <memory>

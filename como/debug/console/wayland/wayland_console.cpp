@@ -5,14 +5,14 @@
 */
 #include "wayland_console.h"
 
-#include "debug/console/model_helpers.h"
-#include "debug/console/window.h"
-#include "input/dbus/device_manager.h"
-#include "input/keyboard.h"
-#include "input/keyboard_redirect.h"
-#include "input/xkb/helpers.h"
-#include "input/xkb/keyboard.h"
 #include "input_filter.h"
+#include <como/debug/console/model_helpers.h>
+#include <como/debug/console/window.h>
+#include <como/input/dbus/device_manager.h>
+#include <como/input/keyboard.h>
+#include <como/input/keyboard_redirect.h>
+#include <como/input/xkb/helpers.h>
+#include <como/input/xkb/keyboard.h>
 
 #include "ui_debug_console.h"
 

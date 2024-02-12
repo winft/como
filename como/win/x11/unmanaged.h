@@ -11,10 +11,10 @@
 #include "window_release.h"
 #include "xcb.h"
 
-#include "base/x11/grabs.h"
-#include "base/x11/xcb/extensions.h"
-#include "base/x11/xcb/proto.h"
-#include "win/remnant.h"
+#include <como/base/x11/grabs.h>
+#include <como/base/x11/xcb/extensions.h>
+#include <como/base/x11/xcb/proto.h>
+#include <como/win/remnant.h>
 
 namespace como::win::x11
 {

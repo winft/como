@@ -5,8 +5,8 @@
 */
 #include "virtual_desktop_model.h"
 
-#include "win/singleton_interface.h"
-#include <win/subspace_manager_qobject.h>
+#include <como/win/singleton_interface.h>
+#include <como/win/subspace_manager_qobject.h>
 
 namespace como::scripting
 {

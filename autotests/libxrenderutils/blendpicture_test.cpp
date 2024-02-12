@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <QtTest>
 
 #include "../testutils.h"
-#include "render/xrender/utils.h"
+#include "como/render/xrender/utils.h"
 
 class BlendPictureTest : public QObject
 {

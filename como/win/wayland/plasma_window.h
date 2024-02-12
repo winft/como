@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/activation.h"
+#include <como/win/activation.h>
 
 #include <cassert>
 

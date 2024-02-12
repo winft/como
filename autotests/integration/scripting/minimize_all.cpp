@@ -6,11 +6,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include "base/wayland/server.h"
-#include "script/platform.h"
-#include "script/script.h"
-#include "win/control.h"
-#include "win/wayland/window.h"
+#include "como/base/wayland/server.h"
+#include "como/script/platform.h"
+#include "como/script/script.h"
+#include "como/win/control.h"
+#include "como/win/wayland/window.h"
 
 #include <KPackage/PackageLoader>
 #include <Wrapland/Client/surface.h>

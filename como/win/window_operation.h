@@ -6,12 +6,12 @@
 #pragma once
 
 #include "actions.h"
-#include "base/options.h"
 #include "desktop_set.h"
 #include "move.h"
 #include "rules/book_edit.h"
 #include "shortcut_set.h"
 #include "stacking.h"
+#include <como/base/options.h>
 
 namespace como::win
 {

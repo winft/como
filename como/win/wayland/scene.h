@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "win/geo.h"
-#include "win/scene.h"
+#include <como/win/geo.h>
+#include <como/win/scene.h>
 
 #include <Wrapland/Server/surface.h>
 #include <cassert>

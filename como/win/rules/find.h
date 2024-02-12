@@ -7,8 +7,8 @@
 
 #include "window.h"
 
-#include "base/logging.h"
-#include "win/rules.h"
+#include <como/base/logging.h>
+#include <como/win/rules.h>
 
 namespace como::win::rules
 {

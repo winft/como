@@ -6,9 +6,9 @@
 #pragma once
 
 #include "geo.h"
-#include <win/scene.h>
+#include <como/win/scene.h>
 
-#include "utils/algorithm.h"
+#include <como/utils/algorithm.h>
 
 #include <QRegion>
 

@@ -8,8 +8,8 @@
 #include "control/touch.h"
 #include "event.h"
 
-#include "base/wayland/output_transform.h"
 #include "como_export.h"
+#include <como/base/wayland/output_transform.h>
 
 #include <QObject>
 #include <QPointF>

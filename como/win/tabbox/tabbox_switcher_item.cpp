@@ -5,11 +5,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "tabbox_switcher_item.h"
 
-#include "base/singleton_interface.h"
 #include "tabbox_handler.h"
-#include "win/screen.h"
-#include "win/singleton_interface.h"
-#include <base/platform_qobject.h>
+#include <como/base/platform_qobject.h>
+#include <como/base/singleton_interface.h>
+#include <como/win/screen.h>
+#include <como/win/singleton_interface.h>
 
 #include <QAbstractItemModel>
 

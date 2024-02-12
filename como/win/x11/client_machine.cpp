@@ -5,9 +5,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "client_machine.h"
 
-#include "base/logging.h"
 #include "net/net.h"
 #include "net/win_info.h"
+#include <como/base/logging.h>
 
 #include <QFutureWatcher>
 #include <QtConcurrentRun>

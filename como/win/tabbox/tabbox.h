@@ -13,9 +13,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "tabbox_handler_impl.h"
 #include "tabbox_logging.h"
 
+#include <como/win/activation.h>
 #include <como_export.h>
 #include <config-como.h>
-#include <win/activation.h>
 
 #include <KLazyLocalizedString>
 #include <QAction>

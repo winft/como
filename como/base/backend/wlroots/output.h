@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "base/utils.h"
-#include "base/wayland/output.h"
+#include <como/base/utils.h>
+#include <como/base/wayland/output.h>
 
 #include <wayland-server-core.h>
 

@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "appmenu_interface.h"
 
-#include "win/deco/bridge.h"
+#include <como/win/deco/bridge.h>
 
 #include <QDBusObjectPath>
 #include <QDBusServiceWatcher>

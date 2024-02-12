@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "render/gl/egl_data.h"
+#include <como/render/gl/egl_data.h>
 
 #include <epoxy/egl.h>
 #include <wayland-server.h>

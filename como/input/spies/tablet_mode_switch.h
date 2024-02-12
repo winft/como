@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "input/event.h"
-#include "input/event_spy.h"
-#include "input/switch.h"
+#include <como/input/event.h>
+#include <como/input/event_spy.h>
+#include <como/input/switch.h>
 
 namespace como::input
 {

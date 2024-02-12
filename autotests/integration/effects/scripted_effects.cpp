@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <render/effect/interface/anidata_p.h>
+#include "como/render/effect/interface/anidata_p.h"
 
 #include <KConfigGroup>
 #include <KGlobalAccel>

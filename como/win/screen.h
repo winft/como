@@ -7,9 +7,9 @@
 
 #include "window_qobject.h"
 
-#include "base/options.h"
-#include "base/output_helpers.h"
-#include "utils/algorithm.h"
+#include <como/base/options.h>
+#include <como/base/output_helpers.h>
+#include <como/utils/algorithm.h>
 
 namespace como::win
 {

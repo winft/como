@@ -10,9 +10,9 @@
 
 #include <QRect>
 
-#include "base/options.h"
-#include "win/types.h"
-#include <win/subspace.h>
+#include <como/base/options.h>
+#include <como/win/subspace.h>
+#include <como/win/types.h>
 
 class QDebug;
 

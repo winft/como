@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/control/touch.h"
+#include <como/input/control/touch.h>
 #include <como_export.h>
 
 #include <KSharedConfig>

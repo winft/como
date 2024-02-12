@@ -7,15 +7,15 @@
 
 #include "device.h"
 
-#include "input/control/keyboard.h"
-#include "input/control/pointer.h"
-#include "input/control/switch.h"
-#include "input/control/touch.h"
-#include "input/keyboard.h"
-#include "input/platform.h"
-#include "input/pointer.h"
-#include "input/switch.h"
-#include "input/touch.h"
+#include <como/input/control/keyboard.h>
+#include <como/input/control/pointer.h>
+#include <como/input/control/switch.h>
+#include <como/input/control/touch.h>
+#include <como/input/keyboard.h>
+#include <como/input/platform.h>
+#include <como/input/pointer.h>
+#include <como/input/switch.h>
+#include <como/input/touch.h>
 
 namespace como::input::dbus
 {

@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "win/geo.h"
-#include "win/wayland/input.h"
+#include <como/win/geo.h>
+#include <como/win/wayland/input.h>
 
 namespace como::input
 {

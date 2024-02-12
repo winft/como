@@ -5,10 +5,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "colorpicker.h"
 
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/utils.h>
-#include <render/gl/interface/utils_funcs.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/utils.h>
+#include <como/render/gl/interface/utils_funcs.h>
 
 #include <KLocalizedString>
 #include <QDBusConnection>

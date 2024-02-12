@@ -7,9 +7,9 @@
 #ifndef CONTRAST_H
 #define CONTRAST_H
 
-#include <render/effect/interface/effect.h>
-#include <render/gl/interface/framebuffer.h>
-#include <render/gl/interface/vertex_buffer.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/gl/interface/framebuffer.h>
+#include <como/render/gl/interface/vertex_buffer.h>
 
 #include <QVector2D>
 #include <QVector>

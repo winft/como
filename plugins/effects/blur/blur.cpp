@@ -12,11 +12,11 @@
 // KConfigSkeleton
 #include "blurconfig.h"
 
-#include <render/effect/interface/effect_frame.h>
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/vertex_buffer.h>
+#include <como/render/effect/interface/effect_frame.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/vertex_buffer.h>
 
 #include <QGuiApplication>
 #include <QMatrix4x4>

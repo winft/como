@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "render/types.h"
-#include "utils/flags.h"
+#include <como/render/types.h>
+#include <como/utils/flags.h>
 
 namespace como::render::x11
 {

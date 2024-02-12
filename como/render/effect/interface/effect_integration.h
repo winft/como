@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <render/effect/interface/types.h>
+#include <como/render/effect/interface/types.h>
 
 #include <QMatrix4x4>
 #include <QRegion>

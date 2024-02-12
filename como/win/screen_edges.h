@@ -12,9 +12,8 @@
 
 #include "move.h"
 #include "singleton_interface.h"
-#include <win/subspace.h>
-
-#include "input/gestures.h"
+#include <como/win/input/gestures.h>
+#include <como/win/subspace.h>
 
 #include <KConfigGroup>
 #include <KSharedConfig>

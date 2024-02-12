@@ -7,8 +7,8 @@
 
 #include "net/win_info.h"
 
-#include "base/x11/xcb/property.h"
-#include "base/x11/xcb/proto.h"
+#include <como/base/x11/xcb/property.h>
+#include <como/base/x11/xcb/proto.h>
 
 namespace como::win::x11
 {

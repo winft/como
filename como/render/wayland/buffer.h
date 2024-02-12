@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "render/buffer.h"
+#include <como/render/buffer.h>
 
 #include <QImage>
 #include <Wrapland/Server/buffer.h>

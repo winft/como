@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "window.h"
 
 #include "como_export.h"
-#include <render/effect/interface/paint_data.h>
+#include <como/render/effect/interface/paint_data.h>
 
 #include <QQuickItem>
 #include <QUuid>

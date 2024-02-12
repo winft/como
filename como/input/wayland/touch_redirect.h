@@ -7,10 +7,10 @@
 
 #include "device_redirect.h"
 
-#include "base/wayland/server.h"
-#include "input/device_redirect.h"
-#include "input/event_filter.h"
-#include "input/event_spy.h"
+#include <como/base/wayland/server.h>
+#include <como/input/device_redirect.h>
+#include <como/input/event_filter.h>
+#include <como/input/event_spy.h>
 
 #include <KScreenLocker/KsldApp>
 #include <QHash>

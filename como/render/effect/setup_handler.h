@@ -5,13 +5,13 @@
 */
 #pragma once
 
-#include <render/effect/setup_window.h>
-#include <win/screen_edges.h>
+#include <como/render/effect/setup_window.h>
+#include <como/win/screen_edges.h>
 
 #include <config-como.h>
 
 #if COMO_BUILD_TABBOX
-#include <win/tabbox/tabbox.h>
+#include <como/win/tabbox/tabbox.h>
 #endif
 
 #include <QObject>

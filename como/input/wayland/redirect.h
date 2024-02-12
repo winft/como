@@ -14,29 +14,29 @@
 #include "touch_redirect.h"
 
 // TODO(romangg): should only be included when COMO_BUILD_TABBOX is defined.
-#include "input/filters/tabbox.h"
+#include <como/input/filters/tabbox.h>
 
-#include "base/wayland/output_helpers.h"
-#include "input/dbus/tablet_mode_manager.h"
-#include "input/filters/decoration_event.h"
-#include "input/filters/dpms.h"
-#include "input/filters/drag_and_drop.h"
-#include "input/filters/effects.h"
-#include "input/filters/fake_tablet.h"
-#include "input/filters/forward.h"
-#include "input/filters/global_shortcut.h"
-#include "input/filters/internal_window.h"
-#include "input/filters/lock_screen.h"
-#include "input/filters/move_resize.h"
-#include "input/filters/popup.h"
-#include "input/filters/screen_edge.h"
-#include "input/filters/terminate_server.h"
-#include "input/filters/virtual_terminal.h"
-#include "input/filters/window_action.h"
-#include "input/filters/window_selector.h"
-#include "input/redirect_qobject.h"
-#include "input/spies/activity.h"
-#include "input/spies/touch_hide_cursor.h"
+#include <como/base/wayland/output_helpers.h>
+#include <como/input/dbus/tablet_mode_manager.h>
+#include <como/input/filters/decoration_event.h>
+#include <como/input/filters/dpms.h>
+#include <como/input/filters/drag_and_drop.h>
+#include <como/input/filters/effects.h>
+#include <como/input/filters/fake_tablet.h>
+#include <como/input/filters/forward.h>
+#include <como/input/filters/global_shortcut.h>
+#include <como/input/filters/internal_window.h>
+#include <como/input/filters/lock_screen.h>
+#include <como/input/filters/move_resize.h>
+#include <como/input/filters/popup.h>
+#include <como/input/filters/screen_edge.h>
+#include <como/input/filters/terminate_server.h>
+#include <como/input/filters/virtual_terminal.h>
+#include <como/input/filters/window_action.h>
+#include <como/input/filters/window_selector.h>
+#include <como/input/redirect_qobject.h>
+#include <como/input/spies/activity.h>
+#include <como/input/spies/touch_hide_cursor.h>
 
 #include <KConfigWatcher>
 #include <Wrapland/Server/display.h>

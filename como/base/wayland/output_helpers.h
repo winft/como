@@ -7,10 +7,10 @@
 
 #include "output_transform.h"
 
-#include "base/logging.h"
-#include "base/output.h"
-#include "base/output_helpers.h"
-#include <utils/algorithm.h>
+#include <como/base/logging.h>
+#include <como/base/output.h>
+#include <como/base/output_helpers.h>
+#include <como/utils/algorithm.h>
 
 #include <Wrapland/Server/output.h>
 #include <Wrapland/Server/wlr_output_configuration_head_v1.h>

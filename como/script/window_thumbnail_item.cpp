@@ -10,13 +10,13 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "singleton_interface.h"
 #include "space.h"
 
-#include "render/compositor_qobject.h"
-#include "render/singleton_interface.h"
+#include <como/render/compositor_qobject.h>
+#include <como/render/singleton_interface.h>
 
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/framebuffer.h>
-#include <render/gl/interface/texture.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/framebuffer.h>
+#include <como/render/gl/interface/texture.h>
 
 #include <QQuickWindow>
 #include <QRunnable>

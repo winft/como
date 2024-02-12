@@ -7,7 +7,7 @@
 
 #include "constants.h"
 
-#include "render/types.h"
+#include <como/render/types.h>
 
 #include <QDateTime>
 #include <QPair>

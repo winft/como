@@ -6,7 +6,7 @@
 #include "overvieweffect.h"
 #include "overviewconfig.h"
 
-#include <render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 #include <KGlobalAccel>
 #include <KLocalizedString>

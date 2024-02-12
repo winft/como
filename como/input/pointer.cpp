@@ -5,7 +5,7 @@
 */
 #include "pointer.h"
 
-#include "utils/algorithm.h"
+#include <como/utils/algorithm.h>
 
 namespace como::input
 {

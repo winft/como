@@ -8,10 +8,10 @@
 #include "screenshot.h"
 #include "screenshotdbusinterface2.h"
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/gl/interface/framebuffer.h>
-#include <render/gl/interface/texture.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/gl/interface/framebuffer.h>
+#include <como/render/gl/interface/texture.h>
 
 #include <QPainter>
 

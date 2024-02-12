@@ -9,9 +9,9 @@
 #include "filtered_display.h"
 #include "output_helpers.h"
 
-#include "base/logging.h"
 #include "como_export.h"
-#include <base/wayland/platform_helpers.h>
+#include <como/base/logging.h>
+#include <como/base/wayland/platform_helpers.h>
 
 #include <KScreenLocker/KsldApp>
 #include <QObject>

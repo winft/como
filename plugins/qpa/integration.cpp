@@ -7,14 +7,14 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "integration.h"
 
 #include "backingstore.h"
-#include "base/app_singleton.h"
-#include "base/singleton_interface.h"
 #include "offscreensurface.h"
-#include "render/singleton_interface.h"
 #include "screen.h"
 #include "sharingplatformcontext.h"
 #include "window.h"
-#include <base/platform_qobject.h>
+#include <como/base/app_singleton.h>
+#include <como/base/platform_qobject.h>
+#include <como/base/singleton_interface.h>
+#include <como/render/singleton_interface.h>
 
 #include <QCoreApplication>
 #include <QtConcurrentRun>

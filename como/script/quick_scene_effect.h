@@ -5,8 +5,8 @@
 */
 #pragma once
 
+#include <como/render/effect/interface/quick_scene.h>
 #include <como_export.h>
-#include <render/effect/interface/quick_scene.h>
 
 #include <KConfigPropertyMap>
 #include <KPluginMetaData>

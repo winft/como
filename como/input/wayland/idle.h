@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/idle.h"
+#include <como/input/idle.h>
 
 #include <Wrapland/Server/idle_notify_v1.h>
 #include <Wrapland/Server/kde_idle.h>

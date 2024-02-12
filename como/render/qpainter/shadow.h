@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "render/shadow.h"
+#include <como/render/shadow.h>
 
 #include <QPainter>
 

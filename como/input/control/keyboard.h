@@ -7,7 +7,7 @@
 
 #include "device.h"
 
-#include "input/types.h"
+#include <como/input/types.h>
 
 namespace como::input::control
 {

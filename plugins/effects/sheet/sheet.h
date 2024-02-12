@@ -8,10 +8,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_SHEET_H
 #define KWIN_SHEET_H
 
-#include <render/effect/interface/effect.h>
-#include <render/effect/interface/effect_window_deleted_ref.h>
-#include <render/effect/interface/effect_window_visible_ref.h>
-#include <render/effect/interface/time_line.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_window_deleted_ref.h>
+#include <como/render/effect/interface/effect_window_visible_ref.h>
+#include <como/render/effect/interface/time_line.h>
 
 namespace como
 {

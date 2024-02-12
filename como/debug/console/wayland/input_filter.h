@@ -6,10 +6,10 @@
 */
 #pragma once
 
-#include "input/event.h"
-#include "input/event_spy.h"
-#include "input/keyboard.h"
-#include "input/qt_event.h"
+#include <como/input/event.h>
+#include <como/input/event_spy.h>
+#include <como/input/keyboard.h>
+#include <como/input/qt_event.h>
 
 #include <KLocalizedString>
 #include <QDebug>

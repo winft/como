@@ -9,7 +9,7 @@
 #include "pointer.h"
 #include "touch.h"
 
-#include "input/platform.h"
+#include <como/input/platform.h>
 
 namespace como::input::wayland::fake
 {

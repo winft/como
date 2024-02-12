@@ -7,16 +7,16 @@
 */
 #pragma once
 
-#include "render/types.h"
-#include "win/window_area.h"
+#include <como/render/types.h>
+#include <como/win/window_area.h>
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/framebuffer.h>
-#include <render/gl/interface/platform.h>
-#include <render/gl/interface/shader.h>
-#include <render/gl/interface/shader_manager.h>
-#include <render/gl/interface/vertex_buffer.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/framebuffer.h>
+#include <como/render/gl/interface/platform.h>
+#include <como/render/gl/interface/shader.h>
+#include <como/render/gl/interface/shader_manager.h>
+#include <como/render/gl/interface/vertex_buffer.h>
 
 #include <QObject>
 #include <QVector2D>

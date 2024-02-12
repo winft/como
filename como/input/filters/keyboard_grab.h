@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "input/event.h"
-#include "input/event_filter.h"
+#include <como/input/event.h>
+#include <como/input/event_filter.h>
 
 #include <Wrapland/Server/keyboard_pool.h>
 #include <xkbcommon/xkbcommon.h>

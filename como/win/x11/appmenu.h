@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "base/x11/xcb/property.h"
+#include <como/base/x11/xcb/property.h>
 
 namespace como::win::x11
 {

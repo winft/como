@@ -5,7 +5,7 @@
 */
 #include "windowsystem.h"
 
-#include <win/singleton_interface.h>
+#include <como/win/singleton_interface.h>
 
 #include <KWaylandExtras>
 #include <KWindowSystem>

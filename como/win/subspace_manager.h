@@ -7,9 +7,9 @@
 #pragma once
 
 #include "singleton_interface.h"
-#include <win/subspace.h>
-#include <win/subspaces_get.h>
-#include <win/subspaces_set.h>
+#include <como/win/subspace.h>
+#include <como/win/subspaces_get.h>
+#include <como/win/subspaces_set.h>
 
 #include <KConfigGroup>
 #include <KLocalizedString>

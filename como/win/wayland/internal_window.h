@@ -7,22 +7,22 @@
 */
 #pragma once
 
-#include <win/control.h>
-#include <win/desktop_set.h>
-#include <win/geo_block.h>
-#include <win/placement.h>
-#include <win/rules/update.h>
-#include <win/shortcut_set.h>
-#include <win/singleton_interface.h>
-#include <win/space_areas_helpers.h>
-#include <win/wayland/scene.h>
-#include <win/wayland/surface.h>
-#include <win/window_geometry.h>
-#include <win/window_metadata.h>
-#include <win/window_qobject.h>
-#include <win/window_release.h>
-#include <win/window_render_data.h>
-#include <win/window_topology.h>
+#include <como/win/control.h>
+#include <como/win/desktop_set.h>
+#include <como/win/geo_block.h>
+#include <como/win/placement.h>
+#include <como/win/rules/update.h>
+#include <como/win/shortcut_set.h>
+#include <como/win/singleton_interface.h>
+#include <como/win/space_areas_helpers.h>
+#include <como/win/wayland/scene.h>
+#include <como/win/wayland/surface.h>
+#include <como/win/window_geometry.h>
+#include <como/win/window_metadata.h>
+#include <como/win/window_qobject.h>
+#include <como/win/window_release.h>
+#include <como/win/window_render_data.h>
+#include <como/win/window_topology.h>
 
 namespace como::win::wayland
 {

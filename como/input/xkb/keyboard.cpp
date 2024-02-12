@@ -10,7 +10,7 @@
 
 #include "keymap.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include <KConfigGroup>
 #include <QtGui/private/qxkbcommon_p.h>

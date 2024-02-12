@@ -7,12 +7,12 @@
 
 #include "helpers.h"
 
-#include "base/wayland/server.h"
-#include "input/event.h"
-#include "input/event_filter.h"
-#include "input/pointer_redirect.h"
-#include "input/qt_event.h"
-#include "input/xkb/helpers.h"
+#include <como/base/wayland/server.h>
+#include <como/input/event.h>
+#include <como/input/event_filter.h>
+#include <como/input/pointer_redirect.h>
+#include <como/input/qt_event.h>
+#include <como/input/xkb/helpers.h>
 
 #include <Wrapland/Server/seat.h>
 

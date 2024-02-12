@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include <base/backend/wlroots/non_desktop_output.h>
-#include <base/backend/wlroots/output.h>
-#include <base/logging.h>
-#include <base/utils.h>
+#include <como/base/backend/wlroots/non_desktop_output.h>
+#include <como/base/backend/wlroots/output.h>
+#include <como/base/logging.h>
+#include <como/base/utils.h>
 
 namespace como::base::backend::wlroots
 {

@@ -9,7 +9,7 @@
 
 #include <X11/Xlib.h>
 
-#include "base/x11/fixx11h.h"
+#include <como/base/x11/fixx11h.h>
 
 #include <Qt>
 #include <xcb/xcb.h>

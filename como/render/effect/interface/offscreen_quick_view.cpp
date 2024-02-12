@@ -8,8 +8,8 @@
 
 #include "effects_handler.h"
 
-#include <base/logging.h>
-#include <render/gl/interface/texture.h>
+#include <como/base/logging.h>
+#include <como/render/gl/interface/texture.h>
 
 #include <QGuiApplication>
 #include <QOffscreenSurface>

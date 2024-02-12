@@ -7,7 +7,7 @@
 
 #include "egl_data.h"
 
-#include "base/wayland/server.h"
+#include <como/base/wayland/server.h>
 
 #include <Wrapland/Server/display.h>
 

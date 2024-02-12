@@ -5,13 +5,13 @@
 */
 #pragma once
 
-#include "win/actions.h"
-#include "win/activation.h"
-#include "win/meta.h"
-#include "win/move.h"
-#include "win/screen.h"
-#include "win/types.h"
-#include <win/subspace_manager.h>
+#include <como/win/actions.h>
+#include <como/win/activation.h>
+#include <como/win/meta.h>
+#include <como/win/move.h>
+#include <como/win/screen.h>
+#include <como/win/subspace_manager.h>
+#include <como/win/types.h>
 
 #include <Wrapland/Server/plasma_virtual_desktop.h>
 #include <Wrapland/Server/plasma_window.h>

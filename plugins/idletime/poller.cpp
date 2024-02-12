@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "poller.h"
 
-#include "input/idle.h"
-#include "input/singleton_interface.h"
+#include <como/input/idle.h>
+#include <como/input/singleton_interface.h>
 
 #include <algorithm>
 

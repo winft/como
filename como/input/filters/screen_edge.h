@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include "base/wayland/server.h"
-#include "input/event_filter.h"
-#include "input/qt_event.h"
-#include "win/screen_edges.h"
+#include <como/base/wayland/server.h>
+#include <como/input/event_filter.h>
+#include <como/input/qt_event.h>
+#include <como/win/screen_edges.h>
 
 #include <Wrapland/Server/seat.h>
 #include <Wrapland/Server/touch_pool.h>

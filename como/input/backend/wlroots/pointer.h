@@ -7,10 +7,10 @@
 
 #include "control/pointer.h"
 
-#include "base/utils.h"
 #include "config-como.h"
-#include "input/pointer.h"
-#include <input/backend/wlroots/device_helpers.h>
+#include <como/base/utils.h>
+#include <como/input/backend/wlroots/device_helpers.h>
+#include <como/input/pointer.h>
 
 extern "C" {
 #include <wlr/backend/libinput.h>

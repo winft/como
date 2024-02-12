@@ -8,14 +8,14 @@
 
 #include "space.h"
 
-#include "base/options.h"
-#include "input/platform.h"
-#include "win/screen_edges.h"
+#include <como/base/options.h>
+#include <como/input/platform.h>
+#include <como/win/screen_edges.h>
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/gl/interface/shader.h>
-#include <render/gl/interface/shader_manager.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/gl/interface/shader.h>
+#include <como/render/gl/interface/shader_manager.h>
 
 #include <KConfigGroup>
 #include <kconfigloader.h>

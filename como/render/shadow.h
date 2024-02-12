@@ -9,11 +9,11 @@
 #include "deco_shadow.h"
 #include "types.h"
 
-#include "utils/algorithm.h"
-#include "win/deco.h"
-#include "win/window_qobject.h"
+#include <como/utils/algorithm.h>
+#include <como/win/deco.h>
+#include <como/win/window_qobject.h>
 
-#include <render/effect/interface/window_quad.h>
+#include <como/render/effect/interface/window_quad.h>
 
 #include <KDecoration2/DecorationShadow>
 #include <QObject>

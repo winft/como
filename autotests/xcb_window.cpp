@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "integration/lib/setup.h"
 
-#include "base/x11/xcb/proto.h"
-#include "base/x11/xcb/window.h"
+#include "como/base/x11/xcb/proto.h"
+#include "como/base/x11/xcb/window.h"
 
 namespace como::detail::test
 {

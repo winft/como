@@ -6,11 +6,11 @@
 */
 #pragma once
 
-#include "base/options.h"
-#include "base/x11/xcb/helpers.h"
-#include "render/gl/backend.h"
-#include "render/gl/texture.h"
-#include "render/x11/overlay_window.h"
+#include <como/base/options.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/render/gl/backend.h>
+#include <como/render/gl/texture.h>
+#include <como/render/x11/overlay_window.h>
 
 // Must be included late because of Qt.
 #include "glx.h"

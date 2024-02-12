@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <win/window_qobject.h>
+#include <como/win/window_qobject.h>
 
 #include <QObject>
 

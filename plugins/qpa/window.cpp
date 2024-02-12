@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "window.h"
 
-#include "base/singleton_interface.h"
-#include <base/platform_qobject.h>
+#include <como/base/platform_qobject.h>
+#include <como/base/singleton_interface.h>
 
 #include <logging.h>
 

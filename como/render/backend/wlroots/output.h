@@ -10,10 +10,10 @@
 #include "qpainter_output.h"
 #include "wlr_includes.h"
 
-#include "base/utils.h"
-#include "base/wayland/server.h"
-#include "render/wayland/output.h"
-#include "render/wayland/presentation.h"
+#include <como/base/utils.h>
+#include <como/base/wayland/server.h>
+#include <como/render/wayland/output.h>
+#include <como/render/wayland/presentation.h>
 
 #include <chrono>
 #include <stdexcept>

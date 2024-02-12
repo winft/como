@@ -5,11 +5,11 @@
 */
 #include "keyboard_layouts_v2.h"
 
-#include "input/event.h"
-#include "input/platform.h"
-#include "input/xkb/helpers.h"
-#include "input/xkb/layout_manager.h"
-#include "input/xkb/layout_policies.h"
+#include <como/input/event.h>
+#include <como/input/platform.h>
+#include <como/input/xkb/helpers.h>
+#include <como/input/xkb/layout_manager.h>
+#include <como/input/xkb/layout_policies.h>
 
 #include <KLocalizedString>
 #include <QAction>

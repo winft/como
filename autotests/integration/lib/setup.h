@@ -12,8 +12,8 @@
 #include "helpers.h"
 #include "types.h"
 
-#include "base/types.h"
-#include "base/wayland/server.h"
+#include "como/base/types.h"
+#include "como/base/wayland/server.h"
 
 #include <memory>
 #include <vector>

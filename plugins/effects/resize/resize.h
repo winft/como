@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_RESIZE_H
 #define KWIN_RESIZE_H
 
-#include <render/effect/interface/animation_effect.h>
+#include <como/render/effect/interface/animation_effect.h>
 
 namespace como
 {

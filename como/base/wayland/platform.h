@@ -7,13 +7,13 @@
 
 #include "output.h"
 
-#include "base/singleton_interface.h"
-#include "input/wayland/platform.h"
-#include "render/wayland/platform.h"
-#include <base/backend/wlroots/backend.h>
-#include <base/platform_qobject.h>
-#include <base/wayland/platform_helpers.h>
-#include <win/wayland/space.h>
+#include <como/base/backend/wlroots/backend.h>
+#include <como/base/platform_qobject.h>
+#include <como/base/singleton_interface.h>
+#include <como/base/wayland/platform_helpers.h>
+#include <como/input/wayland/platform.h>
+#include <como/render/wayland/platform.h>
+#include <como/win/wayland/space.h>
 
 #include <QProcessEnvironment>
 #include <Wrapland/Server/drm_lease_v1.h>

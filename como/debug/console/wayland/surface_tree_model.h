@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "win/space_qobject.h"
+#include <como/win/space_qobject.h>
 
 #include <QAbstractItemModel>
 #include <Wrapland/Server/buffer.h>

@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "como_export.h"
-#include "utils/gamma_ramp.h"
+#include <como/utils/gamma_ramp.h>
+#include <como_export.h>
 
 #include <QObject>
 #include <QRect>

@@ -14,14 +14,14 @@
 #include "effect/kscreen_integration.h"
 #include "effect/slide_integration.h"
 
-#include "base/x11/xcb/helpers.h"
-#include "base/x11/xcb/window.h"
-#include "render/effects.h"
-#include "render/xrender/utils.h"
-#include "win/x11/space.h"
-#include <render/x11/effect/setup_handler.h>
-#include <render/x11/effect/setup_window.h>
-#include <win/x11/xcb_cursor.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/base/x11/xcb/window.h>
+#include <como/render/effects.h>
+#include <como/render/x11/effect/setup_handler.h>
+#include <como/render/x11/effect/setup_window.h>
+#include <como/render/xrender/utils.h>
+#include <como/win/x11/space.h>
+#include <como/win/x11/xcb_cursor.h>
 
 #include <memory.h>
 

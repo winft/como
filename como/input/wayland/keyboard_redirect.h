@@ -5,13 +5,13 @@
 */
 #pragma once
 
-#include "input/event_filter.h"
-#include "input/event_spy.h"
-#include "input/keyboard_redirect.h"
-#include "input/spies/keyboard_repeat.h"
-#include "input/spies/modifier_only_shortcuts.h"
-#include "input/xkb/layout_manager.h"
-#include "input/xkb/manager.h"
+#include <como/input/event_filter.h>
+#include <como/input/event_spy.h>
+#include <como/input/keyboard_redirect.h>
+#include <como/input/spies/keyboard_repeat.h>
+#include <como/input/spies/modifier_only_shortcuts.h>
+#include <como/input/xkb/layout_manager.h>
+#include <como/input/xkb/manager.h>
 
 #include <KScreenLocker/KsldApp>
 #include <memory>

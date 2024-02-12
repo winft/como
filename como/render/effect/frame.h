@@ -7,8 +7,8 @@
 
 #include "como_export.h"
 
-#include <render/effect/interface/effect_frame.h>
-#include <render/effect/interface/offscreen_quick_view.h>
+#include <como/render/effect/interface/effect_frame.h>
+#include <como/render/effect/interface/offscreen_quick_view.h>
 
 #include <QFont>
 #include <QIcon>

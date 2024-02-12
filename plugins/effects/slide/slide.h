@@ -10,12 +10,12 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "springmotion.h"
 
-#include <render/effect/interface/effect.h>
-#include <render/effect/interface/effect_screen.h>
-#include <render/effect/interface/effect_window_visible_ref.h>
-#include <render/effect/interface/time_line.h>
-#include <render/effect/interface/types.h>
-#include <win/subspace.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_screen.h>
+#include <como/render/effect/interface/effect_window_visible_ref.h>
+#include <como/render/effect/interface/time_line.h>
+#include <como/render/effect/interface/types.h>
+#include <como/win/subspace.h>
 
 #include <unordered_map>
 

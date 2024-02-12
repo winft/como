@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_HIGHLIGHTWINDOW_H
 #define KWIN_HIGHLIGHTWINDOW_H
 
-#include <render/effect/interface/animation_effect.h>
+#include <como/render/effect/interface/animation_effect.h>
 
 namespace como
 {

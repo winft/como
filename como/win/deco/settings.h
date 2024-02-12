@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "bridge_qobject.h"
 
-#include "win/space_qobject.h"
+#include <como/win/space_qobject.h>
 
 #include <KConfigGroup>
 #include <KDecoration2/Private/DecorationSettingsPrivate>

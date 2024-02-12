@@ -6,8 +6,8 @@
 */
 #include "xfixes_cursor_event_filter.h"
 
-#include "base/x11/xcb/extensions.h"
 #include "cursor.h"
+#include <como/base/x11/xcb/extensions.h>
 
 namespace como::input::x11
 {

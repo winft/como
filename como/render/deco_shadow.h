@@ -8,8 +8,8 @@
 
 #include "types.h"
 
-#include "win/deco.h"
-#include "win/scene.h"
+#include <como/win/deco.h>
+#include <como/win/scene.h>
 
 #include <KDecoration2/Decoration>
 #include <KDecoration2/DecorationShadow>

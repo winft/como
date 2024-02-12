@@ -5,24 +5,24 @@
 */
 #pragma once
 
-#include "base/output_helpers.h"
-#include "render/effect/screen_impl.h"
-#include "render/types.h"
-#include "render/x11/effect.h"
-#include "win/actions.h"
-#include "win/damage.h"
-#include "win/desktop_get.h"
-#include "win/geo.h"
-#include "win/meta.h"
-#include "win/move.h"
-#include "win/scene.h"
-#include "win/types.h"
+#include <como/base/output_helpers.h>
+#include <como/render/effect/screen_impl.h>
+#include <como/render/types.h>
+#include <como/render/x11/effect.h>
+#include <como/win/actions.h>
+#include <como/win/damage.h>
+#include <como/win/desktop_get.h>
+#include <como/win/geo.h>
+#include <como/win/meta.h>
+#include <como/win/move.h>
+#include <como/win/scene.h>
+#include <como/win/types.h>
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effect_window_visible_ref.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/window_quad.h>
-#include <render/gl/interface/texture.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effect_window_visible_ref.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/window_quad.h>
+#include <como/render/gl/interface/texture.h>
 
 #include <QHash>
 

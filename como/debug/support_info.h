@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "base/options.h"
-#include <base/config-como.h>
-#include <render/gl/interface/platform.h>
+#include <como/base/config-como.h>
+#include <como/base/options.h>
+#include <como/render/gl/interface/platform.h>
 
 #include <KLocalizedString>
 #include <QMetaProperty>

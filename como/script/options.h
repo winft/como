@@ -6,7 +6,7 @@
 #pragma once
 
 #include "como_export.h"
-#include "win/types.h"
+#include <como/win/types.h>
 
 #include <QObject>
 

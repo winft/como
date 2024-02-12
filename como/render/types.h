@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "utils/flags.h"
+#include <como/utils/flags.h>
 
 namespace como::render
 {

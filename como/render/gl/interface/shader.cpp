@@ -9,10 +9,10 @@
 
 #include "platform.h"
 
-#include <base/logging.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/effect/interface/types.h>
-#include <render/gl/interface/utils.h>
+#include <como/base/logging.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/effect/interface/types.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <QFile>
 

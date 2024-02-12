@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "integration.h"
 
-#include "base/output_helpers.h"
 #include "platformcursor.h"
+#include <como/base/output_helpers.h>
 
 namespace como
 {

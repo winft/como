@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <base/output.h>
-#include <base/output_topology.h>
+#include <como/base/output.h>
+#include <como/base/output_topology.h>
 #include <como_export.h>
 
 #include <QObject>

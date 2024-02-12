@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/control/keyboard.h"
+#include <como/input/control/keyboard.h>
 #include <como_export.h>
 
 #include <KSharedConfig>

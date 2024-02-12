@@ -7,8 +7,8 @@
 */
 #pragma once
 
+#include <como/render/effect/interface/window_quad.h>
 #include <como_export.h>
-#include <render/effect/interface/window_quad.h>
 
 #include <QRegion>
 #include <epoxy/gl.h>

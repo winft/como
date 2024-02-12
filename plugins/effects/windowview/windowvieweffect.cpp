@@ -7,8 +7,8 @@
 #include "windowview1adaptor.h"
 #include "windowviewconfig.h"
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 #include <KLocalizedString>
 #include <QAction>

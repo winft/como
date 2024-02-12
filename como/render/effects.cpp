@@ -10,17 +10,17 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "effectsadaptor.h"
 #include "singleton_interface.h"
 
-#include "base/logging.h"
-#include "win/control.h"
-#include "win/deco/bridge.h"
-#include "win/desktop_get.h"
-#include "win/remnant.h"
-#include "win/screen.h"
-#include "win/window_area.h"
-#include "win/x11/window.h"
+#include <como/base/logging.h>
+#include <como/win/control.h>
+#include <como/win/deco/bridge.h>
+#include <como/win/desktop_get.h>
+#include <como/win/remnant.h>
+#include <como/win/screen.h>
+#include <como/win/window_area.h>
+#include <como/win/x11/window.h>
 
-#include <render/gl/interface/framebuffer.h>
-#include <render/gl/interface/platform.h>
+#include <como/render/gl/interface/framebuffer.h>
+#include <como/render/gl/interface/platform.h>
 
 #include <KDecoration2/DecorationSettings>
 

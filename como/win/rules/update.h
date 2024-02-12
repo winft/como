@@ -7,9 +7,9 @@
 
 #include "types.h"
 
-#include "win/desktop_get.h"
-#include "win/types.h"
-#include "win/window_qobject.h"
+#include <como/win/desktop_get.h>
+#include <como/win/types.h>
+#include <como/win/window_qobject.h>
 
 namespace como::win::rules
 {

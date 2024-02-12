@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include "input/event_filter.h"
-#include "input/logging.h"
-#include "input/pointer_redirect.h"
-#include "input/qt_event.h"
+#include <como/input/event_filter.h>
+#include <como/input/logging.h>
+#include <como/input/pointer_redirect.h>
+#include <como/input/qt_event.h>
 
 namespace como::input
 {

@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "base/x11/data.h"
 #include "como_export.h"
+#include <como/base/x11/data.h>
 
 #include <QObject>
 #include <memory>

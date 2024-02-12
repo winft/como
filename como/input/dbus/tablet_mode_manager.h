@@ -9,9 +9,9 @@
 
 #include "como_export.h"
 
-#include "input/platform_qobject.h"
-#include "input/redirect_qobject.h"
-#include "input/spies/tablet_mode_switch.h"
+#include <como/input/platform_qobject.h>
+#include <como/input/redirect_qobject.h>
+#include <como/input/spies/tablet_mode_switch.h>
 
 #include <QDBusConnection>
 #include <QObject>

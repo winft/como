@@ -10,12 +10,12 @@
 #include "effects_handler.h"
 #include "paint_data.h"
 
-#include <base/logging.h>
-#include <render/gl/interface/framebuffer.h>
-#include <render/gl/interface/shader.h>
-#include <render/gl/interface/shader_manager.h>
-#include <render/gl/interface/texture.h>
-#include <render/gl/interface/vertex_buffer.h>
+#include <como/base/logging.h>
+#include <como/render/gl/interface/framebuffer.h>
+#include <como/render/gl/interface/shader.h>
+#include <como/render/gl/interface/shader_manager.h>
+#include <como/render/gl/interface/texture.h>
+#include <como/render/gl/interface/vertex_buffer.h>
 
 namespace como
 {

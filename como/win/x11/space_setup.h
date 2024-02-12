@@ -12,12 +12,12 @@
 #include "space_event.h"
 #include "sync_alarm_filter.h"
 
-#include "base/x11/user_interaction_filter.h"
-#include "base/x11/xcb/window.h"
-#include "utils/blocker.h"
-#include "win/desktop_space.h"
-#include "win/space_setup.h"
-#include <win/space_areas_helpers.h>
+#include <como/base/x11/user_interaction_filter.h>
+#include <como/base/x11/xcb/window.h>
+#include <como/utils/blocker.h>
+#include <como/win/desktop_space.h>
+#include <como/win/space_areas_helpers.h>
+#include <como/win/space_setup.h>
 
 namespace como::win::x11
 {

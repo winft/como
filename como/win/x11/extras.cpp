@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "net/root_info.h"
 #include "net/win_info.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include <QBitmap>
 #include <QGuiApplication>

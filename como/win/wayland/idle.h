@@ -4,8 +4,8 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#include "win/desktop_get.h"
-#include <utils/algorithm.h>
+#include <como/utils/algorithm.h>
+#include <como/win/desktop_get.h>
 
 #include <QObject>
 #include <Wrapland/Server/surface.h>

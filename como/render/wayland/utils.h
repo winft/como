@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/scene.h"
+#include <como/win/scene.h>
 
 namespace como::render::wayland
 {

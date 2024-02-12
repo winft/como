@@ -9,7 +9,7 @@
 #include "redirect.h"
 
 #include "config-como.h"
-#include "input/platform.h"
+#include <como/input/platform.h>
 
 #include <KGlobalAccel>
 #include <X11/keysym.h>

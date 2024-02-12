@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "como_export.h"
+#include <como_export.h>
 
 #include <QObject>
 

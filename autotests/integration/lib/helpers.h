@@ -12,20 +12,20 @@
 #include "types.h"
 #include <como_export.h>
 
-#include "base/output.h"
-#include "win/wayland/window.h"
-#include <script/platform.h>
+#include "como/base/output.h"
+#include "como/script/platform.h"
+#include "como/win/wayland/window.h"
 
 #if USE_XWL
-#include <base/wayland/xwl_platform.h>
-#include <render/wayland/xwl_platform.h>
-#include <win/wayland/xwl_space.h>
+#include "como/base/wayland/xwl_platform.h"
+#include "como/render/wayland/xwl_platform.h"
+#include "como/win/wayland/xwl_space.h"
 
 struct xcb_connection_t;
 #else
-#include <base/wayland/platform.h>
-#include <render/wayland/platform.h>
-#include <win/wayland/space.h>
+#include "como/base/wayland/platform.h"
+#include "como/render/wayland/platform.h"
+#include "como/win/wayland/space.h"
 #endif
 
 #include <Wrapland/Client/xdg_shell.h>

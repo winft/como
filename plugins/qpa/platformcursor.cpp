@@ -5,9 +5,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "platformcursor.h"
 
-#include "input/cursor.h"
-#include "input/platform.h"
-#include "input/singleton_interface.h"
+#include <como/input/cursor.h>
+#include <como/input/platform.h>
+#include <como/input/singleton_interface.h>
 
 namespace como
 {

@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_MOUSECLICK_H
 #define KWIN_MOUSECLICK_H
 
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_frame.h>
 #include <deque>
-#include <render/effect/interface/effect.h>
-#include <render/effect/interface/effect_frame.h>
 
 #include <KLocalizedString>
 #include <QFont>

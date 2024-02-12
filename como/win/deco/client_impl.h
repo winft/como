@@ -8,11 +8,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "client_impl_qobject.h"
 #include "renderer.h"
 
-#include "base/options.h"
-#include "win/geo.h"
-#include "win/meta.h"
-#include "win/window_operation.h"
-#include "win/window_qobject.h"
+#include <como/base/options.h>
+#include <como/win/geo.h>
+#include <como/win/meta.h>
+#include <como/win/window_operation.h>
+#include <como/win/window_qobject.h>
 
 #include <KDecoration2/Private/DecoratedClientPrivate>
 #include <QDeadlineTimer>

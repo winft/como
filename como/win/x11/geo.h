@@ -10,8 +10,8 @@
 #include "input.h"
 #include "scene.h"
 
-#include "base/x11/xcb/extensions.h"
-#include "win/setup.h"
+#include <como/base/x11/xcb/extensions.h>
+#include <como/win/setup.h>
 
 #include <xcb/sync.h>
 #include <xcb/xcb_icccm.h>

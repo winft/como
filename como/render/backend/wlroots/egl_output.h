@@ -8,11 +8,11 @@
 #include "egl_helpers.h"
 #include "wlr_includes.h"
 
-#include "base/logging.h"
-#include "render/wayland/egl_data.h"
+#include <como/base/logging.h>
+#include <como/render/wayland/egl_data.h>
 
-#include <render/gl/interface/texture.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/gl/interface/texture.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <QRegion>
 #include <deque>

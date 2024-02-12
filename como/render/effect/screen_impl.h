@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <render/effect/interface/effect_screen.h>
+#include <como/render/effect/interface/effect_screen.h>
 
 #include <QRect>
 

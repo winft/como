@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/types.h"
+#include <como/win/types.h>
 
 #include <QRect>
 #include <xcb/sync.h>

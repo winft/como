@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "socket.h"
 
-#include <base/logging.h>
+#include <como/base/logging.h>
 
 #include <QCoreApplication>
 #include <QFile>

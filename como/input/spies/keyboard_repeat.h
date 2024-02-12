@@ -7,10 +7,10 @@
 */
 #pragma once
 
-#include "input/event.h"
-#include "input/event_spy.h"
-#include "input/keyboard.h"
-#include "input/xkb/keyboard.h"
+#include <como/input/event.h>
+#include <como/input/event_spy.h>
+#include <como/input/keyboard.h>
+#include <como/input/xkb/keyboard.h>
 #include <como_export.h>
 
 #include <Wrapland/Server/keyboard_pool.h>

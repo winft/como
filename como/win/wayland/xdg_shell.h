@@ -7,18 +7,18 @@
 
 #include "popup_placement.h"
 #include "window_release.h"
-#include <win/wayland/space_windows.h>
+#include <como/win/wayland/space_windows.h>
 
-#include "base/wayland/server.h"
-#include "utils/geo.h"
-#include "win/controlling.h"
-#include "win/input.h"
-#include "win/meta.h"
-#include "win/rules/book_edit.h"
-#include "win/rules/find.h"
-#include "win/setup.h"
-#include "win/space_areas_helpers.h"
-#include "win/transient.h"
+#include <como/base/wayland/server.h>
+#include <como/utils/geo.h>
+#include <como/win/controlling.h>
+#include <como/win/input.h>
+#include <como/win/meta.h>
+#include <como/win/rules/book_edit.h>
+#include <como/win/rules/find.h>
+#include <como/win/setup.h>
+#include <como/win/space_areas_helpers.h>
+#include <como/win/transient.h>
 
 #include <KScreenLocker/KsldApp>
 #include <Wrapland/Server/appmenu.h>

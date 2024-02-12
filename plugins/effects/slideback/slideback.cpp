@@ -5,8 +5,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "slideback.h"
 
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/paint_clipper.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/paint_clipper.h>
 
 namespace como
 {

@@ -7,9 +7,9 @@
 #pragma once
 
 #include "como_export.h"
-#include "input/types.h"
-#include "win/input/gestures.h"
-#include "win/input/global_shortcut.h"
+#include <como/input/types.h>
+#include <como/win/input/gestures.h>
+#include <como/win/input/global_shortcut.h>
 
 #include <memory>
 

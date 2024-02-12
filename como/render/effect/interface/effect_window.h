@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include "render/effect/interface/effect_screen.h"
+#include <como/render/effect/interface/effect_screen.h>
+#include <como/render/effect/interface/types.h>
+#include <como/win/subspace.h>
 #include <como_export.h>
-#include <render/effect/interface/types.h>
-#include <win/subspace.h>
 
 #include <QIcon>
 #include <QObject>

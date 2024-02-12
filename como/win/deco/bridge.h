@@ -5,7 +5,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include <base/config-como.h>
+#include <como/base/config-como.h>
 
 #include "bridge_qobject.h"
 #include "client_impl.h"
@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "settings.h"
 #include "window.h"
 
-#include "win/deco.h"
+#include <como/win/deco.h>
 
 #include <KDecoration2/DecoratedClient>
 #include <KDecoration2/Decoration>

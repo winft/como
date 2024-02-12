@@ -13,9 +13,9 @@
 #include "meta.h"
 #include "util.h"
 
-#include "base/output_helpers.h"
-#include "utils/algorithm.h"
-#include "utils/blocker.h"
+#include <como/base/output_helpers.h>
+#include <como/utils/algorithm.h>
+#include <como/utils/blocker.h>
 
 #include "rules/ruling.h"
 

@@ -12,10 +12,10 @@
 #include "screen.h"
 #include "stacking_order.h"
 #include "types.h"
-#include <win/activation.h>
+#include <como/win/activation.h>
 
-#include "base/options.h"
-#include "utils/blocker.h"
+#include <como/base/options.h>
+#include <como/utils/blocker.h>
 
 #include <QDBusConnection>
 #include <QDBusMessage>

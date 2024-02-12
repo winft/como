@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include <base/backend/x11/wm_selection.h>
-#include <base/logging.h>
-#include <base/x11/xcb/helpers.h>
+#include <como/base/backend/x11/wm_selection.h>
+#include <como/base/logging.h>
+#include <como/base/x11/xcb/helpers.h>
 
 #include <KConfigGroup>
 #include <QTimer>

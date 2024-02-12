@@ -7,8 +7,8 @@
 */
 #include "grabs.h"
 
-#include "base/logging.h"
-#include "utils/memory.h"
+#include <como/base/logging.h>
+#include <como/utils/memory.h>
 
 #include <QApplication>
 #include <QWidget>

@@ -10,8 +10,8 @@
 #include "model_helpers.h"
 #include "surface_tree_model.h"
 
-#include "debug/console/console.h"
-#include "input/redirect_qobject.h"
+#include <como/debug/console/console.h>
+#include <como/input/redirect_qobject.h>
 #include <como_export.h>
 
 namespace como::debug

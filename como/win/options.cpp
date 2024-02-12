@@ -5,11 +5,11 @@
 */
 #include "options.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include "config-como.h"
-#include "utils/algorithm.h"
 #include "win_settings.h"
+#include <como/utils/algorithm.h>
 
 #include <QOpenGLContext>
 #include <QProcess>

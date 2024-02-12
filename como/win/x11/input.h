@@ -8,11 +8,11 @@
 #include "net/net.h"
 #include "types.h"
 
-#include "base/options.h"
-#include "base/x11/xcb/extensions.h"
-#include "base/x11/xcb/helpers.h"
 #include "hidden_preview.h"
-#include "win/deco.h"
+#include <como/base/options.h>
+#include <como/base/x11/xcb/extensions.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/win/deco.h>
 
 #include <QRect>
 #include <xcb/shape.h>

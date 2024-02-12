@@ -10,7 +10,7 @@
 #include "focus_blocker.h"
 #include "space_areas_helpers.h"
 
-#include "utils/blocker.h"
+#include <como/utils/blocker.h>
 
 namespace como::win
 {

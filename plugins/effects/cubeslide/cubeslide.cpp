@@ -8,10 +8,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 // KConfigSkeleton
 #include "cubeslideconfig.h"
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <QVector3D>
 

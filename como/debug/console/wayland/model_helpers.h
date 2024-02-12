@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "debug/console/model_helpers.h"
+#include <como/debug/console/model_helpers.h>
 
-#include "win/space_qobject.h"
+#include <como/win/space_qobject.h>
 
 namespace como::debug
 {

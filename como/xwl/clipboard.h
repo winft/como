@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "selection_x11.h"
 #include "sources_ext.h"
 
-#include "base/wayland/server.h"
+#include <como/base/wayland/server.h>
 
 #include <Wrapland/Server/data_source.h>
 #include <Wrapland/Server/seat.h>

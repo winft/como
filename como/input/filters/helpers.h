@@ -5,14 +5,14 @@
 */
 #pragma once
 
-#include "base/options.h"
-#include "base/wayland/server.h"
-#include "input/event.h"
-#include "input/keyboard_redirect.h"
-#include "input/pointer_redirect.h"
-#include "input/qt_event.h"
-#include "input/xkb/helpers.h"
-#include "win/input.h"
+#include <como/base/options.h>
+#include <como/base/wayland/server.h>
+#include <como/input/event.h>
+#include <como/input/keyboard_redirect.h>
+#include <como/input/pointer_redirect.h>
+#include <como/input/qt_event.h>
+#include <como/input/xkb/helpers.h>
+#include <como/win/input.h>
 
 #include <Wrapland/Server/keyboard_pool.h>
 #include <Wrapland/Server/seat.h>

@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "win/types.h"
+#include <como/win/types.h>
 
-#include <render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effect_window.h>
 
 namespace como::render
 {

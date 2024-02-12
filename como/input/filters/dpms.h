@@ -7,10 +7,10 @@
 */
 #pragma once
 
-#include "base/wayland/output_helpers.h"
-#include "base/wayland/server.h"
-#include "input/event.h"
-#include "input/event_filter.h"
+#include <como/base/wayland/output_helpers.h>
+#include <como/base/wayland/server.h>
+#include <como/input/event.h>
+#include <como/input/event_filter.h>
 
 #include <Wrapland/Server/seat.h>
 

@@ -8,12 +8,12 @@ SPDX-License-Identifier: GPL-2.0-or-later
 // KConfigSkeleton
 #include "resizeconfig.h"
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/shader.h>
-#include <render/gl/interface/shader_manager.h>
-#include <render/gl/interface/vertex_buffer.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/shader.h>
+#include <como/render/gl/interface/shader_manager.h>
+#include <como/render/gl/interface/vertex_buffer.h>
 
 #include <KColorScheme>
 

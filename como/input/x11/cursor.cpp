@@ -6,11 +6,11 @@
 */
 #include "cursor.h"
 
-#include "base/x11/xcb/extensions.h"
-#include "base/x11/xcb/proto.h"
-#include "base/x11/xcb/qt_types.h"
-#include "win/x11/key_server.h"
 #include "xfixes_cursor_event_filter.h"
+#include <como/base/x11/xcb/extensions.h>
+#include <como/base/x11/xcb/proto.h>
+#include <como/base/x11/xcb/qt_types.h>
+#include <como/win/x11/key_server.h>
 
 #include <QAbstractEventDispatcher>
 #include <QApplication>

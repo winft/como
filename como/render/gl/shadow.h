@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include "render/shadow.h"
+#include <como/render/shadow.h>
 
-#include <render/gl/interface/platform.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/gl/interface/platform.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <QPainter>
 #include <QSharedPointer>

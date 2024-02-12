@@ -12,8 +12,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "types.h"
 #include "wl_visit.h"
 
-#include "base/wayland/server.h"
-#include "win/activation.h"
+#include <como/base/wayland/server.h>
+#include <como/win/activation.h>
 
 #include <QPoint>
 #include <QTimer>

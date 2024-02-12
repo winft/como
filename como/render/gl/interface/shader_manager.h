@@ -7,8 +7,8 @@
 */
 #pragma once
 
+#include <como/render/gl/interface/utils_funcs.h>
 #include <como_export.h>
-#include <render/gl/interface/utils_funcs.h>
 
 #include <QByteArray>
 #include <QFlags>

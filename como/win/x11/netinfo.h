@@ -17,8 +17,8 @@
 #include "stacking.h"
 #include "window_find.h"
 
-#include "utils/memory.h"
-#include "win/activation.h"
+#include <como/utils/memory.h>
+#include <como/win/activation.h>
 
 #include <memory>
 #include <xcb/xcb.h>

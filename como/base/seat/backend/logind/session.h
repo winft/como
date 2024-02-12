@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "base/seat/session.h"
+#include <como/base/seat/session.h>
 #include <como_export.h>
 
 #include <QDBusConnection>

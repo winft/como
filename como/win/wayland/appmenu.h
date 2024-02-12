@@ -6,7 +6,7 @@
 #pragma once
 
 #include "xdg_shell.h"
-#include <win/wayland/space_windows.h>
+#include <como/win/wayland/space_windows.h>
 
 namespace como::win::wayland
 {

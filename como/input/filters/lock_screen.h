@@ -7,12 +7,12 @@
 
 #include "helpers.h"
 
-#include "base/wayland/screen_lock.h"
-#include "base/wayland/server.h"
-#include "input/event_filter.h"
-#include "input/keyboard_redirect.h"
-#include "input/qt_event.h"
-#include <win/wayland/space_windows.h>
+#include <como/base/wayland/screen_lock.h>
+#include <como/base/wayland/server.h>
+#include <como/input/event_filter.h>
+#include <como/input/keyboard_redirect.h>
+#include <como/input/qt_event.h>
+#include <como/win/wayland/space_windows.h>
 
 #include <KScreenLocker/KsldApp>
 #include <Wrapland/Server/keyboard_pool.h>

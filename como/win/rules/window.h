@@ -6,11 +6,11 @@
 */
 #pragma once
 
-#include "base/options.h"
-#include "base/output_helpers.h"
 #include "como_export.h"
 #include "ruling.h"
-#include "win/types.h"
+#include <como/base/options.h>
+#include <como/base/output_helpers.h>
+#include <como/win/types.h>
 
 #include <QRect>
 #include <functional>

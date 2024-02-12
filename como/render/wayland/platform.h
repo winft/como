@@ -7,18 +7,18 @@
 
 #include "effects.h"
 
-#include <render/backend/wlroots/backend.h>
-#include <render/compositor_start.h>
-#include <render/dbus/compositing.h>
-#include <render/gl/backend.h>
-#include <render/gl/egl_data.h>
-#include <render/gl/scene.h>
-#include <render/options.h>
-#include <render/post/night_color_manager.h>
-#include <render/qpainter/scene.h>
-#include <render/singleton_interface.h>
-#include <render/wayland/presentation.h>
-#include <render/wayland/shadow.h>
+#include <como/render/backend/wlroots/backend.h>
+#include <como/render/compositor_start.h>
+#include <como/render/dbus/compositing.h>
+#include <como/render/gl/backend.h>
+#include <como/render/gl/egl_data.h>
+#include <como/render/gl/scene.h>
+#include <como/render/options.h>
+#include <como/render/post/night_color_manager.h>
+#include <como/render/qpainter/scene.h>
+#include <como/render/singleton_interface.h>
+#include <como/render/wayland/presentation.h>
+#include <como/render/wayland/shadow.h>
 
 #include <memory>
 

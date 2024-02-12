@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <desktop/kde/dbus/kwin.h>
-#include <desktop/platform.h>
+#include <como/desktop/kde/dbus/kwin.h>
+#include <como/desktop/platform.h>
 
 namespace como::desktop::kde
 {

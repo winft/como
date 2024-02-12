@@ -7,7 +7,7 @@
 
 #include "strut_rect.h"
 #include "types.h"
-#include <win/subspaces_get.h>
+#include <como/win/subspaces_get.h>
 
 #include <QRegion>
 

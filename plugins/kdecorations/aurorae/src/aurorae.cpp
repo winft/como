@@ -17,9 +17,9 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #include "auroraetheme.h"
 #include "decorationoptions.h"
 
-#include <base/config-como.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/offscreen_quick_view.h>
+#include <como/base/config-como.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/offscreen_quick_view.h>
 
 // KDecoration2
 #include <KDecoration2/DecoratedClient>

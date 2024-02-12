@@ -6,7 +6,7 @@
 #pragma once
 
 #include "como_export.h"
-#include "input/platform_qobject.h"
+#include <como/input/platform_qobject.h>
 
 #include <KConfigGroup>
 #include <KSharedConfig>

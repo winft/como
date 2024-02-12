@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "win/cursor_shape.h"
+#include <como/win/cursor_shape.h>
 
 #include "como_export.h"
 

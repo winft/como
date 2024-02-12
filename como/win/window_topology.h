@@ -5,9 +5,9 @@
 */
 #pragma once
 
+#include <como/win/subspace.h>
+#include <como/win/types.h>
 #include <vector>
-#include <win/subspace.h>
-#include <win/types.h>
 
 namespace como::win
 {

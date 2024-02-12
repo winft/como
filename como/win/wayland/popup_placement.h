@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/deco.h"
+#include <como/win/deco.h>
 
 #include <Wrapland/Server/xdg_shell_surface.h>
 #include <functional>

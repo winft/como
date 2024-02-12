@@ -9,11 +9,11 @@
 #include "options.h"
 #include "types.h"
 
-#include "win/remnant.h"
-#include "win/space_window_release.h"
-#include "win/stacking_order.h"
+#include <como/win/remnant.h>
+#include <como/win/space_window_release.h>
+#include <como/win/stacking_order.h>
 
-#include <render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 namespace como::render
 {

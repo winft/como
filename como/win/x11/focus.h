@@ -7,7 +7,7 @@
 
 #include "client.h"
 
-#include "win/activation.h"
+#include <como/win/activation.h>
 
 namespace como::win::x11
 {

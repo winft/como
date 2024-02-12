@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "render/wayland/buffer.h"
+#include <como/render/wayland/buffer.h>
 
 #include <Wrapland/Server/buffer.h>
 #include <Wrapland/Server/surface.h>

@@ -6,7 +6,7 @@
 
 #pragma once
 
-#include <render/effect/interface/quick_scene.h>
+#include <como/render/effect/interface/quick_scene.h>
 
 #include <QKeySequence>
 #include <QUuid>

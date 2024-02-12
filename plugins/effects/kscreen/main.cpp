@@ -5,7 +5,7 @@
 */
 #include "kscreen.h"
 
-#include <render/effect/interface/effect_plugin_factory.h>
+#include <como/render/effect/interface/effect_plugin_factory.h>
 
 namespace como
 {

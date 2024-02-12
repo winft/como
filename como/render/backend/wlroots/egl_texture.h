@@ -8,8 +8,8 @@
 #include "texture_update.h"
 #include "wlr_includes.h"
 
-#include "render/gl/egl.h"
-#include "render/gl/texture.h"
+#include <como/render/gl/egl.h>
+#include <como/render/gl/texture.h>
 
 namespace como::render::backend::wlroots
 {

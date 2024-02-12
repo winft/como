@@ -7,10 +7,10 @@
 
 #include "command.h"
 
-#include "win/control.h"
-#include "win/input.h"
-#include "win/meta.h"
-#include "win/move.h"
+#include <como/win/control.h>
+#include <como/win/input.h>
+#include <como/win/meta.h>
+#include <como/win/move.h>
 
 namespace como::win::x11
 {

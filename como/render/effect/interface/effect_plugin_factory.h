@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <base/config-como.h>
+#include <como/base/config-como.h>
 #include <como_export.h>
 
 #include <KPluginFactory>

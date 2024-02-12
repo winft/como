@@ -8,8 +8,8 @@
 #include "hide.h"
 #include "transient.h"
 
-#include "win/tabbox.h"
-#include <win/space_areas_helpers.h>
+#include <como/win/space_areas_helpers.h>
+#include <como/win/tabbox.h>
 
 namespace como::win::x11
 {

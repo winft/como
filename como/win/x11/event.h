@@ -20,12 +20,12 @@
 #include "window_release.h"
 #include "xcb.h"
 
-#include "base/x11/xcb/extensions.h"
-#include "base/x11/xcb/qt_types.h"
-#include "win/activation.h"
-#include "win/deco_input.h"
-#include "win/desktop_space.h"
-#include "win/meta.h"
+#include <como/base/x11/xcb/extensions.h>
+#include <como/base/x11/xcb/qt_types.h>
+#include <como/win/activation.h>
+#include <como/win/deco_input.h>
+#include <como/win/desktop_space.h>
+#include <como/win/meta.h>
 
 #include <xcb/damage.h>
 

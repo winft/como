@@ -6,8 +6,8 @@
 */
 #pragma once
 
+#include <como/render/effect/interface/effect.h>
 #include <como_export.h>
-#include <render/effect/interface/effect.h>
 
 namespace como
 {

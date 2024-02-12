@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "../integration/lib/catch_macros.h"
 #include "mock_tabbox_handler.h"
 
-#include "win/tabbox/tabbox_client_model.h"
+#include "como/win/tabbox/tabbox_client_model.h"
 
 namespace como::detail::test
 {

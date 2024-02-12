@@ -8,12 +8,12 @@
 #include "tabbox_client_impl.h"
 #include "tabbox_handler.h"
 
-#include "win/focus_chain_edit.h"
-#include "win/scene.h"
-#include "win/screen.h"
-#include "win/stacking.h"
-#include "win/util.h"
-#include <win/subspace_manager.h>
+#include <como/win/focus_chain_edit.h>
+#include <como/win/scene.h>
+#include <como/win/screen.h>
+#include <como/win/stacking.h>
+#include <como/win/subspace_manager.h>
+#include <como/win/util.h>
 
 namespace como::win
 {

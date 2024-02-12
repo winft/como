@@ -11,20 +11,20 @@
 
 // TODO(romangg): This header should only be included when linking against the debug library. But
 //                then we also need to comment out the calls below.
-#include <debug/perf/ftrace.h>
+#include <como/debug/perf/ftrace.h>
 
-#include <render/backend/x11/deco_renderer.h>
-#include <render/dbus/compositing.h>
-#include <render/gl/backend.h>
-#include <render/gl/egl_data.h>
-#include <render/gl/scene.h>
-#include <render/options.h>
-#include <render/post/night_color_manager.h>
-#include <render/singleton_interface.h>
-#include <render/x11/compositor_start.h>
-#include <render/x11/overlay_window.h>
-#include <render/x11/shadow.h>
-#include <render/x11/sync.h>
+#include <como/render/backend/x11/deco_renderer.h>
+#include <como/render/dbus/compositing.h>
+#include <como/render/gl/backend.h>
+#include <como/render/gl/egl_data.h>
+#include <como/render/gl/scene.h>
+#include <como/render/options.h>
+#include <como/render/post/night_color_manager.h>
+#include <como/render/singleton_interface.h>
+#include <como/render/x11/compositor_start.h>
+#include <como/render/x11/overlay_window.h>
+#include <como/render/x11/shadow.h>
+#include <como/render/x11/sync.h>
 
 #include <KConfigGroup>
 #include <memory>

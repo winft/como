@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "input/dbus/device.h"
+#include <como/input/dbus/device.h>
 #include <como_export.h>
 
 #include <QAbstractItemModel>

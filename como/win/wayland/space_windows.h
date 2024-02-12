@@ -5,16 +5,16 @@
 */
 #pragma once
 
-#include <utils/algorithm.h>
-#include <utils/geo.h>
-#include <win/layers.h>
-#include <win/placement.h>
-#include <win/setup.h>
-#include <win/space_areas_helpers.h>
-#include <win/tabbox.h>
-#include <win/wayland/idle.h>
-#include <win/wayland/space_areas.h>
-#include <win/wayland/transient.h>
+#include <como/utils/algorithm.h>
+#include <como/utils/geo.h>
+#include <como/win/layers.h>
+#include <como/win/placement.h>
+#include <como/win/setup.h>
+#include <como/win/space_areas_helpers.h>
+#include <como/win/tabbox.h>
+#include <como/win/wayland/idle.h>
+#include <como/win/wayland/space_areas.h>
+#include <como/win/wayland/transient.h>
 
 #include <Wrapland/Server/surface.h>
 

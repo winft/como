@@ -8,8 +8,8 @@
 #include "cursor_shape.h"
 #include "types.h"
 
-#include "base/output.h"
 #include "como_export.h"
+#include <como/base/output.h>
 
 #include <QObject>
 #include <QPalette>

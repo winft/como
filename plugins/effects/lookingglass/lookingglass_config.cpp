@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 // KConfigSkeleton
 #include "lookingglassconfig.h"
 
-#include <base/config-como.h>
+#include <como/base/config-como.h>
 #include <kwineffects_interface.h>
 
 #include <QAction>

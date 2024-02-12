@@ -17,7 +17,7 @@
 #include "types.h"
 #include "window_area.h"
 
-#include "base/output_helpers.h"
+#include <como/base/output_helpers.h>
 
 #include <QApplication>
 #include <QWidget>

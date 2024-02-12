@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "base/logging.h"
 #include "config-como.h"
+#include <como/base/logging.h>
 
 #include <QFileInfo>
 #include <QProcess>

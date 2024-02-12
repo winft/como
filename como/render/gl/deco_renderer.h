@@ -7,12 +7,12 @@
 */
 #pragma once
 
-#include "win/deco/renderer.h"
+#include <como/win/deco/renderer.h>
 
 // Must be included before.
 #include <epoxy/gl.h>
 
-#include <render/gl/interface/utils.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <cmath>
 

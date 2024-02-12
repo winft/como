@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "decorations_logging.h"
 
 #include "como_export.h"
-#include "win/damage.h"
+#include <como/win/damage.h>
 
 #include <KDecoration2/DecoratedClient>
 #include <KDecoration2/Decoration>

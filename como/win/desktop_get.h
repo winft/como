@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include <utils/algorithm.h>
-#include <win/subspaces_get.h>
-#include <win/types.h>
+#include <como/utils/algorithm.h>
+#include <como/win/subspaces_get.h>
+#include <como/win/types.h>
 
 namespace como::win
 {

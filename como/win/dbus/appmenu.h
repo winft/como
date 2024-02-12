@@ -9,7 +9,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "como_export.h"
 
-#include "win/appmenu.h"
+#include <como/win/appmenu.h>
 
 #include <KDecoration2/DecorationSettings>
 #include <QObject>

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/geo.h"
+#include <como/win/geo.h>
 
 #include <Wrapland/Server/surface.h>
 

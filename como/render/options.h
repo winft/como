@@ -8,8 +8,8 @@
 #include "types.h"
 #include "x11/types.h"
 
-#include "base/types.h"
 #include "como_export.h"
+#include <como/base/types.h>
 
 #include <KConfigWatcher>
 

@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <base/app_singleton.h>
-#include <base/singleton_interface.h>
+#include <como/base/app_singleton.h>
+#include <como/base/singleton_interface.h>
 
 #include <QObject>
 #include <ranges>

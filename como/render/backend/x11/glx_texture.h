@@ -5,11 +5,11 @@
 */
 #pragma once
 
-#include "render/gl/backend.h"
-#include "render/gl/texture.h"
-#include "render/window.h"
-#include "render/x11/buffer.h"
-#include "win/geo.h"
+#include <como/render/gl/backend.h>
+#include <como/render/gl/texture.h>
+#include <como/render/window.h>
+#include <como/render/x11/buffer.h>
+#include <como/win/geo.h>
 
 // Must be included late because of Qt.
 #include "glx_data.h"

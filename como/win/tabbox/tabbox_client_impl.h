@@ -7,8 +7,8 @@
 
 #include "tabbox_client.h"
 
-#include "utils/algorithm.h"
-#include "win/meta.h"
+#include <como/utils/algorithm.h>
+#include <como/win/meta.h>
 
 #include <variant>
 

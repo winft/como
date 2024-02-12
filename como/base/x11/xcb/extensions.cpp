@@ -7,8 +7,8 @@
 */
 #include "extensions.h"
 
-#include "base/logging.h"
-#include "utils/memory.h"
+#include <como/base/logging.h>
+#include <como/utils/memory.h>
 
 #include <xcb/composite.h>
 #include <xcb/damage.h>

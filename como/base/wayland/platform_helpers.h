@@ -6,12 +6,12 @@
 #pragma once
 
 #include <app_singleton.h>
-#include <base/config.h>
-#include <base/options.h>
-#include <base/platform_helpers.h>
-#include <base/seat/backend/wlroots/session.h>
-#include <base/types.h>
-#include <utils/flags.h>
+#include <como/base/config.h>
+#include <como/base/options.h>
+#include <como/base/platform_helpers.h>
+#include <como/base/seat/backend/wlroots/session.h>
+#include <como/base/types.h>
+#include <como/utils/flags.h>
 
 #include <QApplication>
 #include <string>

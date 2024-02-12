@@ -5,14 +5,14 @@
 */
 #include "setup.h"
 
-#include "base/config.h"
-#include "render/shortcuts_init.h"
-#include "win/shortcuts_init.h"
-#include <base/backend/wlroots/helpers.h>
-#include <desktop/kde/platform.h>
-#include <input/wayland/platform.h>
-#include <render/wayland/platform.h>
-#include <render/wayland/xwl_platform.h>
+#include "como/base/backend/wlroots/helpers.h"
+#include "como/base/config.h"
+#include "como/desktop/kde/platform.h"
+#include "como/input/wayland/platform.h"
+#include "como/render/shortcuts_init.h"
+#include "como/render/wayland/platform.h"
+#include "como/render/wayland/xwl_platform.h"
+#include "como/win/shortcuts_init.h"
 
 extern "C" {
 #include <wlr/backend/headless.h>

@@ -9,8 +9,8 @@
 
 #include "texture.h"
 
-#include "base/logging.h"
-#include "render/buffer.h"
+#include <como/base/logging.h>
+#include <como/render/buffer.h>
 
 #include <memory>
 

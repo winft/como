@@ -7,8 +7,8 @@
 
 #include "xkb.h"
 
-#include "base/x11/xcb/extensions.h"
-#include "input/keyboard.h"
+#include <como/base/x11/xcb/extensions.h>
+#include <como/input/keyboard.h>
 
 #include <xcb/xcb.h>
 

@@ -7,11 +7,11 @@
 
 #include "helpers.h"
 
-#include "base/wayland/server.h"
-#include "input/event_filter.h"
-#include "input/pointer_redirect.h"
-#include "win/input.h"
-#include "win/transient.h"
+#include <como/base/wayland/server.h>
+#include <como/input/event_filter.h>
+#include <como/input/pointer_redirect.h>
+#include <como/win/input.h>
+#include <como/win/transient.h>
 
 #include <Wrapland/Server/seat.h>
 #include <Wrapland/Server/touch_pool.h>

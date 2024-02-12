@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "base/x11/event_filter.h"
+#include <como/base/x11/event_filter.h>
 #include <como_export.h>
 
 namespace como::input::x11

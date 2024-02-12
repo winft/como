@@ -7,7 +7,7 @@
 
 #include "effects_handler.h"
 
-#include <base/logging.h>
+#include <como/base/logging.h>
 
 #include <QQmlContext>
 #include <QQmlEngine>

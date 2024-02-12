@@ -5,8 +5,8 @@
 */
 #pragma once
 
+#include <como/win/subspace.h>
 #include <como_export.h>
-#include <win/subspace.h>
 
 #include <QPoint>
 #include <QSize>

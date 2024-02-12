@@ -9,13 +9,13 @@
 #include "hidden_preview.h"
 #include "types.h"
 
-#include "base/x11/xcb/extensions.h"
-#include "win/activation.h"
-#include "win/controlling.h"
-#include "win/damage.h"
-#include "win/options.h"
-#include "win/scene.h"
-#include "win/stacking_order.h"
+#include <como/base/x11/xcb/extensions.h>
+#include <como/win/activation.h>
+#include <como/win/controlling.h>
+#include <como/win/damage.h>
+#include <como/win/options.h>
+#include <como/win/scene.h>
+#include <como/win/stacking_order.h>
 
 #include <xcb/xcb_icccm.h>
 

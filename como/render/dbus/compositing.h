@@ -8,8 +8,8 @@
 
 #include "como_export.h"
 
-#include "render/compositor_qobject.h"
-#include "render/types.h"
+#include <como/render/compositor_qobject.h>
+#include <como/render/types.h>
 
 #include <QObject>
 #include <functional>

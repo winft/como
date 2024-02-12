@@ -8,9 +8,9 @@
 
 #include "cursor_image.h"
 
-#include "input/cursor.h"
-#include "input/redirect_qobject.h"
-#include "input/xkb/helpers.h"
+#include <como/input/cursor.h>
+#include <como/input/redirect_qobject.h>
+#include <como/input/xkb/helpers.h>
 
 #include <QPointF>
 #include <Wrapland/Server/seat.h>

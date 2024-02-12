@@ -8,8 +8,8 @@
 #include "qpainter_output.h"
 #include "wlr_includes.h"
 
-#include "render/qpainter/backend.h"
-#include "render/qpainter/scene.h"
+#include <como/render/qpainter/backend.h>
+#include <como/render/qpainter/scene.h>
 #include <config-como.h>
 
 namespace como::render::backend::wlroots

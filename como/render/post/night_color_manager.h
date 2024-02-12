@@ -10,11 +10,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "night_color_data.h"
 #include "suncalc.h"
 
-#include "base/logging.h"
-#include "base/os/clock/skew_notifier.h"
-#include "base/output.h"
-#include "base/seat/session.h"
-#include "utils/gamma_ramp.h"
+#include <como/base/logging.h>
+#include <como/base/os/clock/skew_notifier.h>
+#include <como/base/output.h>
+#include <como/base/seat/session.h>
+#include <como/utils/gamma_ramp.h>
 
 #include <KConfigWatcher>
 #include <KLocalizedString>

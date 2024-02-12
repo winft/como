@@ -8,14 +8,14 @@
 
 #include <kconfig.h>
 
-#include "win/controlling.h"
-#include "win/geo_change.h"
-#include "win/input.h"
-#include "win/meta.h"
-#include "win/rules.h"
-#include "win/screen.h"
-#include "win/stacking.h"
-#include "win/x11/client_machine.h"
+#include <como/win/controlling.h>
+#include <como/win/geo_change.h>
+#include <como/win/input.h>
+#include <como/win/meta.h>
+#include <como/win/rules.h>
+#include <como/win/screen.h>
+#include <como/win/stacking.h>
+#include <como/win/x11/client_machine.h>
 
 #include "book.h"
 #include "book_settings.h"

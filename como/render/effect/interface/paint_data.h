@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include <render/effect/interface/effect.h>
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/window_quad.h>
-#include <render/interface/framebuffer.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/window_quad.h>
+#include <como/render/interface/framebuffer.h>
 
 #include <QMatrix4x4>
 #include <chrono>

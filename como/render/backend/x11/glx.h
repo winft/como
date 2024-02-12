@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "base/logging.h"
-#include "base/x11/xcb/helpers.h"
-#include "render/gl/gl.h"
+#include <como/base/logging.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/render/gl/gl.h>
 
 // Must be included late because of Qt.
 #include "glx_context_attribute_builder.h"
@@ -15,7 +15,7 @@
 #include "glx_fb_config.h"
 #include "swap_event_filter.h"
 
-#include <render/gl/interface/platform.h>
+#include <como/render/gl/interface/platform.h>
 
 #include <QOpenGLContext>
 #include <QVariant>

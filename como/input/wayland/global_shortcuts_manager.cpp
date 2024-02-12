@@ -6,8 +6,8 @@
 */
 #include "global_shortcuts_manager.h"
 
-#include "input/logging.h"
 #include "kglobalaccel/runtime/global_accel_d.h"
+#include <como/input/logging.h>
 
 #include <KGlobalAccel>
 #include <QAction>

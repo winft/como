@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "base/x11/atoms.h"
+#include <como/base/x11/atoms.h>
 
 #include <string>
 #include <vector>

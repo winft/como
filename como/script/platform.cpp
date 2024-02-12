@@ -8,7 +8,7 @@
 #include "platform.h"
 
 #include "scripting_logging.h"
-#include <base/config.h>
+#include <como/base/config.h>
 
 #include <KConfigGroup>
 #include <KPackage/PackageLoader>

@@ -5,7 +5,7 @@
 */
 #include "motions.h"
 
-#include <render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 namespace como
 {

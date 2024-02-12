@@ -5,13 +5,13 @@
 */
 #pragma once
 
-#include "input/wayland/platform.h"
-#include <input/logging.h>
+#include <como/input/logging.h>
+#include <como/input/wayland/platform.h>
 
-#include <input/backend/wlroots/keyboard.h>
-#include <input/backend/wlroots/pointer.h>
-#include <input/backend/wlroots/switch.h>
-#include <input/backend/wlroots/touch.h>
+#include <como/input/backend/wlroots/keyboard.h>
+#include <como/input/backend/wlroots/pointer.h>
+#include <como/input/backend/wlroots/switch.h>
+#include <como/input/backend/wlroots/touch.h>
 
 extern "C" {
 #include <wlr/backend/multi.h>

@@ -6,15 +6,15 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include "base/wayland/server.h"
-#include "input/cursor.h"
-#include "render/effect_loader.h"
-#include "script/platform.h"
-#include "script/script.h"
-#include "win/space_reconfigure.h"
+#include "como/base/wayland/server.h"
+#include "como/input/cursor.h"
+#include "como/render/effect_loader.h"
+#include "como/script/platform.h"
+#include "como/script/script.h"
+#include "como/win/space_reconfigure.h"
 
 #define private public
-#include "win/screen_edges.h"
+#include "como/win/screen_edges.h"
 #undef private
 
 #include <KConfigGroup>

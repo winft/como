@@ -10,9 +10,9 @@
 #include "keyboard.h"
 #include "xinput_helpers.h"
 
-#include "input/pointer.h"
-#include "input/spies/modifier_only_shortcuts.h"
-#include "input/xkb/helpers.h"
+#include <como/input/pointer.h>
+#include <como/input/spies/modifier_only_shortcuts.h>
+#include <como/input/xkb/helpers.h>
 
 #include <QObject>
 #include <X11/extensions/XI2proto.h>

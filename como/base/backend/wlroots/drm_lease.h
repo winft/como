@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "base/utils.h"
 #include "como_export.h"
+#include <como/base/utils.h>
 
 #include <QObject>
 #include <memory>

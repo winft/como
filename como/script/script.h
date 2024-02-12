@@ -7,7 +7,7 @@
 */
 #pragma once
 
-#include "win/types.h"
+#include <como/win/types.h>
 #include <como_export.h>
 
 #include <QHash>

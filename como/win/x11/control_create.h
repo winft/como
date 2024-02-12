@@ -19,13 +19,13 @@
 #include "window_create.h"
 #include "xcb.h"
 
-#include "base/logging.h"
-#include "win/input.h"
-#include "win/layers.h"
-#include "win/options.h"
-#include "win/rules/find.h"
-#include <win/tabbox/tabbox_client_impl.h>
-#include <win/x11/xcb_cursor.h>
+#include <como/base/logging.h>
+#include <como/win/input.h>
+#include <como/win/layers.h>
+#include <como/win/options.h>
+#include <como/win/rules/find.h>
+#include <como/win/tabbox/tabbox_client_impl.h>
+#include <como/win/x11/xcb_cursor.h>
 
 namespace como::win::x11
 {

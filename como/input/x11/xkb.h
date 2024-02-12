@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "base/x11/event_filter.h"
-#include "input/logging.h"
-#include "input/xkb/keymap.h"
+#include <como/base/x11/event_filter.h>
+#include <como/input/logging.h>
+#include <como/input/xkb/keymap.h>
 
 #define explicit cpp_explicit_compat
 #include <xcb/xkb.h>

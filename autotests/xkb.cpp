@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "integration/lib/catch_macros.h"
 
-#include "input/xkb/keyboard.h"
+#include "como/input/xkb/keyboard.h"
 
 #include <catch2/generators/catch_generators.hpp>
 #include <xkbcommon/xkbcommon-keysyms.h>

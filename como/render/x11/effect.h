@@ -5,14 +5,14 @@
 */
 #pragma once
 
-#include "base/x11/data.h"
-#include "base/x11/xcb/property.h"
-#include "utils/memory.h"
-#include <render/x11/support_properties.h>
+#include <como/base/x11/data.h>
+#include <como/base/x11/xcb/property.h>
+#include <como/render/x11/support_properties.h>
+#include <como/utils/memory.h>
 
-#include <render/effect/interface/effect.h>
-#include <win/x11/unmanaged.h>
-#include <win/x11/window_find.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/win/x11/unmanaged.h>
+#include <como/win/x11/window_find.h>
 
 #include <xcb/xcb.h>
 

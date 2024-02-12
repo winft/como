@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "win/deco/renderer.h"
+#include <como/win/deco/renderer.h>
 
 #include <QImage>
 

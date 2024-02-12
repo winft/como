@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "win/wayland/surface.h"
-#include "win/wayland/xwl_window.h"
+#include <como/win/wayland/surface.h>
+#include <como/win/wayland/xwl_window.h>
 
 #include <Wrapland/Server/surface.h>
 

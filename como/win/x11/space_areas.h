@@ -7,7 +7,7 @@
 
 #include "geo.h"
 
-#include "win/space_areas.h"
+#include <como/win/space_areas.h>
 
 namespace como::win::x11
 {

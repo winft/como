@@ -5,11 +5,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "base/x11/event_filter.h"
-#include "base/x11/xcb/extensions.h"
-#include "base/x11/xcb/helpers.h"
-#include "base/x11/xcb/proto.h"
-#include "render/compositor.h"
+#include <como/base/x11/event_filter.h>
+#include <como/base/x11/xcb/extensions.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/base/x11/xcb/proto.h>
+#include <como/render/compositor.h>
 
 #include <QRegion>
 #include <QTimer>

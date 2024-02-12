@@ -5,9 +5,9 @@
 */
 #include "options.h"
 
-#include "base/options.h"
-#include "render/options.h"
-#include "win/options.h"
+#include <como/base/options.h>
+#include <como/render/options.h>
+#include <como/win/options.h>
 
 namespace como::scripting
 {

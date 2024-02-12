@@ -3,7 +3,7 @@
 
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
 */
-#include "base/x11/xcb/atom.h"
+#include <como/base/x11/xcb/atom.h>
 
 #include <QApplication>
 #include <QHBoxLayout>

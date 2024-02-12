@@ -7,10 +7,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "effect.h"
 
-#include "base/logging.h"
-#include "render/effect/basic_effect_loader.h"
-#include "render/effect/effect_load_queue.h"
-#include <script/quick_scene_effect.h>
+#include <como/base/logging.h>
+#include <como/render/effect/basic_effect_loader.h>
+#include <como/render/effect/effect_load_queue.h>
+#include <como/script/quick_scene_effect.h>
 
 #include <KPackage/PackageLoader>
 #include <KPluginMetaData>

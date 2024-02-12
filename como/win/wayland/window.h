@@ -12,21 +12,21 @@
 #include "xdg_shell.h"
 #include "xdg_shell_control.h"
 
-#include "utils/geo.h"
-#include "win/fullscreen.h"
-#include "win/geo_block.h"
-#include "win/geo_restrict.h"
-#include "win/maximize.h"
-#include "win/placement.h"
-#include "win/rules/find.h"
-#include "win/rules/update.h"
-#include "win/scene.h"
-#include "win/window_geometry.h"
-#include "win/window_metadata.h"
-#include "win/window_qobject.h"
-#include "win/window_render_data.h"
-#include "win/window_setup_base.h"
-#include "win/window_topology.h"
+#include <como/utils/geo.h>
+#include <como/win/fullscreen.h>
+#include <como/win/geo_block.h>
+#include <como/win/geo_restrict.h>
+#include <como/win/maximize.h>
+#include <como/win/placement.h>
+#include <como/win/rules/find.h>
+#include <como/win/rules/update.h>
+#include <como/win/scene.h>
+#include <como/win/window_geometry.h>
+#include <como/win/window_metadata.h>
+#include <como/win/window_qobject.h>
+#include <como/win/window_render_data.h>
+#include <como/win/window_setup_base.h>
+#include <como/win/window_topology.h>
 
 #include <Wrapland/Server/buffer.h>
 #include <Wrapland/Server/client.h>

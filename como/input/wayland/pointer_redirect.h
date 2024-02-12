@@ -8,14 +8,14 @@
 #include "device_redirect.h"
 #include "motion_scheduler.h"
 
-#include "base/wayland/server.h"
-#include "input/device_redirect.h"
-#include "input/event_filter.h"
-#include "input/event_spy.h"
-#include "input/qt_event.h"
-#include "utils/blocker.h"
-#include <base/platform_qobject.h>
-#include <win/input.h>
+#include <como/base/platform_qobject.h>
+#include <como/base/wayland/server.h>
+#include <como/input/device_redirect.h>
+#include <como/input/event_filter.h>
+#include <como/input/event_spy.h>
+#include <como/input/qt_event.h>
+#include <como/utils/blocker.h>
+#include <como/win/input.h>
 
 #include <KScreenLocker/KsldApp>
 #include <QObject>

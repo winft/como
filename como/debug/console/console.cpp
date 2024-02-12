@@ -5,12 +5,12 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "console.h"
 
-#include "render/compositor.h"
-#include "render/effects.h"
-#include "render/scene.h"
-#include "win/property_window.h"
+#include <como/render/compositor.h>
+#include <como/render/effects.h>
+#include <como/render/scene.h>
+#include <como/win/property_window.h>
 
-#include <render/gl/interface/platform.h>
+#include <como/render/gl/interface/platform.h>
 
 #include <KLocalizedString>
 #include <QMetaProperty>
