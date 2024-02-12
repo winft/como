@@ -6,10 +6,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "base/x11/event_filter.h"
-#include "base/x11/xcb/proto.h"
-#include "win/x11/key_server.h"
-#include <base/x11/data.h>
+#include <como/base/x11/data.h>
+#include <como/base/x11/event_filter.h>
+#include <como/base/x11/xcb/proto.h>
+#include <como/win/x11/key_server.h>
 
 namespace como::win::x11
 {

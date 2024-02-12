@@ -5,7 +5,7 @@
 */
 #include "global_shortcuts_manager.h"
 
-#include "win/input/global_shortcut.h"
+#include <como/win/input/global_shortcut.h>
 
 #include <KGlobalAccel>
 #include <QAction>

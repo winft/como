@@ -7,7 +7,7 @@
 
 #include "geo.h"
 
-#include "win/fullscreen.h"
+#include <como/win/fullscreen.h>
 
 namespace como::win::x11
 {

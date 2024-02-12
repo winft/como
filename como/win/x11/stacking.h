@@ -10,11 +10,11 @@
 #include "hide.h"
 #include "screen_edges.h"
 #include "window_find.h"
-#include <win/x11/user_time.h>
+#include <como/win/x11/user_time.h>
 
-#include "base/output_helpers.h"
-#include "base/x11/xcb/helpers.h"
-#include "win/activation.h"
+#include <como/base/output_helpers.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/win/activation.h>
 
 #include <deque>
 #include <variant>

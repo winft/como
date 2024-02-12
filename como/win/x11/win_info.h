@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <win/x11/geo.h>
-#include <win/x11/net/win_info.h>
+#include <como/win/x11/geo.h>
+#include <como/win/x11/net/win_info.h>
 
 #include <xcb/xcb.h>
 

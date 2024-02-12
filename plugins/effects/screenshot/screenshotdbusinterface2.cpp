@@ -7,13 +7,13 @@
 */
 #include "screenshotdbusinterface2.h"
 
-#include "desktop/kde/service_utils.h"
-#include "utils/file_descriptor.h"
+#include <como/desktop/kde/service_utils.h>
+#include <como/utils/file_descriptor.h>
 
 #include "screenshot2adaptor.h"
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 #include <KLocalizedString>
 #include <QDBusConnection>

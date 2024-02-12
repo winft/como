@@ -8,10 +8,10 @@
 */
 #pragma once
 
-#include "input/window_find.h"
-#include "win/geo.h"
-#include "win/space_qobject.h"
-#include "win/stacking_order.h"
+#include <como/input/window_find.h>
+#include <como/win/geo.h>
+#include <como/win/space_qobject.h>
+#include <como/win/stacking_order.h>
 
 #include <QWindow>
 

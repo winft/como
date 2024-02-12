@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <win/subspace.h>
+#include <como/win/subspace.h>
 
 namespace como::win
 {

@@ -12,14 +12,14 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "lanczos_filter.h"
 #include "window.h"
 
-#include "base/logging.h"
-#include "base/options.h"
-#include "render/cursor.h"
-#include "render/scene.h"
-#include "render/shadow.h"
+#include <como/base/logging.h>
+#include <como/base/options.h>
+#include <como/render/cursor.h>
+#include <como/render/scene.h>
+#include <como/render/shadow.h>
 
-#include <render/gl/interface/platform.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/gl/interface/platform.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <KNotification>
 #include <memory>

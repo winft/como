@@ -8,8 +8,8 @@
 #include "transient.h"
 #include "window_release.h"
 
-#include "win/transient.h"
-#include <win/wayland/space_windows.h>
+#include <como/win/transient.h>
+#include <como/win/wayland/space_windows.h>
 
 #include <Wrapland/Server/subcompositor.h>
 #include <Wrapland/Server/surface.h>

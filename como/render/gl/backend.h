@@ -9,8 +9,8 @@
 
 #include "texture.h"
 
-#include "base/output.h"
-#include <render/effect/interface/paint_data.h>
+#include <como/base/output.h>
+#include <como/render/effect/interface/paint_data.h>
 
 #include <QElapsedTimer>
 #include <QMatrix4x4>

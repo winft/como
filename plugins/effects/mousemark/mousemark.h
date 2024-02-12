@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_MOUSEMARK_H
 #define KWIN_MOUSEMARK_H
 
-#include <render/effect/interface/effect.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/gl/interface/utils.h>
 
 namespace como
 {

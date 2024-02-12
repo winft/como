@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "utils/algorithm.h"
+#include <como/utils/algorithm.h>
 
 #include <cassert>
 

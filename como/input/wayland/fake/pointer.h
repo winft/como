@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/pointer.h"
+#include <como/input/pointer.h>
 
 #include <Wrapland/Server/fake_input.h>
 

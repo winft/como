@@ -6,8 +6,8 @@
 */
 #include "book.h"
 
-#include "base/logging.h"
-#include "win/control.h"
+#include <como/base/logging.h>
+#include <como/win/control.h>
 
 #include "book_settings.h"
 #include "rules_settings.h"

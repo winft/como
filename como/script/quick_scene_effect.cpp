@@ -3,7 +3,7 @@
 
     SPDX-License-Identifier: GPL-2.0-or-later
 */
-#include <script/quick_scene_effect.h>
+#include <como/script/quick_scene_effect.h>
 
 #include <KConfigGroup>
 #include <KConfigLoader>

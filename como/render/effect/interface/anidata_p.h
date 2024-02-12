@@ -13,7 +13,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "effect_window_visible_ref.h"
 #include "time_line.h"
 
-#include "render/gl/interface/utils.h"
+#include <como/render/gl/interface/utils.h>
 #include <como_export.h>
 
 #include <QEasingCurve>

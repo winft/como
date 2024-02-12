@@ -7,12 +7,12 @@
 
 #include "control/headless/keyboard.h"
 #include "control/keyboard.h"
-#include <base/backend/wlroots/helpers.h>
-#include <input/backend/wlroots/device_helpers.h>
+#include <como/base/backend/wlroots/helpers.h>
+#include <como/input/backend/wlroots/device_helpers.h>
 
-#include "base/utils.h"
 #include "config-como.h"
-#include "input/keyboard.h"
+#include <como/base/utils.h>
+#include <como/input/keyboard.h>
 
 extern "C" {
 #include <wlr/backend/libinput.h>

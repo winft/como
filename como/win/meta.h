@@ -8,7 +8,7 @@
 #include "net.h"
 #include "rules/types.h"
 
-#include "utils/algorithm.h"
+#include <como/utils/algorithm.h>
 
 #include <KDesktopFile>
 #include <QDir>

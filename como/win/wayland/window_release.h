@@ -7,16 +7,16 @@
 
 #include "config-como.h"
 
-#include "utils/blocker.h"
-#include "win/remnant.h"
-#include "win/rules/book.h"
-#include "win/stacking_order.h"
-#include "win/transient.h"
-#include "win/window_release.h"
-#include <win/wayland/space_windows.h>
+#include <como/utils/blocker.h>
+#include <como/win/remnant.h>
+#include <como/win/rules/book.h>
+#include <como/win/stacking_order.h>
+#include <como/win/transient.h>
+#include <como/win/wayland/space_windows.h>
+#include <como/win/window_release.h>
 
 #if COMO_BUILD_TABBOX
-#include "win/tabbox/tabbox.h"
+#include <como/win/tabbox/tabbox.h>
 #endif
 
 namespace como::win::wayland

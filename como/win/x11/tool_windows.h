@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "base/options.h"
-#include "win/meta.h"
+#include <como/base/options.h>
+#include <como/win/meta.h>
 
 namespace como::win::x11
 {

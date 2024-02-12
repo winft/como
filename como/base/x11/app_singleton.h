@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <base/app_singleton.h>
+#include <como/base/app_singleton.h>
 
 #include <QSurfaceFormat>
 #include <QtGui/private/qtx11extras_p.h>

@@ -5,14 +5,14 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
-#include "base/options.h"
 #include "como_export.h"
-#include "desktop/screen_locker_watcher.h"
-#include "input/event.h"
-#include "input/event_spy.h"
-#include "input/keyboard.h"
-#include "input/qt_event.h"
-#include "input/xkb/helpers.h"
+#include <como/base/options.h>
+#include <como/desktop/screen_locker_watcher.h>
+#include <como/input/event.h>
+#include <como/input/event_spy.h>
+#include <como/input/keyboard.h>
+#include <como/input/qt_event.h>
+#include <como/input/xkb/helpers.h>
 
 #include <QDBusConnection>
 #include <QDBusMessage>

@@ -8,14 +8,14 @@
 
 #include "helpers.h"
 
-#include "base/wayland/server.h"
-#include "input/event.h"
-#include "input/event_filter.h"
-#include "input/window_find.h"
-#include "win/deco.h"
-#include "win/geo.h"
-#include "win/transient.h"
-#include "win/util.h"
+#include <como/base/wayland/server.h>
+#include <como/input/event.h>
+#include <como/input/event_filter.h>
+#include <como/input/window_find.h>
+#include <como/win/deco.h>
+#include <como/win/geo.h>
+#include <como/win/transient.h>
+#include <como/win/util.h>
 
 #include <Wrapland/Server/keyboard.h>
 #include <Wrapland/Server/keyboard_pool.h>

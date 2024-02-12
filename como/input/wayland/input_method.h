@@ -6,14 +6,14 @@
 */
 #pragma once
 
-#include "base/wayland/server.h"
-#include "input/filters/keyboard_grab.h"
-#include "input/xkb/helpers.h"
-#include "win/transient.h"
-#include "win/wayland/popup_placement.h"
-#include "win/wayland/window_release.h"
-#include "win/window_area.h"
-#include <win/wayland/space_windows.h>
+#include <como/base/wayland/server.h>
+#include <como/input/filters/keyboard_grab.h>
+#include <como/input/xkb/helpers.h>
+#include <como/win/transient.h>
+#include <como/win/wayland/popup_placement.h>
+#include <como/win/wayland/space_windows.h>
+#include <como/win/wayland/window_release.h>
+#include <como/win/window_area.h>
 
 #include <QObject>
 #include <Wrapland/Server/display.h>

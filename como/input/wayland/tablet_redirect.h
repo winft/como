@@ -7,9 +7,9 @@
 
 #include "device_redirect.h"
 
-#include "input/device_redirect.h"
-#include "input/event_filter.h"
-#include "input/event_spy.h"
+#include <como/input/device_redirect.h>
+#include <como/input/event_filter.h>
+#include <como/input/event_spy.h>
 
 #include <QObject>
 #include <QPointF>

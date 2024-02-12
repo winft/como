@@ -6,10 +6,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "integration/lib/catch_macros.h"
 
-#include "render/gl/context_attribute_builder.h"
-#include "render/gl/egl_context_attribute_builder.h"
+#include "como/render/gl/context_attribute_builder.h"
+#include "como/render/gl/egl_context_attribute_builder.h"
 
-#include <base/config-como.h>
+#include "como/base/config-como.h"
 
 #include <catch2/generators/catch_generators.hpp>
 #include <epoxy/egl.h>

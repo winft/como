@@ -7,7 +7,7 @@
 
 #include "deco/renderer.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include <QMargins>
 #include <QRect>

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <render/effect/setup_window.h>
+#include <como/render/effect/setup_window.h>
 
 namespace como::render::wayland
 {

@@ -14,15 +14,15 @@
 #include "glx_backend.h"
 #endif
 
-#include "base/x11/xcb/randr.h"
-#include "render/x11/platform.h"
+#include <como/base/x11/xcb/randr.h>
+#include <como/render/x11/platform.h>
 
 #include <KCrash>
 #include <QObject>
 #include <memory>
 
 #include <X11/Xlib-xcb.h>
-#include <base/x11/fixx11h.h>
+#include <como/base/x11/fixx11h.h>
 
 namespace como::render::backend::x11
 {

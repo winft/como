@@ -11,7 +11,7 @@
 #include "selection_x11.h"
 #include "sources_ext.h"
 
-#include "base/wayland/server.h"
+#include <como/base/wayland/server.h>
 
 #include <Wrapland/Server/primary_selection.h>
 #include <Wrapland/Server/seat.h>

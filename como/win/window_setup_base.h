@@ -9,9 +9,9 @@
 #include "scene.h"
 #include "screen.h"
 
-#include "base/output.h"
-#include "base/output_helpers.h"
-#include <base/platform_qobject.h>
+#include <como/base/output.h>
+#include <como/base/output_helpers.h>
+#include <como/base/platform_qobject.h>
 
 namespace como::win
 {

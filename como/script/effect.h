@@ -6,11 +6,11 @@
 */
 #pragma once
 
-#include "render/options.h"
 #include "scripting_logging.h"
+#include <como/render/options.h>
 
+#include <como/render/effect/interface/animation_effect.h>
 #include <config-como.h>
-#include <render/effect/interface/animation_effect.h>
 
 #include <KPluginMetaData>
 #include <QJSEngine>

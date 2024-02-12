@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "input/cursor.h"
-#include <base/x11/data.h>
+#include <como/base/x11/data.h>
+#include <como/input/cursor.h>
 #include <como_export.h>
 
 #include <memory>

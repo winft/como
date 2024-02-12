@@ -8,7 +8,7 @@
 #include "control_destroy.h"
 #include "desktop_set.h"
 
-#include "win/control.h"
+#include <como/win/control.h>
 
 namespace como::win::wayland
 {

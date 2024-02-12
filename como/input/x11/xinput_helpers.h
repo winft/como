@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "input/event.h"
-#include "input/keyboard.h"
-#include "input/pointer.h"
+#include <como/input/event.h>
+#include <como/input/keyboard.h>
+#include <como/input/pointer.h>
 
 namespace como::input::x11
 {

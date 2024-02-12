@@ -11,7 +11,7 @@
 #include "global_shortcut_info_private.h"
 #include "service_action_component.h"
 
-#include "input/logging.h"
+#include <como/input/logging.h>
 
 #include <KDesktopFile>
 #include <KFileUtils>

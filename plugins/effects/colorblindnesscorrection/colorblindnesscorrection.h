@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/offscreen_effect.h>
-#include <render/gl/interface/shader.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/offscreen_effect.h>
+#include <como/render/gl/interface/shader.h>
 
 #include <unordered_set>
 

@@ -8,13 +8,13 @@
 
 #include "setup.h"
 
-#include "base/output_helpers.h"
-#include "desktop/screen_locker_watcher.h"
-#include "input/backend/wlroots/keyboard.h"
-#include "input/backend/wlroots/pointer.h"
-#include "input/backend/wlroots/touch.h"
-#include "win/wayland/space.h"
-#include "win/wayland/window.h"
+#include "como/base/output_helpers.h"
+#include "como/desktop/screen_locker_watcher.h"
+#include "como/input/backend/wlroots/keyboard.h"
+#include "como/input/backend/wlroots/pointer.h"
+#include "como/input/backend/wlroots/touch.h"
+#include "como/win/wayland/space.h"
+#include "como/win/wayland/window.h"
 
 #include <KScreenLocker/KsldApp>
 #include <Wrapland/Client/compositor.h>

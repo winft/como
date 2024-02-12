@@ -6,12 +6,12 @@
 #pragma once
 
 #include "control/touch.h"
-#include <input/backend/wlroots/device_helpers.h>
+#include <como/input/backend/wlroots/device_helpers.h>
 
-#include "base/utils.h"
 #include "config-como.h"
-#include "input/platform.h"
-#include "input/touch.h"
+#include <como/base/utils.h>
+#include <como/input/platform.h>
+#include <como/input/touch.h>
 
 extern "C" {
 #include <wlr/backend/libinput.h>

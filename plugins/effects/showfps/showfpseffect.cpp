@@ -8,9 +8,9 @@
 
 #include "showfpseffect.h"
 
-#include <render/effect/interface/effect_screen.h>
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/effect_screen.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 #include <QQmlContext>
 

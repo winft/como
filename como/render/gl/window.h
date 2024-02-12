@@ -11,11 +11,11 @@
 #include "deco_renderer.h"
 #include "shadow.h"
 
-#include "render/window.h"
-#include "win/deco/client_impl.h"
+#include <como/render/window.h>
+#include <como/win/deco/client_impl.h>
 
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <QMatrix4x4>
 #include <QVector4D>

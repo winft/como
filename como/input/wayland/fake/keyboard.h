@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/keyboard.h"
+#include <como/input/keyboard.h>
 
 #include <Wrapland/Server/fake_input.h>
 

@@ -7,7 +7,7 @@
 
 #include "wlr_includes.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include <QImage>
 #include <memory>

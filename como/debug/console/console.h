@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "como_export.h"
 
-#include <render/gl/interface/platform.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/gl/interface/platform.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <QAbstractItemModel>
 #include <QStyledItemDelegate>

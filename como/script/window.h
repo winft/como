@@ -8,16 +8,16 @@
 #include "output.h"
 
 #include "como_export.h"
-#include "input/cursor.h"
-#include "win/actions.h"
-#include "win/activation.h"
-#include "win/controlling.h"
-#include "win/desktop_get.h"
-#include "win/meta.h"
-#include "win/property_window.h"
-#include "win/screen.h"
-#include "win/transient.h"
-#include <win/move.h>
+#include <como/input/cursor.h>
+#include <como/win/actions.h>
+#include <como/win/activation.h>
+#include <como/win/controlling.h>
+#include <como/win/desktop_get.h>
+#include <como/win/meta.h>
+#include <como/win/move.h>
+#include <como/win/property_window.h>
+#include <como/win/screen.h>
+#include <como/win/transient.h>
 
 #include <variant>
 

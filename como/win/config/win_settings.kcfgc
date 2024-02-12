@@ -5,5 +5,5 @@
 File=win_settings.kcfg
 NameSpace=como::win
 ClassName=settings
-IncludeFiles=win/types.h
+IncludeFiles=como/win/types.h
 UseEnumTypes=true

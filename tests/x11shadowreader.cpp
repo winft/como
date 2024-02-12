@@ -3,9 +3,9 @@
 
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
 */
-#include "base/x11/xcb/atom.h"
-#include "base/x11/xcb/property.h"
-#include "base/x11/xcb/proto.h"
+#include <como/base/x11/xcb/atom.h>
+#include <como/base/x11/xcb/property.h>
+#include <como/base/x11/xcb/proto.h>
 
 #include <QApplication>
 #include <QCommandLineParser>

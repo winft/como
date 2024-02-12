@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "render/gl/context_attribute_builder.h"
+#include <como/render/gl/context_attribute_builder.h>
 #include <como_export.h>
 
 namespace como::render::backend::x11

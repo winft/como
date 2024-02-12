@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <base/app_singleton.h>
-#include <base/config-como.h>
+#include <como/base/app_singleton.h>
+#include <como/base/config-como.h>
 
 namespace como::base::wayland
 {

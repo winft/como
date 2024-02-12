@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <render/gl/interface/platform.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/gl/interface/platform.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <epoxy/egl.h>
 

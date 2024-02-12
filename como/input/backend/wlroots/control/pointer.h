@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/control/pointer.h"
+#include <como/input/control/pointer.h>
 #include <como_export.h>
 
 #include <KSharedConfig>

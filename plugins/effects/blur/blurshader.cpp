@@ -6,8 +6,8 @@
 */
 #include "blurshader.h"
 
-#include <render/effect/interface/effects_handler.h>
-#include <render/gl/interface/shader_manager.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/gl/interface/shader_manager.h>
 
 static void ensureResources()
 {

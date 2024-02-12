@@ -11,9 +11,9 @@
 #include "layout_policies.h"
 
 #include "como_export.h"
-#include "input/dbus/keyboard_layout.h"
-#include "input/dbus/keyboard_layouts_v2.h"
-#include "input/keyboard.h"
+#include <como/input/dbus/keyboard_layout.h>
+#include <como/input/dbus/keyboard_layouts_v2.h>
+#include <como/input/keyboard.h>
 
 #include <KConfigGroup>
 #include <KLocalizedString>

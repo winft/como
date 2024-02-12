@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "shadow.h"
 #include "window.h"
 
-#include "render/interface/framebuffer.h"
-#include "render/scene.h"
+#include <como/render/interface/framebuffer.h>
+#include <como/render/scene.h>
 
 #include <QElapsedTimer>
 

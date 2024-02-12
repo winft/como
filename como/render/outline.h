@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "types.h"
 
-#include "base/config.h"
 #include "como_export.h"
+#include <como/base/config.h>
 
 #include <QObject>
 #include <QRect>

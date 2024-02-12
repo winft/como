@@ -8,15 +8,15 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "data_bridge.h"
 #include "types.h"
 
-#include "base/wayland/server.h"
-#include "base/x11/selection_owner.h"
-#include "base/x11/xcb/helpers.h"
-#include "input/cursor.h"
-#include "render/compositor_start.h"
-#include "win/wayland/surface.h"
-#include "win/wayland/xwl_window.h"
-#include "win/x11/space_setup.h"
-#include "win/x11/xcb_event_filter.h"
+#include <como/base/wayland/server.h>
+#include <como/base/x11/selection_owner.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/input/cursor.h>
+#include <como/render/compositor_start.h>
+#include <como/win/wayland/surface.h>
+#include <como/win/wayland/xwl_window.h>
+#include <como/win/x11/space_setup.h>
+#include <como/win/x11/xcb_event_filter.h>
 #include <xwl/socket.h>
 #include <xwl/xauthority.h>
 

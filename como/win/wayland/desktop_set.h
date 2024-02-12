@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "utils/algorithm.h"
-#include <win/subspace.h>
+#include <como/utils/algorithm.h>
+#include <como/win/subspace.h>
 
 #include <Wrapland/Server/plasma_window.h>
 

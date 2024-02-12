@@ -5,9 +5,9 @@
 */
 #include "service_action_component.h"
 
-#include "input/logging.h"
+#include <como/input/logging.h>
 
-#include <win/singleton_interface.h>
+#include <como/win/singleton_interface.h>
 
 #include <KShell>
 #include <QDBusConnectionInterface>

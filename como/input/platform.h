@@ -11,7 +11,7 @@
 #include "singleton_interface.h"
 #include "xkb/manager.h"
 
-#include "utils/algorithm.h"
+#include <como/utils/algorithm.h>
 
 #include <QAction>
 #include <QObject>

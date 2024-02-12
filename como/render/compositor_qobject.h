@@ -5,8 +5,8 @@
 */
 #pragma once
 
+#include <como/render/outline.h>
 #include <como_export.h>
-#include <render/outline.h>
 
 #include <QObject>
 #include <QTimerEvent>

@@ -8,7 +8,7 @@
 #include "client_machine.h"
 #include "extras.h"
 
-#include "win/meta.h"
+#include <como/win/meta.h>
 
 #include <xcb/xcb_icccm.h>
 

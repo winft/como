@@ -9,12 +9,12 @@
 #include "tool_windows.h"
 #include "window_find.h"
 
-#include "base/logging.h"
-#include "base/x11/xcb/proto.h"
-#include "win/activation.h"
-#include "win/stacking.h"
-#include "win/transient.h"
-#include <win/x11/tool_windows.h>
+#include <como/base/logging.h>
+#include <como/base/x11/xcb/proto.h>
+#include <como/win/activation.h>
+#include <como/win/stacking.h>
+#include <como/win/transient.h>
+#include <como/win/x11/tool_windows.h>
 
 namespace como::win::x11
 {

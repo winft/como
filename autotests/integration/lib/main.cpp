@@ -5,8 +5,8 @@
 */
 #include "catch_macros.h"
 
+#include "como/base/wayland/app_singleton.h"
 #include "helpers.h"
-#include <base/wayland/app_singleton.h>
 
 #include <KCrash>
 #include <QApplication>

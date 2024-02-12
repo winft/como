@@ -7,7 +7,7 @@
 
 #include "types.h"
 
-#include "base/x11/xcb/extensions.h"
+#include <como/base/x11/xcb/extensions.h>
 
 #include <xcb/shape.h>
 

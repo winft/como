@@ -7,18 +7,18 @@
 
 #include "window_release.h"
 
-#include "win/activation.h"
-#include "win/geo.h"
-#include "win/screen.h"
-#include "win/space_areas_helpers.h"
-#include "win/stacking.h"
-#include "win/transient.h"
-#include <win/wayland/space_windows.h>
+#include <como/win/activation.h>
+#include <como/win/geo.h>
+#include <como/win/screen.h>
+#include <como/win/space_areas_helpers.h>
+#include <como/win/stacking.h>
+#include <como/win/transient.h>
+#include <como/win/wayland/space_windows.h>
 
-#include "base/wayland/output.h"
-#include "base/wayland/output_helpers.h"
-#include "base/wayland/server.h"
-#include <base/platform_qobject.h>
+#include <como/base/platform_qobject.h>
+#include <como/base/wayland/output.h>
+#include <como/base/wayland/output_helpers.h>
+#include <como/base/wayland/server.h>
 
 #include <KScreenLocker/KsldApp>
 #include <Wrapland/Server/layer_shell_v1.h>

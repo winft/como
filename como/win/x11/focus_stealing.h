@@ -5,11 +5,11 @@
 */
 #pragma once
 
-#include "base/options.h"
-#include "utils/algorithm.h"
-#include "win/desktop_get.h"
-#include "win/layers.h"
-#include "win/util.h"
+#include <como/base/options.h>
+#include <como/utils/algorithm.h>
+#include <como/win/desktop_get.h>
+#include <como/win/layers.h>
+#include <como/win/util.h>
 
 #include <xcb/xcb.h>
 

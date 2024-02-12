@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <base/x11/xcb/extensions.h>
-#include <render/gl/interface/platform.h>
+#include <como/base/x11/xcb/extensions.h>
+#include <como/render/gl/interface/platform.h>
 
 #include <QString>
 

@@ -3,9 +3,10 @@
 ; SPDX-License-Identifier: GPL-2.0-or-later
 
 File=rules_settings.kcfg
-IncludeFiles=\"win/rules/ruling.h\",\"win/placement.h\",\"utils/geo.h\"
+IncludeFiles=como/base/como_export.h,como/win/rules/ruling.h,como/win/placement.h,como/utils/geo.h
 NameSpace=como::win::rules
 ClassName=settings
 UseEnumTypes=true
 Mutators=true
 ParentInConstructor=true
+Visibility=COMO_EXPORT

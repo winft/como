@@ -14,10 +14,10 @@
 
 #include "texture_p.h"
 
-#include <render/effect/interface/paint_data.h>
-#include <render/effect/interface/types.h>
-#include <render/gl/interface/framebuffer.h>
-#include <render/gl/interface/vertex_buffer.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/effect/interface/types.h>
+#include <como/render/gl/interface/framebuffer.h>
+#include <como/render/gl/interface/vertex_buffer.h>
 
 #include <QImage>
 #include <QMatrix4x4>

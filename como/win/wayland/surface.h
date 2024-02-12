@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "win/scene.h"
-#include <base/platform_qobject.h>
+#include <como/base/platform_qobject.h>
+#include <como/win/scene.h>
 
 #include <Wrapland/Server/display.h>
 #include <Wrapland/Server/surface.h>

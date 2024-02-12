@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "abstractplatformcontext.h"
 
 #include "eglhelpers.h"
-#include "render/gl/egl_context_attribute_builder.h"
+#include <como/render/gl/egl_context_attribute_builder.h>
 
 #include <logging.h>
 

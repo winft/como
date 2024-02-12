@@ -8,7 +8,7 @@
 #include "damage.h"
 #include "scene.h"
 
-#include "utils/algorithm.h"
+#include <como/utils/algorithm.h>
 
 #include <cassert>
 #include <vector>

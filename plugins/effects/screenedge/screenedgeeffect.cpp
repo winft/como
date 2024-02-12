@@ -5,11 +5,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "screenedgeeffect.h"
 
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/shader.h>
-#include <render/gl/interface/shader_manager.h>
-#include <render/gl/interface/texture.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/shader.h>
+#include <como/render/gl/interface/shader_manager.h>
+#include <como/render/gl/interface/texture.h>
 
 #include <KConfigGroup>
 #include <KSharedConfig>

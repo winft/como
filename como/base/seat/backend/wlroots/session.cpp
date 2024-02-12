@@ -5,10 +5,10 @@
 */
 #include "session.h"
 
-#include "base/backend/wlroots/helpers.h"
-#include "base/logging.h"
-#include "base/wayland/server.h"
-#include <base/config-como.h>
+#include <como/base/backend/wlroots/helpers.h>
+#include <como/base/config-como.h>
+#include <como/base/logging.h>
+#include <como/base/wayland/server.h>
 
 #include <Wrapland/Server/display.h>
 

@@ -7,4 +7,4 @@ ClassName=WindowViewConfig
 NameSpace=como
 Singleton=true
 Mutators=true
-IncludeFiles=win/types.h
+IncludeFiles=como/win/types.h

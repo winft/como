@@ -7,11 +7,11 @@
 */
 #pragma once
 
-#include <render/effect/interface/effect.h>
-#include <render/effect/interface/effect_screen.h>
-#include <render/gl/interface/framebuffer.h>
-#include <render/gl/interface/platform.h>
-#include <render/gl/interface/texture.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_screen.h>
+#include <como/render/gl/interface/framebuffer.h>
+#include <como/render/gl/interface/platform.h>
+#include <como/render/gl/interface/texture.h>
 
 #include <QVector2D>
 #include <QVector>

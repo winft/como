@@ -13,7 +13,6 @@
 #include "output.h"
 #include "screen_edge_handler.h"
 #include "script.h"
-#include "script/desktop_background_item.h"
 #include "shortcut_handler.h"
 #include "singleton_interface.h"
 #include "space.h"
@@ -21,11 +20,12 @@
 #include "window.h"
 #include "window_model.h"
 #include "window_thumbnail_item.h"
+#include <como/script/desktop_background_item.h>
 
-#include <base/como_export.h>
-#include <render/effect/interface/quick_scene.h>
-#include <script/gesture_handler.h>
-#include <script/quick_scene_effect.h>
+#include <como/base/como_export.h>
+#include <como/render/effect/interface/quick_scene.h>
+#include <como/script/gesture_handler.h>
+#include <como/script/quick_scene_effect.h>
 
 #include <KConfigPropertyMap>
 #include <QQmlContext>

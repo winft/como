@@ -6,9 +6,9 @@
 */
 #pragma once
 
-#include "base/x11/xcb/atom.h"
-#include "base/x11/xcb/proto.h"
-#include "render/shadow.h"
+#include <como/base/x11/xcb/atom.h>
+#include <como/base/x11/xcb/proto.h>
+#include <como/render/shadow.h>
 
 #include <QVector>
 

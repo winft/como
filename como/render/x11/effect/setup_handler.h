@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include <render/x11/effect.h>
-#include <render/x11/effect/setup_window.h>
-#include <render/x11/property_notify_filter.h>
+#include <como/render/x11/effect.h>
+#include <como/render/x11/effect/setup_window.h>
+#include <como/render/x11/property_notify_filter.h>
 
 #include <QObject>
 #include <variant>

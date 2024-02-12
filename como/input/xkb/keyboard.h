@@ -7,8 +7,8 @@
 
 #include "keymap.h"
 
-#include "input/event.h"
-#include "input/types.h"
+#include <como/input/event.h>
+#include <como/input/types.h>
 #include <como_export.h>
 
 #include <QObject>

@@ -8,13 +8,13 @@
 #include "drm_lease.h"
 #include "output.h"
 #include "platform_helpers.h"
-#include <base/backend/wlroots/events.h>
-#include <base/backend/wlroots/helpers.h>
-#include <base/backend/wlroots/non_desktop_output.h>
-#include <base/logging.h>
+#include <como/base/backend/wlroots/events.h>
+#include <como/base/backend/wlroots/helpers.h>
+#include <como/base/backend/wlroots/non_desktop_output.h>
+#include <como/base/logging.h>
 
-#include "base/utils.h"
-#include "utils/flags.h"
+#include <como/base/utils.h>
+#include <como/utils/flags.h>
 
 #include <functional>
 #include <memory>

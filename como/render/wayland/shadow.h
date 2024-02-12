@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "render/types.h"
-#include "utils/algorithm.h"
+#include <como/render/types.h>
+#include <como/utils/algorithm.h>
 
 #include <QPixmap>
 #include <QPointer>

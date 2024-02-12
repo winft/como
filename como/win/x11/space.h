@@ -14,22 +14,22 @@
 #include "space_areas.h"
 #include "space_setup.h"
 #include "window.h"
-#include <win/x11/subspace_manager.h>
+#include <como/win/x11/subspace_manager.h>
 
-#include "base/x11/xcb/helpers.h"
-#include "debug/console/x11/x11_console.h"
-#include "utils/blocker.h"
-#include "win/desktop_space.h"
-#include "win/screen_edges.h"
-#include "win/stacking_order.h"
-#include <win/kill_window.h>
-#include <win/space_reconfigure.h>
-#include <win/stacking_state.h>
-#include <win/user_actions_menu.h>
-#include <win/x11/debug.h>
-#include <win/x11/netinfo_helpers.h>
-#include <win/x11/tabbox_filter.h>
-#include <win/x11/xcb_event_filter.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/debug/console/x11/x11_console.h>
+#include <como/utils/blocker.h>
+#include <como/win/desktop_space.h>
+#include <como/win/kill_window.h>
+#include <como/win/screen_edges.h>
+#include <como/win/space_reconfigure.h>
+#include <como/win/stacking_order.h>
+#include <como/win/stacking_state.h>
+#include <como/win/user_actions_menu.h>
+#include <como/win/x11/debug.h>
+#include <como/win/x11/netinfo_helpers.h>
+#include <como/win/x11/tabbox_filter.h>
+#include <como/win/x11/xcb_event_filter.h>
 
 #include <vector>
 

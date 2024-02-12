@@ -9,12 +9,12 @@
 #include "idle.h"
 #include "redirect.h"
 
-#include "base/wayland/server.h"
-#include "input/dbus/dbus.h"
-#include "input/platform.h"
-#include "input/types.h"
-#include <input/backend/wlroots/backend.h>
-#include <input/dbus/device_manager.h>
+#include <como/base/wayland/server.h>
+#include <como/input/backend/wlroots/backend.h>
+#include <como/input/dbus/dbus.h>
+#include <como/input/dbus/device_manager.h>
+#include <como/input/platform.h>
+#include <como/input/types.h>
 
 #include <QPointF>
 #include <Wrapland/Server/display.h>

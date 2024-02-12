@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/keyboard_redirect.h"
+#include <como/input/keyboard_redirect.h>
 
 #include <memory>
 

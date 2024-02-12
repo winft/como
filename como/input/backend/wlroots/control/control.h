@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/control/config.h"
+#include <como/input/control/config.h>
 
 #include <QSizeF>
 #include <libinput.h>

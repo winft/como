@@ -6,7 +6,7 @@
 #pragma once
 
 #include "como_export.h"
-#include <win/subspace.h>
+#include <como/win/subspace.h>
 
 #include <QObject>
 

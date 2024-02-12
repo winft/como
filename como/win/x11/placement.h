@@ -5,11 +5,11 @@
 */
 #pragma once
 
-#include "base/x11/xcb/property.h"
-#include "utils/geo.h"
-#include "win/geo.h"
-#include "win/placement.h"
-#include "win/window_area.h"
+#include <como/base/x11/xcb/property.h>
+#include <como/utils/geo.h>
+#include <como/win/geo.h>
+#include <como/win/placement.h>
+#include <como/win/window_area.h>
 
 namespace como::win::x11
 {

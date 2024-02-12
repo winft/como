@@ -10,7 +10,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "event_x11.h"
 #include "selection_data.h"
 
-#include "base/wayland/server.h"
+#include <como/base/wayland/server.h>
 
 #include <QPoint>
 #include <Wrapland/Server/data_source.h>

@@ -13,22 +13,22 @@
 #include "options.h"
 #include "singleton_interface.h"
 #include "types.h"
-#include <render/compositor.h>
-#include <render/effect/setup_handler.h>
+#include <como/render/compositor.h>
+#include <como/render/effect/setup_handler.h>
 
-#include "win/activation.h"
-#include "win/osd.h"
-#include "win/space_qobject.h"
-#include "win/stacking_order.h"
-#include "win/types.h"
-#include <win/subspace.h>
+#include <como/win/activation.h>
+#include <como/win/osd.h>
+#include <como/win/space_qobject.h>
+#include <como/win/stacking_order.h>
+#include <como/win/subspace.h>
+#include <como/win/types.h>
 
-#include <render/effect/interface/effect.h>
-#include <render/effect/interface/effect_frame.h>
-#include <render/effect/interface/effect_screen.h>
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/offscreen_quick_view.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_frame.h>
+#include <como/render/effect/interface/effect_screen.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/offscreen_quick_view.h>
 
 #include <QHash>
 #include <QMouseEvent>

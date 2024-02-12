@@ -9,8 +9,8 @@
 #include "screen.h"
 #include "stacking.h"
 
-#include "base/output.h"
-#include "base/output_helpers.h"
+#include <como/base/output.h>
+#include <como/base/output_helpers.h>
 
 #include <KProcess>
 

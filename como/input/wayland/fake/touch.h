@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/touch.h"
+#include <como/input/touch.h>
 
 #include <Wrapland/Server/fake_input.h>
 

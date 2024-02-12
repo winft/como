@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "input/types.h"
-#include "win/input/global_shortcut.h"
+#include <como/input/types.h>
+#include <como/win/input/global_shortcut.h>
 #include <como_export.h>
 
 #include <QObject>

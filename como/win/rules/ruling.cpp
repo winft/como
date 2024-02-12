@@ -6,11 +6,11 @@
 */
 #include "ruling.h"
 
-#include "base/output.h"
-#include "base/output_helpers.h"
-#include "utils/algorithm.h"
-#include "utils/geo.h"
-#include "win/setup.h"
+#include <como/base/output.h>
+#include <como/base/output_helpers.h>
+#include <como/utils/algorithm.h>
+#include <como/utils/geo.h>
+#include <como/win/setup.h>
 
 #include <QFileInfo>
 #include <QRegularExpression>

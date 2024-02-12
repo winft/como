@@ -7,9 +7,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #pragma once
 
+#include <como/render/effect/interface/types.h>
+#include <como/render/gl/interface/utils.h>
 #include <como_export.h>
-#include <render/effect/interface/types.h>
-#include <render/gl/interface/utils.h>
 
 #include <QImage>
 #include <QMatrix4x4>

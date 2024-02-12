@@ -8,9 +8,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "output_helpers.h"
 #include "output_transform.h"
 
-#include "base/logging.h"
-#include "base/output.h"
-#include "render/wayland/output.h"
+#include <como/base/logging.h>
+#include <como/base/output.h>
+#include <como/render/wayland/output.h>
 
 #include <QPoint>
 #include <QRect>

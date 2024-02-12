@@ -5,11 +5,11 @@
 */
 #pragma once
 
-#include "base/x11/xcb/property.h"
-#include "utils/algorithm.h"
-#include "utils/blocker.h"
-#include <win/x11/geo.h>
-#include <win/x11/session_manager.h>
+#include <como/base/x11/xcb/property.h>
+#include <como/utils/algorithm.h>
+#include <como/utils/blocker.h>
+#include <como/win/x11/geo.h>
+#include <como/win/x11/session_manager.h>
 
 #include <QByteArray>
 

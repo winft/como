@@ -7,8 +7,8 @@
 
 #include "deco.h"
 #include "window_qobject.h"
-#include <utils/algorithm.h>
-#include <win/geo.h>
+#include <como/utils/algorithm.h>
+#include <como/win/geo.h>
 
 #include <cassert>
 

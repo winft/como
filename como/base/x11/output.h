@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include "base/output.h"
+#include <como/base/output.h>
 
-#include "render/backend/x11/output.h"
-#include "utils/gamma_ramp.h"
+#include <como/render/backend/x11/output.h>
+#include <como/utils/gamma_ramp.h>
 
 #include <xcb/randr.h>
 

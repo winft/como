@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #pragma once
 
 #include "como_export.h"
-#include "win/types.h"
+#include <como/win/types.h>
 
 #include <QFlags>
 

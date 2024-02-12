@@ -7,9 +7,9 @@
 
 #include "key_server.h"
 
-#include "base/x11/event_filter.h"
-#include "win/x11/event.h"
-#include "win/x11/stacking.h"
+#include <como/base/x11/event_filter.h>
+#include <como/win/x11/event.h>
+#include <como/win/x11/stacking.h>
 
 #include <xcb/xcb.h>
 

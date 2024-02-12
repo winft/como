@@ -8,7 +8,7 @@
 #include "device_helpers.h"
 
 #include "como_export.h"
-#include "input/platform_qobject.h"
+#include <como/input/platform_qobject.h>
 
 #include <QObject>
 #include <QStringList>

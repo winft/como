@@ -12,7 +12,7 @@
 #include "structs.h"
 #include "tabbox/tabbox_client_impl.h"
 #include "types.h"
-#include <win/subspace.h>
+#include <como/win/subspace.h>
 
 #include "rules/window.h"
 

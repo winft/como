@@ -10,7 +10,7 @@
 #include "global_shortcut_info_private.h"
 #include "global_shortcuts_registry.h"
 
-#include "input/logging.h"
+#include <como/input/logging.h>
 
 #include <QKeySequence>
 

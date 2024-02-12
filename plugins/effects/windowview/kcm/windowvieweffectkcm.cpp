@@ -8,7 +8,7 @@
 
 #include "windowviewconfig.h"
 
-#include <base/config-como.h>
+#include <como/base/config-como.h>
 #include <kwineffects_interface.h>
 
 #include <KActionCollection>

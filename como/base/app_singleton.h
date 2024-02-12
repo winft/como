@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <base/singleton_interface.h>
+#include <como/base/singleton_interface.h>
 
 #include <QApplication>
 #include <QObject>

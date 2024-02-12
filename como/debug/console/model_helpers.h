@@ -7,9 +7,9 @@
 
 #include "window.h"
 
-#include "win/meta.h"
-#include "win/space_qobject.h"
-#include "win/x11/stacking.h"
+#include <como/win/meta.h>
+#include <como/win/space_qobject.h>
+#include <como/win/x11/stacking.h>
 
 #include <QModelIndex>
 #include <QVector>

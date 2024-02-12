@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "base/logging.h"
-#include "render/xrender/utils.h"
+#include <como/base/logging.h>
+#include <como/render/xrender/utils.h>
 
 #include <deque>
 #include <epoxy/glx.h>

@@ -11,7 +11,7 @@
 #include "window_selector.h"
 #include "xinput_integration.h"
 
-#include "input/redirect_qobject.h"
+#include <como/input/redirect_qobject.h>
 
 #include <QtGui/private/qtx11extras_p.h>
 

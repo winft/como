@@ -10,10 +10,10 @@
 #include "wlr_includes.h"
 #include "wlr_non_owning_data_buffer.h"
 
-#include "render/gl/window.h"
-#include "render/wayland/buffer.h"
+#include <como/render/gl/window.h>
+#include <como/render/wayland/buffer.h>
 
-#include <render/gl/interface/platform.h>
+#include <como/render/gl/interface/platform.h>
 
 #include <QImage>
 #include <QOpenGLFramebufferObject>

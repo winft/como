@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/maximize.h"
+#include <como/win/maximize.h>
 
 namespace como::win::x11
 {

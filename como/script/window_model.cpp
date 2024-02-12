@@ -5,10 +5,10 @@
 */
 #include "window_model.h"
 
-#include "base/singleton_interface.h"
-#include "script/platform.h"
-#include "script/singleton_interface.h"
-#include "script/space.h"
+#include <como/base/singleton_interface.h>
+#include <como/script/platform.h>
+#include <como/script/singleton_interface.h>
+#include <como/script/space.h>
 
 namespace como::scripting
 {

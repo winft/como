@@ -5,9 +5,9 @@
 */
 #include "windoweffects.h"
 
-#include "render/compositor.h"
-#include "render/effects.h"
-#include "render/singleton_interface.h"
+#include <como/render/compositor.h>
+#include <como/render/effects.h>
+#include <como/render/singleton_interface.h>
 
 #include <QGuiApplication>
 #include <QWidget>

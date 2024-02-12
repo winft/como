@@ -8,10 +8,10 @@
 #include "hide.h"
 #include "window_release.h"
 
-#include "base/x11/grabs.h"
-#include "base/x11/xcb/proto.h"
-#include "win/geo.h"
-#include "win/scene.h"
+#include <como/base/x11/grabs.h>
+#include <como/base/x11/xcb/proto.h>
+#include <como/win/geo.h>
+#include <como/win/scene.h>
 
 #include <xcb/damage.h>
 

@@ -8,12 +8,12 @@
 #include "contrast.h"
 #include "contrastshader.h"
 
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/effects_handler.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/gl/interface/platform.h>
-#include <render/gl/interface/texture.h>
-#include <render/gl/interface/vertex_buffer.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/gl/interface/platform.h>
+#include <como/render/gl/interface/texture.h>
+#include <como/render/gl/interface/vertex_buffer.h>
 
 #include <QMatrix4x4>
 

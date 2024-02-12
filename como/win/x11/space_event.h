@@ -9,10 +9,10 @@
 #include "event.h"
 #include "unmanaged.h"
 
-#include "base/x11/event_filter.h"
-#include "base/x11/event_filter_container.h"
-#include "base/x11/event_filter_manager.h"
-#include "base/x11/xcb/proto.h"
+#include <como/base/x11/event_filter.h>
+#include <como/base/x11/event_filter_container.h>
+#include <como/base/x11/event_filter_manager.h>
+#include <como/base/x11/xcb/proto.h>
 
 #include <string>
 #include <vector>

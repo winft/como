@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/pointer_redirect.h"
+#include <como/input/pointer_redirect.h>
 
 #include <QObject>
 

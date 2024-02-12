@@ -15,7 +15,7 @@
 #include "space.h"
 #include "utils.h"
 #include "window.h"
-#include <base/config.h>
+#include <como/base/config.h>
 
 #include <KConfigGroup>
 #include <QDBusConnection>

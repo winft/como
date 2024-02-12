@@ -5,7 +5,7 @@
 */
 #include "xcursor_theme.h"
 
-#include <input/extern/xcursor.h>
+#include <como/input/extern/xcursor.h>
 
 #include <KConfig>
 #include <KConfigGroup>

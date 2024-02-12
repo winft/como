@@ -6,9 +6,9 @@
 */
 #pragma once
 
-#include "base/x11/event_filter.h"
-#include "win/x11/unmanaged.h"
-#include "win/x11/window_find.h"
+#include <como/base/x11/event_filter.h>
+#include <como/win/x11/unmanaged.h>
+#include <como/win/x11/window_find.h>
 
 namespace como::render::x11
 {

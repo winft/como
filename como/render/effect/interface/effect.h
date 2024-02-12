@@ -5,8 +5,8 @@
 */
 #pragma once
 
+#include <como/render/effect/interface/types.h>
 #include <como_export.h>
-#include <render/effect/interface/types.h>
 
 #include <KSharedConfig>
 #include <QKeyEvent>

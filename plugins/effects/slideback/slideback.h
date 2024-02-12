@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_SLIDEBACK_H
 #define KWIN_SLIDEBACK_H
 
-#include <render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect.h>
 
 #include "motions.h"
 

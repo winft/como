@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <base/x11/data.h>
-#include <win/cursor_shape.h>
+#include <como/base/x11/data.h>
+#include <como/win/cursor_shape.h>
 
 #include <xcb/xcb_cursor.h>
 

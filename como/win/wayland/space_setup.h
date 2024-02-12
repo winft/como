@@ -5,19 +5,19 @@
 */
 #pragma once
 
-#include <win/singleton_interface.h>
-#include <win/space_setup.h>
-#include <win/user_actions_menu.h>
-#include <win/wayland/appmenu.h>
-#include <win/wayland/deco.h>
-#include <win/wayland/layer_shell.h>
-#include <win/wayland/plasma_shell.h>
-#include <win/wayland/plasma_window.h>
-#include <win/wayland/setup.h>
-#include <win/wayland/subspace_manager.h>
-#include <win/wayland/window.h>
-#include <win/wayland/xdg_activation.h>
-#include <win/wayland/xdg_shell.h>
+#include <como/win/singleton_interface.h>
+#include <como/win/space_setup.h>
+#include <como/win/user_actions_menu.h>
+#include <como/win/wayland/appmenu.h>
+#include <como/win/wayland/deco.h>
+#include <como/win/wayland/layer_shell.h>
+#include <como/win/wayland/plasma_shell.h>
+#include <como/win/wayland/plasma_window.h>
+#include <como/win/wayland/setup.h>
+#include <como/win/wayland/subspace_manager.h>
+#include <como/win/wayland/window.h>
+#include <como/win/wayland/xdg_activation.h>
+#include <como/win/wayland/xdg_shell.h>
 #include <xwl/surface.h>
 
 #include <Wrapland/Server/appmenu.h>

@@ -315,10 +315,8 @@ add_feature_info("SCHED_RESET_ON_FORK"
 ########### global ###############
 include_directories(BEFORE
     ${CMAKE_CURRENT_BINARY_DIR}/como
-    ${CMAKE_CURRENT_BINARY_DIR}/como/effect
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${CMAKE_CURRENT_SOURCE_DIR}/como
-    ${CMAKE_CURRENT_SOURCE_DIR}/como/effect
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 add_subdirectory(kconf_update)

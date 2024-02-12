@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
-#include <render/effect/interface/effect_integration.h>
+#include <como/render/effect/interface/effect_integration.h>
 
 #include <xcb/xcb.h>
 

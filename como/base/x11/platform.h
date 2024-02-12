@@ -5,20 +5,20 @@
 */
 #pragma once
 
-#include "base/logging.h"
-#include "base/singleton_interface.h"
-#include "base/x11/event_filter.h"
-#include "base/x11/output.h"
-#include "base/x11/output_helpers.h"
-#include "base/x11/randr_filter.h"
-#include "input/x11/platform.h"
-#include "render/x11/platform.h"
-#include "win/x11/space.h"
-#include <base/backend/x11/wm_selection_owner.h>
-#include <base/platform_helpers.h>
-#include <base/platform_qobject.h>
-#include <base/x11/data.h>
-#include <base/x11/event_filter_manager.h>
+#include <como/base/backend/x11/wm_selection_owner.h>
+#include <como/base/logging.h>
+#include <como/base/platform_helpers.h>
+#include <como/base/platform_qobject.h>
+#include <como/base/singleton_interface.h>
+#include <como/base/x11/data.h>
+#include <como/base/x11/event_filter.h>
+#include <como/base/x11/event_filter_manager.h>
+#include <como/base/x11/output.h>
+#include <como/base/x11/output_helpers.h>
+#include <como/base/x11/randr_filter.h>
+#include <como/input/x11/platform.h>
+#include <como/render/x11/platform.h>
+#include <como/win/x11/space.h>
 
 #include <memory>
 #include <unordered_map>

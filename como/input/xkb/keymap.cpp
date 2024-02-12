@@ -7,7 +7,7 @@
 
 #include "manager.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include <sys/mman.h>
 #include <xkbcommon/xkbcommon.h>

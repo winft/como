@@ -8,7 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "extras.h"
 #include "window_find.h"
-#include <win/x11/win_info.h>
+#include <como/win/x11/win_info.h>
 
 #include <QIcon>
 #include <vector>

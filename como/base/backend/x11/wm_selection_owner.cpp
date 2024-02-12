@@ -5,7 +5,7 @@
 */
 #include "wm_selection_owner.h"
 
-#include <utils/memory.h>
+#include <como/utils/memory.h>
 
 #include <QAbstractNativeEventFilter>
 #include <QBasicTimer>

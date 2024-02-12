@@ -5,10 +5,10 @@
 */
 #pragma once
 
-#include <base/como_export.h>
-#include <render/effect/interface/effect_screen.h>
-#include <render/effect/interface/offscreen_quick_view.h>
-#include <render/effect/interface/paint_data.h>
+#include <como/base/como_export.h>
+#include <como/render/effect/interface/effect_screen.h>
+#include <como/render/effect/interface/offscreen_quick_view.h>
+#include <como/render/effect/interface/paint_data.h>
 
 #include <QQmlComponent>
 

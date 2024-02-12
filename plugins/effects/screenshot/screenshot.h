@@ -6,9 +6,9 @@
 */
 #pragma once
 
-#include <render/effect/interface/effect.h>
-#include <render/effect/interface/effect_screen.h>
-#include <render/effect/interface/paint_data.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_screen.h>
+#include <como/render/effect/interface/paint_data.h>
 
 #include <QFuture>
 #include <QImage>

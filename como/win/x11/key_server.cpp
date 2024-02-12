@@ -5,7 +5,7 @@
 */
 #include "key_server.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include <private/qtx11extras_p.h>
 

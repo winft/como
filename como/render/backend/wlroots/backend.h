@@ -9,7 +9,7 @@
 #include "output.h"
 #include "qpainter_backend.h"
 #include "wlr_helpers.h"
-#include <render/compositor_start.h>
+#include <como/render/compositor_start.h>
 
 #include <gsl/pointers>
 #include <variant>

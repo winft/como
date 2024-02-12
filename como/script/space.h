@@ -9,19 +9,19 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "output.h"
 #include "window.h"
 
-#include "base/output.h"
-#include "base/output_helpers.h"
 #include "como_export.h"
-#include "debug/support_info.h"
-#include "win/activation.h"
-#include "win/active_window.h"
-#include "win/move.h"
-#include "win/output_space.h"
-#include "win/screen.h"
-#include <base/platform_qobject.h>
+#include <como/base/output.h>
+#include <como/base/output_helpers.h>
+#include <como/base/platform_qobject.h>
+#include <como/debug/support_info.h>
+#include <como/win/activation.h>
+#include <como/win/active_window.h>
+#include <como/win/move.h>
+#include <como/win/output_space.h>
+#include <como/win/screen.h>
+#include <como/win/subspace.h>
+#include <como/win/subspace_manager.h>
 #include <como_export.h>
-#include <win/subspace.h>
-#include <win/subspace_manager.h>
 
 #include <QObject>
 #include <QQmlEngine>

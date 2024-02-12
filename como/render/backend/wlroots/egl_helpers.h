@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "render/wayland/egl_data.h"
+#include <como/render/wayland/egl_data.h>
 
 namespace como::render::backend::wlroots
 {

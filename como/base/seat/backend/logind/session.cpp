@@ -6,7 +6,7 @@
 */
 #include "session.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include <config-como.h>
 

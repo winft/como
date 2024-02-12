@@ -8,9 +8,9 @@
 
 #include "kwinadaptor.h"
 
-#include "debug/console/console.h"
-#include "debug/perf/ftrace.h"
-#include "win/space_qobject.h"
+#include <como/debug/console/console.h>
+#include <como/debug/perf/ftrace.h>
+#include <como/win/space_qobject.h>
 
 namespace como::desktop::kde
 {

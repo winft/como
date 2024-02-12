@@ -9,9 +9,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_DIMINACTIVE_H
 #define KWIN_DIMINACTIVE_H
 
-#include <render/effect/interface/effect.h>
-#include <render/effect/interface/effect_window.h>
-#include <render/effect/interface/time_line.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/time_line.h>
 
 namespace como
 {

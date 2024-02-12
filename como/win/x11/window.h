@@ -28,19 +28,19 @@
 #include "xcb.h"
 #include "xcb_windows.h"
 
-#include "base/x11/xcb/geometry_hints.h"
-#include "base/x11/xcb/motif_hints.h"
-#include "utils/geo.h"
-#include "win/fullscreen.h"
-#include "win/meta.h"
-#include "win/rules/update.h"
-#include "win/scene.h"
-#include "win/window_geometry.h"
-#include "win/window_metadata.h"
-#include "win/window_qobject.h"
-#include "win/window_render_data.h"
-#include "win/window_setup_base.h"
-#include "win/window_topology.h"
+#include <como/base/x11/xcb/geometry_hints.h>
+#include <como/base/x11/xcb/motif_hints.h>
+#include <como/utils/geo.h>
+#include <como/win/fullscreen.h>
+#include <como/win/meta.h>
+#include <como/win/rules/update.h>
+#include <como/win/scene.h>
+#include <como/win/window_geometry.h>
+#include <como/win/window_metadata.h>
+#include <como/win/window_qobject.h>
+#include <como/win/window_render_data.h>
+#include <como/win/window_setup_base.h>
+#include <como/win/window_topology.h>
 
 #include <memory>
 #include <vector>

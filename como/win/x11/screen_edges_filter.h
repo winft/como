@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "base/x11/event_filter.h"
-#include <base/x11/data.h>
+#include <como/base/x11/data.h>
+#include <como/base/x11/event_filter.h>
 
 #include <QDateTime>
 #include <QWidget>

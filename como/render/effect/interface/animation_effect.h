@@ -7,8 +7,8 @@
 */
 #pragma once
 
-#include <render/effect/interface/offscreen_effect.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/effect/interface/offscreen_effect.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <como_export.h>
 

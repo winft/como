@@ -5,10 +5,10 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "effect_loader.h"
 
-#include "render/effect/interface/effect.h"
-#include "render/effect/interface/effect_plugin_factory.h"
-#include "render/effect/interface/effects_handler.h"
-#include <base/logging.h>
+#include <como/base/logging.h>
+#include <como/render/effect/interface/effect.h>
+#include <como/render/effect/interface/effect_plugin_factory.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 #include <QPluginLoader>
 #include <QStringList>

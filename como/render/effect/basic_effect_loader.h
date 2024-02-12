@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #pragma once
 
 #include "como_export.h"
-#include "render/types.h"
-#include "utils/flags.h"
+#include <como/render/types.h>
+#include <como/utils/flags.h>
 
 #include <KSharedConfig>
 #include <QObject>

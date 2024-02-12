@@ -8,8 +8,8 @@
 
 #include "window_thumbnail_item.h"
 
-#include "base/output.h"
-#include <win/subspace.h>
+#include <como/base/output.h>
+#include <como/win/subspace.h>
 
 namespace como
 {

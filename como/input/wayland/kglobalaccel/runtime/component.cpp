@@ -8,7 +8,7 @@
 #include "global_shortcut_context.h"
 #include "global_shortcuts_registry.h"
 
-#include "input/logging.h"
+#include <como/input/logging.h>
 
 #include <QKeySequence>
 #include <QStringList>

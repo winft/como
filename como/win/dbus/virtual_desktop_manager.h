@@ -8,9 +8,9 @@
 
 #include "como_export.h"
 #include "virtual_desktop_types.h"
-#include <win/subspace_manager.h>
-#include <win/subspaces_get.h>
-#include <win/subspaces_set.h>
+#include <como/win/subspace_manager.h>
+#include <como/win/subspaces_get.h>
+#include <como/win/subspaces_set.h>
 
 #include <QObject>
 #include <gsl/pointers>

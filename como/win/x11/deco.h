@@ -8,11 +8,11 @@
 #include "geo.h"
 #include "input.h"
 
-#include "win/deco/bridge.h"
-#include "win/deco/window.h"
-#include "win/move.h"
-#include "win/scene.h"
-#include <win/x11/net/geo.h>
+#include <como/win/deco/bridge.h>
+#include <como/win/deco/window.h>
+#include <como/win/move.h>
+#include <como/win/scene.h>
+#include <como/win/x11/net/geo.h>
 
 #include <KDecoration2/DecoratedClient>
 

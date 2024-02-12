@@ -7,8 +7,8 @@
 
 #include "net/net.h"
 
-#include "base/x11/event_filter.h"
-#include <win/subspace_manager.h>
+#include <como/base/x11/event_filter.h>
+#include <como/win/subspace_manager.h>
 
 namespace como::win::x11
 {

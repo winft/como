@@ -5,11 +5,11 @@
 */
 #pragma once
 
-#include "base/logging.h"
-#include "base/wayland/server.h"
-#include "win/activation.h"
-#include "win/stacking.h"
-#include <win/wayland/space_windows.h>
+#include <como/base/logging.h>
+#include <como/base/wayland/server.h>
+#include <como/win/activation.h>
+#include <como/win/stacking.h>
+#include <como/win/wayland/space_windows.h>
 
 #include <Wrapland/Server/xdg_activation_v1.h>
 #include <fcntl.h>

@@ -8,8 +8,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "offscreensurface.h"
 #include "window.h"
 
-#include "render/gl/egl_data.h"
-#include "render/singleton_interface.h"
+#include <como/render/gl/egl_data.h>
+#include <como/render/singleton_interface.h>
 
 #include <logging.h>
 

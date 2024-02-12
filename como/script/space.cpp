@@ -6,11 +6,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "space.h"
 
-#include "base/singleton_interface.h"
 #include "singleton_interface.h"
+#include <como/base/singleton_interface.h>
 
-#include "base/logging.h"
-#include "render/outline.h"
+#include <como/base/logging.h>
+#include <como/render/outline.h>
 
 #include <QApplication>
 

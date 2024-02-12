@@ -9,7 +9,7 @@
 #include "focus_chain_edit.h"
 #include "stacking.h"
 #include "transient.h"
-#include <win/subspace.h>
+#include <como/win/subspace.h>
 
 namespace como::win
 {

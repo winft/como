@@ -8,12 +8,12 @@
 
 #include "helpers.h"
 
-#include "win/meta.h"
-#include "win/space_qobject.h"
-#include "win/util.h"
-#include "win/window_qobject.h"
+#include <como/win/meta.h>
+#include <como/win/space_qobject.h>
+#include <como/win/subspace.h>
+#include <como/win/util.h>
+#include <como/win/window_qobject.h>
 #include <como_export.h>
-#include <win/subspace.h>
 
 #include <KConfigGroup>
 #include <QObject>

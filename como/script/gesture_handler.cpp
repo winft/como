@@ -5,7 +5,7 @@
 */
 #include "gesture_handler.h"
 
-#include <render/effect/interface/effects_handler.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 #include <QAction>
 #include <functional>

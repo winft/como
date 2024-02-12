@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/event_spy.h"
+#include <como/input/event_spy.h>
 
 namespace como::input
 {

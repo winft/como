@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <base/logging.h>
-#include <base/x11/xcb/helpers.h>
+#include <como/base/logging.h>
+#include <como/base/x11/xcb/helpers.h>
 
 #include <QCoreApplication>
 

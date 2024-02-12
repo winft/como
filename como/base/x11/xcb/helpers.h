@@ -6,7 +6,7 @@
 */
 #pragma once
 
-#include "utils/memory.h"
+#include <como/utils/memory.h>
 
 #include <QPoint>
 #include <QRect>

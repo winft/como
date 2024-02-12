@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <win/focus_chain.h>
-#include <win/stacking_order.h>
+#include <como/win/focus_chain.h>
+#include <como/win/stacking_order.h>
 
 #include <deque>
 #include <optional>

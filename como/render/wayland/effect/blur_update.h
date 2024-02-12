@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <render/effect/interface/effect_integration.h>
-#include <render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effect_integration.h>
+#include <como/render/effect/interface/effect_window.h>
 
 #include <Wrapland/Server/blur.h>
 #include <Wrapland/Server/surface.h>

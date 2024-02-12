@@ -13,9 +13,9 @@
 #include "net.h"
 #include "screen.h"
 #include "window_operation.h"
-#include <win/subspace_manager.h>
+#include <como/win/subspace_manager.h>
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #if COMO_BUILD_TABBOX
 #include "tabbox/tabbox.h"

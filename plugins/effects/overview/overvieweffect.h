@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include <render/effect/interface/effect_togglable_state.h>
-#include <render/effect/interface/quick_scene.h>
-#include <win/subspace.h>
+#include <como/render/effect/interface/effect_togglable_state.h>
+#include <como/render/effect/interface/quick_scene.h>
+#include <como/win/subspace.h>
 
 namespace como
 {

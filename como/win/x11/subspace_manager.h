@@ -5,14 +5,14 @@
 */
 #pragma once
 
-#include <win/singleton_interface.h>
-#include <win/subspace.h>
-#include <win/subspace_grid.h>
-#include <win/subspace_manager.h>
-#include <win/subspace_manager_qobject.h>
-#include <win/subspaces_get.h>
-#include <win/subspaces_set.h>
-#include <win/x11/net/root_info.h>
+#include <como/win/singleton_interface.h>
+#include <como/win/subspace.h>
+#include <como/win/subspace_grid.h>
+#include <como/win/subspace_manager.h>
+#include <como/win/subspace_manager_qobject.h>
+#include <como/win/subspaces_get.h>
+#include <como/win/subspaces_set.h>
+#include <como/win/x11/net/root_info.h>
 
 #include <KSharedConfig>
 #include <QAction>

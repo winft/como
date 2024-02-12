@@ -8,7 +8,7 @@
 
 #include "virtualdesktopmanageradaptor.h"
 
-#include <win/subspace_manager_qobject.h>
+#include <como/win/subspace_manager_qobject.h>
 
 namespace como::win::dbus
 {

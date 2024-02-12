@@ -7,7 +7,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_QPA_WINDOW_H
 #define KWIN_QPA_WINDOW_H
 
-#include "win/singleton_interface.h"
+#include <como/win/singleton_interface.h>
 
 #include <epoxy/gl.h>
 

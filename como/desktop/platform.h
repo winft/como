@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <desktop/screen_locker_watcher.h>
+#include <como/desktop/screen_locker_watcher.h>
 
 #include <QObject>
 #include <memory>

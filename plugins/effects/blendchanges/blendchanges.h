@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include <render/effect/interface/offscreen_effect.h>
-#include <render/effect/interface/time_line.h>
+#include <como/render/effect/interface/offscreen_effect.h>
+#include <como/render/effect/interface/time_line.h>
 
 #include <chrono>
 

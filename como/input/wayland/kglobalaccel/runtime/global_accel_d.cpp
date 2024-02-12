@@ -11,7 +11,7 @@
 #include "global_shortcuts_registry.h"
 #include "service_action_component.h"
 
-#include "input/logging.h"
+#include <como/input/logging.h>
 
 #include <KGlobalAccel>
 #include <QDBusMetaType>

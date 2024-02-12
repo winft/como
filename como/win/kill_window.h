@@ -9,7 +9,7 @@
 #pragma once
 
 #include "osd.h"
-#include <utils/algorithm.h>
+#include <como/utils/algorithm.h>
 
 #include <KLocalizedString>
 

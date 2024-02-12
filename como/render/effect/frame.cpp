@@ -5,8 +5,8 @@
 */
 #include "frame.h"
 
-#include <base/config-como.h>
-#include <render/effect/interface/effects_handler.h>
+#include <como/base/config-como.h>
+#include <como/render/effect/interface/effects_handler.h>
 
 #include <QQuickItem>
 #include <QStandardPaths>

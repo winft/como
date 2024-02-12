@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "win/space_qobject.h"
-#include "win/x11/stacking.h"
+#include <como/win/space_qobject.h>
+#include <como/win/x11/stacking.h>
 
 #include <QAbstractItemModel>
 #include <Wrapland/Server/buffer.h>

@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/damage.h"
+#include <como/win/damage.h>
 
 #include <xcb/damage.h>
 #include <xcb/xfixes.h>

@@ -9,10 +9,10 @@
 #include "input_filter.h"
 #include "model_helpers.h"
 #include "xwl_surface_tree_model.h"
-#include <debug/console/wayland/wayland_console.h>
+#include <como/debug/console/wayland/wayland_console.h>
 
-#include "debug/console/console.h"
-#include "input/redirect_qobject.h"
+#include <como/debug/console/console.h>
+#include <como/input/redirect_qobject.h>
 #include <como_export.h>
 
 namespace como::debug

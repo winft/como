@@ -11,7 +11,7 @@
 #include "keyboard.h"
 #include "numlock.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include <KConfigGroup>
 #include <KSharedConfig>

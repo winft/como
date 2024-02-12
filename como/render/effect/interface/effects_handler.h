@@ -5,11 +5,11 @@
 */
 #pragma once
 
+#include <como/render/effect/interface/effect_integration.h>
+#include <como/render/effect/interface/paint_data.h>
+#include <como/render/effect/interface/types.h>
+#include <como/win/subspace.h>
 #include <como_export.h>
-#include <render/effect/interface/effect_integration.h>
-#include <render/effect/interface/paint_data.h>
-#include <render/effect/interface/types.h>
-#include <win/subspace.h>
 
 #include <KSharedConfig>
 

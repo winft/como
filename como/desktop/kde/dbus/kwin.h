@@ -7,12 +7,12 @@
 #pragma once
 
 #include "como_export.h"
-#include "debug/support_info.h"
-#include "win/kill_window.h"
-#include "win/placement.h"
-#include <win/activation.h>
-#include <win/space_qobject.h>
-#include <win/subspaces_set.h>
+#include <como/debug/support_info.h>
+#include <como/win/activation.h>
+#include <como/win/kill_window.h>
+#include <como/win/placement.h>
+#include <como/win/space_qobject.h>
+#include <como/win/subspaces_set.h>
 
 #include <QObject>
 #include <QtDBus>

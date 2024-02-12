@@ -8,8 +8,8 @@
 #include "info_p.h"
 #include "rarray.h"
 
-#include "win/x11/extras.h"
-#include <win/meta.h>
+#include <como/win/meta.h>
+#include <como/win/x11/extras.h>
 
 // For devicePixelRatio
 // TODO(romangg): remove!

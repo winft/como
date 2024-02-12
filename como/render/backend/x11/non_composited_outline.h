@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "base/x11/data.h"
-#include "base/x11/xcb/window.h"
-#include "render/outline.h"
+#include <como/base/x11/data.h>
+#include <como/base/x11/xcb/window.h>
+#include <como/render/outline.h>
 #include <como_export.h>
 
 namespace como::render::backend::x11

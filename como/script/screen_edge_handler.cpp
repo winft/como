@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "screen_edge_handler.h"
 
 #include "config-como.h"
-#include "win/singleton_interface.h"
+#include <como/win/singleton_interface.h>
 
 #include <QAction>
 

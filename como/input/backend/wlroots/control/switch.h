@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "input/control/switch.h"
+#include <como/input/control/switch.h>
 #include <como_export.h>
 
 #include <KSharedConfig>

@@ -8,7 +8,7 @@
 
 #include "osd_notification.h"
 
-#include "utils/flags.h"
+#include <como/utils/flags.h>
 
 #include <QString>
 

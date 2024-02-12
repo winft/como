@@ -8,12 +8,12 @@
 */
 #pragma once
 
-#include "base/x11/event_filter.h"
-#include "base/x11/grabs.h"
-#include "base/x11/xcb/proto.h"
-#include "win/x11/unmanaged.h"
-#include "win/x11/window_find.h"
-#include <win/x11/xcb_cursor.h>
+#include <como/base/x11/event_filter.h>
+#include <como/base/x11/grabs.h>
+#include <como/base/x11/xcb/proto.h>
+#include <como/win/x11/unmanaged.h>
+#include <como/win/x11/window_find.h>
+#include <como/win/x11/xcb_cursor.h>
 
 #include <QPoint>
 #include <functional>
@@ -27,7 +27,7 @@
 #include <X11/Xutil.h>
 #include <X11/cursorfont.h>
 
-#include "base/x11/fixx11h.h"
+#include <como/base/x11/fixx11h.h>
 
 namespace como::input::x11
 {

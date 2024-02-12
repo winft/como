@@ -5,11 +5,11 @@
 */
 #pragma once
 
-#include "input/event.h"
-#include "input/event_filter.h"
-#include "input/keyboard.h"
-#include "input/keyboard_redirect.h"
-#include "input/xkb/keyboard.h"
+#include <como/input/event.h>
+#include <como/input/event_filter.h>
+#include <como/input/keyboard.h>
+#include <como/input/keyboard_redirect.h>
+#include <como/input/xkb/keyboard.h>
 
 namespace como::input
 {

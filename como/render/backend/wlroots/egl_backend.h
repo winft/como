@@ -12,14 +12,14 @@
 #include "egl_texture.h"
 #include "wlr_helpers.h"
 
-#include "render/gl/backend.h"
-#include "render/gl/egl.h"
-#include "render/gl/gl.h"
-#include "render/wayland/egl.h"
-#include "render/wayland/egl_data.h"
+#include <como/render/gl/backend.h>
+#include <como/render/gl/egl.h>
+#include <como/render/gl/gl.h>
+#include <como/render/wayland/egl.h>
+#include <como/render/wayland/egl_data.h>
 
-#include <render/gl/interface/platform.h>
-#include <render/gl/interface/utils.h>
+#include <como/render/gl/interface/platform.h>
+#include <como/render/gl/interface/utils.h>
 
 #include <QOpenGLContext>
 #include <Wrapland/Server/linux_dmabuf_v1.h>

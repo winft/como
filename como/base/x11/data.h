@@ -5,8 +5,8 @@
 */
 #pragma once
 
-#include "base/logging.h"
-#include "base/types.h"
+#include <como/base/logging.h>
+#include <como/base/types.h>
 
 #include <QtGui/private/qtx11extras_p.h>
 #include <cerrno>

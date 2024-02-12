@@ -6,10 +6,10 @@
 */
 #pragma once
 
-#include "input/control/keyboard.h"
-#include "input/control/pointer.h"
-#include "input/control/switch.h"
-#include "input/control/touch.h"
+#include <como/input/control/keyboard.h>
+#include <como/input/control/pointer.h>
+#include <como/input/control/switch.h>
+#include <como/input/control/touch.h>
 
 #include "como_export.h"
 

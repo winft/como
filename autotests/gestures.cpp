@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "integration/lib/catch_macros.h"
 
-#include "win/input/gestures.h"
+#include "como/win/input/gestures.h"
 
 #include <QSignalSpy>
 #include <catch2/generators/catch_generators.hpp>

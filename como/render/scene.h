@@ -11,15 +11,15 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "singleton_interface.h"
 #include "types.h"
 
-#include "base/wayland/screen_lock.h"
-#include "win/damage.h"
-#include "win/deco/renderer.h"
-#include "win/geo.h"
-#include "win/space_qobject.h"
+#include <como/base/wayland/screen_lock.h>
+#include <como/win/damage.h>
+#include <como/win/deco/renderer.h>
+#include <como/win/geo.h>
+#include <como/win/space_qobject.h>
 
-#include <render/effect/interface/offscreen_quick_view.h>
-#include <render/effect/interface/paint_clipper.h>
-#include <render/effect/interface/paint_data.h>
+#include <como/render/effect/interface/offscreen_quick_view.h>
+#include <como/render/effect/interface/paint_clipper.h>
+#include <como/render/effect/interface/paint_data.h>
 
 #include <QMatrix4x4>
 #include <QQuickWindow>

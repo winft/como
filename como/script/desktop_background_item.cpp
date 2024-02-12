@@ -5,10 +5,10 @@
 */
 
 #include "desktop_background_item.h"
-#include "base/singleton_interface.h"
-#include "script/scripting_logging.h"
-#include "script/singleton_interface.h"
-#include "script/space.h"
+#include <como/base/singleton_interface.h>
+#include <como/script/scripting_logging.h>
+#include <como/script/singleton_interface.h>
+#include <como/script/space.h>
 
 namespace como
 {

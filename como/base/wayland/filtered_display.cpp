@@ -5,8 +5,8 @@
 */
 #include "filtered_display.h"
 
-#include "base/logging.h"
-#include "desktop/kde/service_utils.h"
+#include <como/base/logging.h>
+#include <como/desktop/kde/service_utils.h>
 
 #include <QCryptographicHash>
 #include <QFile>

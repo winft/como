@@ -6,7 +6,7 @@
 #pragma once
 
 #include "como_export.h"
-#include "script/window.h"
+#include <como/script/window.h>
 
 #include <QAbstractListModel>
 #include <QSortFilterProxyModel>

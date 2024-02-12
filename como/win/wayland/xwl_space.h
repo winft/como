@@ -8,23 +8,23 @@
 #include "subsurface.h"
 #include "surface.h"
 #include "xwl_window.h"
-#include <win/wayland/space_setup.h>
-#include <win/x11/space_setup.h>
+#include <como/win/wayland/space_setup.h>
+#include <como/win/x11/space_setup.h>
 
-#include "win/input.h"
-#include "win/screen.h"
-#include "win/setup.h"
-#include "win/stacking_order.h"
-#include "win/x11/desktop_space.h"
-#include "win/x11/space_areas.h"
 #include "xwl/surface.h"
-#include <debug/console/wayland/xwl_console.h>
-#include <win/kill_window.h>
-#include <win/stacking_state.h>
-#include <win/wayland/internal_window.h>
-#include <win/wayland/subspace_manager.h>
-#include <win/x11/debug.h>
-#include <win/x11/netinfo_helpers.h>
+#include <como/debug/console/wayland/xwl_console.h>
+#include <como/win/input.h>
+#include <como/win/kill_window.h>
+#include <como/win/screen.h>
+#include <como/win/setup.h>
+#include <como/win/stacking_order.h>
+#include <como/win/stacking_state.h>
+#include <como/win/wayland/internal_window.h>
+#include <como/win/wayland/subspace_manager.h>
+#include <como/win/x11/debug.h>
+#include <como/win/x11/desktop_space.h>
+#include <como/win/x11/netinfo_helpers.h>
+#include <como/win/x11/space_areas.h>
 
 #include <memory>
 

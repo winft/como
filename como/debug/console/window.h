@@ -5,11 +5,11 @@
 */
 #pragma once
 
-#include <win/activation.h>
-#include <win/desktop_get.h>
-#include <win/desktop_set.h>
-#include <win/move.h>
-#include <win/property_window.h>
+#include <como/win/activation.h>
+#include <como/win/desktop_get.h>
+#include <como/win/desktop_set.h>
+#include <como/win/move.h>
+#include <como/win/property_window.h>
 
 namespace como::debug
 {

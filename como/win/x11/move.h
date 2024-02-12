@@ -7,14 +7,14 @@
 
 #include "client.h"
 
-#include "utils/geo.h"
-#include "utils/memory.h"
-#include "win/meta.h"
-#include "win/move.h"
-#include "win/types.h"
-#include <win/x11/xcb_cursor.h>
+#include <como/utils/geo.h>
+#include <como/utils/memory.h>
+#include <como/win/meta.h>
+#include <como/win/move.h>
+#include <como/win/types.h>
+#include <como/win/x11/xcb_cursor.h>
 
-#include "base/x11/grabs.h"
+#include <como/base/x11/grabs.h>
 
 namespace como::win::x11
 {

@@ -5,5 +5,5 @@
 File=render_settings.kcfg
 NameSpace=como::render
 ClassName=settings
-IncludeFiles=render/types.h
+IncludeFiles=como/render/types.h
 UseEnumTypes=true

@@ -10,9 +10,9 @@
 */
 #pragma once
 
-#include "base/x11/atoms.h"
-#include "base/x11/xcb/window.h"
-#include "win/screen_edges.h"
+#include <como/base/x11/atoms.h>
+#include <como/base/x11/xcb/window.h>
+#include <como/win/screen_edges.h>
 
 namespace como::win::x11
 {

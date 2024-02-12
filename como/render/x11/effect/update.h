@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "render/effect/integration.h"
-#include "render/effect/internal_win_update.h"
-#include <render/x11/effect.h>
+#include <como/render/effect/integration.h>
+#include <como/render/effect/internal_win_update.h>
+#include <como/render/x11/effect.h>
 
 #include <xcb/xcb.h>
 

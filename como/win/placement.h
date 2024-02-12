@@ -16,8 +16,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "types.h"
 #include "window_area.h"
 
-#include "base/options.h"
 #include "rules/ruling.h"
+#include <como/base/options.h>
 
 #include <QList>
 #include <QPoint>

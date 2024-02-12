@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/shortcut_set.h"
+#include <como/win/shortcut_set.h>
 
 namespace como::win::x11
 {

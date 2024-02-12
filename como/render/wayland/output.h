@@ -8,15 +8,15 @@
 #include "duration_record.h"
 #include "presentation.h"
 
-#include "base/logging.h"
-#include "base/seat/session.h"
-#include "debug/perf/ftrace.h"
-#include "render/gl/scene.h"
-#include "render/gl/timer_query.h"
-#include "win/remnant.h"
-#include "win/space_window_release.h"
+#include <como/base/logging.h>
+#include <como/base/seat/session.h>
+#include <como/debug/perf/ftrace.h>
+#include <como/render/gl/scene.h>
+#include <como/render/gl/timer_query.h>
+#include <como/win/remnant.h>
+#include <como/win/space_window_release.h>
 
-#include <render/gl/interface/platform.h>
+#include <como/render/gl/interface/platform.h>
 
 #include <QBasicTimer>
 #include <QRegion>

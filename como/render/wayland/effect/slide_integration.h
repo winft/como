@@ -8,10 +8,10 @@
 #include "slide_update.h"
 #include "update.h"
 
-#include "render/x11/effect.h"
-#include "render/x11/effect/slide_update.h"
+#include <como/render/x11/effect.h>
+#include <como/render/x11/effect/slide_update.h>
 
-#include <render/effect/interface/effect_integration.h>
+#include <como/render/effect/interface/effect_integration.h>
 
 #include <Wrapland/Server/display.h>
 #include <Wrapland/Server/slide.h>

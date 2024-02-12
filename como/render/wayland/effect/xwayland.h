@@ -5,13 +5,13 @@
 */
 #pragma once
 
-#include "render/x11/effect/contrast_update.h"
-#include <render/wayland/effect/blur_integration.h>
-#include <render/wayland/effect/contrast_integration.h>
-#include <render/wayland/effect/slide_integration.h>
-#include <render/x11/effect/blur_update.h>
-#include <render/x11/effect/slide_update.h>
-#include <render/x11/effect/update.h>
+#include <como/render/wayland/effect/blur_integration.h>
+#include <como/render/wayland/effect/contrast_integration.h>
+#include <como/render/wayland/effect/slide_integration.h>
+#include <como/render/x11/effect/blur_update.h>
+#include <como/render/x11/effect/contrast_update.h>
+#include <como/render/x11/effect/slide_update.h>
+#include <como/render/x11/effect/update.h>
 
 namespace como::render::wayland
 {

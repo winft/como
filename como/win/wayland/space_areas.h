@@ -5,9 +5,9 @@
 */
 #pragma once
 
-#include "base/output_helpers.h"
-#include "win/desktop_get.h"
-#include "win/space_areas.h"
+#include <como/base/output_helpers.h>
+#include <como/win/desktop_get.h>
+#include <como/win/space_areas.h>
 
 namespace como::win::wayland
 {

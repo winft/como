@@ -9,17 +9,17 @@
 #include "meta.h"
 #include "transient.h"
 
-#include "base/x11/grabs.h"
-#include "base/x11/xcb/extensions.h"
-#include "base/x11/xcb/helpers.h"
-#include "utils/blocker.h"
-#include "win/input.h"
-#include "win/rules.h"
-#include "win/shortcut_set.h"
-#include "win/space_areas_helpers.h"
-#include "win/tabbox.h"
-#include "win/window_release.h"
-#include <win/x11/user_time.h>
+#include <como/base/x11/grabs.h>
+#include <como/base/x11/xcb/extensions.h>
+#include <como/base/x11/xcb/helpers.h>
+#include <como/utils/blocker.h>
+#include <como/win/input.h>
+#include <como/win/rules.h>
+#include <como/win/shortcut_set.h>
+#include <como/win/space_areas_helpers.h>
+#include <como/win/tabbox.h>
+#include <como/win/window_release.h>
+#include <como/win/x11/user_time.h>
 
 #include <QWindow>
 #include <csignal>

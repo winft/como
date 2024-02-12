@@ -6,12 +6,12 @@
 #pragma once
 
 #include "control/switch.h"
-#include <input/backend/wlroots/device_helpers.h>
+#include <como/input/backend/wlroots/device_helpers.h>
 
-#include "base/utils.h"
 #include "config-como.h"
-#include "input/platform.h"
-#include "input/switch.h"
+#include <como/base/utils.h>
+#include <como/input/platform.h>
+#include <como/input/switch.h>
 
 extern "C" {
 #include <wlr/types/wlr_input_device.h>

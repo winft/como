@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include <base/x11/selection_owner.h>
+#include <como/base/x11/selection_owner.h>
 #include <como_export.h>
 
 #include <xcb/xcb.h>

@@ -5,10 +5,10 @@
 */
 #include "options.h"
 
-#include "base/logging.h"
+#include <como/base/logging.h>
 
 #include "render_settings.h"
-#include "utils/algorithm.h"
+#include <como/utils/algorithm.h>
 
 namespace como::render
 {

@@ -6,9 +6,9 @@
 */
 #pragma once
 
-#include "base/x11/event_filter.h"
-#include "base/x11/xcb/qt_types.h"
-#include "win/x11/key_server.h"
+#include <como/base/x11/event_filter.h>
+#include <como/base/x11/xcb/qt_types.h>
+#include <como/win/x11/key_server.h>
 
 #include <QCursor>
 #include <QMouseEvent>

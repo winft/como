@@ -7,7 +7,7 @@
 
 #include "info_p.h"
 
-#include "win/x11/extras.h"
+#include <como/win/x11/extras.h>
 
 #include <assert.h>
 #include <private/qtx11extras_p.h>

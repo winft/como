@@ -5,11 +5,11 @@
 */
 #pragma once
 
-#include "base/wayland/server.h"
-#include "input/event_filter.h"
-#include "input/window_find.h"
-#include "win/activation.h"
 #include "xwl/types.h"
+#include <como/base/wayland/server.h>
+#include <como/input/event_filter.h>
+#include <como/input/window_find.h>
+#include <como/win/activation.h>
 
 #include <Wrapland/Server/drag_pool.h>
 #include <Wrapland/Server/pointer_pool.h>

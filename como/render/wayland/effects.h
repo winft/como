@@ -9,10 +9,10 @@
 #include "effect/contrast_integration.h"
 #include "effect/slide_integration.h"
 
-#include "base/wayland/server.h"
-#include "render/effects.h"
-#include <render/wayland/setup_handler.h>
-#include <win/wayland/space_windows.h>
+#include <como/base/wayland/server.h>
+#include <como/render/effects.h>
+#include <como/render/wayland/setup_handler.h>
+#include <como/win/wayland/space_windows.h>
 
 namespace como::render::wayland
 {

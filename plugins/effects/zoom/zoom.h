@@ -7,8 +7,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #ifndef KWIN_ZOOM_H
 #define KWIN_ZOOM_H
 
-#include <base/config-como.h>
-#include <render/effect/interface/effect.h>
+#include <como/base/config-como.h>
+#include <como/render/effect/interface/effect.h>
 
 #include <QTime>
 #include <QTimeLine>

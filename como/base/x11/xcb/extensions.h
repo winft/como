@@ -6,8 +6,8 @@
 */
 #pragma once
 
-#include "base/x11/data.h"
 #include "como_export.h"
+#include <como/base/x11/data.h>
 
 #include <QVector>
 #include <xcb/xcb.h>

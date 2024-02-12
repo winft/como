@@ -5,7 +5,7 @@
 */
 #pragma once
 
-#include "win/deco/renderer.h"
+#include <como/win/deco/renderer.h>
 
 #include <QTimer>
 #include <xcb/xcb.h>

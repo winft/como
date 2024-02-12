@@ -8,10 +8,10 @@
 #include "contrast_update.h"
 #include "internal_win_properties.h"
 
-#include "utils/algorithm.h"
+#include <como/utils/algorithm.h>
 
-#include <render/effect/interface/effect_integration.h>
-#include <render/effect/interface/effect_window.h>
+#include <como/render/effect/interface/effect_integration.h>
+#include <como/render/effect/interface/effect_window.h>
 
 #include <QWindow>
 
