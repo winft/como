@@ -10,12 +10,7 @@
 
 #include <KCrash>
 #include <QApplication>
-#include <QPluginLoader>
 #include <catch2/catch_session.hpp>
-
-Q_IMPORT_PLUGIN(KWinIntegrationPlugin)
-Q_IMPORT_PLUGIN(KWindowSystemKWinPlugin)
-Q_IMPORT_PLUGIN(KWinIdleTimePoller)
 
 int main(int argc, char* argv[])
 {

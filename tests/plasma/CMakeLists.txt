@@ -18,9 +18,6 @@ target_link_libraries(kwin_wayland
   como::script
   como::wayland
   como::xwayland
-  KF6IdleTimeComoPlugin
-  KF6WindowSystemComoPlugin
-  ComoQpaPlugin
   KF6::DBusAddons
 )
 

@@ -122,10 +122,6 @@ PRIVATE
   KF6::Crash
   KF6::WindowSystem
   WraplandClient
-  # Static plugins
-  ComoQpaPlugin
-  KF6WindowSystemComoPlugin
-  KF6IdleTimeComoPlugin
 )
 
 add_executable(tests-wl
@@ -203,10 +199,6 @@ PRIVATE
   KF6::Crash
   KF6::WindowSystem
   WraplandClient
-  # Static plugins
-  ComoQpaPlugin
-  KF6WindowSystemComoPlugin
-  KF6IdleTimeComoPlugin
 )
 
 include(Catch)
