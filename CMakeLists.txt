@@ -4,11 +4,12 @@
 
 cmake_minimum_required(VERSION 3.23 FATAL_ERROR)
 
-project("The Compositor Modules" VERSION 5.27.80)
+project("The Compositor Modules" VERSION 0.1.0)
 
 set(QT_MIN_VERSION "6.4.0")
 set(KF6_MIN_VERSION "5.240.0")
 set(KDE_COMPILERSETTINGS_LEVEL "5.84")
+set(KDE_PLASMA_VERSION "5.27")
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 20)
@@ -110,7 +111,7 @@ set_package_properties(KF6Kirigami2 PROPERTIES
     TYPE RUNTIME
 )
 
-find_package(Plasma ${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}
+find_package(Plasma ${KDE_PLASMA_VERSION}
   CONFIG
 )
 set_package_properties(Plasma PROPERTIES
@@ -119,7 +120,7 @@ set_package_properties(Plasma PROPERTIES
     TYPE RUNTIME
 )
 
-find_package(KDecoration2 ${CMAKE_PROJECT_VERSION_MAJOR}.${CMAKE_PROJECT_VERSION_MINOR}
+find_package(KDecoration2 ${KDE_PLASMA_VERSION}
   CONFIG REQUIRED
 )
 
