@@ -270,15 +270,14 @@ TEST_CASE("modifier only shortcut", "[input]")
         keyboard_key_pressed(KEY_CAPSLOCK, timestamp++);
         keyboard_key_released(KEY_CAPSLOCK, timestamp++);
         QTRY_COMPARE(input::xkb::get_active_keyboard_modifiers(*setup.base->mod.input),
-                     Qt::ShiftModifier);
+                     Qt::NoModifier);
         QTRY_COMPARE(triggeredSpy.count(), 1);
 
         // currently caps lock is on
-        // shift still triggers
         keyboard_key_pressed(modifier, timestamp++);
         keyboard_key_released(modifier, timestamp++);
         QTRY_COMPARE(input::xkb::get_active_keyboard_modifiers(*setup.base->mod.input),
-                     Qt::ShiftModifier);
+                     Qt::NoModifier);
         QTRY_COMPARE(triggeredSpy.count(), 2);
 
         // meta should also trigger

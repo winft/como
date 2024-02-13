@@ -213,13 +213,12 @@ TEST_CASE("tabbox", "[win]")
         quint32 timestamp = 0;
         keyboard_key_pressed(KEY_CAPSLOCK, timestamp++);
         keyboard_key_released(KEY_CAPSLOCK, timestamp++);
-        QCOMPARE(input::xkb::get_active_keyboard_modifiers(*setup.base->mod.input),
-                 Qt::ShiftModifier);
+        QCOMPARE(input::xkb::get_active_keyboard_modifiers(*setup.base->mod.input), Qt::NoModifier);
 
         // press alt+tab
         keyboard_key_pressed(KEY_LEFTALT, timestamp++);
         REQUIRE(input::xkb::get_active_keyboard_modifiers(*setup.base->mod.input)
-                == (Qt::ShiftModifier | Qt::AltModifier));
+                == Qt::AltModifier);
         keyboard_key_pressed(KEY_TAB, timestamp++);
         keyboard_key_released(KEY_TAB, timestamp++);
 
@@ -239,9 +238,9 @@ TEST_CASE("tabbox", "[win]")
         QCOMPARE(setup.base->mod.space->tabbox->is_grabbed(), false);
 
         // Has walked backwards to the previously lowest client in the stacking order.
-        QCOMPARE(get_wayland_window(setup.base->mod.space->stacking.active), c1);
+        QCOMPARE(get_wayland_window(setup.base->mod.space->stacking.active), c2);
         QCOMPARE(setup.base->mod.space->stacking.order.stack,
-                 (std::deque<space::window_t>{c2, c3, c1}));
+                 (std::deque<space::window_t>{c1, c3, c2}));
 
         surface3.reset();
         QVERIFY(wait_for_destroyed(c3));

@@ -148,8 +148,7 @@ void keyboard::update_modifiers()
     constexpr auto is_active = xkb_state_mod_index_is_active;
     auto mods = Qt::KeyboardModifiers();
 
-    if (is_active(state, modifiers_indices.shift, XKB_STATE_MODS_EFFECTIVE) == 1
-        || is_active(state, modifiers_indices.caps, XKB_STATE_MODS_EFFECTIVE) == 1) {
+    if (is_active(state, modifiers_indices.shift, XKB_STATE_MODS_EFFECTIVE) == 1) {
         mods |= Qt::ShiftModifier;
     }
     if (is_active(state, modifiers_indices.alt, XKB_STATE_MODS_EFFECTIVE) == 1) {
