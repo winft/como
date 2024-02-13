@@ -54,7 +54,7 @@ public:
     virtual KWin::Effect* createEffect() const = 0;
 };
 
-#define EffectPluginFactory_iid "org.kde.kwin.EffectPluginFactory" COMO_VERSION_STRING
+#define EffectPluginFactory_iid "org.kde.kwin.EffectPluginFactory" KDE_PLASMA_VERSION_STRING
 #define KWIN_PLUGIN_FACTORY_NAME KPLUGINFACTORY_PLUGIN_CLASS_INTERNAL_NAME
 
 /**
