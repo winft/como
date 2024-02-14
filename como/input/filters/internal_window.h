@@ -18,6 +18,7 @@
 #include <QWindow>
 #include <Wrapland/Server/seat.h>
 #include <Wrapland/Server/touch_pool.h>
+#include <qpa/qwindowsysteminterface.h>
 
 namespace como::input
 {
@@ -51,15 +52,14 @@ public:
         }
 
         auto qt_event = button_to_qt_event(*this->redirect.pointer, event);
-        auto adapted_qt_event = QMouseEvent(qt_event.type(),
-                                            qt_event.pos() - internal->position(),
-                                            qt_event.pos(),
-                                            qt_event.button(),
-                                            qt_event.buttons(),
-                                            qt_event.modifiers());
-        adapted_qt_event.setAccepted(false);
-        QCoreApplication::sendEvent(internal, &adapted_qt_event);
-        return adapted_qt_event.isAccepted();
+        return QWindowSystemInterface::handleMouseEvent<
+            QWindowSystemInterface::SynchronousDelivery>(internal,
+                                                         qt_event.position() - internal->position(),
+                                                         qt_event.globalPosition(),
+                                                         qt_event.buttons(),
+                                                         qt_event.button(),
+                                                         qt_event.type(),
+                                                         qt_event.modifiers());
     }
 
     bool motion(motion_event const& event) override
