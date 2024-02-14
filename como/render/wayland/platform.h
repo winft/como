@@ -45,7 +45,7 @@ public:
 
     platform(Base& base)
         : base{base}
-        , qobject{std::make_unique<compositor_qobject>([this](auto /*te*/) { return false; })}
+        , qobject{std::make_unique<compositor_qobject>([](auto /*te*/) { return false; })}
         , options{std::make_unique<render::options>(base.operation_mode, base.config.main)}
         , backend{*this}
         , night_color{std::make_unique<render::post::night_color_manager<Base>>(base)}

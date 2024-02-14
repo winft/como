@@ -22,7 +22,7 @@ void setup_window_connections(Win& window)
         Q_EMIT eff_win->windowDesktopsChanged(eff_win);
     });
     QObject::connect(
-        qtwin, &win::window_qobject::maximize_mode_changed, eff_win, [&window, eff_win](auto mode) {
+        qtwin, &win::window_qobject::maximize_mode_changed, eff_win, [eff_win](auto mode) {
             Q_EMIT eff_win->windowMaximizedStateChanged(
                 eff_win,
                 flags(mode & win::maximize_mode::horizontal),
