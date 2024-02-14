@@ -227,7 +227,7 @@ void setup_handler(Handler& handler)
 
     if constexpr (requires { typename Handler::space_t::internal_window_t; }) {
         for (auto& win : ws->windows) {
-            std::visit(overload{[&handler](typename Handler::space_t::internal_window_t* win) {
+            std::visit(overload{[](typename Handler::space_t::internal_window_t* win) {
                                     setup_window_connections(*win);
                                 },
                                 [](auto&&) {}},

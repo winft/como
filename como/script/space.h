@@ -499,7 +499,7 @@ public:
         QObject::connect(
             ref_space->qobject.get(), &space_qobject::clientAdded, this, [this](auto win_id) {
                 auto ref_win = this->ref_space->windows_map.at(win_id);
-                std::visit(overload{[&, this](auto&& win) { handle_client_added(win); }}, ref_win);
+                std::visit(overload{[this](auto&& win) { handle_client_added(win); }}, ref_win);
             });
         QObject::connect(ref_space->qobject.get(),
                          &space_qobject::clientRemoved,

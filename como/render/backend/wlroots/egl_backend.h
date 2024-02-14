@@ -76,8 +76,7 @@ public:
 
             dmabuf = std::make_unique<Wrapland::Server::linux_dmabuf_v1>(
                 backend.frontend->base.server->display.get(),
-                [this](
-                    auto const& planes, auto format, auto modifier, auto const& size, auto flags) {
+                [](auto const& planes, auto format, auto modifier, auto const& size, auto flags) {
                     return std::make_unique<Wrapland::Server::linux_dmabuf_buffer_v1>(
                         planes, format, modifier, size, flags);
                 });

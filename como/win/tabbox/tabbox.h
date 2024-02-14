@@ -818,7 +818,7 @@ private:
             options_traverse_all = group.readEntry("TraverseAll", false);
         }
 
-        auto accept = [&, this](auto&& win) {
+        auto accept = [&](auto&& win) {
             if (!win || win == old_top_win) {
                 // No candidate anymore, looped around. Abort looping.
                 return true;

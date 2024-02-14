@@ -278,7 +278,7 @@ Win& create_toplevel_window(Space* space, Wrapland::Server::XdgShellToplevel* to
     QObject::connect(toplevel,
                      &WS::XdgShellToplevel::transientForChanged,
                      win.qobject.get(),
-                     [space, &win] { handle_parent_changed(win); });
+                     [&win] { handle_parent_changed(win); });
 
     auto configure = [&win, toplevel] {
         if (win.closing) {
@@ -649,7 +649,7 @@ void handle_new_toplevel(Space* space, Wrapland::Server::XdgShellToplevel* tople
     QObject::connect(space->xdg_foreign.get(),
                      &Wrapland::Server::XdgForeign::parentChanged,
                      win.qobject.get(),
-                     [space, &win](auto /*parent*/, auto child) {
+                     [&win](auto /*parent*/, auto child) {
                          if (child == win.surface) {
                              handle_parent_changed(win);
                          }

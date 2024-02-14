@@ -152,7 +152,7 @@ private:
 
         xwayland_process->setArguments(arguments);
         xwayland_fail_notifier = QObject::connect(
-            xwayland_process, &QProcess::errorOccurred, this, [this](QProcess::ProcessError error) {
+            xwayland_process, &QProcess::errorOccurred, this, [](QProcess::ProcessError error) {
                 if (error == QProcess::FailedToStart) {
                     std::cerr << "FATAL ERROR: failed to start Xwayland" << std::endl;
                 } else {
