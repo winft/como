@@ -60,6 +60,11 @@ include(KDEInstallDirs)
 include(KDECMakeSettings)
 include(KDECompilerSettings NO_POLICY_SCOPE)
 
+# TODO(romangg): The KDECompilerSettings include adds cast-align warnings. But with wlroots and
+#     libwayland we have too many C casts like this. For now disable the cast-align warning again.
+#     Should we instead wrap the calls and disable the warnings with pragma more targeted?
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-cast-align")
+
 include(ECMInstallIcons)
 include(ECMOptionalAddSubdirectory)
 include(ECMConfiguredInstall)
