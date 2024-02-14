@@ -13,7 +13,8 @@ on:
         default: 'master'
 jobs:
   message-lint:
-    name: Commit Message Lint
+    if: github.event_name != 'pull_request'
+    name: On Push
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -36,3 +37,15 @@ jobs:
         run: >
           commitlint --verbose --config=tooling/docs/commitlint.config.js
           --from=_upstream/${{ inputs.upstream-branch }}
+
+  message-lint-pr:
+    if: github.event_name == 'pull_request'
+    name: On Pull Request
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - uses: wagoid/commitlint-github-action@v5
+        with:
+          configFile: tooling/docs/commitlint.config.js
+          helpURL: https://github.com/winft/como/blob/master/CONTRIBUTING.md#commit-message-guideline
