@@ -24,8 +24,8 @@ struct test_window {
     test_window() = default;
     test_window(test_window const&) = delete;
     test_window& operator=(test_window const&) = delete;
-    test_window(test_window&& other) noexcept;
-    test_window& operator=(test_window&& other) noexcept;
+    test_window(test_window&& other) noexcept = default;
+    test_window& operator=(test_window&& other) noexcept = default;
     ~test_window()
     {
         client_toplevel.reset();
