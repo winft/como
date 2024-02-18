@@ -40,7 +40,7 @@ bool WindowSystem::showingDesktop()
     return false;
 }
 
-void WindowSystem::requestToken(QWindow* win, uint32_t serial, const QString& appId)
+void WindowSystem::requestToken(QWindow* /*win*/, uint32_t serial, const QString& appId)
 {
     // It's coming from within kwin, it doesn't matter the window.
 

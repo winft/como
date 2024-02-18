@@ -62,30 +62,6 @@ TEST_CASE("keyboard keymap", "[input]")
 
     auto create_focus_client = []() { return client(global_selection::seat); };
 
-    auto create_keymap = []() -> std::string {
-        auto context = xkb_context_new(XKB_CONTEXT_NO_FLAGS);
-
-        auto const model = "pc104";
-        auto const layout = "de";
-        auto const variant = "nodeadkeys";
-        auto const options = "";
-
-        auto const rule_names = xkb_rule_names{.rules = nullptr,
-                                               .model = model,
-                                               .layout = layout,
-                                               .variant = variant,
-                                               .options = options};
-
-        auto keymap = xkb_keymap_new_from_names(context, &rule_names, XKB_KEYMAP_COMPILE_NO_FLAGS);
-        auto keymap_c_string = xkb_keymap_get_as_string(keymap, XKB_KEYMAP_FORMAT_TEXT_V1);
-        auto keymap_string = std::string(keymap_c_string);
-
-        free(keymap_c_string);
-        xkb_keymap_unref(keymap);
-        xkb_context_unref(context);
-        return keymap_string;
-    };
-
     SECTION("focus")
     {
         /**

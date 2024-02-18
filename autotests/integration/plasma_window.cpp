@@ -374,7 +374,9 @@ TEST_CASE("plasma window", "[win]")
         ScreenLocker::KSldApp::self()->lock(ScreenLocker::EstablishLock::Immediate);
 
         // The lock screen creates one client per screen.
+#if 0
         auto outputs_count = setup.base->outputs.size();
+#endif
 
         // TODO(romangg): Fails for unknown reason
         REQUIRE_FALSE(clientAddedSpy.wait());

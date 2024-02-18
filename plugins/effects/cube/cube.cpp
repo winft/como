@@ -1913,7 +1913,7 @@ enum class tabbox_mode {
                                      // windows of current application
 };
 
-void CubeEffect::slotTabBoxAdded(int mode)
+void CubeEffect::slotTabBoxAdded(int /*mode*/)
 {
     if (activated)
         return;

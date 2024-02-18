@@ -41,13 +41,6 @@ void BackingStore::resize(const QSize& size, const QRegion& staticContents)
     m_buffer.setDevicePixelRatio(devicePixelRatio);
 }
 
-static void blitImage(const QImage& source, QImage& target, const QRegion& region)
-{
-    for (const QRect& rect : region) {
-        blitImage(source, target, rect);
-    }
-}
-
 void BackingStore::flush(QWindow* window, const QRegion& region, const QPoint& offset)
 {
     Q_UNUSED(offset)

@@ -137,14 +137,14 @@ OverviewEffect::OverviewEffect()
     connect(effects,
             &EffectsHandler::desktopChanging,
             this,
-            [this](auto old, QPointF desktopOffset, EffectWindow* with) {
+            [this](auto /*old*/, QPointF desktopOffset, EffectWindow* /*with*/) {
                 m_desktopOffset = desktopOffset;
                 Q_EMIT desktopOffsetChanged();
             });
     connect(effects,
             &EffectsHandler::desktopChanged,
             this,
-            [this](auto old, auto current, EffectWindow* with) {
+            [this](auto /*old*/, auto /*current*/, EffectWindow* /*with*/) {
                 m_desktopOffset = QPointF(0, 0);
                 Q_EMIT desktopOffsetChanged();
             });
