@@ -39,7 +39,7 @@ TEST_CASE("gestures", "[input]")
                               &Wrapland::Client::PointerSwipeGesture::cancelled);
 
         // Arbitrary test values.
-        auto fingers = 3;
+        auto fingers = 3u;
         auto dx = 1;
         auto dy = 2;
         uint32_t time{0};
@@ -65,31 +65,31 @@ TEST_CASE("gestures", "[input]")
         cursor()->set_pos(QPoint(10, 10));
         swipe_begin(fingers, ++time);
         QVERIFY(begin_spy.wait());
-        QCOMPARE(begin_spy.back().back().toInt(), time);
+        QCOMPARE(begin_spy.back().back().toUInt(), time);
         QCOMPARE(client_gesture->fingerCount(), fingers);
         QCOMPARE(begin_spy.size(), 1);
 
         swipe_update(fingers, ++dx, ++dy, ++time);
         QVERIFY(update_spy.wait());
         QCOMPARE(update_spy.back().front().toSizeF(), QSizeF(dx, dy));
-        QCOMPARE(update_spy.back().back().toInt(), time);
+        QCOMPARE(update_spy.back().back().toUInt(), time);
         QCOMPARE(client_gesture->fingerCount(), fingers);
         QCOMPARE(update_spy.size(), 1);
 
         swipe_end(++time);
         QVERIFY(end_spy.wait());
-        QCOMPARE(end_spy.back().back().toInt(), time);
+        QCOMPARE(end_spy.back().back().toUInt(), time);
         QCOMPARE(end_spy.size(), 1);
 
         swipe_begin(++fingers, ++time);
         QVERIFY(begin_spy.wait());
-        QCOMPARE(begin_spy.back().back().toInt(), time);
+        QCOMPARE(begin_spy.back().back().toUInt(), time);
         QCOMPARE(client_gesture->fingerCount(), fingers);
         QCOMPARE(begin_spy.size(), 2);
 
         swipe_cancel(++time);
         QVERIFY(cancel_spy.wait());
-        QCOMPARE(cancel_spy.back().back().toInt(), time);
+        QCOMPARE(cancel_spy.back().back().toUInt(), time);
         QCOMPARE(cancel_spy.size(), 1);
         QCOMPARE(end_spy.size(), 1);
     }
@@ -112,7 +112,7 @@ TEST_CASE("gestures", "[input]")
                               &Wrapland::Client::PointerPinchGesture::cancelled);
 
         // Arbitrary test values.
-        auto fingers = 3;
+        auto fingers = 3u;
         auto dx = 1;
         auto dy = 2;
         auto scale = 2;
@@ -140,31 +140,31 @@ TEST_CASE("gestures", "[input]")
         cursor()->set_pos(QPoint(10, 10));
         pinch_begin(fingers, ++time);
         QVERIFY(begin_spy.wait());
-        QCOMPARE(begin_spy.back().back().toInt(), time);
+        QCOMPARE(begin_spy.back().back().toUInt(), time);
         QCOMPARE(client_gesture->fingerCount(), fingers);
         QCOMPARE(begin_spy.size(), 1);
 
         pinch_update(fingers, ++dx, ++dy, ++scale, ++rotation, ++time);
         QVERIFY(update_spy.wait());
         QCOMPARE(update_spy.back().front().toSizeF(), QSizeF(dx, dy));
-        QCOMPARE(update_spy.back().back().toInt(), time);
+        QCOMPARE(update_spy.back().back().toUInt(), time);
         QCOMPARE(client_gesture->fingerCount(), fingers);
         QCOMPARE(update_spy.size(), 1);
 
         pinch_end(++time);
         QVERIFY(end_spy.wait());
-        QCOMPARE(end_spy.back().back().toInt(), time);
+        QCOMPARE(end_spy.back().back().toUInt(), time);
         QCOMPARE(end_spy.size(), 1);
 
         pinch_begin(++fingers, ++time);
         QVERIFY(begin_spy.wait());
-        QCOMPARE(begin_spy.back().back().toInt(), time);
+        QCOMPARE(begin_spy.back().back().toUInt(), time);
         QCOMPARE(client_gesture->fingerCount(), fingers);
         QCOMPARE(begin_spy.size(), 2);
 
         pinch_cancel(++time);
         QVERIFY(cancel_spy.wait());
-        QCOMPARE(cancel_spy.back().back().toInt(), time);
+        QCOMPARE(cancel_spy.back().back().toUInt(), time);
         QCOMPARE(cancel_spy.size(), 1);
         QCOMPARE(end_spy.size(), 1);
     }
@@ -186,7 +186,7 @@ TEST_CASE("gestures", "[input]")
                               &Wrapland::Client::pointer_hold_gesture::cancelled);
 
         // Arbitrary test values.
-        auto fingers = 3;
+        auto fingers = 3u;
         uint32_t time{0};
 
         auto surface = create_surface();
@@ -206,24 +206,24 @@ TEST_CASE("gestures", "[input]")
         cursor()->set_pos(QPoint(10, 10));
         hold_begin(fingers, ++time);
         QVERIFY(begin_spy.wait());
-        QCOMPARE(begin_spy.back().back().toInt(), time);
+        QCOMPARE(begin_spy.back().back().toUInt(), time);
         QCOMPARE(client_gesture->fingerCount(), fingers);
         QCOMPARE(begin_spy.size(), 1);
 
         hold_end(++time);
         QVERIFY(end_spy.wait());
-        QCOMPARE(end_spy.back().back().toInt(), time);
+        QCOMPARE(end_spy.back().back().toUInt(), time);
         QCOMPARE(end_spy.size(), 1);
 
         hold_begin(++fingers, ++time);
         QVERIFY(begin_spy.wait());
-        QCOMPARE(begin_spy.back().back().toInt(), time);
+        QCOMPARE(begin_spy.back().back().toUInt(), time);
         QCOMPARE(client_gesture->fingerCount(), fingers);
         QCOMPARE(begin_spy.size(), 2);
 
         hold_cancel(++time);
         QVERIFY(cancel_spy.wait());
-        QCOMPARE(cancel_spy.back().back().toInt(), time);
+        QCOMPARE(cancel_spy.back().back().toUInt(), time);
         QCOMPARE(cancel_spy.size(), 1);
         QCOMPARE(end_spy.size(), 1);
     }

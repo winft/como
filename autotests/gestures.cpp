@@ -18,7 +18,7 @@ TEST_CASE("gestures unit", "[input],[unit]")
 {
     SECTION("swipe min finger")
     {
-        auto count = GENERATE(0, 1, 10);
+        auto count = GENERATE(0u, 1u, 10u);
 
         win::swipe_gesture swipeGesture;
         QCOMPARE(swipeGesture.minimumFingerCountIsRelevant(), false);
@@ -35,7 +35,7 @@ TEST_CASE("gestures unit", "[input],[unit]")
 
     SECTION("pinch min finger")
     {
-        auto count = GENERATE(0, 1, 10);
+        auto count = GENERATE(0u, 1u, 10u);
 
         win::pinch_gesture pinchGesture;
         QCOMPARE(pinchGesture.minimumFingerCountIsRelevant(), false);
@@ -52,7 +52,7 @@ TEST_CASE("gestures unit", "[input],[unit]")
 
     SECTION("swipe max finger")
     {
-        auto count = GENERATE(0, 1, 10);
+        auto count = GENERATE(0u, 1u, 10u);
 
         win::swipe_gesture gesture;
         QCOMPARE(gesture.maximumFingerCountIsRelevant(), false);
@@ -69,7 +69,7 @@ TEST_CASE("gestures unit", "[input],[unit]")
 
     SECTION("pinch max finger")
     {
-        auto count = GENERATE(0, 1, 10);
+        auto count = GENERATE(0u, 1u, 10u);
 
         win::pinch_gesture gesture;
         QCOMPARE(gesture.maximumFingerCountIsRelevant(), false);

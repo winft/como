@@ -191,7 +191,7 @@ TEST_CASE("screens", "[base]")
     SECTION("current")
     {
         struct data {
-            int current;
+            size_t current;
             bool signal;
         };
 
