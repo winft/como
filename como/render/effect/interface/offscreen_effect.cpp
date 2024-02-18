@@ -191,11 +191,6 @@ void OffscreenEffectPrivate::paint(GLTexture* texture,
     const GLenum primitiveType = indexedQuads ? GL_QUADS : GL_TRIANGLES;
     const int verticesPerQuad = indexedQuads ? 4 : 6;
 
-    const GLVertexAttrib attribs[] = {
-        {VA_Position, 2, GL_FLOAT, offsetof(GLVertex2D, position)},
-        {VA_TexCoord, 2, GL_FLOAT, offsetof(GLVertex2D, texcoord)},
-    };
-
     GLVertexBuffer* vbo = GLVertexBuffer::streamingBuffer();
     vbo->reset();
     vbo->setAttribLayout(std::span(GLVertexBuffer::GLVertex2DLayout), sizeof(GLVertex2D));
