@@ -30,7 +30,7 @@ This cross-desktop interoperability will be expanded upon in the future.
 
 **Ease of Use**
 <br>
-With the Compositor Modules a Wayland compositor can be created with a handful of lines only.
+With The Compositor Modules a Wayland compositor can be created with a handful of lines only.
 See our MVP [Minico](tests/minico) for an example of that.
 
 **Customizability**
@@ -38,19 +38,19 @@ See our MVP [Minico](tests/minico) for an example of that.
 The Compositor Modules make heavy use of C++ templates. This allows consumers to replace
 many functions and types with customized versions when required.
 
-# Values
+# Tenets
 
-**Stability and robustness**
+**Stability and Robustness**
 
 This is achieved through upholding strict development standards
 and deploying modern development methods to prevent regressions and code smell.
 
-**Collaboration with competitors and upstream partners**
+**Collaboration With Downstream and Upstream Partners**
 
-We want to overcome antiquated notions on community divisions
-and work together on the best possible Linux graphics platform.
+We want to overcome antiquated notions on community division
+and work together on the best possible Linux graphics platform instead.
 
-**Value the knowledge of experts but also the curiosity of beginners**
+**Value the Knowledge of Experts and the Curiosity of Beginners**
 
 Well defined and transparent decision processes enable expert knowledge to proliferate
 and new contributors to easily find help on their first steps.
@@ -64,12 +64,15 @@ You can also make use of the FDBuild tool to automate that process as described
 [here](CONTRIBUTING.md#compiling).
 
 # Usage
-It's easiest to link via CMake to the Compositor Modules libraries that you want to use.
-As an example check out the test code of [Minico](tests/minico) and the [Plasma binaries](tests/plasma).
+It's easiest to link via CMake to The Compositor Modules libraries that you want to make use of
+and then create their central platform types from your main function to launch the compositor session.
+
+[Minico](tests/minico) as a minimal example and the [Plasma test binaries](tests/plasma)
+as a more complex one demonstrate this in a straightforward way.
 
 # Development
 The [CONTRIBUTING.md](CONTRIBUTING.md) document contains all information
 on how to get started with:
 * providing useful debug information,
-* building the Compositor Modules
+* building The Compositor Modules
 * and doing your first code submission to the project.
