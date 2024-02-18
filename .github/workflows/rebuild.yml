@@ -14,3 +14,4 @@ jobs:
     needs: build
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      package-name: como

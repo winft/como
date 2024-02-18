@@ -11,6 +11,10 @@ on:
         required: false
         type: string
         default: 'build'
+      package-name:
+        description: Name of the resulting packages
+        required: true
+        type: string
 
 jobs:
   deb:
@@ -30,12 +34,12 @@ jobs:
       - name: Untar artifact
         run: tar -xzf build-dir.tar
       - name: Run CPack
-        run: cd build && cpack -G DEB -D CPACK_DEBIAN_FILE_NAME=como.deb
+        run: cd build && cpack -G DEB -D CPACK_DEBIAN_FILE_NAME=${{ inputs.package-name }}.deb
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: deb-package
-          path: build/_CPack_Packages/Linux/DEB/como.deb
+          path: build/_CPack_Packages/Linux/DEB/${{ inputs.package-name }}.deb
           retention-days: 8
 
   tar:
@@ -55,10 +59,10 @@ jobs:
       - name: Run CPack
       # Need to use CPACK_PACKAGE_FILE_NAME instead of CPACK_ARCHIVE_FILE_NAME
       # See: https://gitlab.kitware.com/cmake/cmake/-/issues/20419
-        run: cd build && cpack -G TGZ -D CPACK_PACKAGE_FILE_NAME=como
+        run: cd build && cpack -G TGZ -D CPACK_PACKAGE_FILE_NAME=${{ inputs.package-name }}
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: tar-package
-          path: build/_CPack_Packages/Linux/TGZ/como.tar.gz
+          path: build/_CPack_Packages/Linux/TGZ/${{ inputs.package-name }}.tar.gz
           retention-days: 8
