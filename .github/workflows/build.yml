@@ -66,6 +66,10 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
+      - name: Install Dependencies
+        uses: ./.github/actions/dep-artifacts
+        with:
+          secret: ${{ secrets.GITHUB_TOKEN }}
       - run: mkdir build
       - name: Configure
         run: cmake -S . -B build ${{ needs.set-cmake-args.outputs.args }}
