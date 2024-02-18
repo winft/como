@@ -581,7 +581,7 @@ TEST_CASE("subspace", "[win]")
 
         win::subspace_grid grid;
 
-        QCOMPARE(vd_manager->subspaces.size(), int(test_data.init_count));
+        QCOMPARE(vd_manager->subspaces.size(), test_data.init_count);
 
         grid.update(test_data.size, test_data.orientation, vd_manager->subspaces);
         QCOMPARE(grid.size(), test_data.size);
