@@ -23,7 +23,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
   - [Commit Message Guideline](#commit-message-guideline)
     - [Example](#example)
     - [Tooling](#tooling)
-  - [Contact](#contact)
 
 ## Logging and Debugging
 The first step in contributing to the project by either providing meaningful feedback or by directly
@@ -240,16 +239,12 @@ amendments:
 ### Tooling
 See [Wrapland's documentation][wrapland-tooling] for available tooling.
 
-## Contact
-See [Wrapland's documentation][wrapland-contact] for contact information.
-
 [angular-revert]: https://github.com/angular/angular/blob/3cf2005a936bec2058610b0786dd0671dae3d358/CONTRIBUTING.md#revert
 [angular-subject]: https://github.com/angular/angular/blob/3cf2005a936bec2058610b0786dd0671dae3d358/CONTRIBUTING.md#subject
 [conventional-commits]: https://www.conventionalcommits.org/en/v1.0.0/#specification
 [frameworks-style]: https://community.kde.org/Policies/Frameworks_Coding_Style
 [issue]: https://github.com/winft/como/issues
 [pull-requests]: https://github.com/winft/como/pulls
-[wrapland-contact]: https://github.com/winft/wrapland/blob/master/CONTRIBUTING.md#contact
 [wrapland-large-changes]: https://github.com/winft/wrapland/blob/master/CONTRIBUTING.md#issues-for-large-changes
 [wrapland-submissions]: https://github.com/winft/wrapland/blob/master/CONTRIBUTING.md#submission-guideline
 [wrapland-tooling]: https://github.com/winft/wrapland/blob/master/CONTRIBUTING.md#tooling

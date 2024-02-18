@@ -128,3 +128,7 @@ on how to get started with:
 * providing useful debug information,
 * building The Compositor Modules
 * and doing your first code submission to the project.
+
+# Contact
+Issue tickets can be created for feature requests, bug reports or general discussions.
+For direct communication join our [Matrix room](https://matrix.to/#/#como:matrix.org).
