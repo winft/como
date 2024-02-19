@@ -525,12 +525,12 @@ void CubeSlideEffect::slotDesktopChanged(win::subspace* old,
         }
     } else {
         // ignore pager layout
-        auto left = old->x11DesktopNumber() - current->x11DesktopNumber();
+        auto left = static_cast<int>(old->x11DesktopNumber() - current->x11DesktopNumber());
         if (left < 0) {
             left = effects->desktops().size() + left;
         }
 
-        auto right = current->x11DesktopNumber() - old->x11DesktopNumber();
+        auto right = static_cast<int>(current->x11DesktopNumber() - old->x11DesktopNumber());
         if (right < 0) {
             right = effects->desktops().size() + right;
         }
