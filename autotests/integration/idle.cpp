@@ -145,8 +145,8 @@ TEST_CASE("idle", "[input]")
 
         notification_wrap notification1(test_data.duration1);
 
-        QCOMPARE(notification1.idle_spy.wait(test_data.pause),
-                 test_data.pause > test_data.duration1);
+        REQUIRE(notification1.idle_spy.wait(test_data.pause)
+                == (test_data.pause > test_data.duration1));
 
         notification_wrap notification2(test_data.duration2);
 
