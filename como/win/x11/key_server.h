@@ -66,23 +66,11 @@ COMO_EXPORT uint modXModeSwitch();
 /// Returns bitwise OR'ed mask containing Shift, Ctrl, Alt, and Win (if available).
 COMO_EXPORT uint accelModMaskX();
 
-/// Extracts the symbol from the given Qt key and converts it to an X11 symbol + modifiers.
-COMO_EXPORT bool keyQtToSymX(int keyQt, int* sym);
-
-/// Extracts the code from the given Qt key.
-COMO_EXPORT bool keyQtToCodeX(int keyQt, int* keyCode);
-
-/// Extracts the modifiers from the given Qt key and converts them in a mask of X11 modifiers.
-COMO_EXPORT bool keyQtToModX(int keyQt, uint* mod);
-
 /// Converts the given symbol and modifier combination to a Qt key code.
 COMO_EXPORT bool symXModXToKeyQt(uint32_t keySym, uint16_t modX, int* keyQt);
 
 /// Converts the mask of ORed X11 modifiers to a mask of ORed Qt key code modifiers.
 COMO_EXPORT bool modXToQt(uint modX, int* modQt);
-
-/// Converts an X keypress event into a Qt key + modifier code
-COMO_EXPORT bool xEventToQt(XEvent* e, int* keyModQt);
 
 /// Converts an XCB keypress event into a Qt key + modifier code
 COMO_EXPORT bool xcbKeyPressEventToQt(xcb_generic_event_t* e, int* keyModQt);
