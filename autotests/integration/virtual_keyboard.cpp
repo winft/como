@@ -62,7 +62,7 @@ TEST_CASE("virtual keyboard", "[input]")
         ret.client_toplevel = create_xdg_shell_toplevel(client, ret.client_surface);
         ret.window
             = render_and_wait_for_shown(client, ret.client_surface, QSize(1280, 1024), Qt::red);
-        return std::move(ret);
+        return ret;
     };
 
     auto create_keymap = []() {
