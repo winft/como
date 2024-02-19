@@ -13,6 +13,8 @@ target_sources(input
   PUBLIC
     FILE_SET HEADERS
     FILES
+      control/device.h
+      control/keyboard.h
       filters/decoration_event.h
       filters/dpms.h
       filters/drag_and_drop.h
@@ -60,6 +62,8 @@ target_sources(input
       types.h
       window_find.h
   PRIVATE
+    control/device.cpp
+    control/keyboard.cpp
     keyboard.cpp
     keyboard_redirect.cpp
     platform_qobject.cpp
@@ -124,8 +128,6 @@ target_sources(input-wl
     FILE_SET HEADERS
     FILES
       control/config.h
-      control/device.h
-      control/keyboard.h
       control/pointer.h
       control/pointer_config.h
       control/pointer_types.h
@@ -164,8 +166,6 @@ target_sources(input-wl
       xkb/manager.h
       xkb/numlock.h
   PRIVATE
-    control/device.cpp
-    control/keyboard.cpp
     control/pointer.cpp
     control/switch.cpp
     control/touch.cpp
