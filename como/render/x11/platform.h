@@ -78,9 +78,9 @@ public:
     using shadow_t = render::shadow<window_t>;
 
     platform(Base& base)
-        : base{base}
-        , qobject{std::make_unique<compositor_qobject>(
-              [this](auto te) { return handle_timer_event(te); })}
+        : qobject{std::make_unique<compositor_qobject>(
+            [this](auto te) { return handle_timer_event(te); })}
+        , base{base}
         , options{std::make_unique<render::options>(base.operation_mode, base.config.main)}
         , night_color{std::make_unique<render::post::night_color_manager<Base>>(base)}
         , m_suspended(options->qobject->isUseCompositing() ? suspend_reason::none
