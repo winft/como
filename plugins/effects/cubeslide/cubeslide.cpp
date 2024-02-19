@@ -530,7 +530,7 @@ void CubeSlideEffect::slotDesktopChanged(win::subspace* old,
             left = effects->desktops().size() + left;
         }
 
-        auto right = current - old;
+        auto right = current->x11DesktopNumber() - old->x11DesktopNumber();
         if (right < 0) {
             right = effects->desktops().size() + right;
         }
