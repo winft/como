@@ -825,101 +825,6 @@ bool keyboardHasMetaKey()
     return modXMeta() != 0;
 }
 
-uint getModsRequired(uint sym)
-{
-    if (!QX11Info::isPlatformX11()) {
-        return 0;
-    }
-
-    uint mod = 0;
-
-    // FIXME: This might not be true on all keyboard layouts!
-    if (sym == XK_Sys_Req) {
-        return Qt::ALT;
-    }
-    if (sym == XK_Break) {
-        return Qt::CTRL;
-    }
-
-    if (sym < 0x3000) {
-        QChar c(sym);
-        if (c.isLetter() && c.toLower() != c.toUpper() && sym == c.toUpper().unicode()) {
-            return Qt::SHIFT;
-        }
-    }
-
-    uchar code = XKeysymToKeycode(QX11Info::display(), sym);
-    if (code) {
-        // need to check index 0 before the others, so that a null-mod
-        //  can take precedence over the others, in case the modified
-        //  key produces the same symbol.
-        if (sym == XKeycodeToKeysym(QX11Info::display(), code, 0)) {
-            ;
-        } else if (sym == XKeycodeToKeysym(QX11Info::display(), code, 1)) {
-            mod = Qt::SHIFT;
-        } else if (sym == XKeycodeToKeysym(QX11Info::display(), code, 2)) {
-            mod = MODE_SWITCH;
-        } else if (sym == XKeycodeToKeysym(QX11Info::display(), code, 3)) {
-            mod = Qt::SHIFT | MODE_SWITCH;
-        }
-    }
-    return mod;
-}
-
-bool keyQtToCodeX(int keyQt, int* keyCode)
-{
-    if (!QX11Info::isPlatformX11()) {
-        return false;
-    }
-
-    int sym;
-    uint mod;
-    keyQtToSymX(keyQt, &sym);
-    keyQtToModX(keyQt, &mod);
-
-    // Get any extra mods required by the sym.
-    //  E.g., XK_Plus requires SHIFT on the en layout.
-    uint modExtra = getModsRequired(sym);
-    // Get the X modifier equivalent.
-    if (!sym || !keyQtToModX((keyQt & Qt::KeyboardModifierMask) | modExtra, &mod)) {
-        *keyCode = 0;
-        return false;
-    }
-
-    *keyCode = XKeysymToKeycode(QX11Info::display(), sym);
-    return true;
-}
-
-bool keyQtToSymX(int keyQt, int* keySym)
-{
-    int symQt = keyQt & ~Qt::KeyboardModifierMask;
-
-    if (keyQt & Qt::KeypadModifier) {
-        if (symQt >= Qt::Key_0 && symQt <= Qt::Key_9) {
-            *keySym = XK_KP_0 + (symQt - Qt::Key_0);
-            return true;
-        }
-    } else {
-        if (symQt < 0x1000) {
-            *keySym = QChar(symQt).toUpper().unicode();
-            return true;
-        }
-    }
-
-    for (const TransKey& tk : g_rgQtToSymX) {
-        if (tk.keySymQt == symQt) {
-            if ((keyQt & Qt::KeypadModifier) && !is_keypad_key(tk.keySymX)) {
-                continue;
-            }
-            *keySym = tk.keySymX;
-            return true;
-        }
-    }
-
-    *keySym = 0;
-    return false;
-}
-
 bool symXModXToKeyQt(uint32_t keySym, uint16_t modX, int* keyQt)
 {
     int keyModQt = 0;
@@ -963,26 +868,6 @@ bool symXModXToKeyQt(uint32_t keySym, uint16_t modX, int* keyQt)
     return false;
 }
 
-bool keyQtToModX(int modQt, uint* modX)
-{
-    if (!g_bInitializedMods) {
-        initializeMods();
-    }
-
-    *modX = 0;
-    for (int i = 0; i < 4; i++) {
-        if (modQt & g_rgX11ModInfo[i].modQt) {
-            if (g_rgX11ModInfo[i].modX) {
-                *modX |= g_rgX11ModInfo[i].modX;
-            } else {
-                // The qt modifier has no x equivalent. Return false
-                return false;
-            }
-        }
-    }
-    return true;
-}
-
 bool modXToQt(uint modX, int* modQt)
 {
     if (!g_bInitializedMods) {
@@ -1021,46 +906,6 @@ bool codeXToSym(uchar codeX, uint modX, uint* sym)
 uint accelModMaskX()
 {
     return modXShift() | modXCtrl() | modXAlt() | modXMeta();
-}
-
-bool xEventToQt(XEvent* e, int* keyQt)
-{
-    Q_ASSERT(e->type == KeyPress || e->type == KeyRelease);
-
-    uchar keyCodeX = e->xkey.keycode;
-    uint keyModX = e->xkey.state & (accelModMaskX() | MODE_SWITCH);
-
-    KeySym keySym;
-    char buffer[16];
-    XLookupString((XKeyEvent*)e, buffer, 15, &keySym, nullptr);
-    uint keySymX = (uint)keySym;
-
-    // If numlock is active and a keypad key is pressed, XOR the SHIFT state.
-    //  e.g., KP_4 => Shift+KP_Left, and Shift+KP_4 => KP_Left.
-    if (e->xkey.state & modXNumLock()) {
-        uint sym = XKeycodeToKeysym(QX11Info::display(), keyCodeX, 0);
-        // TODO: what's the xor operator in c++?
-        // If this is a keypad key,
-        if (sym >= XK_KP_Space && sym <= XK_KP_9) {
-            switch (sym) {
-            // Leave the following keys unaltered
-            // FIXME: The proper solution is to see which keysyms don't change when shifted.
-            case XK_KP_Multiply:
-            case XK_KP_Add:
-            case XK_KP_Subtract:
-            case XK_KP_Divide:
-                break;
-            default:
-                if (keyModX & modXShift()) {
-                    keyModX &= ~modXShift();
-                } else {
-                    keyModX |= modXShift();
-                }
-            }
-        }
-    }
-
-    return symXModXToKeyQt(keySymX, keyModX, keyQt);
 }
 
 bool xcbKeyPressEventToQt(xcb_generic_event_t* e, int* keyQt)
