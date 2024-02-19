@@ -190,16 +190,19 @@ inline QMatrix4x4 get_transform_matrix(transform_type type)
         break;
     case transform_type::flipped_90:
         flip();
+        [[fallthrough]];
     case transform_type::rotated_90:
         rot(90);
         break;
     case transform_type::flipped_180:
         flip();
+        [[fallthrough]];
     case transform_type::rotated_180:
         rot(180);
         break;
     case transform_type::flipped_270:
         flip();
+        [[fallthrough]];
     case transform_type::rotated_270:
         rot(270);
         break;
