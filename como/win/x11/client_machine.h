@@ -20,7 +20,7 @@ class QFutureWatcher;
 namespace como::win::x11
 {
 
-class get_addr_info_wrapper : public QObject
+class COMO_EXPORT get_addr_info_wrapper : public QObject
 {
     Q_OBJECT
 public:
