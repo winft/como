@@ -65,6 +65,9 @@ include(KDECompilerSettings NO_POLICY_SCOPE)
 #     Should we instead wrap the calls and disable the warnings with pragma more targeted?
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-cast-align")
 
+# Produces a lot of warnings with gcc on structs where we default-initialize some fields.
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-missing-field-initializers")
+
 include(ECMInstallIcons)
 include(ECMOptionalAddSubdirectory)
 include(ECMConfiguredInstall)
