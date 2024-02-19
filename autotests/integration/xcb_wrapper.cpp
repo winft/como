@@ -322,7 +322,7 @@ TEST_CASE("xcb wrapper", "[win],[xwl]")
         QVERIFY(!ok);
         ok = true;
         QVERIFY(!prop.value<const char*>());
-        QCOMPARE(prop.value<const char*>("bar", &ok), "bar");
+        REQUIRE(prop.value<const char*>("bar", &ok) == std::string("bar"));
         QVERIFY(!ok);
         QCOMPARE(
             QByteArray(base::x11::xcb::string_property(connection, testWindow, XCB_ATOM_WM_NAME)),
