@@ -122,18 +122,12 @@ private:
         }
         if (window->transient->input_grab) {
             // TODO: verify that the Toplevel is allowed as a popup
-            connect(
-                window->qobject.get(),
-                &win::window_qobject::windowShown,
-                this,
-                [this, window] { handle_window_added(window); },
-                Qt::UniqueConnection);
-            connect(
-                window->qobject.get(),
-                &win::window_qobject::closed,
-                this,
-                [this, window] { remove_all(m_popups, window); },
-                Qt::UniqueConnection);
+            connect(window->qobject.get(), &win::window_qobject::windowShown, this, [this, window] {
+                handle_window_added(window);
+            });
+            connect(window->qobject.get(), &win::window_qobject::closed, this, [this, window] {
+                remove_all(m_popups, window);
+            });
             m_popups.push_back(window);
         }
     }
