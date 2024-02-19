@@ -74,6 +74,7 @@ include(ECMConfiguredInstall)
 include(ECMQmlModule)
 include(ECMGenerateQmlTypes)
 include(ECMSetupVersion)
+include(ECMEnableSanitizers)
 
 ecm_setup_version(PROJECT
   VARIABLE_PREFIX COMO
