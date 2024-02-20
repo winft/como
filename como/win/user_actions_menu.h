@@ -281,16 +281,9 @@ private:
         }
         m_desktopMenu->addSeparator();
 
-        const uint BASE = 10;
-
         for (uint i = 1; i <= subs_manager->subspaces.size(); ++i) {
-            QString basic_name(QStringLiteral("%1  %2"));
-            if (i < BASE) {
-                basic_name.prepend(QLatin1Char('&'));
-            }
-            action = m_desktopMenu->addAction(
-                basic_name.arg(i).arg(subspace_manager_get_subspace_name(*subs_manager, i)
-                                          .replace(QLatin1Char('&'), QStringLiteral("&&"))));
+            action = m_desktopMenu->addAction(subspace_manager_get_subspace_name(*subs_manager, i)
+                                                  .replace(QLatin1Char('&'), QStringLiteral("&&")));
             action->setData(i);
             action->setCheckable(true);
             group->addAction(action);
@@ -343,17 +336,10 @@ private:
 
         m_multipleDesktopsMenu->addSeparator();
 
-        const uint BASE = 10;
-
         for (uint i = 1; i <= subs_manager->subspaces.size(); ++i) {
-            QString basic_name(QStringLiteral("%1  %2"));
-            if (i < BASE) {
-                basic_name.prepend(QLatin1Char('&'));
-            }
-
-            QAction* action = m_multipleDesktopsMenu->addAction(
-                basic_name.arg(i).arg(subspace_manager_get_subspace_name(*subs_manager, i)
-                                          .replace(QLatin1Char('&'), QStringLiteral("&&"))));
+            auto action = m_multipleDesktopsMenu->addAction(
+                subspace_manager_get_subspace_name(*subs_manager, i)
+                    .replace(QLatin1Char('&'), QStringLiteral("&&")));
             action->setData(QVariant::fromValue(user_actions_menu_desktop_action_data{i, false}));
             action->setCheckable(true);
             if (m_client
