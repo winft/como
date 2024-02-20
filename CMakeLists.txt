@@ -54,12 +54,10 @@ set_package_properties(Qt6Test PROPERTIES
     TYPE OPTIONAL
 )
 add_feature_info("Qt6Test" Qt6Test_FOUND "Required for building tests")
-if (NOT Qt6Test_FOUND)
-    set(BUILD_TESTING OFF CACHE BOOL "Build the testing tree.")
-endif()
 
 include(KDEInstallDirs)
-include(KDECMakeSettings)
+include(CMakeSettings)
+include(CTest)
 
 include(ECMInstallIcons)
 include(ECMOptionalAddSubdirectory)
