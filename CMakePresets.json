@@ -1,0 +1,89 @@
+{
+  "version": 4,
+  "cmakeMinimumRequired": {
+    "major": 3,
+    "minor": 23,
+    "patch": 0
+  },
+  "configurePresets": [
+    {
+      "name": "debug-base",
+      "hidden": true,
+      "generator": "Ninja",
+      "cacheVariables": {
+        "CMAKE_BUILD_TYPE": "Debug"
+      },
+      "environment": {
+        "DEBUG_COMMON_FLAGS": "-Wall -Wextra -Wchar-subscripts -Wformat-security -Wno-long-long -Wpointer-arith -Wundef",
+        "DEBUG_C_FLAGS": "$env{DEBUG_COMMON_FLAGS} -Wmissing-format-attribute -Wwrite-strings -Werror=implicit-function-declaration",
+        "DEBUG_CXX_FLAGS": "$env{DEBUG_COMMON_FLAGS} -fno-operator-names -Wnon-virtual-dtor -Woverloaded-virtual -Wvla -Wdate-time -pedantic -Wzero-as-null-pointer-constant -Werror=return-type -Werror=init-self -Werror=undef -fdiagnostics-color=always",
+        "DEBUG_SHARED_LINKER_FLAGS": "-Wl,--fatal-warnings",
+        "DEBUG_MODULE_LINKER_FLAGS": "-Wl,--fatal-warnings",
+        "NOUNDEF_LINKER_FLAGS": "-Wl,--no-undefined",
+        "DEBUG_CXX_FLAGS_CLANG": "$env{DEBUG_CXX_FLAGS} -fno-operator-names -Wno-gnu-zero-variadic-macro-arguments"
+      }
+    },
+    {
+      "name": "clang",
+      "inherits": "debug-base",
+      "displayName": "Clang Config",
+      "description": "Default build using Ninja and Clang",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_FLAGS": "$env{DEBUG_C_FLAGS}",
+        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS_CLANG}",
+        "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}",
+        "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}"
+      }
+    },
+    {
+      "name": "gcc",
+      "inherits": "debug-base",
+      "displayName": "GCC Config",
+      "description": "Build using Ninja and GCC",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "gcc",
+        "CMAKE_CXX_COMPILER": "g++",
+        "CMAKE_C_FLAGS": "$env{DEBUG_C_FLAGS}",
+        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS} -Wsuggest-override -Wlogical-op -Wmissing-include-dirs",
+        "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}",
+        "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}"
+      }
+    },
+    {
+      "name": "sanitizers",
+      "inherits": "debug-base",
+      "displayName": "Sanitizers Build",
+      "description": "Build with common sanitizers",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_FLAGS": "$env{DEBUG_C_FLAGS}",
+        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS_CLANG}",
+        "ECM_ENABLE_SANITIZERS": "address;leak;undefined",
+        "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS}",
+        "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS}"
+      }
+    },
+    {
+      "name": "coverage",
+      "inherits": "debug-base",
+      "displayName": "Tests with Coverage",
+      "description": "Build with tests and coverage reporting enabled",
+      "cacheVariables": {
+        "CMAKE_C_COMPILER": "clang",
+        "CMAKE_CXX_COMPILER": "clang++",
+        "CMAKE_C_FLAGS": "$env{DEBUG_C_FLAGS}",
+        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS_CLANG} --coverage",
+        "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}",
+        "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}",
+        "CMAKE_EXE_LINKER_FLAGS": "--coverage",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": {
+          "type": "BOOL",
+          "value": "ON"
+        }
+      }
+    }
+  ]
+}

@@ -11,6 +11,11 @@ on:
         required: false
         type: string
         default: 'build'
+      cmake-preset:
+        description: Specify CMake preset to use
+        required: false
+        type: string
+        default: ''
       is-sanitized:
         description: Should sanitizers be compiled into the build
         required: false
@@ -63,6 +68,8 @@ jobs:
     runs-on: ubuntu-latest
     container:
       image: ${{ inputs.image }}
+    env:
+      cmake-preset: ''
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
@@ -71,8 +78,11 @@ jobs:
         with:
           secret: ${{ secrets.GITHUB_TOKEN }}
       - run: mkdir build
+      - name: Set CMake preset
+        if: ${{ inputs.cmake-preset != '' }}
+        run: echo "cmake-preset=--preset ${{ inputs.cmake-preset }}" >> $GITHUB_ENV
       - name: Configure
-        run: cmake -S . -B build ${{ needs.set-cmake-args.outputs.args }}
+        run: cmake ${{ inputs.cmake-preset }} -S . -B build ${{ needs.set-cmake-args.outputs.args }}
       - name: Build
         run: cmake --build build
       - name: Tar artifact (keep permissions)

@@ -8,6 +8,7 @@ jobs:
     uses: ./.github/workflows/build.yml
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      cmake-preset: clang
 
   package:
     uses: ./.github/workflows/package.yml
