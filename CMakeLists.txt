@@ -8,17 +8,19 @@ project("The Compositor Modules" VERSION 0.1.0)
 
 set(QT_MIN_VERSION "6.4.0")
 set(KF6_MIN_VERSION "5.240.0")
-set(KDE_COMPILERSETTINGS_LEVEL "5.84")
 set(KDE_PLASMA_VERSION "5.27")
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-add_definitions(-DQT_DISABLE_DEPRECATED_BEFORE=0
-  -DQT_NO_KEYWORDS
-  -DQT_USE_QSTRINGBUILDER
+add_definitions(
   -DQT_NO_URL_CAST_FROM_STRING
+  -DQT_USE_QSTRINGBUILDER
+  -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT
+  -DQT_NO_KEYWORDS
+  -DQT_NO_FOREACH
+  -DQT_STRICT_ITERATORS
   -DQT_NO_CAST_TO_ASCII
 )
 
@@ -58,15 +60,6 @@ endif()
 
 include(KDEInstallDirs)
 include(KDECMakeSettings)
-include(KDECompilerSettings NO_POLICY_SCOPE)
-
-# TODO(romangg): The KDECompilerSettings include adds cast-align warnings. But with wlroots and
-#     libwayland we have too many C casts like this. For now disable the cast-align warning again.
-#     Should we instead wrap the calls and disable the warnings with pragma more targeted?
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-cast-align")
-
-# Produces a lot of warnings with gcc on structs where we default-initialize some fields.
-set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wno-missing-field-initializers")
 
 include(ECMInstallIcons)
 include(ECMOptionalAddSubdirectory)
@@ -309,11 +302,15 @@ ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
 ecm_find_qmlmodule(org.kde.plasma.core 2.0)
 ecm_find_qmlmodule(org.kde.plasma.components 2.0)
 
-########### configure tests ###############
 option(COMO_BUILD_DECORATIONS "Enable building of decorations." ON)
 option(COMO_BUILD_KCMS "Enable building of configuration modules." ON)
 option(COMO_BUILD_TABBOX "Enable building of Tabbox functionality" ON)
 option(COMO_BUILD_PERF "Build internal tools for performance analysis at runtime." ON)
+
+# Default to hidden visibility for symbols
+set(CMAKE_C_VISIBILITY_PRESET hidden)
+set(CMAKE_CXX_VISIBILITY_PRESET hidden)
+set(CMAKE_VISIBILITY_INLINES_HIDDEN 1)
 
 set(COMO_SOURCE_DIR ${CMAKE_CURRENT_SOURCE_DIR})
 set(HAVE_PERF ${COMO_BUILD_PERF})
