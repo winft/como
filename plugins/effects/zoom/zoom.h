@@ -55,6 +55,9 @@ public:
     int configuredFocusDelay() const;
     qreal configuredMoveFactor() const;
     qreal targetZoom() const;
+
+private:
+    bool screenExistsAt(const QPoint& point) const;
 private Q_SLOTS:
     inline void zoomIn()
     {
