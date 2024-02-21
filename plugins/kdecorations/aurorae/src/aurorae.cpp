@@ -637,7 +637,7 @@ void Decoration::updateBlur()
         mask = QRect(0, 0, m_item->width(), m_item->height());
     } else {
         const QVariant maskProperty = m_item->property("decorationMask");
-        if (static_cast<QMetaType::Type>(maskProperty.type()) == QMetaType::QRegion) {
+        if (maskProperty.typeId() == QMetaType::QRegion) {
             mask = maskProperty.value<QRegion>();
 
             if (!mask.isNull()) {
