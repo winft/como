@@ -383,8 +383,11 @@ void leave_notify_event(Win* win, xcb_leave_notify_event_t* e)
             if (auto deco = win::decoration(win)) {
                 // sending a move instead of a leave. With leave we need to send proper coords, with
                 // move it's handled internally
-                QHoverEvent leaveEvent(
-                    QEvent::HoverMove, QPointF(-1, -1), QPointF(-1, -1), Qt::NoModifier);
+                QHoverEvent leaveEvent(QEvent::HoverMove,
+                                       QPointF(-1, -1),
+                                       QPointF(-1, -1),
+                                       QPointF(-1, -1),
+                                       Qt::NoModifier);
                 QCoreApplication::sendEvent(deco, &leaveEvent);
             }
         }
@@ -613,7 +616,7 @@ bool motion_notify_event(Win* win, xcb_window_t w, int state, int x, int y, int 
 {
     if (w == win->frameId() && win::decoration(win) && !win->control->minimized) {
         // TODO Mouse move event dependent on state
-        QHoverEvent event(QEvent::HoverMove, QPointF(x, y), QPointF(x, y));
+        QHoverEvent event(QEvent::HoverMove, QPointF(x, y), QPointF(x, y), QPointF(x, y));
         QCoreApplication::instance()->sendEvent(win::decoration(win), &event);
     }
     if (w != win->frameId() && w != win->xcb_windows.input && w != win->xcb_windows.grab) {
@@ -626,7 +629,7 @@ bool motion_notify_event(Win* win, xcb_window_t w, int state, int x, int y, int 
             int y = y_root - win->geo.frame.y(); // + padding_top;
 
             if (win::decoration(win)) {
-                QHoverEvent event(QEvent::HoverMove, QPointF(x, y), QPointF(x, y));
+                QHoverEvent event(QEvent::HoverMove, QPointF(x, y), QPointF(x, y), QPointF(x, y));
                 QCoreApplication::instance()->sendEvent(win::decoration(win), &event);
             }
         }
