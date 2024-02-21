@@ -544,8 +544,12 @@ void Decoration::hoverMoveEvent(QHoverEvent* event)
     if (m_view) {
         // turn a hover event into a mouse because we don't follow hovers as we don't think we have
         // focus
-        QMouseEvent cloneEvent(
-            QEvent::MouseMove, event->position(), Qt::NoButton, Qt::NoButton, Qt::NoModifier);
+        QMouseEvent cloneEvent(QEvent::MouseMove,
+                               event->position(),
+                               event->position(),
+                               Qt::NoButton,
+                               Qt::NoButton,
+                               Qt::NoModifier);
         event->setAccepted(false);
         m_view->forwardMouseEvent(&cloneEvent);
         event->setAccepted(cloneEvent.isAccepted());
