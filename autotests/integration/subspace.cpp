@@ -207,8 +207,8 @@ TEST_CASE("subspace", "[win]")
         if (!spy.isEmpty()) {
             auto arguments = spy.takeFirst();
             QCOMPARE(arguments.count(), 2);
-            QCOMPARE(arguments.at(0).type(), QVariant::UInt);
-            QCOMPARE(arguments.at(1).type(), QVariant::UInt);
+            QCOMPARE(arguments.at(0).typeId(), QMetaType::UInt);
+            QCOMPARE(arguments.at(1).typeId(), QMetaType::UInt);
             QCOMPARE(arguments.at(0).toUInt(), count_init_value);
             QCOMPARE(arguments.at(1).toUInt(), test_data.result);
         }

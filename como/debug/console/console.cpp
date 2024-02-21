@@ -33,7 +33,7 @@ console_delegate::~console_delegate() = default;
 QString console_delegate::displayText(const QVariant& value, const QLocale& locale) const
 {
     // See Qt docs. Return value of QVariant::type() should be interpreted as QMetaType.
-    switch (static_cast<QMetaType::Type>(value.type())) {
+    switch (value.typeId()) {
     case QMetaType::QPoint: {
         const QPoint p = value.toPoint();
         return QStringLiteral("%1,%2").arg(p.x()).arg(p.y());

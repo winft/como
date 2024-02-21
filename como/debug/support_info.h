@@ -94,7 +94,7 @@ QString get_support_info(Space const& space)
 
     auto const metaOptions = space.base.mod.script->options->metaObject();
     auto printProperty = [](const QVariant& variant) {
-        if (variant.type() == QVariant::Size) {
+        if (variant.typeId() == QMetaType::QSize) {
             const QSize& s = variant.toSize();
             return QStringLiteral("%1x%2")
                 .arg(QString::number(s.width()))
