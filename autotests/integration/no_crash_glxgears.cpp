@@ -44,7 +44,7 @@ TEST_CASE("no crash glxgears", "[xwl],[win]")
     // a fake deco for autotests.
     QPointF pos = decoration->rect().topRight()
         + QPointF(-decoration->borderTop() / 2, decoration->borderTop() / 2);
-    QHoverEvent event(QEvent::HoverMove, pos, pos);
+    QHoverEvent event(QEvent::HoverMove, pos, pos, pos);
     QCoreApplication::instance()->sendEvent(decoration, &event);
 
     // mouse press

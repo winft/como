@@ -585,7 +585,7 @@ public:
         redirect->space.focusMousePos = position().toPoint();
 
         // send leave event to decoration
-        QHoverEvent event(QEvent::HoverLeave, QPointF(), QPointF());
+        QHoverEvent event(QEvent::HoverLeave, QPointF(), QPointF(), QPointF());
         QCoreApplication::instance()->sendEvent(focus.deco.client->decoration(), &event);
 
         focus.deco = {};
@@ -600,7 +600,7 @@ public:
         redirect->platform.base.server->seat()->pointers().set_focused_surface(nullptr);
 
         auto pos = m_pos - now.client()->geo.pos();
-        QHoverEvent event(QEvent::HoverEnter, pos, pos);
+        QHoverEvent event(QEvent::HoverEnter, pos, pos, pos);
         QCoreApplication::instance()->sendEvent(now.decoration(), &event);
         win::process_decoration_move(now.client(), pos.toPoint(), m_pos.toPoint());
 
@@ -637,7 +637,7 @@ public:
                                // position of window did not change, we need to send
                                // HoverMotion manually
                                QPointF const p = m_pos - win->geo.pos();
-                               QHoverEvent event(QEvent::HoverMove, p, p);
+                               QHoverEvent event(QEvent::HoverMove, p, p, p);
                                QCoreApplication::instance()->sendEvent(deco->decoration(), &event);
                            }},
                            *focus.deco.window);
@@ -814,7 +814,7 @@ private:
             device_redirect_set_internal_window(this, nullptr);
         }
         if (focus.deco.client) {
-            QHoverEvent event(QEvent::HoverLeave, QPointF(), QPointF());
+            QHoverEvent event(QEvent::HoverLeave, QPointF(), QPointF(), QPointF());
             QCoreApplication::instance()->sendEvent(focus.deco.client->decoration(), &event);
             device_redirect_unset_deco(this);
         }

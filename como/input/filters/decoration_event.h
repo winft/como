@@ -89,7 +89,7 @@ public:
                 auto const global_pos = this->redirect.globalPointer();
                 auto const local_pos = global_pos - win->geo.pos();
 
-                auto qt_event = QHoverEvent(QEvent::HoverMove, local_pos, local_pos);
+                auto qt_event = QHoverEvent(QEvent::HoverMove, local_pos, local_pos, local_pos);
                 QCoreApplication::instance()->sendEvent(decoration->decoration(), &qt_event);
                 win::process_decoration_move(win, local_pos.toPoint(), global_pos.toPoint());
                 return true;
@@ -163,29 +163,32 @@ public:
 
         assert(this->redirect.touch->focus.deco.window);
 
-        return std::visit(
-            overload{[&](auto&& win) {
-                this->redirect.touch->setDecorationPressId(event.id);
-                m_lastGlobalTouchPos = event.pos;
-                m_lastLocalTouchPos = event.pos - win->geo.pos();
+        return std::visit(overload{[&](auto&& win) {
+                              this->redirect.touch->setDecorationPressId(event.id);
+                              m_lastGlobalTouchPos = event.pos;
+                              m_lastLocalTouchPos = event.pos - win->geo.pos();
 
-                QHoverEvent hoverEvent(QEvent::HoverMove, m_lastLocalTouchPos, m_lastLocalTouchPos);
-                QCoreApplication::sendEvent(decoration->decoration(), &hoverEvent);
+                              QHoverEvent hoverEvent(QEvent::HoverMove,
+                                                     m_lastLocalTouchPos,
+                                                     m_lastLocalTouchPos,
+                                                     m_lastLocalTouchPos);
+                              QCoreApplication::sendEvent(decoration->decoration(), &hoverEvent);
 
-                QMouseEvent e(QEvent::MouseButtonPress,
-                              m_lastLocalTouchPos,
-                              event.pos,
-                              Qt::LeftButton,
-                              Qt::LeftButton,
-                              xkb::get_active_keyboard_modifiers(this->redirect.platform));
-                e.setAccepted(false);
-                QCoreApplication::sendEvent(decoration->decoration(), &e);
-                if (!e.isAccepted()) {
-                    win::process_decoration_button_press(win, &e, false);
-                }
-                return true;
-            }},
-            *this->redirect.touch->focus.deco.window);
+                              QMouseEvent e(
+                                  QEvent::MouseButtonPress,
+                                  m_lastLocalTouchPos,
+                                  event.pos,
+                                  Qt::LeftButton,
+                                  Qt::LeftButton,
+                                  xkb::get_active_keyboard_modifiers(this->redirect.platform));
+                              e.setAccepted(false);
+                              QCoreApplication::sendEvent(decoration->decoration(), &e);
+                              if (!e.isAccepted()) {
+                                  win::process_decoration_button_press(win, &e, false);
+                              }
+                              return true;
+                          }},
+                          *this->redirect.touch->focus.deco.window);
     }
 
     bool touch_motion(touch_motion_event const& event) override
@@ -210,8 +213,10 @@ public:
                               m_lastGlobalTouchPos = event.pos;
                               m_lastLocalTouchPos = event.pos - win->geo.pos();
 
-                              QHoverEvent e(
-                                  QEvent::HoverMove, m_lastLocalTouchPos, m_lastLocalTouchPos);
+                              QHoverEvent e(QEvent::HoverMove,
+                                            m_lastLocalTouchPos,
+                                            m_lastLocalTouchPos,
+                                            m_lastLocalTouchPos);
                               QCoreApplication::instance()->sendEvent(decoration->decoration(), &e);
                               win::process_decoration_move(
                                   win, m_lastLocalTouchPos.toPoint(), event.pos.toPoint());
@@ -251,7 +256,7 @@ public:
         std::visit(overload{[&](auto&& win) { win::process_decoration_button_release(win, &e); }},
                    *this->redirect.touch->focus.deco.window);
 
-        QHoverEvent leaveEvent(QEvent::HoverLeave, QPointF(), QPointF());
+        QHoverEvent leaveEvent(QEvent::HoverLeave, QPointF(), QPointF(), QPointF());
         QCoreApplication::sendEvent(decoration->decoration(), &leaveEvent);
 
         m_lastGlobalTouchPos = QPointF();
