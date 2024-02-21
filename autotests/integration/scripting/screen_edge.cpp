@@ -11,11 +11,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "como/render/effect_loader.h"
 #include "como/script/platform.h"
 #include "como/script/script.h"
-#include "como/win/space_reconfigure.h"
-
-#define private public
 #include "como/win/screen_edges.h"
-#undef private
+#include "como/win/space_reconfigure.h"
 
 #include <KConfigGroup>
 #include <catch2/generators/catch_generators.hpp>

@@ -19,7 +19,10 @@
 #include <xcb/sync.h>
 #include <xcb/xfixes.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wkeyword-macro"
 #define explicit cpp_explicit_compat
+#pragma clang diagnostic pop
 #include <xcb/xkb.h>
 #undef explicit
 
