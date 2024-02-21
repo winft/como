@@ -46,7 +46,7 @@
         "CMAKE_C_COMPILER": "gcc",
         "CMAKE_CXX_COMPILER": "g++",
         "CMAKE_C_FLAGS": "$env{DEBUG_C_FLAGS}",
-        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS} -Wsuggest-override -Wlogical-op -Wmissing-include-dirs",
+        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS} -Wsuggest-override -Wlogical-op -Wmissing-include-dirs -Wno-missing-field-initializers -Werror -Wno-error=unknown-pragmas -Wno-error=deprecated-declarations -Wno-error=missing-include-dirs",
         "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}",
         "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}"
       }
