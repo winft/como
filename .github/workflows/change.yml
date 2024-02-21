@@ -18,11 +18,14 @@ jobs:
       artifact-name: clang-build
       cmake-preset: coverage
 
-  gcc-build:
+  secondary-builds:
+    strategy:
+      matrix:
+        preset: [gcc, release]
     uses: ./.github/workflows/build.yml
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
-      cmake-preset: gcc
+      cmake-preset: ${{ matrix.preset }}
 
   install:
     uses: ./.github/workflows/install.yml
