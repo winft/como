@@ -37,7 +37,7 @@ void unlock()
         QMetaObject::invokeMethod(*it, "requestUnlock");
         return;
     }
-    Q_ASSERT("Did not find 'requestUnlock' method in KSldApp. This should not happen!" == 0);
+    Q_ASSERT("Did not find 'requestUnlock' method in KSldApp. This should not happen!" == nullptr);
 }
 
 }

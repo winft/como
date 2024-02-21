@@ -195,8 +195,9 @@ TEST_CASE("plasma surface", "[win]")
         QVERIFY(win::is_dock(panel));
         QCOMPARE(panel->geo.frame, test_data.panel_geo);
         QCOMPARE(panel->hasStrut(), false);
-        QCOMPARE(win::space_window_area(*setup.base->mod.space, win::area_option::maximize, 0, 0),
-                 QRect(0, 0, 1280, 1024));
+        QCOMPARE(
+            win::space_window_area(*setup.base->mod.space, win::area_option::maximize, nullptr, 0),
+            QRect(0, 0, 1280, 1024));
         QCOMPARE(win::get_layer(*panel), win::layer::above);
 
         // create a Window
@@ -342,8 +343,9 @@ TEST_CASE("plasma surface", "[win]")
         QVERIFY(win::is_dock(c));
         QCOMPARE(c->geo.frame, QRect(0, 0, 100, 50));
         REQUIRE(c->hasStrut() == test_data.expected_strut);
-        REQUIRE(win::space_window_area(*setup.base->mod.space, win::area_option::maximize, 0, 0)
-                == test_data.expected_max_area);
+        REQUIRE(
+            win::space_window_area(*setup.base->mod.space, win::area_option::maximize, nullptr, 0)
+            == test_data.expected_max_area);
         REQUIRE(win::get_layer(*c) == test_data.expected_layer);
     }
 

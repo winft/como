@@ -32,7 +32,7 @@ inline constexpr size_t token_strlen{33};
 
 inline bool generate_token(char out[token_strlen])
 {
-    static FILE* urandom = NULL;
+    static FILE* urandom = nullptr;
     uint64_t data[2];
 
     if (!urandom) {

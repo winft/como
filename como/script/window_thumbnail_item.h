@@ -76,7 +76,7 @@ private:
     mutable ThumbnailTextureProvider* m_provider = nullptr;
     QSharedPointer<GLTexture> m_offscreenTexture;
     QScopedPointer<GLFramebuffer> m_offscreenTarget;
-    GLsync m_acquireFence = 0;
+    GLsync m_acquireFence{nullptr};
     qreal m_devicePixelRatio = 1;
 
     QMetaObject::Connection render_notifier;

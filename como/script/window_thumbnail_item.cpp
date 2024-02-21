@@ -200,7 +200,7 @@ void window_thumbnail_item::destroyOffscreenTexture()
 
         if (m_acquireFence) {
             glDeleteSync(m_acquireFence);
-            m_acquireFence = 0;
+            m_acquireFence = nullptr;
         }
         effects->doneOpenGLContextCurrent();
     }
@@ -216,7 +216,7 @@ QSGNode* window_thumbnail_item::updatePaintNode(QSGNode* oldNode, QQuickItem::Up
     if (m_acquireFence) {
         glClientWaitSync(m_acquireFence, GL_SYNC_FLUSH_COMMANDS_BIT, 5000);
         glDeleteSync(m_acquireFence);
-        m_acquireFence = 0;
+        m_acquireFence = nullptr;
     }
 
     if (!m_provider) {

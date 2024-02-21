@@ -498,8 +498,9 @@ TEST_CASE("transient placement", "[win]")
 
         // Placement area still full screen.
         QVERIFY(
-            win::space_window_area(*setup.base->mod.space, win::area_option::placement, 0, 1)
-            == win::space_window_area(*setup.base->mod.space, win::area_option::fullscreen, 0, 1));
+            win::space_window_area(*setup.base->mod.space, win::area_option::placement, nullptr, 1)
+            == win::space_window_area(
+                *setup.base->mod.space, win::area_option::fullscreen, nullptr, 1));
 
         // Now map the panel and placement area is reduced.
         auto dock = render_and_wait_for_shown(surface, QSize(1280, 50), Qt::blue);
@@ -509,8 +510,9 @@ TEST_CASE("transient placement", "[win]")
         QCOMPARE(dock->geo.frame, QRect(0, get_output(0)->geometry().height() - 50, 1280, 50));
         QCOMPARE(dock->hasStrut(), true);
         QVERIFY(
-            win::space_window_area(*setup.base->mod.space, win::area_option::placement, 0, 1)
-            != win::space_window_area(*setup.base->mod.space, win::area_option::fullscreen, 0, 1));
+            win::space_window_area(*setup.base->mod.space, win::area_option::placement, nullptr, 1)
+            != win::space_window_area(
+                *setup.base->mod.space, win::area_option::fullscreen, nullptr, 1));
 
         // Create parent
         auto parentSurface = create_surface();
