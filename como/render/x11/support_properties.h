@@ -40,7 +40,7 @@ void delete_unused_support_properties(Compositor& comp)
         return;
     }
 
-    for (auto const& atom : qAsConst(comp.unused_support_properties)) {
+    for (auto const& atom : std::as_const(comp.unused_support_properties)) {
         // remove property from root window
         xcb_delete_property(con, comp.base.x11_data.root_window, atom);
     }

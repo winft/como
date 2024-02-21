@@ -87,7 +87,7 @@ template<typename Effects, typename Output>
 effect_screen_impl<Output>* get_effect_screen(Effects const& effects, Output const& output)
 {
     auto const& screens = effects.screens();
-    for (auto&& eff_screen : qAsConst(screens)) {
+    for (auto&& eff_screen : std::as_const(screens)) {
         auto eff_screen_impl = static_cast<effect_screen_impl<Output>*>(eff_screen);
         if (&output == eff_screen_impl->platformOutput()) {
             return eff_screen_impl;

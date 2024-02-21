@@ -151,7 +151,7 @@ bool platform_wrap::isScriptLoaded(const QString& pluginName) const
 abstract_script* platform_wrap::findScript(const QString& pluginName) const
 {
     QMutexLocker locker(m_scriptsLock.data());
-    for (auto const& script : qAsConst(scripts)) {
+    for (auto const& script : std::as_const(scripts)) {
         if (script->pluginName() == pluginName) {
             return script;
         }
@@ -162,7 +162,7 @@ abstract_script* platform_wrap::findScript(const QString& pluginName) const
 bool platform_wrap::unloadScript(const QString& pluginName)
 {
     QMutexLocker locker(m_scriptsLock.data());
-    for (auto const& script : qAsConst(scripts)) {
+    for (auto const& script : std::as_const(scripts)) {
         if (script->pluginName() == pluginName) {
             script->deleteLater();
             return true;

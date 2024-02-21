@@ -67,7 +67,7 @@ void book::save()
     }
 
     std::vector<ruling*> filteredRules;
-    for (const auto& rule : qAsConst(m_rules)) {
+    for (const auto& rule : std::as_const(m_rules)) {
         filteredRules.push_back(rule);
     }
 

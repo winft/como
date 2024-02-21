@@ -123,10 +123,10 @@ void MouseMarkEffect::paintScreen(effect::screen_paint_data& data)
         binder.shader()->setUniform(GLShader::ModelViewProjectionMatrix, effect::get_mvp(data));
         binder.shader()->setUniform(GLShader::ColorUniform::Color, color);
         QVector<QVector2D> verts;
-        for (auto const& mark : qAsConst(marks)) {
+        for (auto const& mark : std::as_const(marks)) {
             verts.clear();
             verts.reserve(mark.size() * 2);
-            for (auto const& p : qAsConst(mark)) {
+            for (auto const& p : std::as_const(mark)) {
                 verts.push_back(QVector2D(p.x(), p.y()));
             }
             vbo->setVertices(verts);
@@ -135,7 +135,7 @@ void MouseMarkEffect::paintScreen(effect::screen_paint_data& data)
         if (!drawing.isEmpty()) {
             verts.clear();
             verts.reserve(drawing.size() * 2);
-            for (auto const& p : qAsConst(drawing)) {
+            for (auto const& p : std::as_const(drawing)) {
                 verts.push_back(QVector2D(p.x(), p.y()));
             }
             vbo->setVertices(verts);
@@ -153,7 +153,7 @@ void MouseMarkEffect::paintScreen(effect::screen_paint_data& data)
         QPen pen(color);
         pen.setWidth(width);
         painter->setPen(pen);
-        for (auto const& mark : qAsConst(marks)) {
+        for (auto const& mark : std::as_const(marks)) {
             drawMark(painter, mark);
         }
         drawMark(painter, drawing);

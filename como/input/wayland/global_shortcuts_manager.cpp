@@ -94,7 +94,7 @@ void global_shortcuts_manager::objectDeleted(QObject* object)
 
 bool global_shortcuts_manager::shortcut_exists(global_shortcut const& sc)
 {
-    for (const auto& cs : qAsConst(m_shortcuts)) {
+    for (const auto& cs : std::as_const(m_shortcuts)) {
         if (sc.shortcut() == cs.shortcut()) {
             return false;
         }

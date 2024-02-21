@@ -83,9 +83,9 @@ TEST_CASE("window quad list", "[effect],[unit]")
         auto actual = test_data.orig.makeGrid(test_data.quad_size);
         REQUIRE(actual.count() == test_data.expected_count);
 
-        for (auto const& actualQuad : qAsConst(actual)) {
+        for (auto const& actualQuad : std::as_const(actual)) {
             bool found = false;
-            for (auto const& expectedQuad : qAsConst(test_data.expected)) {
+            for (auto const& expectedQuad : std::as_const(test_data.expected)) {
                 auto vertexTest = [actualQuad, expectedQuad](int index) {
                     auto const& actualVertex = actualQuad[index];
                     auto const& expectedVertex = expectedQuad[index];
@@ -170,9 +170,9 @@ TEST_CASE("window quad list", "[effect],[unit]")
             = test_data.orig.makeRegularGrid(test_data.x_subdivisions, test_data.y_subdivisions);
         REQUIRE(actual.count() == test_data.expected_count);
 
-        for (auto const& actualQuad : qAsConst(actual)) {
+        for (auto const& actualQuad : std::as_const(actual)) {
             bool found = false;
-            for (auto const& expectedQuad : qAsConst(test_data.expected)) {
+            for (auto const& expectedQuad : std::as_const(test_data.expected)) {
                 auto vertexTest = [actualQuad, expectedQuad](int index) {
                     auto const& actualVertex = actualQuad[index];
                     auto const& expectedVertex = expectedQuad[index];

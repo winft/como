@@ -123,7 +123,7 @@ int gesture_recognizer::startSwipeGesture(uint fingerCount,
         return 0;
     }
     int count = 0;
-    for (swipe_gesture* gesture : qAsConst(m_swipeGestures)) {
+    for (swipe_gesture* gesture : std::as_const(m_swipeGestures)) {
         if (gesture->minimumFingerCountIsRelevant()) {
             if (gesture->minimumFingerCount() > fingerCount) {
                 continue;
@@ -253,10 +253,10 @@ void gesture_recognizer::updateSwipeGesture(const QSizeF& delta)
 
 void gesture_recognizer::cancelActiveGestures()
 {
-    for (auto g : qAsConst(m_activeSwipeGestures)) {
+    for (auto g : std::as_const(m_activeSwipeGestures)) {
         Q_EMIT g->cancelled();
     }
-    for (auto g : qAsConst(m_activePinchGestures)) {
+    for (auto g : std::as_const(m_activePinchGestures)) {
         Q_EMIT g->cancelled();
     }
     m_activeSwipeGestures.clear();
@@ -277,7 +277,7 @@ void gesture_recognizer::cancelSwipeGesture()
 void gesture_recognizer::endSwipeGesture()
 {
     const QSizeF delta = m_currentDelta;
-    for (auto g : qAsConst(m_activeSwipeGestures)) {
+    for (auto g : std::as_const(m_activeSwipeGestures)) {
         if (static_cast<swipe_gesture*>(g)->minimumDeltaReached(delta)) {
             Q_EMIT g->triggered();
         } else {
@@ -297,7 +297,7 @@ int gesture_recognizer::startPinchGesture(uint fingerCount)
     if (!m_activeSwipeGestures.isEmpty() || !m_activePinchGestures.isEmpty()) {
         return 0;
     }
-    for (pinch_gesture* gesture : qAsConst(m_pinchGestures)) {
+    for (pinch_gesture* gesture : std::as_const(m_pinchGestures)) {
         if (gesture->minimumFingerCountIsRelevant()) {
             if (gesture->minimumFingerCount() > fingerCount) {
                 continue;
@@ -364,7 +364,7 @@ void gesture_recognizer::cancelPinchGesture()
 
 void gesture_recognizer::endPinchGesture() // because fingers up
 {
-    for (auto g : qAsConst(m_activePinchGestures)) {
+    for (auto g : std::as_const(m_activePinchGestures)) {
         if (g->minimumScaleDeltaReached(m_currentScale)) {
             Q_EMIT g->triggered();
         } else {

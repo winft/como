@@ -18,7 +18,7 @@ void setup_effect_screen_geometry_changes(EffectIntegrator& effi)
     QObject::connect(&effi.effects, &Effects::screenGeometryChanged, &effi.effects, [&] {
         effi.reset();
         auto const& stacking_order = effi.effects.stackingOrder();
-        for (auto const& window : qAsConst(stacking_order)) {
+        for (auto const& window : std::as_const(stacking_order)) {
             effi.update(*window);
         }
     });

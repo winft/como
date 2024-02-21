@@ -91,7 +91,7 @@ bool book_settings::usrSave()
     }
 
     // Remove deleted groups from config
-    for (const QString& groupName : qAsConst(m_storedGroups)) {
+    for (const QString& groupName : std::as_const(m_storedGroups)) {
         if (sharedConfig()->hasGroup(groupName) && !mRuleGroupList.contains(groupName)) {
             sharedConfig()->deleteGroup(groupName);
         }
@@ -118,7 +118,7 @@ void book_settings::usrRead()
     mCount = mRuleGroupList.count();
     m_storedGroups = mRuleGroupList;
 
-    for (const QString& groupName : qAsConst(mRuleGroupList)) {
+    for (const QString& groupName : std::as_const(mRuleGroupList)) {
         m_list.push_back(new settings(sharedConfig(), groupName, this));
     }
 }

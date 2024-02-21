@@ -530,7 +530,7 @@ TEST_CASE("opengl shadow", "[render]")
             }
         }
 
-        for (const auto& v : qAsConst(mask)) {
+        for (const auto& v : std::as_const(mask)) {
             if (!v) {
                 FAIL("missed a shadow quad");
             }
@@ -623,7 +623,7 @@ TEST_CASE("opengl shadow", "[render]")
         expectedQuads << makeShadowQuad(
             QRectF(-128, 0, 128, 512), 0.0, 128.0 / 257.0, 128.0 / 257.0, 129.0 / 257.0); // left
 
-        for (auto const& expectedQuad : qAsConst(expectedQuads)) {
+        for (auto const& expectedQuad : std::as_const(expectedQuads)) {
             auto it = std::find_if(
                 quads.constBegin(), quads.constEnd(), [&expectedQuad](auto const& quad) {
                     return compareQuads(quad, expectedQuad);
@@ -711,7 +711,7 @@ TEST_CASE("opengl shadow", "[render]")
         WindowQuadList const& quads = shadow->shadowQuads();
         QCOMPARE(quads.count(), expectedQuads.count());
 
-        for (auto const& expectedQuad : qAsConst(expectedQuads)) {
+        for (auto const& expectedQuad : std::as_const(expectedQuads)) {
             auto it = std::find_if(
                 quads.constBegin(), quads.constEnd(), [&expectedQuad](auto const& quad) {
                     return compareQuads(quad, expectedQuad);

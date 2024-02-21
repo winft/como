@@ -34,7 +34,7 @@ effects_handler_wrap::~effects_handler_wrap()
 
 void effects_handler_wrap::unloadAllEffects()
 {
-    for (const EffectPair& pair : qAsConst(loaded_effects)) {
+    for (const EffectPair& pair : std::as_const(loaded_effects)) {
         destroyEffect(pair.second);
     }
 
@@ -323,7 +323,7 @@ bool effects_handler_wrap::checkInputWindowEvent(QMouseEvent* e)
     if (m_grabbedMouseEffects.isEmpty()) {
         return false;
     }
-    for (auto const& effect : qAsConst(m_grabbedMouseEffects)) {
+    for (auto const& effect : std::as_const(m_grabbedMouseEffects)) {
         effect->windowInputMouseEvent(e);
     }
     return true;
@@ -334,7 +334,7 @@ bool effects_handler_wrap::checkInputWindowEvent(QWheelEvent* e)
     if (m_grabbedMouseEffects.isEmpty()) {
         return false;
     }
-    for (auto const& effect : qAsConst(m_grabbedMouseEffects)) {
+    for (auto const& effect : std::as_const(m_grabbedMouseEffects)) {
         effect->windowInputMouseEvent(e);
     }
     return true;

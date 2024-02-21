@@ -210,7 +210,7 @@ void SlideEffect::paintWindow(effect::window_paint_data& data)
 
     const auto screens = effects->screens();
 
-    for (auto desktop : qAsConst(m_paintCtx.visibleDesktops)) {
+    for (auto desktop : std::as_const(m_paintCtx.visibleDesktops)) {
         if (!data.window.isOnDesktop(desktop)) {
             continue;
         }
@@ -333,7 +333,7 @@ void SlideEffect::finishedSwitching()
         w->setData(WindowForceBlurRole, QVariant());
     }
 
-    for (EffectWindow* w : qAsConst(m_elevatedWindows)) {
+    for (EffectWindow* w : std::as_const(m_elevatedWindows)) {
         effects->setElevatedWindow(w, false);
     }
 

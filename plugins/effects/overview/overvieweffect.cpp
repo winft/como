@@ -213,7 +213,7 @@ void OverviewEffect::reconfigure(ReconfigureFlags)
     setAnimationDuration(animationTime(300));
     setFilterWindows(OverviewConfig::filterWindows());
 
-    for (const ElectricBorder& border : qAsConst(m_borderActivate)) {
+    for (const ElectricBorder& border : std::as_const(m_borderActivate)) {
         effects->unreserveElectricBorder(border, this);
     }
 

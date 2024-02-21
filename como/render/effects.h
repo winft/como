@@ -830,7 +830,7 @@ public:
 
     EffectScreen* findScreen(const QString& name) const override
     {
-        for (EffectScreen* screen : qAsConst(m_effectScreens)) {
+        for (EffectScreen* screen : std::as_const(m_effectScreens)) {
             if (screen->name() == name) {
                 return screen;
             }

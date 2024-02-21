@@ -312,7 +312,7 @@ void script::callDBus(const QString& service,
 
     QVariantList dbusArguments;
     dbusArguments.reserve(jsArguments.count());
-    for (const QJSValue& jsArgument : qAsConst(jsArguments)) {
+    for (const QJSValue& jsArgument : std::as_const(jsArguments)) {
         dbusArguments << jsArgument.toVariant();
     }
 
@@ -451,7 +451,7 @@ QList<QAction*> script::actionsForUserActionMenu(window* window, QMenu* parent)
     QList<QAction*> actions;
     actions.reserve(m_userActionsMenuCallbacks.count());
 
-    for (QJSValue callback : qAsConst(m_userActionsMenuCallbacks)) {
+    for (QJSValue callback : std::as_const(m_userActionsMenuCallbacks)) {
         QJSValue result = callback.call({m_engine->toScriptValue(window)});
         if (result.isError()) {
             continue;
