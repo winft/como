@@ -59,18 +59,20 @@ public:
 
     void process_key_press(typename Redirect::window_t window, key_event const& event)
     {
-        std::visit(overload{[&](auto&& win) {
-                       win::key_press_event(
-                           win,
-                           key_to_qt_key(event.keycode, event.base.dev->xkb.get())
-                               | xkb::get_active_keyboard_modifiers(this->redirect.platform));
+        std::visit(
+            overload{[&](auto&& win) {
+                win::key_press_event(
+                    win,
+                    QKeyCombination(xkb::get_active_keyboard_modifiers(this->redirect.platform),
+                                    key_to_qt_key(event.keycode, event.base.dev->xkb.get()))
+                        .toCombined());
 
-                       if (win::is_move(win) || win::is_resize(win)) {
-                           // Only update if mode didn't end.
-                           win::update_move_resize(win, this->redirect.globalPointer());
-                       }
-                   }},
-                   window);
+                if (win::is_move(win) || win::is_resize(win)) {
+                    // Only update if mode didn't end.
+                    win::update_move_resize(win, this->redirect.globalPointer());
+                }
+            }},
+            window);
     }
 
     bool key(key_event const& event) override

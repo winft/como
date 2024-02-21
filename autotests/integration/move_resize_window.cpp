@@ -135,7 +135,7 @@ TEST_CASE("move resize window", "[win]")
         QCOMPARE(clientStepUserMovedResizedSpy.count(), 1);
         QCOMPARE(windowStepUserMovedResizedSpy.count(), 1);
 
-        win::key_press_event(c, Qt::Key_Down | Qt::ALT);
+        win::key_press_event(c, QKeyCombination(Qt::Key_Down | Qt::ALT).toCombined());
         win::update_move_resize(c, cursor()->pos());
         QCOMPARE(clientStepUserMovedResizedSpy.count(), 2);
         QCOMPARE(windowStepUserMovedResizedSpy.count(), 2);

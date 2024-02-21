@@ -106,7 +106,7 @@ public:
     {
         uint rgKeySyms[10];
         int nKeySyms = 0;
-        int mod = seq[seq.count() - 1] & Qt::KeyboardModifierMask;
+        auto mod = seq[seq.count() - 1].toCombined() & Qt::KeyboardModifierMask;
 
         if (mod & Qt::SHIFT) {
             rgKeySyms[nKeySyms++] = XK_Shift_L;

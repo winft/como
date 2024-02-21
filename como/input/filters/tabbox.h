@@ -71,7 +71,9 @@ public:
 
         if (event.state == key_state::pressed) {
             auto mods = xkb::get_active_keyboard_modifiers(this->redirect.platform);
-            tabbox->key_press(mods | key_to_qt_key(event.keycode, event.base.dev->xkb.get()));
+            tabbox->key_press(
+                QKeyCombination(mods, key_to_qt_key(event.keycode, event.base.dev->xkb.get()))
+                    .toCombined());
         } else if (xkb::get_active_keyboard_modifiers_relevant_for_global_shortcuts(
                        this->redirect.platform)
                    == Qt::NoModifier) {
@@ -89,7 +91,9 @@ public:
         }
 
         auto mods = xkb::get_active_keyboard_modifiers(this->redirect.platform);
-        tabbox->key_press(mods | key_to_qt_key(event.keycode, event.base.dev->xkb.get()));
+        tabbox->key_press(
+            QKeyCombination(mods, key_to_qt_key(event.keycode, event.base.dev->xkb.get()))
+                .toCombined());
         return true;
     }
 

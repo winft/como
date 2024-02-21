@@ -151,7 +151,7 @@ public:
 
     bool are_mod_keys_depressed(QKeySequence const& seq) const
     {
-        const int mod = seq[seq.count() - 1] & Qt::KeyboardModifierMask;
+        auto const mod = seq[seq.count() - 1].toCombined() & Qt::KeyboardModifierMask;
         auto const mods = xkb::get_active_keyboard_modifiers_relevant_for_global_shortcuts(*this);
 
         if ((mod & Qt::SHIFT) && mods.testFlag(Qt::ShiftModifier)) {

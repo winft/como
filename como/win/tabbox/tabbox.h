@@ -417,7 +417,7 @@ public:
 
         auto contains = [](QKeySequence const& shortcut, int key) -> bool {
             for (int i = 0; i < shortcut.count(); ++i) {
-                if (shortcut[i] == key) {
+                if (shortcut[i].toCombined() == key) {
                     return true;
                 }
             }
@@ -440,10 +440,12 @@ public:
                 | Qt::MetaModifier | Qt::KeypadModifier | Qt::GroupSwitchModifier;
             mods &= keyQt;
             if ((keyQt & ~mods) == Qt::Key_Tab) {
-                if (contains(forward, mods | Qt::Key_Backtab))
+                if (contains(forward, QKeyCombination(mods, Qt::Key_Backtab).toCombined())) {
                     return Forward;
-                if (contains(backward, mods | Qt::Key_Backtab))
+                }
+                if (contains(backward, QKeyCombination(mods, Qt::Key_Backtab).toCombined())) {
                     return Backward;
+                }
             }
 
             // if the shortcuts do not match, try matching again after filtering the shift key from
