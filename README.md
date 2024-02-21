@@ -108,11 +108,19 @@ Well defined and transparent decision processes enable expert knowledge to proli
 and new contributors to easily find help on their first steps.
 
 # Installation
-The Compositor Modules can be compiled from source.
-If you do that manually you have to check for your specific distribution
-how to best get the required dependencies.
+The Compositor Modules can be compiled from source easily through CMake presets.
+To use the preset for a release configuration building into a subdirectory `build`,
+issue from the source directory:
 
-You can also make use of the FDBuild tool to automate that process as described
+```
+cmake --preset release -B build
+cmake --build build
+```
+
+Since The Compositor Module's master branch regularly only builds
+against the development versions of KDE Plasma libraries,
+you might want to build these dependencies from source too.
+You can make use of the FDBuild tool to automate this process as described
 [here](CONTRIBUTING.md#compiling).
 
 # Usage
@@ -121,13 +129,6 @@ and then create their central platform types from your main function to launch t
 
 [Minico](tests/minico) as a minimal example and the [Plasma test binaries](tests/plasma)
 as a more complex one demonstrate this in a straightforward way.
-
-# Development
-The [CONTRIBUTING.md](CONTRIBUTING.md) document contains all information
-on how to get started with:
-* providing useful debug information,
-* building The Compositor Modules
-* and doing your first code submission to the project.
 
 # Contact
 Issue tickets can be created for feature requests, bug reports or general discussions.
