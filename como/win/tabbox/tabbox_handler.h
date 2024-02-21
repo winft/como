@@ -257,7 +257,7 @@ public:
      * @param pos The position to be tested in global coordinates
      * @return True if the view contains the point, otherwise false.
      */
-    bool contains_pos(const QPoint& pos) const;
+    bool contains_pos(QPointF const& pos) const;
     /**
      * @param client The tabbox_client whose index should be returned
      * @return Returns the ModelIndex of given tabbox_client or an invalid ModelIndex

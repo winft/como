@@ -36,7 +36,7 @@ public:
         switch (event->type()) {
         case QEvent::TabletMove:
         case QEvent::TabletEnterProximity:
-            this->redirect.pointer->processMotion(event->globalPosF(), event->timestamp());
+            this->redirect.pointer->processMotion(event->globalPosition(), event->timestamp());
             break;
         case QEvent::TabletPress:
             this->redirect.pointer->process_button(get_event(button_state::pressed));

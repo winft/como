@@ -72,7 +72,7 @@ bool process_decoration_button_press(Win* win, QMouseEvent* event, bool ignoreMe
     // In the new API the decoration may process the menu action to display an inactive tab's menu.
     // If the event is unhandled then the core will create one for the active window in the group.
     if (!ignoreMenu || com != mouse_cmd::operations_menu) {
-        perform_mouse_command(*win, com, event->globalPos());
+        perform_mouse_command(*win, com, event->globalPosition().toPoint());
     }
 
     // Return events that should be passed to the decoration in the new API.
