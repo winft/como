@@ -26,8 +26,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QtGui/private/qgenericunixfontdatabase_p.h>
 #include <QtGui/private/qgenericunixthemes_p.h>
-#include <QtGui/private/qspiaccessiblebridge_p.h>
 #include <QtGui/private/qunixeventdispatcher_qpa_p.h>
+
+#if !defined(QT_NO_ACCESSIBILITY_ATSPI_BRIDGE)
+#include <QtGui/private/qspiaccessiblebridge_p.h>
+#endif
 
 namespace como
 {
@@ -147,7 +150,9 @@ QPlatformOpenGLContext* Integration::createPlatformOpenGLContext(QOpenGLContext*
 QPlatformAccessibility* Integration::accessibility() const
 {
     if (!m_accessibility) {
+#if !defined(QT_NO_ACCESSIBILITY_ATSPI_BRIDGE)
         m_accessibility.reset(new QSpiAccessibleBridge());
+#endif
     }
     return m_accessibility.get();
 }
