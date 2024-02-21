@@ -611,16 +611,16 @@ void OffscreenQuickScene::setSource(const QUrl& source, const QVariantMap& initi
 
     d->quickItem.reset();
 
-    QScopedPointer<QObject> qmlObject(
+    auto qmlObject = std::make_unique<QObject>(
         d->qmlComponent->createWithInitialProperties(initialProperties));
-    QQuickItem* item = qobject_cast<QQuickItem*>(qmlObject.data());
+    auto item = qobject_cast<QQuickItem*>(qmlObject.get());
     if (!item) {
         qCWarning(KWIN_CORE) << "Root object of effect quick view" << source
                              << "is not a QQuickItem";
         return;
     }
 
-    qmlObject.take();
+    qmlObject.release();
     d->quickItem.reset(item);
 
     item->setParentItem(contentItem());
