@@ -21,7 +21,7 @@ load_effect_flags basic_effect_loader::readConfig(QString const& effectName,
     Q_ASSERT(m_config);
     KConfigGroup plugins(m_config, QStringLiteral("Plugins"));
 
-    auto const key = effectName + QStringLiteral("Enabled");
+    auto const key = QString(effectName + QStringLiteral("Enabled"));
 
     // do we have a key for the effect?
     if (plugins.hasKey(key)) {
