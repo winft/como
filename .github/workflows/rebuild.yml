@@ -9,7 +9,7 @@ jobs:
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
       artifact-name: build
-      cmake-preset: clang
+      cmake-preset: release
 
   package:
     uses: ./.github/workflows/package.yml
