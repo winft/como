@@ -54,19 +54,24 @@ TEST_CASE("global shortcuts", "[input]")
                                       mod_data{KEY_LEFTSHIFT, Qt::SHIFT},
                                       mod_data{KEY_LEFTMETA, Qt::META});
 
+        // TODO(romangg): grave key is still not working with Qt6.
+        // More common case with any Latin1 symbol keys, including punctuation,
+        // should work also. "`" key has a "ё" letter on Russian layout.
+        // FIXME: QTBUG-90611
+#if 1
         auto key_test_data = GENERATE(
             // Tab is example of a key usually the same on different layouts, check it first.
             key_data{KEY_TAB, Qt::Key_Tab},
-#if 1
             // Then check a key with a Latin letter. The symbol will probably be differ on non-Latin
             // layout. On Russian layout, "w" key has a cyrillic letter "ц".
             key_data{KEY_W, Qt::Key_W});
 #else
+        auto key_test_data = GENERATE(
+            // Tab is example of a key usually the same on different layouts, check it first.
+            key_data{KEY_TAB, Qt::Key_Tab},
+            // Then check a key with a Latin letter. The symbol will probably be differ on non-Latin
+            // layout. On Russian layout, "w" key has a cyrillic letter "ц".
             key_data{KEY_W, Qt::Key_W},
-            // TODO(romangg): grave key is still not working with Qt6.
-            // More common case with any Latin1 symbol keys, including punctuation,
-            // should work also. "`" key has a "ё" letter on Russian layout.
-            // FIXME: QTBUG-90611
             key_data{KEY_GRAVE, Qt::Key_QuoteLeft});
 #endif
 
