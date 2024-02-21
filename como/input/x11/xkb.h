@@ -9,7 +9,10 @@
 #include <como/input/logging.h>
 #include <como/input/xkb/keymap.h>
 
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wkeyword-macro"
 #define explicit cpp_explicit_compat
+#pragma clang diagnostic pop
 #include <xcb/xkb.h>
 #undef explicit
 #include <xkbcommon/xkbcommon-x11.h>
