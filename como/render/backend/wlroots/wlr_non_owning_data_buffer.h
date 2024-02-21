@@ -59,8 +59,8 @@ static inline wlr_non_owning_data_buffer* wlr_non_owning_data_buffer_create(uint
 
     auto buffer
         = static_cast<wlr_non_owning_data_buffer*>(calloc(1, sizeof(wlr_non_owning_data_buffer)));
-    if (buffer == NULL) {
-        return NULL;
+    if (!buffer) {
+        return nullptr;
     }
 
     wlr_buffer_init(&buffer->base, &wlr_non_owning_data_buffer_impl, width, height);

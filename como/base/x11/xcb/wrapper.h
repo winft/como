@@ -232,7 +232,7 @@ public:
     inline bool is_null() const
     {
         const_cast<abstract_wrapper*>(this)->get_reply();
-        return m_reply == NULL;
+        return m_reply == nullptr;
     }
     inline operator bool()
     {

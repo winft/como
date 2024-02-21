@@ -30,7 +30,7 @@ static QRegion computeDirtyRegion(const QRect& windowRect)
 
     const QList<EffectScreen*> screens = effects->screens();
     for (EffectScreen* screen : screens) {
-        const QRect screenRect = effects->clientArea(ScreenArea, screen, 0);
+        auto const screenRect = effects->clientArea(ScreenArea, screen, nullptr);
 
         QRect screenWindowRect = windowRect;
         screenWindowRect.moveCenter(screenRect.center());
@@ -113,7 +113,7 @@ void SnapHelperEffect::paintScreen(effect::screen_paint_data& data)
         QVector<QVector2D> verts;
         verts.reserve(screens.size() * 24);
         for (EffectScreen* screen : screens) {
-            const QRect rect = effects->clientArea(ScreenArea, screen, 0);
+            auto const rect = effects->clientArea(ScreenArea, screen, nullptr);
             const int midX = rect.x() + rect.width() / 2;
             const int midY = rect.y() + rect.height() / 2;
             const int halfWidth = m_geometry.width() / 2;
@@ -160,7 +160,7 @@ void SnapHelperEffect::paintScreen(effect::screen_paint_data& data)
         painter->setBrush(Qt::NoBrush);
 
         for (EffectScreen* screen : screens) {
-            const QRect rect = effects->clientArea(ScreenArea, screen, 0);
+            auto const rect = effects->clientArea(ScreenArea, screen, nullptr);
             // Center lines.
             painter->drawLine(
                 rect.center().x(), rect.y(), rect.center().x(), rect.y() + rect.height());
