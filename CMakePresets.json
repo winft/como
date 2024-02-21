@@ -20,7 +20,7 @@
         "DEBUG_SHARED_LINKER_FLAGS": "-Wl,--fatal-warnings",
         "DEBUG_MODULE_LINKER_FLAGS": "-Wl,--fatal-warnings",
         "NOUNDEF_LINKER_FLAGS": "-Wl,--no-undefined",
-        "DEBUG_CXX_FLAGS_CLANG": "$env{DEBUG_CXX_FLAGS} -fno-operator-names -Wno-gnu-zero-variadic-macro-arguments -Wno-cast-align"
+        "DEBUG_CXX_FLAGS_CLANG": "$env{DEBUG_CXX_FLAGS} -fno-operator-names -Wno-gnu-zero-variadic-macro-arguments -Wno-cast-align -Werror -Wno-error=deprecated-declarations -Wno-error=unused-lambda-capture"
       }
     },
     {
