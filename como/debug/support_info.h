@@ -230,18 +230,18 @@ QString get_support_info(Space const& space)
         support.append(QStringLiteral("\nLoaded Effects:\n"));
         support.append(QStringLiteral("---------------\n"));
         auto const& loaded_effects = effects->loadedEffects();
-        for (auto const& effect : qAsConst(loaded_effects)) {
+        for (auto const& effect : std::as_const(loaded_effects)) {
             support.append(effect + QStringLiteral("\n"));
         }
         support.append(QStringLiteral("\nCurrently Active Effects:\n"));
         support.append(QStringLiteral("-------------------------\n"));
         auto const& active_effects = effects->activeEffects();
-        for (auto const& effect : qAsConst(active_effects)) {
+        for (auto const& effect : std::as_const(active_effects)) {
             support.append(effect + QStringLiteral("\n"));
         }
         support.append(QStringLiteral("\nEffect Settings:\n"));
         support.append(QStringLiteral("----------------\n"));
-        for (auto const& effect : qAsConst(loaded_effects)) {
+        for (auto const& effect : std::as_const(loaded_effects)) {
             support.append(effects->supportInformation(effect));
             support.append(QStringLiteral("\n"));
         }

@@ -303,7 +303,7 @@ int main(int argc, char* argv[])
 
     // start the applications passed to us as command line arguments
     if (auto apps = parser.positionalArguments(); !apps.isEmpty()) {
-        for (auto const& app_name : qAsConst(apps)) {
+        for (auto const& app_name : std::as_const(apps)) {
             auto arguments = KShell::splitArgs(app_name);
             if (arguments.isEmpty()) {
                 qWarning("Failed to launch application: %s is an invalid command",

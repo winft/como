@@ -24,7 +24,7 @@ KWinIdleTimePoller::~KWinIdleTimePoller()
 void KWinIdleTimePoller::cleanup()
 {
     if (auto idle_interface = como::input::singleton_interface::idle_qobject) {
-        for (auto& listener : qAsConst(m_timeouts)) {
+        for (auto& listener : std::as_const(m_timeouts)) {
             idle_interface->unregister_listener(*listener);
         }
         if (m_catchResumeTimeout) {

@@ -107,7 +107,7 @@ std::vector<KeyboardShortcut> get_internal_shortcuts(QList<ShortcutInfo> const& 
     std::vector<KeyboardShortcut> ret;
     ret.reserve(list.size());
 
-    for (auto&& el : qAsConst(list)) {
+    for (auto&& el : std::as_const(list)) {
         auto const keys = el.keys();
         auto const seq = keys.empty() ? QKeySequence() : keys.front();
         ret.push_back(KeyboardShortcut{.sequence = seq,

@@ -58,7 +58,7 @@ QRegion PaintClipper::paintArea()
     Q_ASSERT(areas != nullptr); // can be called only with clip() == true
     const QSize& s = effects->virtualScreenSize();
     QRegion ret(0, 0, s.width(), s.height());
-    for (const QRegion& r : qAsConst(*areas)) {
+    for (const QRegion& r : std::as_const(*areas)) {
         ret &= r;
     }
     return ret;

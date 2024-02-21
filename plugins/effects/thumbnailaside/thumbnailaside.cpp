@@ -81,7 +81,7 @@ void ThumbnailAsideEffect::paintScreen(effect::screen_paint_data& data)
     painted = QRegion();
     effects->paintScreen(data);
 
-    for (auto const& d : qAsConst(windows)) {
+    for (auto const& d : std::as_const(windows)) {
         if (painted.intersects(d.rect)) {
             effect::window_paint_data win_data{
                 *d.window,
@@ -105,7 +105,7 @@ void ThumbnailAsideEffect::paintWindow(effect::window_paint_data& data)
 
 void ThumbnailAsideEffect::slotWindowDamaged(EffectWindow* w, QRegion const&)
 {
-    for (auto const& d : qAsConst(windows)) {
+    for (auto const& d : std::as_const(windows)) {
         if (d.window == w)
             effects->addRepaint(d.rect);
     }
@@ -113,7 +113,7 @@ void ThumbnailAsideEffect::slotWindowDamaged(EffectWindow* w, QRegion const&)
 
 void ThumbnailAsideEffect::slotWindowFrameGeometryChanged(EffectWindow* w, const QRect& old)
 {
-    for (auto const& d : qAsConst(windows)) {
+    for (auto const& d : std::as_const(windows)) {
         if (d.window == w) {
             if (w->size() == old.size())
                 effects->addRepaint(d.rect);
@@ -181,7 +181,7 @@ void ThumbnailAsideEffect::arrange()
     int height = 0;
     QVector<int> pos(windows.size());
     int mwidth = 0;
-    for (auto const& d : qAsConst(windows)) {
+    for (auto const& d : std::as_const(windows)) {
         height += d.window->height();
         mwidth = qMax(mwidth, d.window->width());
         pos[d.index] = d.window->height();
@@ -212,7 +212,7 @@ void ThumbnailAsideEffect::arrange()
 
 void ThumbnailAsideEffect::repaintAll()
 {
-    for (auto const& d : qAsConst(windows)) {
+    for (auto const& d : std::as_const(windows)) {
         effects->addRepaint(d.rect);
     }
 }

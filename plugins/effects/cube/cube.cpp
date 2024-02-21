@@ -124,13 +124,13 @@ bool CubeEffect::supported()
 void CubeEffect::reconfigure(ReconfigureFlags)
 {
     CubeConfig::self()->read();
-    for (auto const& border : qAsConst(borderActivate)) {
+    for (auto const& border : std::as_const(borderActivate)) {
         effects->unreserveElectricBorder(border, this);
     }
-    for (auto const& border : qAsConst(borderActivateCylinder)) {
+    for (auto const& border : std::as_const(borderActivateCylinder)) {
         effects->unreserveElectricBorder(border, this);
     }
-    for (auto const& border : qAsConst(borderActivateSphere)) {
+    for (auto const& border : std::as_const(borderActivateSphere)) {
         effects->unreserveElectricBorder(border, this);
     }
     borderActivate.clear();
@@ -139,21 +139,21 @@ void CubeEffect::reconfigure(ReconfigureFlags)
     QList<int> borderList = QList<int>();
     borderList.append(int(ElectricNone));
     borderList = CubeConfig::borderActivate();
-    for (auto i : qAsConst(borderList)) {
+    for (auto i : std::as_const(borderList)) {
         borderActivate.append(ElectricBorder(i));
         effects->reserveElectricBorder(ElectricBorder(i), this);
     }
     borderList.clear();
     borderList.append(int(ElectricNone));
     borderList = CubeConfig::borderActivateCylinder();
-    for (auto i : qAsConst(borderList)) {
+    for (auto i : std::as_const(borderList)) {
         borderActivateCylinder.append(ElectricBorder(i));
         effects->reserveElectricBorder(ElectricBorder(i), this);
     }
     borderList.clear();
     borderList.append(int(ElectricNone));
     borderList = CubeConfig::borderActivateSphere();
-    for (auto i : qAsConst(borderList)) {
+    for (auto i : std::as_const(borderList)) {
         borderActivateSphere.append(ElectricBorder(i));
         effects->reserveElectricBorder(ElectricBorder(i), this);
     }
@@ -1278,7 +1278,7 @@ void CubeEffect::paintWindow(effect::window_paint_data& data)
             && (data.paint.mask & PAINT_WINDOW_TRANSFORMED)) {
             auto rect = effects->clientArea(FullArea, activeScreen, subspaces.at(prev_desktop));
             WindowQuadList new_quads;
-            for (auto const& quad : qAsConst(data.quads)) {
+            for (auto const& quad : std::as_const(data.quads)) {
                 if (quad.right() > rect.width() - data.window.x()) {
                     new_quads.append(quad);
                 }
@@ -1291,7 +1291,7 @@ void CubeEffect::paintWindow(effect::window_paint_data& data)
             && (data.paint.mask & PAINT_WINDOW_TRANSFORMED)) {
             QRect rect = effects->clientArea(FullArea, activeScreen, subspaces.at(next_desktop));
             WindowQuadList new_quads;
-            for (auto const& quad : qAsConst(data.quads)) {
+            for (auto const& quad : std::as_const(data.quads)) {
                 if (data.window.x() + quad.right() <= rect.x()) {
                     new_quads.append(quad);
                 }
@@ -1333,7 +1333,7 @@ void CubeEffect::paintWindow(effect::window_paint_data& data)
 
         if (data.window.isOnDesktop(painting_desktop) && data.window.x() < rect.x()) {
             WindowQuadList new_quads;
-            for (auto const& quad : qAsConst(data.quads)) {
+            for (auto const& quad : std::as_const(data.quads)) {
                 if (quad.right() > -data.window.x()) {
                     new_quads.append(quad);
                 }
@@ -1343,7 +1343,7 @@ void CubeEffect::paintWindow(effect::window_paint_data& data)
         if (data.window.isOnDesktop(painting_desktop)
             && data.window.x() + data.window.width() > rect.x() + rect.width()) {
             WindowQuadList new_quads;
-            for (auto const& quad : qAsConst(data.quads)) {
+            for (auto const& quad : std::as_const(data.quads)) {
                 if (quad.right() <= rect.width() - data.window.x()) {
                     new_quads.append(quad);
                 }
@@ -1352,7 +1352,7 @@ void CubeEffect::paintWindow(effect::window_paint_data& data)
         }
         if (data.window.y() < rect.y()) {
             WindowQuadList new_quads;
-            for (auto const& quad : qAsConst(data.quads)) {
+            for (auto const& quad : std::as_const(data.quads)) {
                 if (quad.bottom() > -data.window.y()) {
                     new_quads.append(quad);
                 }
@@ -1361,7 +1361,7 @@ void CubeEffect::paintWindow(effect::window_paint_data& data)
         }
         if (data.window.y() + data.window.height() > rect.y() + rect.height()) {
             WindowQuadList new_quads;
-            for (auto const& quad : qAsConst(data.quads)) {
+            for (auto const& quad : std::as_const(data.quads)) {
                 if (quad.bottom() <= rect.height() - data.window.y()) {
                     new_quads.append(quad);
                 }

@@ -139,7 +139,7 @@ QFuture<QImage> ScreenShotEffect::scheduleScreenShot(const QRect& area, ScreenSh
 
     auto devicePixelRatio = 1.;
     if (flags & ScreenShotNativeResolution) {
-        for (auto const screen : qAsConst(data.screens)) {
+        for (auto const screen : std::as_const(data.screens)) {
             if (screen->devicePixelRatio() > devicePixelRatio) {
                 devicePixelRatio = screen->devicePixelRatio();
             }

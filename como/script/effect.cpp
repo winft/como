@@ -695,7 +695,7 @@ bool effect::borderActivated(ElectricBorder edge)
         return false;
     }
 
-    for (auto const& callback : qAsConst(it->second)) {
+    for (auto const& callback : std::as_const(it->second)) {
         QJSValue(callback).call();
     }
     return true;

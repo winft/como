@@ -967,7 +967,7 @@ private:
             borders.clear();
             auto list = cfg_group.readEntry(border_config, QStringList());
 
-            for (auto const& s : qAsConst(list)) {
+            for (auto const& s : std::as_const(list)) {
                 bool ok;
                 auto i = s.toInt(&ok);
                 if (!ok) {

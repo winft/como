@@ -544,7 +544,7 @@ TEST_CASE("qpainter shadow", "[render]")
             }
         }
 
-        for (auto const& v : qAsConst(mask)) {
+        for (auto const& v : std::as_const(mask)) {
             if (!v) {
                 FAIL("missed a shadow quad");
             }

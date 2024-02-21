@@ -62,7 +62,7 @@ void SlideBackEffect::windowRaised(EffectWindow* w)
 {
     // Determine all windows on top of the activated one
     bool currentFound = false;
-    for (auto const& tmp : qAsConst(oldStackingOrder)) {
+    for (auto const& tmp : std::as_const(oldStackingOrder)) {
         if (!currentFound) {
             if (tmp == w) {
                 currentFound = true;
@@ -82,7 +82,7 @@ void SlideBackEffect::windowRaised(EffectWindow* w)
                 } else {
                     // Does it intersect with a moved (elevated) window and do we have to elevate it
                     // too?
-                    for (auto const& elevatedWindow : qAsConst(elevatedList)) {
+                    for (auto const& elevatedWindow : std::as_const(elevatedList)) {
                         if (tmp->frameGeometry().intersects(elevatedWindow->frameGeometry())) {
                             effects->setElevatedWindow(tmp, true);
                             elevatedList.append(tmp);
@@ -100,7 +100,7 @@ void SlideBackEffect::windowRaised(EffectWindow* w)
     // If a window is minimized it could happen that the panels stay elevated without any windows
     // sliding. clear all elevation settings
     if (!motionManager.managingWindows()) {
-        for (auto const& tmp : qAsConst(elevatedList)) {
+        for (auto const& tmp : std::as_const(elevatedList)) {
             effects->setElevatedWindow(tmp, false);
         }
     }
@@ -182,7 +182,7 @@ void SlideBackEffect::paintWindow(effect::window_paint_data& data)
         motionManager.apply(data);
     }
 
-    for (auto const& r : qAsConst(clippedRegions)) {
+    for (auto const& r : std::as_const(clippedRegions)) {
         data.paint.region = data.paint.region.intersected(r);
     }
 
@@ -205,7 +205,7 @@ void SlideBackEffect::postPaintWindow(EffectWindow* w)
                 // more except panels
                 if (coveringWindows.contains(w)) {
                     QList<EffectWindow*> tmpList;
-                    for (auto const& tmp : qAsConst(elevatedList)) {
+                    for (auto const& tmp : std::as_const(elevatedList)) {
                         QRect elevatedGeometry = tmp->frameGeometry();
                         if (motionManager.isManaging(tmp)) {
                             elevatedGeometry
@@ -224,7 +224,7 @@ void SlideBackEffect::postPaintWindow(EffectWindow* w)
                         } else {
                             if (!tmp->isDock()) {
                                 bool keepElevated = false;
-                                for (auto const& elevatedWindow : qAsConst(tmpList)) {
+                                for (auto const& elevatedWindow : std::as_const(tmpList)) {
                                     if (tmp->frameGeometry().intersects(
                                             elevatedWindow->frameGeometry())) {
                                         keepElevated = true;
@@ -261,7 +261,7 @@ void SlideBackEffect::postPaintWindow(EffectWindow* w)
                 coveringWindows.removeAll(w);
                 if (coveringWindows.isEmpty()) {
                     // Restore correct stacking order
-                    for (auto const& tmp : qAsConst(elevatedList)) {
+                    for (auto const& tmp : std::as_const(elevatedList)) {
                         effects->setElevatedWindow(tmp, false);
                     }
                     elevatedList.clear();
@@ -340,7 +340,7 @@ QList<EffectWindow*> SlideBackEffect::usableWindows(QList<EffectWindow*> const& 
     auto isWindowVisible = [](const EffectWindow* window) {
         return window && effects->virtualScreenGeometry().intersects(window->frameGeometry());
     };
-    for (auto const& tmp : qAsConst(allWindows)) {
+    for (auto const& tmp : std::as_const(allWindows)) {
         if (isWindowUsable(tmp) && isWindowVisible(tmp)) {
             retList.append(tmp);
         }
@@ -353,7 +353,7 @@ QRect SlideBackEffect::getModalGroupGeometry(EffectWindow* w)
     QRect modalGroupGeometry = w->frameGeometry();
     if (w->isModal()) {
         auto const& main_windows = w->mainWindows();
-        for (auto const& modalWindow : qAsConst(main_windows)) {
+        for (auto const& modalWindow : std::as_const(main_windows)) {
             modalGroupGeometry = modalGroupGeometry.united(getModalGroupGeometry(modalWindow));
         }
     }

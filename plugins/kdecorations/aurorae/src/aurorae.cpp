@@ -715,7 +715,7 @@ void ThemeProvider::findAllSvgThemes()
             themeDirectories << dir + themeDir;
         }
     }
-    for (const QString& dir : qAsConst(themeDirectories)) {
+    for (const QString& dir : std::as_const(themeDirectories)) {
         auto const entry_list
             = QDir(dir).entryList(QStringList() << QStringLiteral("metadata.desktop"));
         for (const QString& file : entry_list) {
