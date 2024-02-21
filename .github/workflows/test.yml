@@ -8,9 +8,8 @@ on:
         type: string
       artifact-name:
         description: Artifact name of build dir
-        required: false
+        required: true
         type: string
-        default: 'build'
       ctest-args:
         description: Specify additional CTest arguments
         required: false

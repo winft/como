@@ -11,23 +11,32 @@ jobs:
   clang-format:
     uses: ./.github/workflows/clang-format.yml
 
-  build:
+  clang-build:
     uses: ./.github/workflows/build.yml
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      artifact-name: clang-build
       cmake-preset: coverage
+
+  gcc-build:
+    uses: ./.github/workflows/build.yml
+    with:
+      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      cmake-preset: gcc
 
   install:
     uses: ./.github/workflows/install.yml
-    needs: build
+    needs: clang-build
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      artifact-name: clang-build
 
   test:
     uses: ./.github/workflows/test.yml
-    needs: build
+    needs: clang-build
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      artifact-name: clang-build
       ctest-args:
         "-E 'lockscreen|modifier only shortcut|no crash empty deco|no crash no border\
           |scene opengl|opengl shadow|no crash reinit compositor|buffer size change\
@@ -36,7 +45,8 @@ jobs:
 
   package:
     uses: ./.github/workflows/package.yml
-    needs: build
+    needs: clang-build
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      artifact-name: clang-build
       package-name: como
