@@ -337,7 +337,7 @@ void window_thumbnail_item::updateImplicitSize()
 QImage window_thumbnail_item::fallbackImage() const
 {
     if (m_client) {
-        return m_client->icon().pixmap(window(), boundingRect().size().toSize()).toImage();
+        return m_client->icon().pixmap(boundingRect().size().toSize()).toImage();
     }
     return QImage();
 }
@@ -356,7 +356,7 @@ QRectF window_thumbnail_item::paintedRect() const
         return QRectF();
     }
     if (!m_offscreenTexture) {
-        auto const iconSize = m_client->icon().actualSize(window(), boundingRect().size().toSize());
+        auto const iconSize = m_client->icon().actualSize(boundingRect().size().toSize());
         return centeredSize(boundingRect(), iconSize);
     }
 
