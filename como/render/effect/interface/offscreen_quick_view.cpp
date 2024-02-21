@@ -311,9 +311,9 @@ void OffscreenQuickView::forwardMouseEvent(QEvent* e)
             if (doubleClick) {
                 d->lastMousePressButton = Qt::NoButton;
                 QMouseEvent doubleClickEvent(QEvent::MouseButtonDblClick,
-                                             me->localPos(),
-                                             me->windowPos(),
-                                             me->screenPos(),
+                                             me->position().toPoint(),
+                                             me->scenePosition().toPoint(),
+                                             me->globalPosition(),
                                              me->button(),
                                              me->buttons(),
                                              me->modifiers());
@@ -327,7 +327,7 @@ void OffscreenQuickView::forwardMouseEvent(QEvent* e)
     case QEvent::HoverLeave:
     case QEvent::HoverMove: {
         QHoverEvent* he = static_cast<QHoverEvent*>(e);
-        const QPointF widgetPos = d->m_view->mapFromGlobal(he->pos());
+        auto const widgetPos = d->m_view->mapFromGlobal(he->position());
         const QPointF oldWidgetPos = d->m_view->mapFromGlobal(he->oldPos());
         QHoverEvent cloneEvent(he->type(), widgetPos, oldWidgetPos, he->modifiers());
         QCoreApplication::sendEvent(d->m_view, &cloneEvent);

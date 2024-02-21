@@ -376,7 +376,9 @@ public:
         auto text = QString(s_hr) + QString(s_tableStart) + tableHeaderRow(i18n("Tablet Tool"))
             + tableRow(i18n("EventType"), typeString)
             + tableRow(i18n("Position"),
-                       QStringLiteral("%1,%2").arg(event->pos().x()).arg(event->pos().y()))
+                       QStringLiteral("%1,%2")
+                           .arg(event->position().toPoint().x())
+                           .arg(event->position().toPoint().y()))
             + tableRow(i18n("Tilt"),
                        QStringLiteral("%1,%2").arg(event->xTilt()).arg(event->yTilt()))
             + tableRow(i18n("Rotation"), QString::number(event->rotation()))

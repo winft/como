@@ -433,14 +433,14 @@ void tabbox_handler::grabbed_key_event(QKeyEvent* event) const
     QCoreApplication::sendEvent(d->window(), event);
 }
 
-bool tabbox_handler::contains_pos(const QPoint& pos) const
+bool tabbox_handler::contains_pos(QPointF const& pos) const
 {
     if (!d->m_main_item) {
         return false;
     }
     QWindow* w = d->window();
     if (w) {
-        return w->geometry().contains(pos);
+        return w->geometry().contains(pos.toPoint());
     }
     return false;
 }

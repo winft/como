@@ -1229,11 +1229,11 @@ public:
                 continue;
             }
 
-            if (edge->approach_geometry.contains(event->globalPos())) {
+            if (edge->approach_geometry.contains(event->globalPosition().toPoint())) {
                 if (!edge->is_approaching) {
                     edge->startApproaching();
                 } else {
-                    edge->updateApproaching(event->globalPos());
+                    edge->updateApproaching(event->globalPosition().toPoint());
                 }
             } else {
                 if (edge->is_approaching) {
@@ -1241,8 +1241,8 @@ public:
                 }
             }
 
-            if (edge->geometry.contains(event->globalPos())) {
-                if (edge->check(event->globalPos(),
+            if (edge->geometry.contains(event->globalPosition().toPoint())) {
+                if (edge->check(event->globalPosition().toPoint(),
                                 std::chrono::system_clock::time_point(
                                     std::chrono::milliseconds(event->timestamp())))) {
                     if (edge->client()) {
@@ -1255,7 +1255,7 @@ public:
         if (activatedForClient) {
             for (auto& edge : edges) {
                 if (edge->client()) {
-                    edge->markAsTriggered(event->globalPos(),
+                    edge->markAsTriggered(event->globalPosition().toPoint(),
                                           std::chrono::system_clock::time_point(
                                               std::chrono::milliseconds(event->timestamp())));
                 }
