@@ -753,7 +753,11 @@ void focus_out_event(Win* win, xcb_focus_out_event_t* e)
 
 // performs _NET_WM_MOVERESIZE
 template<typename Win>
-void net_move_resize(Win* win, int x_root, int y_root, net::Direction direction)
+void net_move_resize(Win* win,
+                     int x_root,
+                     int y_root,
+                     net::Direction direction,
+                     xcb_button_t /*button*/)
 {
     auto& mov_res = win->control->move_resize;
     auto& cursor = win->space.input->cursor;

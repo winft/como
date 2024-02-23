@@ -243,12 +243,18 @@ protected:
         }
     }
 
-    void moveResize(xcb_window_t w, int x_root, int y_root, unsigned long direction) override
+    void moveResize(xcb_window_t w,
+                    int x_root,
+                    int y_root,
+                    unsigned long direction,
+                    xcb_button_t button,
+                    net::RequestSource /*source*/) override
     {
         if (auto win = find_controlled_window<window_t>(space, predicate_match::window, w)) {
             // otherwise grabbing may have old timestamp - this message should include timestamp
             base::x11::update_time_from_clock(space.base);
-            x11::net_move_resize(win, x_root, y_root, static_cast<net::Direction>(direction));
+            x11::net_move_resize(
+                win, x_root, y_root, static_cast<net::Direction>(direction), button);
         }
     }
 

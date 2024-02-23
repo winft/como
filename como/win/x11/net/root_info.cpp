@@ -1359,9 +1359,18 @@ void root_info::closeWindowRequest(xcb_window_t window)
         p->conn, netwm_sendevent_mask, p->root, window, p->atom(_NET_CLOSE_WINDOW), data);
 }
 
-void root_info::moveResizeRequest(xcb_window_t window, int x_root, int y_root, Direction direction)
+void root_info::moveResizeRequest(xcb_window_t window,
+                                  int x_root,
+                                  int y_root,
+                                  Direction direction,
+                                  xcb_button_t button,
+                                  RequestSource source)
 {
-    uint32_t const data[5] = {uint32_t(x_root), uint32_t(y_root), uint32_t(direction), 0, 0};
+    uint32_t const data[5] = {uint32_t(x_root),
+                              uint32_t(y_root),
+                              uint32_t(direction),
+                              uint32_t(button),
+                              uint32_t(source)};
 
     send_client_message(
         p->conn, netwm_sendevent_mask, p->root, window, p->atom(_NET_WM_MOVERESIZE), data);
@@ -1485,7 +1494,9 @@ void root_info::event(xcb_generic_event_t* event,
             moveResize(message->window,
                        message->data.data32[0],
                        message->data.data32[1],
-                       message->data.data32[2]);
+                       message->data.data32[2],
+                       message->data.data32[3],
+                       RequestSource(message->data.data32[4]));
         } else if (message->type == p->atom(_NET_MOVERESIZE_WINDOW)) {
             moveResizeWindow(message->window,
                              message->data.data32[0],
