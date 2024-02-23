@@ -4025,6 +4025,98 @@ TEST_CASE("xdg-shell rules", "[win]")
         QVERIFY(wait_for_destroyed(client));
     }
 
+    SECTION("closeable dont affect")
+    {
+        // Initialize RuleBook with the test rule.
+        auto [config, group] = get_config();
+        group.writeEntry("closeable", false);
+        group.writeEntry("closeablerule", enum_index(win::rules::action::dont_affect));
+        group.writeEntry("wmclass", "org.kde.foo");
+        group.writeEntry("wmclasscomplete", false);
+        group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
+        group.sync();
+        setup.base->mod.space->rule_book->config = config;
+        win::space_reconfigure(*setup.base->mod.space);
+
+        // Create the test client.
+        wayland_window* client;
+        std::unique_ptr<Surface> surface;
+        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
+        QVERIFY(client);
+        QVERIFY(client->control->active);
+        REQUIRE(client->isCloseable());
+
+        // Destroy the client.
+        shellSurface.reset();
+        surface.reset();
+        QVERIFY(wait_for_destroyed(client));
+    }
+
+    SECTION("closeable force")
+    {
+        // Initialize RuleBook with the test rule.
+        auto [config, group] = get_config();
+        group.writeEntry("closeable", false);
+        group.writeEntry("closeablerule", enum_index(win::rules::action::force));
+        group.writeEntry("wmclass", "org.kde.foo");
+        group.writeEntry("wmclasscomplete", false);
+        group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
+        group.sync();
+        setup.base->mod.space->rule_book->config = config;
+        win::space_reconfigure(*setup.base->mod.space);
+
+        // Create the test client.
+        wayland_window* client;
+        std::unique_ptr<Surface> surface;
+        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
+        QVERIFY(client);
+        QVERIFY(client->control->active);
+        REQUIRE(!client->isCloseable());
+
+        // Destroy the client.
+        shellSurface.reset();
+        surface.reset();
+        QVERIFY(wait_for_destroyed(client));
+    }
+
+    SECTION("closeable force temporarily")
+    {
+        // Initialize RuleBook with the test rule.
+        auto [config, group] = get_config();
+        group.writeEntry("closeable", false);
+        group.writeEntry("closeablerule", enum_index(win::rules::action::force_temporarily));
+        group.writeEntry("wmclass", "org.kde.foo");
+        group.writeEntry("wmclasscomplete", false);
+        group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
+        group.sync();
+        setup.base->mod.space->rule_book->config = config;
+        win::space_reconfigure(*setup.base->mod.space);
+
+        // Create the test client.
+        wayland_window* client;
+        std::unique_ptr<Surface> surface;
+        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
+        QVERIFY(client);
+        QVERIFY(client->control->active);
+        REQUIRE(!client->isCloseable());
+
+        // The rule should be discarded when the client is closed.
+        shellSurface.reset();
+        surface.reset();
+        QVERIFY(wait_for_destroyed(client));
+        std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
+        QVERIFY(client);
+        REQUIRE(client->isCloseable());
+
+        // Destroy the client.
+        shellSurface.reset();
+        surface.reset();
+        QVERIFY(wait_for_destroyed(client));
+    }
+
     SECTION("match after name change")
     {
         auto [config, group] = get_config();
