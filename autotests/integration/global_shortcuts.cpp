@@ -257,6 +257,52 @@ TEST_CASE("global shortcuts", "[input]")
         QTRY_COMPARE(triggeredSpy.count(), 0);
     }
 
+    SECTION("keypad")
+    {
+        auto zero_action = std::make_unique<QAction>();
+        zero_action->setProperty("componentName", QStringLiteral("kwin"));
+        zero_action->setObjectName(QStringLiteral("globalshortcuts-test-keypad-0"));
+
+        QSignalSpy zero_action_spy(zero_action.get(), &QAction::triggered);
+        KGlobalAccel::self()->setShortcut(
+            zero_action.get(),
+            QList<QKeySequence>{Qt::MetaModifier | Qt::KeypadModifier | Qt::Key_0},
+            KGlobalAccel::NoAutoloading);
+
+        auto insert_action = std::make_unique<QAction>();
+        insert_action->setProperty("componentName", QStringLiteral("kwin"));
+        insert_action->setObjectName(QStringLiteral("globalshortcuts-test-keypad-ins"));
+
+        QSignalSpy insert_action_spy(insert_action.get(), &QAction::triggered);
+        KGlobalAccel::self()->setShortcut(
+            insert_action.get(),
+            QList<QKeySequence>{Qt::MetaModifier | Qt::KeypadModifier | Qt::Key_Insert},
+            KGlobalAccel::NoAutoloading);
+
+        // Turn on numlock
+        quint32 timestamp = 0;
+        keyboard_key_pressed(KEY_NUMLOCK, timestamp++);
+        keyboard_key_released(KEY_NUMLOCK, timestamp++);
+
+        keyboard_key_pressed(KEY_LEFTMETA, timestamp++);
+        keyboard_key_pressed(KEY_KP0, timestamp++);
+        keyboard_key_released(KEY_KP0, timestamp++);
+        keyboard_key_released(KEY_LEFTMETA, timestamp++);
+        TRY_REQUIRE(zero_action_spy.size() == 1);
+        REQUIRE(insert_action_spy.empty());
+
+        // Turn off numlock
+        keyboard_key_pressed(KEY_NUMLOCK, timestamp++);
+        keyboard_key_released(KEY_NUMLOCK, timestamp++);
+
+        keyboard_key_pressed(KEY_LEFTMETA, timestamp++);
+        keyboard_key_pressed(KEY_KP0, timestamp++);
+        keyboard_key_released(KEY_KP0, timestamp++);
+        keyboard_key_released(KEY_LEFTMETA, timestamp++);
+        TRY_REQUIRE(insert_action_spy.size() == 1);
+        REQUIRE(zero_action_spy.size() == 1);
+    }
+
     SECTION("x11 window shortcut")
     {
         auto c = xcb_connection_create();
