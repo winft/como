@@ -71,6 +71,12 @@ inline std::vector<std::string> cursor_shape_get_alternative_names(std::string c
             },
         },
         {
+            "default",
+            {
+                "left_ptr",
+            },
+        },
+        {
             "up_arrow",
             {
                 "center_ptr",
