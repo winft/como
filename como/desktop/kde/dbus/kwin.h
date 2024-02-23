@@ -14,8 +14,10 @@
 #include <como/win/space_qobject.h>
 #include <como/win/subspaces_set.h>
 
+#include <QDBusConnection>
+#include <QDBusContext>
+#include <QDBusMessage>
 #include <QObject>
-#include <QtDBus>
 
 namespace como
 {
