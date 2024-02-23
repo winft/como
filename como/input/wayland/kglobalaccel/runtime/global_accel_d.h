@@ -7,9 +7,9 @@
 
 #include <KGlobalAccel>
 #include <KGlobalShortcutInfo>
+#include <QDBusContext>
 #include <QList>
 #include <QStringList>
-#include <QtDBus>
 
 struct KGlobalAccelDPrivate;
 

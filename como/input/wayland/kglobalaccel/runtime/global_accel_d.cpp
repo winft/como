@@ -14,6 +14,7 @@
 #include <como/input/logging.h>
 
 #include <KGlobalAccel>
+#include <QDBusConnection>
 #include <QDBusMetaType>
 #include <QDBusObjectPath>
 #include <QMetaMethod>

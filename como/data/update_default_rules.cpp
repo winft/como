@@ -6,9 +6,11 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 // read additional window rules and add them to kwinrulesrc
 
+#include <QCoreApplication>
+#include <QDBusConnection>
+#include <QDBusMessage>
 #include <QDebug>
 #include <QStandardPaths>
-#include <QtDBus>
 #include <kconfig.h>
 #include <kconfiggroup.h>
 
