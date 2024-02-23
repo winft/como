@@ -679,7 +679,8 @@ TEST_CASE("move resize window", "[win]")
 
         // use NETRootInfo to trigger a move request
         win::x11::net::root_info root(c.get(), win::x11::net::Properties());
-        root.moveResizeRequest(w, origGeo.center().x(), origGeo.center().y(), win::x11::net::Move);
+        root.moveResizeRequest(
+            w, origGeo.center().x(), origGeo.center().y(), win::x11::net::Move, XCB_BUTTON_INDEX_1);
         xcb_flush(c.get());
 
         QVERIFY(moveStartSpy.wait());
@@ -697,7 +698,8 @@ TEST_CASE("move resize window", "[win]")
         root.moveResizeRequest(w,
                                client->geo.frame.center().x(),
                                client->geo.frame.center().y(),
-                               win::x11::net::MoveResizeCancel);
+                               win::x11::net::MoveResizeCancel,
+                               XCB_BUTTON_INDEX_1);
         xcb_flush(c.get());
         QVERIFY(moveEndSpy.wait());
 

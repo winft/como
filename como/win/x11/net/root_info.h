@@ -129,7 +129,12 @@ public:
     const root_info& operator=(const root_info& rootinfo);
 
     void closeWindowRequest(xcb_window_t window);
-    void moveResizeRequest(xcb_window_t window, int x_root, int y_root, Direction direction);
+    void moveResizeRequest(xcb_window_t window,
+                           int x_root,
+                           int y_root,
+                           Direction direction,
+                           xcb_button_t button = XCB_BUTTON_INDEX_ANY,
+                           net::RequestSource source = net::RequestSource::FromUnknown);
     void
     moveResizeWindowRequest(xcb_window_t window, int flags, int x, int y, int width, int height);
     void showWindowMenuRequest(xcb_window_t window, int device_id, int x_root, int y_root);
@@ -183,12 +188,19 @@ protected:
         Q_UNUSED(window);
     }
 
-    virtual void moveResize(xcb_window_t window, int x_root, int y_root, unsigned long direction)
+    virtual void moveResize(xcb_window_t window,
+                            int x_root,
+                            int y_root,
+                            unsigned long direction,
+                            xcb_button_t button,
+                            RequestSource source)
     {
         Q_UNUSED(window);
         Q_UNUSED(x_root);
         Q_UNUSED(y_root);
         Q_UNUSED(direction);
+        Q_UNUSED(button);
+        Q_UNUSED(source);
     }
 
     virtual void gotPing(xcb_window_t window, xcb_timestamp_t timestamp)
