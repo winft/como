@@ -896,7 +896,9 @@ public:
 
     bool isCloseable() const
     {
-        return toplevel && window_type != win_type::desktop && window_type != win_type::dock;
+        return toplevel
+            && this->control->rules.checkCloseable(window_type != win_type::desktop
+                                                   && window_type != win_type::dock);
     }
 
     bool isMaximizable() const
