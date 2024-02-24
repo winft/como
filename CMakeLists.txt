@@ -7,8 +7,8 @@ cmake_minimum_required(VERSION 3.23 FATAL_ERROR)
 project("The Compositor Modules" VERSION 0.1.0)
 
 set(QT_MIN_VERSION "6.6.0")
-set(KF6_MIN_VERSION "5.240.0")
-set(KDE_PLASMA_VERSION "5.27")
+set(KF6_MIN_VERSION "6.0.0")
+set(KDE_PLASMA_VERSION "6.0.0")
 
 set(CMAKE_C_STANDARD 99)
 set(CMAKE_CXX_STANDARD 20)
@@ -138,7 +138,7 @@ set_package_properties(KScreenLocker PROPERTIES
     PURPOSE "For screenlocker integration in the Wayland session"
 )
 
-find_package(Breeze 5.9.0 CONFIG)
+find_package(Breeze 6.0.0 CONFIG)
 set_package_properties(Breeze PROPERTIES
     TYPE OPTIONAL
     PURPOSE "For setting the default window decoration plugin"
