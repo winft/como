@@ -34,14 +34,16 @@ public:
 
     void begin_render()
     {
-        auto native_out = static_cast<typename Output::base_t&>(output.base).native;
-
+        auto& output_base_impl = static_cast<typename Output::base_t&>(output.base);
+        auto native_out = output_base_impl.native;
         auto const size = output.base.geometry().size();
 
 #if WLR_HAVE_NEW_PIXEL_COPY_API
+        output_base_impl.ensure_next_state();
+
         assert(!current_render_pass);
-        current_render_pass
-            = wlr_output_begin_render_pass(native_out, &native_out->pending, nullptr, nullptr);
+        current_render_pass = wlr_output_begin_render_pass(
+            native_out, output_base_impl.next_state->get_native(), nullptr, nullptr);
 #else
         wlr_output_attach_render(native_out, nullptr);
         wlr_renderer_begin(renderer, size.width(), size.height());
@@ -49,7 +51,8 @@ public:
 
         if (!buffer || size != buffer->size()) {
 #if WLR_HAVE_NEW_PIXEL_COPY_API
-            auto img = wlr_pixman_renderer_get_buffer_image(renderer, native_out->pending.buffer);
+            auto img = wlr_pixman_renderer_get_buffer_image(
+                renderer, output_base_impl.next_state->get_native()->buffer);
 #else
             auto img = wlr_pixman_renderer_get_current_image(renderer);
 #endif
@@ -71,7 +74,7 @@ public:
 
 #if WLR_HAVE_NEW_PIXEL_COPY_API
         auto pixman_data = pixman_image_get_data(
-            wlr_pixman_renderer_get_buffer_image(renderer, base.native->pending.buffer));
+            wlr_pixman_renderer_get_buffer_image(renderer, base.next_state->get_native()->buffer));
 #else
         auto pixman_data = pixman_image_get_data(wlr_pixman_renderer_get_current_image(renderer));
 #endif
@@ -86,6 +89,19 @@ public:
 
         output.swap_pending = true;
 
+#if WLR_HAVE_NEW_PIXEL_COPY_API
+        wlr_output_state_set_enabled(base.next_state->get_native(), true);
+
+        if (!wlr_output_test_state(base.native, base.next_state->get_native())) {
+            qCWarning(KWIN_CORE) << "Atomic output test failed on present.";
+            base.next_state.reset();
+            return;
+        }
+        if (!wlr_output_commit_state(base.native, base.next_state->get_native())) {
+            qCWarning(KWIN_CORE) << "Atomic output commit failed on present.";
+        }
+        base.next_state.reset();
+#else
         if (!base.native->enabled) {
             wlr_output_enable(base.native, true);
         }
@@ -99,6 +115,7 @@ public:
             qCWarning(KWIN_CORE) << "Atomic output commit failed on present.";
             return;
         }
+#endif
     }
 
     Output& output;

@@ -80,7 +80,15 @@ setup::setup(std::string const& test_name,
 
     auto headless_backend = base::backend::wlroots::get_headless_backend(base->backend.native);
     auto out = wlr_headless_add_output(headless_backend, 1280, 1024);
+
+#if WLR_HAVE_NEW_PIXEL_COPY_API
+    wlr_output_state wlr_out_state;
+    wlr_output_state_init(&wlr_out_state);
+    wlr_output_state_set_enabled(&wlr_out_state, true);
+    wlr_output_commit_state(out, &wlr_out_state);
+#else
     wlr_output_enable(out, true);
+#endif
 
     try {
         base->mod.render = std::make_unique<base_t::render_t>(*base);
@@ -187,7 +195,15 @@ void setup::set_outputs(std::vector<output> const& outputs)
         auto const size = output.geometry.size() * output.scale;
 
         auto out = wlr_headless_add_output(base->backend.native, size.width(), size.height());
+
+#if WLR_HAVE_NEW_PIXEL_COPY_API
+        wlr_output_state wlr_out_state;
+        wlr_output_state_init(&wlr_out_state);
+        wlr_output_state_set_enabled(&wlr_out_state, true);
+        wlr_output_commit_state(out, &wlr_out_state);
+#else
         wlr_output_enable(out, true);
+#endif
         base->all_outputs.back()->force_geometry(output.geometry);
     }
 

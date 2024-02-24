@@ -285,7 +285,15 @@ TEST_CASE("layer shell", "[win]")
         auto const output_geo = QRect(2000, 0, 1000, 500);
         auto wlr_out = wlr_headless_add_output(
             setup.base->backend.native, output_geo.width(), output_geo.height());
+
+#if WLR_HAVE_NEW_PIXEL_COPY_API
+        wlr_output_state wlr_out_state;
+        wlr_output_state_init(&wlr_out_state);
+        wlr_output_state_set_enabled(&wlr_out_state, true);
+        wlr_output_commit_state(wlr_out, &wlr_out_state);
+#else
         wlr_output_enable(wlr_out, true);
+#endif
         QCOMPARE(setup.base->outputs.size(), 3);
 
         setup.base->all_outputs.back()->force_geometry(output_geo);
