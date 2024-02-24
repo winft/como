@@ -31,6 +31,19 @@ void add_new_output(Backend& backend, wlr_output* native)
 
     if (!wl_list_empty(&native->modes)) {
         auto mode = wlr_output_preferred_mode(native);
+#if WLR_HAVE_NEW_PIXEL_COPY_API
+        wlr_output_state state;
+        wlr_output_state_init(&state);
+        wlr_output_state_set_mode(&state, mode);
+        wlr_output_state_set_enabled(&state, true);
+
+        if (!wlr_output_test_state(native, &state)) {
+            throw std::runtime_error("wlr_output_test_state failed");
+        }
+        if (!wlr_output_commit_state(native, &state)) {
+            throw std::runtime_error("wlr_output_commit_state failed");
+        }
+#else
         wlr_output_set_mode(native, mode);
         wlr_output_enable(native, true);
         if (!wlr_output_test(native)) {
@@ -39,6 +52,7 @@ void add_new_output(Backend& backend, wlr_output* native)
         if (!wlr_output_commit(native)) {
             throw std::runtime_error("wlr_output_commit failed");
         }
+#endif
     }
 
     auto output = new wlroots::output(native, &backend);

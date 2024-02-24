@@ -152,9 +152,11 @@ public:
         auto native_out = output_impl.native;
 
 #if WLR_HAVE_NEW_PIXEL_COPY_API
+        const_cast<typename Backend::output_t::base_t&>(output_impl).ensure_next_state();
+
         assert(!current_render_pass);
         current_render_pass = wlr_output_begin_render_pass(
-            native_out, &native_out->pending, &out->bufferAge, nullptr);
+            native_out, output_impl.next_state->get_native(), &out->bufferAge, nullptr);
 #else
         wlr_output_attach_render(native_out, &out->bufferAge);
         wlr_renderer_begin(backend.renderer, viewport.width(), viewport.height());
@@ -176,10 +178,11 @@ public:
         };
 
 #if WLR_HAVE_NEW_PIXEL_COPY_API
-        native_fbo = GLFramebuffer(
-            wlr_gles2_renderer_get_buffer_fbo(backend.renderer, native_out->pending.buffer),
-            res,
-            viewport);
+        native_fbo
+            = GLFramebuffer(wlr_gles2_renderer_get_buffer_fbo(
+                                backend.renderer, output_impl.next_state->get_native()->buffer),
+                            res,
+                            viewport);
 #else
         native_fbo
             = GLFramebuffer(wlr_gles2_renderer_get_current_fbo(backend.renderer), res, viewport);
@@ -252,7 +255,9 @@ public:
                 glFlush();
             }
 
+#if !WLR_HAVE_NEW_PIXEL_COPY_API
             wlr_output_rollback(impl_out->native);
+#endif
             return;
         }
 
@@ -321,7 +326,11 @@ private:
         enum wl_output_transform transform = wlr_output_transform_invert(output->native->transform);
         wlr_region_transform(&damage, &damage, transform, width, height);
 
+#if WLR_HAVE_NEW_PIXEL_COPY_API
+        wlr_output_state_set_damage(output->next_state->get_native(), &damage);
+#else
         wlr_output_set_damage(output->native, &damage);
+#endif
         pixman_region32_fini(&damage);
     }
 
