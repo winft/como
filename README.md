@@ -31,7 +31,7 @@ This cross-desktop interoperability will be expanded upon in the future.
 **Ease of Use**
 <br>
 With The Compositor Modules a Wayland compositor can be created with a handful of lines only.
-See our MVP [Minico](tests/minico) for an example of that.
+See our MVP [Minico](examples/minico) for an example of that.
 
 **Customizability**
 <br>
@@ -127,7 +127,7 @@ You can make use of the FDBuild tool to automate this process as described
 It's easiest to link via CMake to The Compositor Modules libraries that you want to make use of
 and then create their central platform types from your main function to launch the compositor session.
 
-[Minico](tests/minico) as a minimal example and the [Plasma test binaries](tests/plasma)
+[Minico](examples/minico) as a minimal example and the [Plasma test binaries](tests/plasma)
 as a more complex one demonstrate this in a straightforward way.
 
 # Contact
