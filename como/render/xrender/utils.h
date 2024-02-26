@@ -96,12 +96,6 @@ inline XFixesRegion::operator xcb_xfixes_region_t()
 }
 
 /**
- * Static 1x1 picture used to deliver a black pixel with given opacity (for blending performance)
- * Call and Use, the PixelPicture will stay, but may change it's opacity meanwhile. It's NOT
- * threadsafe either
- */
-COMO_EXPORT XRenderPicture xRenderBlendPicture(double opacity);
-/**
  * Creates a 1x1 Picture filled with c
  */
 COMO_EXPORT XRenderPicture xRenderFill(const xcb_render_color_t& c);

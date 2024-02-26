@@ -74,24 +74,6 @@ XRenderPicture xRenderFill(const QColor& c)
     return xRenderFill(preMultiply(c));
 }
 
-XRenderPicture xRenderBlendPicture(double opacity)
-{
-    static xcb_render_color_t s_blendColor = {0, 0, 0, 0};
-    s_blendColor.alpha = uint16_t(opacity * 0xffff);
-    if (XRenderUtils::s_blendPicture == XCB_RENDER_PICTURE_NONE) {
-        XRenderUtils::s_blendPicture = xRenderFill(s_blendColor);
-    } else {
-        xcb_rectangle_t rect = {0, 0, 1, 1};
-        xcb_render_fill_rectangles(XRenderUtils::s_connection,
-                                   XCB_RENDER_PICT_OP_SRC,
-                                   XRenderUtils::s_blendPicture,
-                                   s_blendColor,
-                                   1,
-                                   &rect);
-    }
-    return XRenderUtils::s_blendPicture;
-}
-
 static xcb_render_picture_t createPicture(xcb_pixmap_t pix, int depth)
 {
     if (pix == XCB_PIXMAP_NONE)

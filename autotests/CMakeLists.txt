@@ -11,5 +11,4 @@ FetchContent_Declare(
 FetchContent_MakeAvailable(Catch2)
 
 remove_definitions(-DQT_USE_QSTRINGBUILDER)
-add_subdirectory(libxrenderutils)
 add_subdirectory(integration)
