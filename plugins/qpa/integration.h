@@ -45,6 +45,7 @@ public:
     QVector<Screen*> screens() const;
 
 private:
+    void handle_platform_created();
     void initScreens();
 
     std::unique_ptr<QPlatformFontDatabase> m_fontDb;
