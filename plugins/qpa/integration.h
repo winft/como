@@ -9,15 +9,22 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <epoxy/egl.h>
 
+#include <QHash>
 #include <QObject>
 #include <QtGui/private/qgenericunixservices_p.h>
 #include <qpa/qplatformintegration.h>
 
 namespace como
 {
+
+namespace base
+{
+class output;
+}
 namespace QPA
 {
 
+class placeholder_screen;
 class Screen;
 
 class Integration : public QObject, public QPlatformIntegration
@@ -42,17 +49,18 @@ public:
     QPlatformServices* services() const override;
     void initialize() override;
 
-    QVector<Screen*> screens() const;
+    QHash<como::base::output*, Screen*> screens() const;
 
 private:
     void handle_platform_created();
-    void initScreens();
+    void handle_output_added(como::base::output*);
+    void handle_output_removed(como::base::output*);
 
     std::unique_ptr<QPlatformFontDatabase> m_fontDb;
     mutable std::unique_ptr<QPlatformAccessibility> m_accessibility;
     QScopedPointer<QPlatformNativeInterface> m_nativeInterface;
-    Screen* m_dummyScreen = nullptr;
-    QVector<Screen*> m_screens;
+    placeholder_screen* m_dummyScreen{nullptr};
+    QHash<como::base::output*, Screen*> m_screens;
     QScopedPointer<QGenericUnixServices> m_services;
 };
 

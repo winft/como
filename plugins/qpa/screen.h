@@ -20,7 +20,7 @@ namespace QPA
 class Integration;
 class PlatformCursor;
 
-class Screen : public QPlatformScreen
+class Screen : public QPlatformScreen, public QObject
 {
 public:
     explicit Screen(base::output* output, Integration* integration);
@@ -40,6 +40,12 @@ private:
     base::output* output;
     QScopedPointer<PlatformCursor> m_cursor;
     Integration* m_integration;
+};
+
+class placeholder_screen : public QPlatformPlaceholderScreen
+{
+public:
+    QDpi logicalDpi() const override;
 };
 
 }

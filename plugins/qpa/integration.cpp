@@ -49,9 +49,12 @@ Integration::~Integration()
     for (QPlatformScreen* platformScreen : std::as_const(m_screens)) {
         QWindowSystemInterface::handleScreenRemoved(platformScreen);
     }
+    if (m_dummyScreen) {
+        QWindowSystemInterface::handleScreenRemoved(m_dummyScreen);
+    }
 }
 
-QVector<Screen*> Integration::screens() const
+QHash<como::base::output*, Screen*> Integration::screens() const
 {
     return m_screens;
 }
@@ -86,9 +89,11 @@ void Integration::initialize()
             &Integration::handle_platform_created);
 
     QPlatformIntegration::initialize();
-    auto dummyScreen = new Screen(nullptr, this);
-    QWindowSystemInterface::handleScreenAdded(dummyScreen);
-    m_screens << dummyScreen;
+
+    assert(m_screens.empty());
+    assert(!m_dummyScreen);
+    m_dummyScreen = new placeholder_screen;
+    QWindowSystemInterface::handleScreenAdded(m_dummyScreen);
 }
 
 QAbstractEventDispatcher* Integration::createEventDispatcher() const
@@ -149,38 +154,42 @@ QPlatformAccessibility* Integration::accessibility() const
 
 void Integration::handle_platform_created()
 {
-    assert(base::singleton_interface::platform);
-    QObject::connect(base::singleton_interface::platform,
-                     &base::platform_qobject::topology_changed,
+    auto platform = base::singleton_interface::platform;
+    assert(platform);
+
+    assert(base::singleton_interface::get_outputs().empty());
+    QObject::connect(
+        platform, &base::platform_qobject::output_added, this, &Integration::handle_output_added);
+    QObject::connect(platform,
+                     &base::platform_qobject::output_removed,
                      this,
-                     &Integration::initScreens);
-    initScreens();
+                     &Integration::handle_output_removed);
 }
 
-void Integration::initScreens()
+void Integration::handle_output_added(como::base::output* output)
 {
-    while (!m_screens.isEmpty()) {
-        QWindowSystemInterface::handleScreenRemoved(m_screens.takeLast());
+    assert(!m_screens.contains(output));
+
+    auto screen = new Screen(output, this);
+    m_screens.insert(output, screen);
+    QWindowSystemInterface::handleScreenAdded(screen);
+
+    if (m_dummyScreen) {
+        QWindowSystemInterface::handleScreenRemoved(m_dummyScreen);
+        m_dummyScreen = nullptr;
+    }
+}
+
+void Integration::handle_output_removed(como::base::output* output)
+{
+    assert(m_screens.contains(output));
+
+    if (m_screens.size() == 1) {
+        m_dummyScreen = new placeholder_screen;
+        QWindowSystemInterface::handleScreenAdded(m_dummyScreen);
     }
 
-    auto const outputs = base::singleton_interface::get_outputs();
-    QVector<Screen*> newScreens;
-
-    newScreens.reserve(std::max<size_t>(outputs.size(), 1));
-
-    for (auto output : outputs) {
-        auto screen = new Screen(output, this);
-        QWindowSystemInterface::handleScreenAdded(screen);
-        newScreens << screen;
-    }
-
-    if (newScreens.isEmpty()) {
-        auto dummyScreen = new Screen(nullptr, this);
-        QWindowSystemInterface::handleScreenAdded(dummyScreen);
-        newScreens << dummyScreen;
-    }
-
-    m_screens = newScreens;
+    QWindowSystemInterface::handleScreenRemoved(m_screens.take(output));
 }
 
 QPlatformNativeInterface* Integration::nativeInterface() const
