@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2023 Roman Gilg <subdiff@gmail.com>
 
 SPDX-License-Identifier: GPL-2.0-or-later
 */
-#include "integration/lib/setup.h"
+#include "../integration/lib/setup.h"
 
 #include "como/base/x11/xcb/proto.h"
 #include "como/base/x11/xcb/window.h"
