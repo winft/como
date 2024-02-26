@@ -10,7 +10,7 @@
 #include <QGuiApplication>
 #include <QStandardPaths>
 
-int main(int argc, char **argv)
+int main(int argc, char** argv)
 {
     QGuiApplication app(argc, argv);
 
@@ -21,7 +21,7 @@ int main(int argc, char **argv)
         QStringLiteral("Walk Through Desktop List (Reverse)"),
     };
 
-    for (const QString &actionName : actionNames) {
+    for (const QString& actionName : actionNames) {
         QAction action;
         action.setObjectName(actionName);
         action.setProperty("componentName", QStringLiteral("kwin"));
