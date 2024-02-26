@@ -343,6 +343,8 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
+add_subdirectory(examples)
+
 if (KF6DocTools_FOUND)
     add_subdirectory(docs)
 endif()
