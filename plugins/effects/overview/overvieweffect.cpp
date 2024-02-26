@@ -26,6 +26,7 @@ OverviewEffect::OverviewEffect()
     // manages the transition betwee inactive -> overview
     , m_gridState(new EffectTogglableState(this))
     , m_border(new EffectTogglableTouchBorder(m_overviewState))
+    , m_gridBorder(new EffectTogglableTouchBorder(m_gridState))
     , m_shutdownTimer(new QTimer(this))
 {
     auto gesture = new EffectTogglableGesture(m_overviewState);
@@ -221,8 +222,12 @@ void OverviewEffect::reconfigure(ReconfigureFlags)
     for (const ElectricBorder& border : std::as_const(m_borderActivate)) {
         effects->unreserveElectricBorder(border, this);
     }
+    for (const ElectricBorder& border : std::as_const(m_gridBorderActivate)) {
+        effects->unreserveElectricBorder(border, this);
+    }
 
     m_borderActivate.clear();
+    m_gridBorderActivate.clear();
 
     const QList<int> activateBorders = OverviewConfig::borderActivate();
     for (const int& border : activateBorders) {
@@ -230,7 +235,14 @@ void OverviewEffect::reconfigure(ReconfigureFlags)
         effects->reserveElectricBorder(ElectricBorder(border), this);
     }
 
+    const QList<int> gridActivateBorders = OverviewConfig::gridBorderActivate();
+    for (const int& border : gridActivateBorders) {
+        m_gridBorderActivate.append(ElectricBorder(border));
+        effects->reserveElectricBorder(ElectricBorder(border), this);
+    }
+
     m_border->setBorders(OverviewConfig::touchBorderActivate());
+    m_gridBorder->setBorders(OverviewConfig::gridTouchBorderActivate());
 }
 
 int OverviewEffect::animationDuration() const
@@ -313,6 +325,9 @@ bool OverviewEffect::borderActivated(ElectricBorder border)
 {
     if (m_borderActivate.contains(border)) {
         m_overviewState->toggle();
+        return true;
+    } else if (m_gridBorderActivate.contains(border)) {
+        m_gridState->toggle();
         return true;
     }
     return false;
