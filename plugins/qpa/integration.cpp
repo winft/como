@@ -164,6 +164,24 @@ void Integration::handle_platform_created()
                      &base::platform_qobject::output_removed,
                      this,
                      &Integration::handle_output_removed);
+    QObject::connect(platform,
+                     &base::platform_qobject::destroyed,
+                     this,
+                     &Integration::handle_platform_destroyed);
+}
+
+void Integration::handle_platform_destroyed()
+{
+    if (!m_dummyScreen) {
+        m_dummyScreen = new placeholder_screen;
+        QWindowSystemInterface::handleScreenAdded(m_dummyScreen);
+    }
+
+    auto const screens_copy = m_screens;
+    m_screens.clear();
+    for (auto screen : std::as_const(screens_copy)) {
+        QWindowSystemInterface::handleScreenRemoved(screen);
+    }
 }
 
 void Integration::handle_output_added(como::base::output* output)
