@@ -83,14 +83,7 @@ void Integration::initialize()
     connect(base::singleton_interface::app_singleton,
             &base::app_singleton::platform_created,
             this,
-            [this] {
-                assert(base::singleton_interface::platform);
-                QObject::connect(base::singleton_interface::platform,
-                                 &base::platform_qobject::topology_changed,
-                                 this,
-                                 &Integration::initScreens);
-                initScreens();
-            });
+            &Integration::handle_platform_created);
 
     QPlatformIntegration::initialize();
     auto dummyScreen = new Screen(nullptr, this);
@@ -152,6 +145,16 @@ QPlatformAccessibility* Integration::accessibility() const
         m_accessibility.reset(new QSpiAccessibleBridge());
     }
     return m_accessibility.get();
+}
+
+void Integration::handle_platform_created()
+{
+    assert(base::singleton_interface::platform);
+    QObject::connect(base::singleton_interface::platform,
+                     &base::platform_qobject::topology_changed,
+                     this,
+                     &Integration::initScreens);
+    initScreens();
 }
 
 void Integration::initScreens()
