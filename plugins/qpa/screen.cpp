@@ -9,18 +9,31 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include "platformcursor.h"
 #include <como/base/output_helpers.h>
+#include <qpa/qwindowsysteminterface.h>
 
-namespace como
+namespace como::QPA
 {
-namespace QPA
+
+namespace
 {
+int get_forced_dpi()
+{
+    return qEnvironmentVariableIsSet("QT_WAYLAND_FORCE_DPI")
+        ? qEnvironmentVariableIntValue("QT_WAYLAND_FORCE_DPI")
+        : -1;
+}
+}
 
 Screen::Screen(base::output* output, Integration* integration)
-    : QPlatformScreen()
-    , output{output}
+    : output{output}
     , m_cursor(new PlatformCursor)
     , m_integration(integration)
 {
+    QObject::connect(output->qobject.get(), &base::output_qobject::geometry_changed, this, [this] {
+        QWindowSystemInterface::handleScreenGeometryChange(screen(), geometry(), geometry());
+    });
+    QObject::connect(
+        output->qobject.get(), &QObject::destroyed, this, [this] { this->output = nullptr; });
 }
 
 Screen::~Screen() = default;
@@ -66,14 +79,12 @@ QPlatformCursor* Screen::cursor() const
 
 QDpi Screen::logicalDpi() const
 {
-    static int forceDpi = qEnvironmentVariableIsSet("QT_WAYLAND_FORCE_DPI")
-        ? qEnvironmentVariableIntValue("QT_WAYLAND_FORCE_DPI")
-        : -1;
-    if (forceDpi > 0) {
-        return QDpi(forceDpi, forceDpi);
+    auto const dpi = get_forced_dpi();
+    if (dpi > 0) {
+        return {dpi, dpi};
     }
 
-    return QDpi(96, 96);
+    return {96, 96};
 }
 
 qreal Screen::devicePixelRatio() const
@@ -86,5 +97,10 @@ QString Screen::name() const
     return output ? output->name() : QString();
 }
 
+QDpi placeholder_screen::logicalDpi() const
+{
+    auto const dpi = get_forced_dpi();
+    return dpi > 0 ? QDpi{dpi, dpi} : QDpi{96, 96};
 }
+
 }
