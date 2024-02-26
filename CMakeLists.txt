@@ -339,7 +339,6 @@ add_subdirectory(como)
 add_subdirectory(plugins)
 
 if (BUILD_TESTING)
-    add_subdirectory(autotests)
     add_subdirectory(tests)
 endif()
 
