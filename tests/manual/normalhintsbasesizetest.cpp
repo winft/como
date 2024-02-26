@@ -29,33 +29,44 @@
  *
  * To simply quit the application just click into the window. This will return with exit code 0.
  */
-int main(int, char **)
+int main(int, char**)
 {
     int screenNumber;
-    xcb_connection_t *c = xcb_connect(nullptr, &screenNumber);
+    xcb_connection_t* c = xcb_connect(nullptr, &screenNumber);
 
     auto getScreen = [=]() {
-        const xcb_setup_t *setup = xcb_get_setup(c);
-        auto it = xcb_setup_roots_iterator (setup);
+        const xcb_setup_t* setup = xcb_get_setup(c);
+        auto it = xcb_setup_roots_iterator(setup);
         for (int i = 0; i < screenNumber; ++i) {
             xcb_screen_next(&it);
         }
         return it.data;
     };
-    xcb_screen_t *screen = getScreen();
+    xcb_screen_t* screen = getScreen();
 
     xcb_window_t w = xcb_generate_id(c);
-    const uint32_t values[2] = {
-        screen->white_pixel,
-        XCB_EVENT_MASK_BUTTON_PRESS | XCB_EVENT_MASK_BUTTON_RELEASE | XCB_EVENT_MASK_STRUCTURE_NOTIFY
-    };
+    const uint32_t values[2] = {screen->white_pixel,
+                                XCB_EVENT_MASK_BUTTON_PRESS | XCB_EVENT_MASK_BUTTON_RELEASE
+                                    | XCB_EVENT_MASK_STRUCTURE_NOTIFY};
 
-    xcb_create_window(c, 0, w, screen->root, 0, 0, 365, 104, 0, XCB_WINDOW_CLASS_INPUT_OUTPUT,
-                      screen->root_visual, XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK, values);
+    xcb_create_window(c,
+                      0,
+                      w,
+                      screen->root,
+                      0,
+                      0,
+                      365,
+                      104,
+                      0,
+                      XCB_WINDOW_CLASS_INPUT_OUTPUT,
+                      screen->root_visual,
+                      XCB_CW_BACK_PIXEL | XCB_CW_EVENT_MASK,
+                      values);
 
     // set the normal hints
     xcb_size_hints_t hints;
-    hints.flags = XCB_ICCCM_SIZE_HINT_P_MIN_SIZE | XCB_ICCCM_SIZE_HINT_BASE_SIZE | XCB_ICCCM_SIZE_HINT_P_RESIZE_INC;
+    hints.flags = XCB_ICCCM_SIZE_HINT_P_MIN_SIZE | XCB_ICCCM_SIZE_HINT_BASE_SIZE
+        | XCB_ICCCM_SIZE_HINT_P_RESIZE_INC;
     hints.min_width = 365;
     hints.min_height = 104;
     hints.base_width = 15;
@@ -69,12 +80,12 @@ int main(int, char **)
     xcb_flush(c);
 
     bool error = false;
-    while (xcb_generic_event_t *event = xcb_wait_for_event(c)) {
+    while (xcb_generic_event_t* event = xcb_wait_for_event(c)) {
         bool exit = false;
         if ((event->response_type & ~0x80) == XCB_BUTTON_RELEASE) {
             exit = true;
         } else if ((event->response_type & ~0x80) == XCB_CONFIGURE_NOTIFY) {
-            auto *ce = reinterpret_cast<xcb_configure_notify_event_t*>(event);
+            auto* ce = reinterpret_cast<xcb_configure_notify_event_t*>(event);
             const double i = (ce->width - hints.base_width) / (double)hints.width_inc;
             const double j = (ce->height - hints.base_height) / (double)hints.height_inc;
             // according to ICCCM the size should be:

@@ -23,14 +23,16 @@ class PinchGesture : public QQuickItem
     Q_PROPERTY(qreal progressScale READ progressScale NOTIFY progressScaleChanged)
 
 public:
-    explicit PinchGesture(QQuickItem *parent = nullptr);
+    explicit PinchGesture(QQuickItem* parent = nullptr);
     ~PinchGesture() override;
 
-    qreal scale() const {
+    qreal scale() const
+    {
         return m_scale;
     }
 
-    qreal progressScale() const {
+    qreal progressScale() const
+    {
         return m_progressScale;
     }
 
@@ -44,9 +46,9 @@ private:
     void initWayland();
     void setupGesture();
 
-    Pointer *m_pointer = nullptr;
-    PointerGestures *m_pointerGestures = nullptr;
-    PointerPinchGesture *m_gesture = nullptr;
+    Pointer* m_pointer = nullptr;
+    PointerGestures* m_pointerGestures = nullptr;
+    PointerPinchGesture* m_gesture = nullptr;
 
     qreal m_scale = 1.0;
     qreal m_progressScale = 1.0;
@@ -68,38 +70,34 @@ void PinchGesture::componentComplete()
 void PinchGesture::initWayland()
 {
     auto c = ConnectionThread::fromApplication(this);
-    Registry *r = new Registry(c);
+    Registry* r = new Registry(c);
     r->create(c);
 
-    connect(r, &Registry::interfacesAnnounced, this,
-        [this, r] {
-            const auto gi = r->interface(Registry::Interface::PointerGesturesUnstableV1);
-            if (gi.name == 0) {
-                return;
-            }
-            m_pointerGestures = r->createPointerGestures(gi.name, gi.version, this);
-
-            // now create seat
-            const auto si = r->interface(Registry::Interface::Seat);
-            if (si.name == 0) {
-                return;
-            }
-            auto seat = r->createSeat(si.name, si.version, this);
-            connect(seat, &Seat::hasKeyboardChanged, this,
-                [this, seat] (bool hasPointer) {
-                    if (hasPointer) {
-                        m_pointer = seat->createPointer(this);
-                        setupGesture();
-                    } else {
-                        delete m_pointer;
-                        delete m_gesture;
-                        m_pointer = nullptr;
-                        m_gesture = nullptr;
-                    }
-                }
-            );
+    connect(r, &Registry::interfacesAnnounced, this, [this, r] {
+        const auto gi = r->interface(Registry::Interface::PointerGesturesUnstableV1);
+        if (gi.name == 0) {
+            return;
         }
-    );
+        m_pointerGestures = r->createPointerGestures(gi.name, gi.version, this);
+
+        // now create seat
+        const auto si = r->interface(Registry::Interface::Seat);
+        if (si.name == 0) {
+            return;
+        }
+        auto seat = r->createSeat(si.name, si.version, this);
+        connect(seat, &Seat::hasKeyboardChanged, this, [this, seat](bool hasPointer) {
+            if (hasPointer) {
+                m_pointer = seat->createPointer(this);
+                setupGesture();
+            } else {
+                delete m_pointer;
+                delete m_gesture;
+                m_pointer = nullptr;
+                m_gesture = nullptr;
+            }
+        });
+    });
 
     r->setup();
     c->roundtrip();
@@ -111,31 +109,25 @@ void PinchGesture::setupGesture()
         return;
     }
     m_gesture = m_pointerGestures->createPinchGesture(m_pointer, this);
-    connect(m_gesture, &PointerPinchGesture::updated, this,
-        [this] (const QSizeF &delta, qreal scale) {
+    connect(
+        m_gesture, &PointerPinchGesture::updated, this, [this](const QSizeF& delta, qreal scale) {
             Q_UNUSED(delta)
             m_progressScale = scale;
             Q_EMIT progressScaleChanged();
-        }
-    );
-    connect(m_gesture, &PointerPinchGesture::ended, this,
-        [this] {
-            m_scale = m_scale * m_progressScale;
-            m_progressScale = 1.0;
-            Q_EMIT scaleChanged();
-            Q_EMIT progressScaleChanged();
-        }
-    );
-    connect(m_gesture, &PointerPinchGesture::cancelled, this,
-        [this] {
-            m_progressScale = 1.0;
-            Q_EMIT progressScaleChanged();
-        }
-    );
+        });
+    connect(m_gesture, &PointerPinchGesture::ended, this, [this] {
+        m_scale = m_scale * m_progressScale;
+        m_progressScale = 1.0;
+        Q_EMIT scaleChanged();
+        Q_EMIT progressScaleChanged();
+    });
+    connect(m_gesture, &PointerPinchGesture::cancelled, this, [this] {
+        m_progressScale = 1.0;
+        Q_EMIT progressScaleChanged();
+    });
 }
 
-
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     qputenv("QT_QPA_PLATFORM", QByteArrayLiteral("wayland"));
     QGuiApplication app(argc, argv);
@@ -143,7 +135,8 @@ int main(int argc, char *argv[])
     qmlRegisterType<PinchGesture>("org.kde.kwin.tests", 1, 0, "PinchGesture");
 
     QQuickView view;
-    view.setSource(QUrl::fromLocalFile(QStringLiteral(DIR) +QStringLiteral("/pointergesturestest.qml")));
+    view.setSource(
+        QUrl::fromLocalFile(QStringLiteral(DIR) + QStringLiteral("/pointergesturestest.qml")));
 
     view.show();
 

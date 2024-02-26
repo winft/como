@@ -17,9 +17,9 @@ public:
     ~MouseCursorWidget() override;
 
 protected:
-    void paintEvent(QPaintEvent * event) override;
-    void mouseMoveEvent(QMouseEvent * event) override;
-    void keyPressEvent(QKeyEvent * event) override;
+    void paintEvent(QPaintEvent* event) override;
+    void mouseMoveEvent(QMouseEvent* event) override;
+    void keyPressEvent(QKeyEvent* event) override;
 
 private:
     QPoint m_cursorPos;
@@ -27,7 +27,8 @@ private:
     int m_cursorIndex = 0;
 };
 
-namespace {
+namespace
+{
 QCursor createCenterHotspotCursor()
 {
     QPixmap cursor(64, 64);
@@ -35,9 +36,9 @@ QCursor createCenterHotspotCursor()
     QPainter p(&cursor);
     p.setPen(Qt::black);
     const QPoint center = cursor.rect().center();
-    p.drawLine(0, center.y(), center.x()-1, center.y());
+    p.drawLine(0, center.y(), center.x() - 1, center.y());
     p.drawLine(center.x() + 1, center.y(), cursor.width(), center.y());
-    p.drawLine(center.x(), 0, center.x(), center.y() -1);
+    p.drawLine(center.x(), 0, center.x(), center.y() - 1);
     p.drawLine(center.x(), center.y() + 1, center.x(), cursor.height());
     return QCursor(cursor, 31, 31);
 }
@@ -59,8 +60,8 @@ QCursor createTopRightHotspotCursor()
     cursor.fill(Qt::transparent);
     QPainter p(&cursor);
     p.setPen(Qt::black);
-    p.drawLine(cursor.width() -1, 1, cursor.width() -1, cursor.height());
-    p.drawLine(0, 0, cursor.width() -2, 0);
+    p.drawLine(cursor.width() - 1, 1, cursor.width() - 1, cursor.height());
+    p.drawLine(0, 0, cursor.width() - 2, 0);
     return QCursor(cursor, 63, 0);
 }
 
@@ -70,8 +71,8 @@ QCursor createButtomRightHotspotCursor()
     cursor.fill(Qt::transparent);
     QPainter p(&cursor);
     p.setPen(Qt::black);
-    p.drawLine(cursor.width() -1, 0, cursor.width() -1, cursor.height() - 2);
-    p.drawLine(0, cursor.height()-1, cursor.width() -2, cursor.height()-1);
+    p.drawLine(cursor.width() - 1, 0, cursor.width() - 1, cursor.height() - 2);
+    p.drawLine(0, cursor.height() - 1, cursor.width() - 2, cursor.height() - 1);
     return QCursor(cursor, 63, 63);
 }
 
@@ -82,7 +83,7 @@ QCursor createButtomLeftHotspotCursor()
     QPainter p(&cursor);
     p.setPen(Qt::black);
     p.drawLine(0, 0, 0, cursor.height() - 2);
-    p.drawLine(1, cursor.height()-1, cursor.width(), cursor.height()-1);
+    p.drawLine(1, cursor.height() - 1, cursor.width(), cursor.height() - 1);
     return QCursor(cursor, 0, 63);
 }
 
@@ -104,7 +105,7 @@ MouseCursorWidget::MouseCursorWidget()
 
 MouseCursorWidget::~MouseCursorWidget() = default;
 
-void MouseCursorWidget::paintEvent(QPaintEvent *event)
+void MouseCursorWidget::paintEvent(QPaintEvent* event)
 {
     Q_UNUSED(event)
 
@@ -116,7 +117,7 @@ void MouseCursorWidget::paintEvent(QPaintEvent *event)
     }
 }
 
-void MouseCursorWidget::mouseMoveEvent(QMouseEvent *event)
+void MouseCursorWidget::mouseMoveEvent(QMouseEvent* event)
 {
     m_cursorPos = event->pos();
     update();
@@ -130,7 +131,7 @@ void MouseCursorWidget::keyPressEvent(QKeyEvent* event)
     }
 }
 
-int main(int argc, char *argv[])
+int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
 

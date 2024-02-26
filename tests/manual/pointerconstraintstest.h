@@ -11,8 +11,10 @@ SPDX-License-Identifier: LGPL-2.1-only OR LGPL-3.0-only
 
 #include <xcb/xcb.h>
 
-namespace Wrapland {
-namespace Client {
+namespace Wrapland
+{
+namespace Client
+{
 
 class ConnectionThread;
 class Registry;
@@ -32,26 +34,35 @@ class Backend : public QObject
 {
     Q_OBJECT
 public:
-    Backend(QObject *parent = nullptr) : QObject(parent) {}
+    Backend(QObject* parent = nullptr)
+        : QObject(parent)
+    {
+    }
 
     Q_PROPERTY(int mode READ mode CONSTANT)
     Q_PROPERTY(bool lockHint MEMBER m_lockHint NOTIFY lockHintChanged)
-    Q_PROPERTY(bool errorsAllowed READ errorsAllowed WRITE setErrorsAllowed NOTIFY errorsAllowedChanged)
+    Q_PROPERTY(
+        bool errorsAllowed READ errorsAllowed WRITE setErrorsAllowed NOTIFY errorsAllowedChanged)
 
-    virtual void init(QQuickView *view) {
+    virtual void init(QQuickView* view)
+    {
         m_view = view;
     }
-    int mode() const {
+    int mode() const
+    {
         return (int)m_mode;
     }
 
-    bool lockHint() const {
+    bool lockHint() const
+    {
         return m_lockHint;
     }
-    bool errorsAllowed() const {
+    bool errorsAllowed() const
+    {
         return m_errorsAllowed;
     }
-    void setErrorsAllowed(bool set) {
+    void setErrorsAllowed(bool set)
+    {
         if (m_errorsAllowed == set) {
             return;
         }
@@ -59,21 +70,30 @@ public:
         Q_EMIT errorsAllowedChanged();
     }
 
-    Q_INVOKABLE virtual void lockRequest(bool persistent = true, QRect region = QRect()) {
+    Q_INVOKABLE virtual void lockRequest(bool persistent = true, QRect region = QRect())
+    {
         Q_UNUSED(persistent);
         Q_UNUSED(region);
     }
-    Q_INVOKABLE virtual void unlockRequest() {}
+    Q_INVOKABLE virtual void unlockRequest()
+    {
+    }
 
-    Q_INVOKABLE virtual void confineRequest(bool persistent = true, QRect region = QRect()) {
+    Q_INVOKABLE virtual void confineRequest(bool persistent = true, QRect region = QRect())
+    {
         Q_UNUSED(persistent);
         Q_UNUSED(region);
     }
-    Q_INVOKABLE virtual void unconfineRequest() {}
-    Q_INVOKABLE virtual void hideAndConfineRequest(bool confineBeforeHide = false) {
+    Q_INVOKABLE virtual void unconfineRequest()
+    {
+    }
+    Q_INVOKABLE virtual void hideAndConfineRequest(bool confineBeforeHide = false)
+    {
         Q_UNUSED(confineBeforeHide);
     }
-    Q_INVOKABLE virtual void undoHideRequest() {}
+    Q_INVOKABLE virtual void undoHideRequest()
+    {
+    }
 
 Q_SIGNALS:
     void confineChanged(bool confined);
@@ -83,20 +103,19 @@ Q_SIGNALS:
     void forceSurfaceCommit();
 
 protected:
-    enum class Mode {
-        Wayland = 0,
-        X = 1
-    };
+    enum class Mode { Wayland = 0, X = 1 };
 
-    QQuickView* view() const {
+    QQuickView* view() const
+    {
         return m_view;
     }
-    void setMode(Mode set) {
+    void setMode(Mode set)
+    {
         m_mode = set;
     }
 
 private:
-    QQuickView *m_view;
+    QQuickView* m_view;
     Mode m_mode;
 
     bool m_lockHint = true;
@@ -107,9 +126,9 @@ class WaylandBackend : public Backend
 {
     Q_OBJECT
 public:
-    WaylandBackend(QObject *parent = nullptr);
+    WaylandBackend(QObject* parent = nullptr);
 
-    void init(QQuickView *view) override;
+    void init(QQuickView* view) override;
 
     void lockRequest(bool persistent, QRect region) override;
     void unlockRequest() override;
@@ -118,7 +137,7 @@ public:
     void unconfineRequest() override;
 
 private:
-    void setupRegistry(Wrapland::Client::Registry *registry);
+    void setupRegistry(Wrapland::Client::Registry* registry);
 
     bool isLocked();
     bool isConfined();
@@ -126,15 +145,15 @@ private:
     void cleanupLock();
     void cleanupConfine();
 
-    Wrapland::Client::ConnectionThread *m_connectionThreadObject;
-    Wrapland::Client::Compositor *m_compositor = nullptr;
-    Wrapland::Client::Seat *m_seat = nullptr;
-    Wrapland::Client::Pointer *m_pointer = nullptr;
-    Wrapland::Client::PointerConstraints *m_pointerConstraints = nullptr;
+    Wrapland::Client::ConnectionThread* m_connectionThreadObject;
+    Wrapland::Client::Compositor* m_compositor = nullptr;
+    Wrapland::Client::Seat* m_seat = nullptr;
+    Wrapland::Client::Pointer* m_pointer = nullptr;
+    Wrapland::Client::PointerConstraints* m_pointerConstraints = nullptr;
 
-    Wrapland::Client::LockedPointer *m_lockedPointer = nullptr;
+    Wrapland::Client::LockedPointer* m_lockedPointer = nullptr;
     bool m_lockedPointerPersistent = false;
-    Wrapland::Client::ConfinedPointer *m_confinedPointer = nullptr;
+    Wrapland::Client::ConfinedPointer* m_confinedPointer = nullptr;
     bool m_confinedPointerPersistent = false;
 };
 
@@ -142,9 +161,9 @@ class XBackend : public Backend
 {
     Q_OBJECT
 public:
-    XBackend(QObject *parent = nullptr);
+    XBackend(QObject* parent = nullptr);
 
-    void init(QQuickView *view) override;
+    void init(QQuickView* view) override;
 
     void lockRequest(bool persistent, QRect region) override;
     void unlockRequest() override;
@@ -156,9 +175,8 @@ public:
     void undoHideRequest() override;
 
 private:
-    bool tryConfine(int &error);
-    xcb_connection_t *m_xcbConn = nullptr;
-
+    bool tryConfine(int& error);
+    xcb_connection_t* m_xcbConn = nullptr;
 };
 
 #endif
