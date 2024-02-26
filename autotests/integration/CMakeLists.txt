@@ -91,21 +91,21 @@ add_executable(tests
   scripting/minimize_all.cpp
   scripting/screen_edge.cpp
   # unit tests
-  ../libkwineffects/opengl_platform.cpp
-  ../libkwineffects/timeline.cpp
-  ../libkwineffects/window_quad_list.cpp
-  ../on_screen_notifications.cpp
-  ../opengl_context_attribute_builder.cpp
-  ../tabbox/tabbox_client_model.cpp
-  ../tabbox/tabbox_config.cpp
-  ../tabbox/tabbox_handler.cpp
-  ../gestures.cpp
-  ../xcb_window.cpp
-  ../xkb.cpp
+  ../unit/effects/opengl_platform.cpp
+  ../unit/effects/timeline.cpp
+  ../unit/effects/window_quad_list.cpp
+  ../unit/on_screen_notifications.cpp
+  ../unit/opengl_context_attribute_builder.cpp
+  ../unit/tabbox/tabbox_client_model.cpp
+  ../unit/tabbox/tabbox_config.cpp
+  ../unit/tabbox/tabbox_handler.cpp
+  ../unit/gestures.cpp
+  ../unit/xcb_window.cpp
+  ../unit/xkb.cpp
   # unit tests support
-  ../libkwineffects/mock_gl.cpp
-  ../tabbox/mock_tabbox_client.cpp
-  ../tabbox/mock_tabbox_handler.cpp
+  ../unit/effects/mock_gl.cpp
+  ../unit/tabbox/mock_tabbox_client.cpp
+  ../unit/tabbox/mock_tabbox_handler.cpp
   ../../como/render/backend/x11/glx_context_attribute_builder.cpp
 )
 

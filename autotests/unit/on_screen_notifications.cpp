@@ -5,7 +5,7 @@
     SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
 
 */
-#include "integration/lib/catch_macros.h"
+#include "../integration/lib/catch_macros.h"
 
 #include "como/input/event_spy.h"
 #include "como/win/osd_notification.h"

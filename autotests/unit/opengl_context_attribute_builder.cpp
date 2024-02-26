@@ -4,7 +4,7 @@ SPDX-FileCopyrightText: 2023 Roman Gilg <subdiff@gmail.com>
 
 SPDX-License-Identifier: GPL-2.0-or-later
 */
-#include "integration/lib/catch_macros.h"
+#include "../integration/lib/catch_macros.h"
 
 #include "como/render/gl/context_attribute_builder.h"
 #include "como/render/gl/egl_context_attribute_builder.h"
