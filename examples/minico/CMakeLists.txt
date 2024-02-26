@@ -7,5 +7,3 @@ add_executable(minico main.cpp)
 target_link_libraries(minico
   como::wayland
 )
-
-install(TARGETS minico)
