@@ -40,6 +40,11 @@ jobs:
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
       artifact-name: clang-build
+      # Following tests are currently disabled on CI:
+      # * lockscreen, modifier-only-shortcut: flaky on CI because the lockscreen greeter process likes to
+      #   freeze off. Also see: https://bugreports.qt.io/browse/QTBUG-82911
+      # * all others: the GLES2 backend of wlroots can't be run in CI/without GPU at the moment,
+      #   see https://gitlab.freedesktop.org/wlroots/wlroots/-/issues/2871
       ctest-args:
         "-E 'lockscreen|modifier only shortcut|no crash empty deco|no crash no border\
           |scene opengl|opengl shadow|no crash reinit compositor|buffer size change\
