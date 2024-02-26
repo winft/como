@@ -53,6 +53,7 @@ public:
 
 private:
     void handle_platform_created();
+    void handle_platform_destroyed();
     void handle_output_added(como::base::output*);
     void handle_output_removed(como::base::output*);
 
