@@ -5,8 +5,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include <base/wayland/app_singleton.h>
 #include <base/wayland/platform.h>
-#include <input/wayland/platform.h>
-#include <script/platform.h>
 
 int main(int argc, char* argv[])
 {
