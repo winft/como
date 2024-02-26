@@ -334,7 +334,6 @@ include_directories(BEFORE
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-add_subdirectory(kconf_update)
 add_subdirectory(como)
 add_subdirectory(plugins)
 
