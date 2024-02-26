@@ -1,6 +1,7 @@
 # SPDX-FileCopyrightText: 2023 Roman Gilg <subdiff@gmail.com>
 #
 # SPDX-License-Identifier: GPL-2.0-or-later
+include(ECMMarkAsTest)
 
 add_executable(copy copy.cpp)
 target_link_libraries(copy Qt::Gui)
