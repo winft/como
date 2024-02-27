@@ -261,7 +261,7 @@ set_package_properties(Fontconfig PROPERTIES
     PURPOSE "Needed for own QPA plugin."
 )
 
-find_package(Wrapland REQUIRED)
+find_package(Wrapland 0.600.0 REQUIRED)
 set_package_properties(Wrapland PROPERTIES
     TYPE REQUIRED
     PURPOSE "Used as Wrapper library for Wayland protocol objects."
