@@ -16,8 +16,7 @@ int main(int argc, char* argv[])
     base_t base({.config = base::config(KConfig::OpenFlag::FullConfig, "kwinft-minimalrc")});
 
     base.mod.render = std::make_unique<base_t::render_t>(base);
-    base.mod.input = std::make_unique<input::wayland::platform<base_t>>(
-        base, input::config(KConfig::NoGlobals));
+    base.mod.input = std::make_unique<base_t::input_t>(base, input::config(KConfig::NoGlobals));
     base.mod.space = std::make_unique<base_t::space_t>(*base.mod.render, *base.mod.input);
 
     return base::wayland::exec(base, app);
