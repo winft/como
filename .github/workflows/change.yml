@@ -1,6 +1,6 @@
 # SPDX-FileCopyrightText: 2024 Roman Gilg <subdiff@gmail.com>
 # SPDX-License-Identifier: MIT
-name: Main Checks
+name: CI
 on:
   - push
   - pull_request

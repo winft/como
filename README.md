@@ -1,23 +1,31 @@
 <!--
 SPDX-FileCopyrightText: 2024 Roman Gilg <subdiff@gmail.com>
-
 SPDX-License-Identifier: GPL-2.0-or-later
 -->
 
 <div align="center">
-<p>
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark-wide.png">
-      <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-bright-wide.png">
-      <img alt="The Compositor Modules wide logo" src="docs/assets/logo-bright-wide.png" width="600">
-    </picture>
-</p>
+  <p>
+      <picture>
+        <source media="(prefers-color-scheme: dark)" srcset="docs/assets/logo-dark-wide.png">
+        <source media="(prefers-color-scheme: light)" srcset="docs/assets/logo-bright-wide.png">
+        <img alt="The Compositor Modules wide logo" src="docs/assets/logo-bright-wide.png" width="600">
+      </picture>
+  </p>
 
-<p>
-<i>The Compositor Modules (COMO)</i> are a robust and versatile set of libraries
-<br>
-to create compositors for the Wayland and X11 windowing systems on Linux.
-</p>
+  <p>
+    <i>The Compositor Modules (COMO)</i> are a robust and versatile set of libraries
+    <br>
+    to create compositors for the Wayland and X11 windowing systems on Linux.
+  </p>
+
+  <br>
+
+  [![Badge CI]][CI]
+  [![Badge License]][License]
+  [![Badge SemVer]][SemVer]<br>
+  [![Badge REUSE]][REUSE]
+  [![Badge AUR]][AUR]
+  [![Badge Matrix]][Matrix]
 </div>
 
 # Features
@@ -133,3 +141,21 @@ as a more complex one demonstrate this in a straightforward way.
 # Contact
 Issue tickets can be created for feature requests, bug reports or general discussions.
 For direct communication join our [Matrix room](https://matrix.to/#/#como:matrix.org).
+
+<!------------------------------------------------------------------------------------------------>
+[AUR]: https://aur.archlinux.org/packages/como
+[CI]: https://github.com/winft/como/actions/workflows/change.yml
+[License]: LICENSE
+[Matrix]: https://matrix.to/#/#como:matrix.org
+[REUSE]: https://api.reuse.software/info/github.com/winft/como
+[SemVer]: https://semver.org/spec/v2.0.0.html
+<!------------------------------------------------------------------------------------------------>
+
+<!-------------------------------------------- Badges -------------------------------------------->
+[Badge AUR]: https://img.shields.io/aur/version/como
+[Badge CI]: https://github.com/winft/como/actions/workflows/change.yml/badge.svg?event=push
+[Badge License]: https://img.shields.io/github/license/winft/como
+[Badge Matrix]: https://img.shields.io/matrix/como%3Amatrix.org?logo=matrix&logoColor=048cad&label=chat&labelColor=ffffff&color=048cad
+[Badge REUSE]: https://api.reuse.software/badge/github.com/winft/como
+[Badge SemVer]: https://img.shields.io/badge/SemVer-2.0.0-83649e?logo=semver
+<!------------------------------------------------------------------------------------------------>
