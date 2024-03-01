@@ -1,18 +1,27 @@
 Format: https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
-Upstream-Name: KWinFT
+Upstream-Name: The Compositor Modules
 Upstream-Contact: Roman Gilg <subdiff@gmail.com>
-Source: https://gitlab.com/kwinft/kwinft.git
+Source: https://github.com/winft/como.git
 
 Files:
   .versionrc.json
-  autotests/integration/fakes/org.kde.kdecoration2/fakedecoration_with_shadows.json
-  autotests/libkwineffects/data/glplatform/*
-  lib/data/icons/*
-  lib/data/org_kde_kwin.categories
-  lib/desktop/kde/dbus/org.kde.KWin.xml
-  lib/desktop/kde/org.kde.kwin.VirtualKeyboard.xml
-  lib/win/tabbox/switchers/thumbnail_grid/metadata.json
-  docs/*
+  CMakePresets.json
+  como/data/icons/*
+  como/data/org_kde_kwin.categories
+  como/desktop/kde/dbus/org.kde.KWin.xml
+  como/desktop/kde/org.kde.kwin.VirtualKeyboard.xml
+  como/render/dbus/org.kde.kwin.Compositing.xml
+  como/render/dbus/org.kde.KWin.NightLight.xml
+  como/render/effect/interface/org.kde.kwin.Effects.xml
+  como/script/org.kde.kwin.Script.xml
+  como/win/dbus/org.kde.KWin.Session.xml
+  como/win/dbus/org.kde.KWin.VirtualDesktopManager.xml
+  como/win/dbus/org.kde.kappmenu.xml
+  como/win/tabbox/switchers/thumbnail_grid/metadata.json
+  docs/assets/*
+  docs/kwindecoration/*
+  docs/kwineffects/*
+  docs/windowspecific/*
   plugins/effects/backgroundcontrast/metadata.json
   plugins/effects/blendchanges/metadata.json
   plugins/effects/blur/metadata.json
@@ -67,19 +76,6 @@ Files:
   plugins/effects/windowview/metadata.json
   plugins/effects/wobblywindows/metadata.json
   plugins/effects/zoom/metadata.json
-  kcms/common/generic_scripted_config.json
-  kcms/compositing/kwincompositing.json
-  kcms/decoration/declarative-plugin/qmldir
-  kcms/decoration/kcm_kwindecoration.json
-  kcms/desktop/kcm_kwin_virtualdesktops.json
-  kcms/effects/kcm_kwin_effects.json
-  kcms/options/kcm_kwinoptions.json
-  kcms/rules/kcm_kwinrules.json
-  kcms/screenedges/kcm_kwinscreenedges.json
-  kcms/screenedges/kcm_kwintouchscreen.json
-  kcms/scripts/kcm_kwin_scripts.json
-  kcms/tabbox/kcm_kwintabbox.json
-  kcms/tabbox/thumbnails/*
   plugins/idletime/kwin.json
   plugins/kdecorations/aurorae/src/aurorae.json
   plugins/kdecorations/aurorae/src/config/kcm_auroraeconfig.json
@@ -94,16 +90,11 @@ Files:
   plugins/kpackage/windowswitcher/windowswitcher.json
   plugins/qpa/kwin.json
   plugins/windowsystem/kwindowsystem.json
-  lib/render/dbus/org.kde.kwin.ColorCorrect.xml
-  lib/render/dbus/org.kde.kwin.Compositing.xml
-  lib/render/effect/interface/org.kde.kwin.Effects.xml
-  lib/script/org.kde.kwin.Script.xml
   plugins/scripts/desktopchangeosd/package/metadata.json
   plugins/scripts/minimizeall/package/metadata.json
   plugins/scripts/synchronizeskipswitcher/package/metadata.json
   plugins/scripts/videowall/package/metadata.json
-  lib/win/dbus/org.kde.KWin.Session.xml
-  lib/win/dbus/org.kde.KWin.VirtualDesktopManager.xml
-  lib/win/dbus/org.kde.kappmenu.xml
+  tests/integration/fakes/org.kde.kdecoration2/fakedecoration_with_shadows.json
+  tests/unit/effects/data/glplatform/*
 Copyright: 2023 Roman Gilg <subdiff@gmail.com>
 License: GPL-2.0-or-later
