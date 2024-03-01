@@ -1,0 +1,32 @@
+# SPDX-FileCopyrightText: 2024 Roman Gilg <subdiff@gmail.com>
+# SPDX-License-Identifier: MIT
+name: Report Coverage
+description: Uses gcovr to report coverage
+runs:
+  using: "composite"
+  steps:
+    - run: python -m venv venv && source venv/bin/activate
+      shell: sh
+    - run: source venv/bin/activate && pip install --upgrade Jinja2==3.0.3 gcovr==5.0
+      shell: sh
+    - run: mkdir coverage-html
+      shell: sh
+    - run:
+        "source venv/bin/activate && gcovr -s \
+        --xml-pretty --xml coverage.xml \
+        --html-details coverage-html/coverage.html \
+        --gcov-executable '/usr/bin/llvm-cov gcov' \
+        -e build -r . build"
+      shell: sh
+    - name: Upload xml
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage
+        path: coverage.xml
+        retention-days: 8
+    - name: Upload html
+      uses: actions/upload-artifact@v4
+      with:
+        name: coverage-html
+        path: coverage-html
+        retention-days: 8

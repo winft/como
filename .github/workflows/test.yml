@@ -51,6 +51,8 @@ jobs:
         run:
           "Xvfb :1 -ac -screen 0 1920x1080x24 > /dev/null 2>&1 &
 
-          dbus-run-session ctest --test-dir build -T Test \
+          dbus-run-session ctest --test-dir build --output-junit junit-test-results.xml \
             --output-on-failure --no-compress-output ${{ inputs.ctest-args }}"
         shell: bash
+      - name: Generate a code coverage report
+        uses: ./.github/actions/coverage
