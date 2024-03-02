@@ -21,7 +21,7 @@ void event_filter_manager::register_filter(event_filter* filter)
 }
 
 static event_filter_container* take_filter(event_filter* filter,
-                                           std::vector<QPointer<event_filter_container>>& filters)
+                                           std::vector<event_filter_container*>& filters)
 {
     auto it = std::find_if(filters.cbegin(), filters.cend(), [filter](auto container) {
         return container->filter() == filter;

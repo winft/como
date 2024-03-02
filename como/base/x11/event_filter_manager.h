@@ -6,8 +6,7 @@
 #pragma once
 
 #include <como_export.h>
-
-#include <QPointer>
+#include <vector>
 
 namespace como::base::x11
 {
@@ -17,8 +16,8 @@ class event_filter_container;
 class COMO_EXPORT event_filter_manager
 {
 public:
-    std::vector<QPointer<event_filter_container>> filters;
-    std::vector<QPointer<event_filter_container>> generic_filters;
+    std::vector<event_filter_container*> filters;
+    std::vector<event_filter_container*> generic_filters;
 
     void register_filter(event_filter* filter);
     void unregister_filter(event_filter* filter);
