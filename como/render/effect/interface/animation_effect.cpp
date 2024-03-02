@@ -51,7 +51,7 @@ using namespace como;
 quint64 AnimationEffectPrivate::m_animCounter = 0;
 
 AnimationEffect::AnimationEffect()
-    : d_ptr(new AnimationEffectPrivate())
+    : d_ptr{std::make_unique<AnimationEffectPrivate>()}
 {
     if (!s_clock.isValid())
         s_clock.start();
@@ -60,10 +60,7 @@ AnimationEffect::AnimationEffect()
     QMetaObject::invokeMethod(this, "init", Qt::QueuedConnection);
 }
 
-AnimationEffect::~AnimationEffect()
-{
-    delete d_ptr;
-}
+AnimationEffect::~AnimationEffect() = default;
 
 void AnimationEffect::init()
 {
