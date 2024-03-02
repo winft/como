@@ -61,6 +61,13 @@ jobs:
           |no crash aurorae destroy deco|slidingpopups|scripted effects|window open close animation\
           |subspace switching animation|minimize animation'"
 
+  clang-tidy:
+    uses: ./.github/workflows/clang-tidy.yml
+    needs: clang-build
+    with:
+      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      artifact-name: clang-build
+
   package:
     uses: ./.github/workflows/package.yml
     needs: clang-build

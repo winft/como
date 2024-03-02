@@ -1,0 +1,12 @@
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2024 Roman Gilg <subdiff@gmail.com>
+
+WarningsAsErrors: "*,
+-clang-diagnostic-unused-lambda-capture,
+-clang-diagnostic-deprecated-declarations
+"
+
+Checks: "-*,
+clang-analyzer-cplusplus.NewDelete,
+clang-analyzer-unix.Malloc
+"

@@ -1,0 +1,40 @@
+# SPDX-FileCopyrightText: 2024 Roman Gilg <subdiff@gmail.com>
+# SPDX-License-Identifier: MIT
+name: Clang-Tidy
+on:
+  workflow_call:
+    inputs:
+      image:
+        description: Image to run tests on
+        required: true
+        type: string
+      artifact-name:
+        description: Artifact name of build dir
+        required: true
+        type: string
+
+jobs:
+  clang-tidy:
+    name: Clang-Tidy
+    runs-on: ubuntu-latest
+    container:
+      image: ${{ inputs.image }}
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+      - name: Install Dependencies
+        uses: ./.github/actions/dep-artifacts
+        with:
+          secret: ${{ secrets.GITHUB_TOKEN }}
+      - name: Download build artifact
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact-name }}
+      - name: Untar artifact
+        run: tar -xzf build-dir.tar
+      - name: Run Clang-Tidy
+        # TODO(romangg): For now we skip the actual clang-tidy operation on CI because
+        # the process consumes too much resources and the runner terminates.
+        if: false
+        run: tooling/analysis/clang-tidy.py -p build
+        shell: bash
