@@ -17,8 +17,6 @@ class event_filter;
 
 class COMO_EXPORT event_filter_container : public QObject
 {
-    Q_OBJECT
-
 public:
     explicit event_filter_container(event_filter* filter);
 
