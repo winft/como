@@ -21,6 +21,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
   <br>
 
   [![Badge CI]][CI]
+  [![Badge Codecov]][Codecov]
   [![Badge License]][License]
   [![Badge SemVer]][SemVer]<br>
   [![Badge REUSE]][REUSE]
@@ -145,6 +146,7 @@ For direct communication join our [Matrix room](https://matrix.to/#/#como:matrix
 <!------------------------------------------------------------------------------------------------>
 [AUR]: https://aur.archlinux.org/packages/como
 [CI]: https://github.com/winft/como/actions/workflows/change.yml
+[Codecov]: https://codecov.io/gh/winft/como
 [License]: LICENSE
 [Matrix]: https://matrix.to/#/#como:matrix.org
 [REUSE]: https://api.reuse.software/info/github.com/winft/como
@@ -154,6 +156,7 @@ For direct communication join our [Matrix room](https://matrix.to/#/#como:matrix
 <!-------------------------------------------- Badges -------------------------------------------->
 [Badge AUR]: https://img.shields.io/aur/version/como
 [Badge CI]: https://github.com/winft/como/actions/workflows/change.yml/badge.svg?event=push
+[Badge Codecov]: https://codecov.io/gh/winft/como/graph/badge.svg?token=YK9NKRP7FB
 [Badge License]: https://img.shields.io/github/license/winft/como
 [Badge Matrix]: https://img.shields.io/matrix/como%3Amatrix.org?logo=matrix&logoColor=048cad&label=chat&labelColor=ffffff&color=048cad
 [Badge REUSE]: https://api.reuse.software/badge/github.com/winft/como

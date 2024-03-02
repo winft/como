@@ -56,3 +56,11 @@ jobs:
         shell: bash
       - name: Generate a code coverage report
         uses: ./.github/actions/coverage
+      - name: Upload coverage report to Codecov
+        uses: codecov/codecov-action@v4
+        if: github.repository == 'winft/como' || github.event_name == 'pull_request'
+        with:
+          token: ${{ secrets.CODECOV_TOKEN }}
+          file: coverage.xml
+          fail_ci_if_error: true
+          verbose: true
