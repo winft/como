@@ -58,24 +58,41 @@ private:
     std::unique_ptr<QuickSceneView> m_view;
 };
 
-class QuickSceneEffectPrivate
+class QuickSceneEffectPrivate : QObject
 {
 public:
+    void set_mouse_implicit_grab(QuickSceneView* view);
+    bool isItemOnScreen(QQuickItem* item, EffectScreen const* screen) const;
+
     static QuickSceneEffectPrivate* get(QuickSceneEffect* effect)
     {
         return effect->d.get();
     }
-    bool isItemOnScreen(QQuickItem* item, EffectScreen const* screen) const;
 
     std::unique_ptr<QQmlComponent> delegate;
     QUrl source;
     std::map<EffectScreen const*, std::unique_ptr<QQmlContext>> contexts;
     std::map<EffectScreen const*, std::unique_ptr<QQmlIncubator>> incubators;
     std::map<EffectScreen const*, std::unique_ptr<QuickSceneView>> views;
-    QPointer<QuickSceneView> mouseImplicitGrab;
+    QuickSceneView* mouseImplicitGrab{nullptr};
     bool running = false;
     EffectScreen const* paintedScreen{nullptr};
 };
+
+void QuickSceneEffectPrivate::set_mouse_implicit_grab(QuickSceneView* view)
+{
+    if (mouseImplicitGrab == view) {
+        return;
+    }
+    if (mouseImplicitGrab) {
+        QObject::disconnect(mouseImplicitGrab, &QObject::destroyed, this, nullptr);
+    }
+    if (view) {
+        QObject::connect(
+            view, &QObject::destroyed, this, [this] { set_mouse_implicit_grab(nullptr); });
+    }
+    mouseImplicitGrab = view;
+}
 
 bool QuickSceneEffectPrivate::isItemOnScreen(QQuickItem* item, EffectScreen const* screen) const
 {
@@ -172,7 +189,7 @@ QuickSceneView* QuickSceneView::qmlAttachedProperties(QObject* object)
 
 QuickSceneEffect::QuickSceneEffect(QObject* parent)
     : Effect(parent)
-    , d(new QuickSceneEffectPrivate)
+    , d{std::make_unique<QuickSceneEffectPrivate>()}
 {
 }
 
@@ -567,7 +584,7 @@ void QuickSceneEffect::windowInputMouseEvent(QEvent* event)
 
     if (buttons) {
         if (!d->mouseImplicitGrab) {
-            d->mouseImplicitGrab = viewAt(globalPosition);
+            d->set_mouse_implicit_grab(viewAt(globalPosition));
         }
     }
 
@@ -577,7 +594,7 @@ void QuickSceneEffect::windowInputMouseEvent(QEvent* event)
     }
 
     if (!buttons) {
-        d->mouseImplicitGrab = nullptr;
+        d->set_mouse_implicit_grab(nullptr);
     }
 
     if (target) {
