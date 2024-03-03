@@ -987,6 +987,8 @@ void send_to_screen(Space const& space, Win* win, Output const& output)
     // (i.e. one near the middle of the right edge will also end up near the middle of the right
     // edge).
     auto center = frame_geo.center() - oldScreenArea.center();
+
+    assert(oldScreenArea.width() > 0);
     center.setX(center.x() * screenArea.width() / oldScreenArea.width());
     center.setY(center.y() * screenArea.height() / oldScreenArea.height());
     center += screenArea.center();

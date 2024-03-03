@@ -549,6 +549,7 @@ void ExpoLayout::calculateWindowTransformationsNatural()
                     // unnecessary zooming in some situations. We need to do this even when
                     // expanding later just in case all windows are the same size. (We are using an
                     // old bounding rect for this, hopefully it doesn't matter)
+                    assert(bounds.width() > 0);
                     int xSection = (target_w->x() - bounds.x()) / (bounds.width() / 3);
                     int ySection = (target_w->y() - bounds.y()) / (bounds.height() / 3);
                     diff = QPoint(0, 0);
