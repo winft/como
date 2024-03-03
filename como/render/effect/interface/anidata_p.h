@@ -34,7 +34,6 @@ public:
 private:
     Q_DISABLE_COPY(FullScreenEffectLock)
 };
-typedef QSharedPointer<FullScreenEffectLock> FullScreenEffectLockPtr;
 
 /**
  * References the previous window pixmap to prevent discarding.
@@ -61,7 +60,7 @@ public:
             int delay,
             const FPx2& from,
             bool waitAtSource,
-            FullScreenEffectLockPtr = FullScreenEffectLockPtr(),
+            std::shared_ptr<FullScreenEffectLock> const& fullScreenEffectLock = nullptr,
             bool keepAlive = true,
             PreviousWindowPixmapLockPtr previousWindowPixmapLock = {},
             GLShader* shader = nullptr);
@@ -82,7 +81,7 @@ public:
     uint meta;
     qint64 startTime;
     qint64 frozenTime;
-    QSharedPointer<FullScreenEffectLock> fullScreenEffectLock;
+    std::shared_ptr<FullScreenEffectLock> fullScreenEffectLock;
     bool waitAtSource;
     bool keepAlive;
     EffectWindowDeletedRef deletedRef;
