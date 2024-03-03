@@ -45,6 +45,7 @@ window_thumbnail_source::window_thumbnail_source(QQuickWindow* view,
     , m_handle(handle)
     , wId{wId}
 {
+    connect(handle, &QObject::destroyed, this, [this]() { m_handle = nullptr; });
     connect(handle, &scripting::window::frameGeometryChanged, this, [this]() {
         m_dirty = true;
         Q_EMIT changed();
@@ -109,7 +110,6 @@ void window_thumbnail_source::update(effect::screen_paint_data& data)
     if (m_acquireFence || !m_dirty || !m_handle) {
         return;
     }
-    Q_ASSERT(m_view);
 
     auto const geometry = m_handle->visibleRect();
     auto const dpi = m_view->devicePixelRatio();
@@ -397,6 +397,7 @@ void window_thumbnail_item::setClient(scripting::window* client)
                    &scripting::window::frameGeometryChanged,
                    this,
                    &window_thumbnail_item::updateImplicitSize);
+        disconnect(m_client, &QObject::destroyed, this, nullptr);
     }
     m_client = client;
     if (m_client) {
@@ -404,6 +405,7 @@ void window_thumbnail_item::setClient(scripting::window* client)
                 &scripting::window::frameGeometryChanged,
                 this,
                 &window_thumbnail_item::updateImplicitSize);
+        connect(m_client, &QObject::destroyed, this, [this] { m_client = nullptr; });
         setWId(m_client->internalId());
     } else {
         setWId(QUuid());
