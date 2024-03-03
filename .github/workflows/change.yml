@@ -46,6 +46,7 @@ jobs:
   test:
     uses: ./.github/workflows/test.yml
     needs: clang-build
+    secrets: inherit
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
       artifact-name: clang-build
