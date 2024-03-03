@@ -32,13 +32,21 @@ void ExpoCell::setLayout(ExpoLayout* layout)
     if (m_layout == layout) {
         return;
     }
+
     if (m_layout) {
         m_layout->removeCell(this);
+        QObject::disconnect(m_layout, &QObject::destroyed, this, nullptr);
     }
+
     m_layout = layout;
-    if (m_layout && m_enabled) {
-        m_layout->addCell(this);
+
+    if (m_layout) {
+        QObject::connect(m_layout, &QObject::destroyed, this, [this] { m_layout = nullptr; });
+        if (m_enabled) {
+            m_layout->addCell(this);
+        }
     }
+
     Q_EMIT layoutChanged();
 }
 
