@@ -137,6 +137,7 @@ void Window::map()
     }
 
     m_handle = win::singleton_interface::create_internal_window(window());
+    QObject::connect(m_handle, &QObject::destroyed, m_handle, [this] { m_handle = nullptr; });
 }
 
 void Window::unmap()
