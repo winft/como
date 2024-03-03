@@ -60,7 +60,8 @@ jobs:
         uses: codecov/codecov-action@v4
         if: github.repository == 'winft/como' || github.event_name == 'pull_request'
         with:
-          token: ${{ secrets.CODECOV_TOKEN }}
           file: coverage.xml
           fail_ci_if_error: true
           verbose: true
+        env:
+          CODECOV_TOKEN: ${{ secrets.CODECOV_TOKEN }}
