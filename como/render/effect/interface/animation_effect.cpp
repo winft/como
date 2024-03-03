@@ -64,10 +64,9 @@ AnimationEffect::~AnimationEffect() = default;
 
 void AnimationEffect::init()
 {
-    Q_D(AnimationEffect);
-    if (d->m_isInitialized)
+    if (d_ptr->m_isInitialized)
         return; // not more than once, please
-    d->m_isInitialized = true;
+    d_ptr->m_isInitialized = true;
     /* by connecting the signal from a slot AFTER the inheriting class constructor had the chance to
      * connect it we can provide auto-referencing of animated and closed windows, since at the time
      * our slot will be called, the slot of the subclass has been (SIGNAL/SLOT connections are FIFO)
@@ -78,8 +77,7 @@ void AnimationEffect::init()
 
 bool AnimationEffect::isActive() const
 {
-    Q_D(const AnimationEffect);
-    return !d->m_animations.isEmpty() && !effects->isScreenLocked();
+    return !d_ptr->m_animations.isEmpty() && !effects->isScreenLocked();
 }
 
 #define RELATIVE_XY(_FIELD_)                                                                       \
@@ -225,25 +223,24 @@ quint64 AnimationEffect::p_animate(EffectWindow* w,
     const bool waitAtSource = from.isValid();
     validate(a, meta, &from, &to, w);
 
-    Q_D(AnimationEffect);
-    if (!d->m_isInitialized)
+    if (!d_ptr->m_isInitialized)
         init(); // needs to ensure the window gets removed if deleted in the same event cycle
-    auto it = d->m_animations.find(w);
-    if (it == d->m_animations.end()) {
+    auto it = d_ptr->m_animations.find(w);
+    if (it == d_ptr->m_animations.end()) {
         connect(w,
                 &EffectWindow::windowExpandedGeometryChanged,
                 this,
                 &AnimationEffect::_windowExpandedGeometryChanged);
-        it = d->m_animations.insert(w, QPair<QList<AniData>, QRect>(QList<AniData>(), QRect()));
+        it = d_ptr->m_animations.insert(w, QPair<QList<AniData>, QRect>(QList<AniData>(), QRect()));
     }
 
     FullScreenEffectLockPtr fullscreen;
     if (fullScreenEffect) {
-        if (d->m_fullScreenEffectLock.isNull()) {
+        if (d_ptr->m_fullScreenEffectLock.isNull()) {
             fullscreen = FullScreenEffectLockPtr::create(this);
-            d->m_fullScreenEffectLock = fullscreen.toWeakRef();
+            d_ptr->m_fullScreenEffectLock = fullscreen.toWeakRef();
         } else {
-            fullscreen = d->m_fullScreenEffectLock.toStrongRef();
+            fullscreen = d_ptr->m_fullScreenEffectLock.toStrongRef();
         }
     }
 
@@ -263,7 +260,7 @@ quint64 AnimationEffect::p_animate(EffectWindow* w,
                              previousPixmap, // Previous window pixmap lock
                              shader));
 
-    const quint64 ret_id = ++d->m_animCounter;
+    const quint64 ret_id = ++d_ptr->m_animCounter;
     AniData& animation = it->first.last();
     animation.id = ret_id;
 
@@ -284,7 +281,7 @@ quint64 AnimationEffect::p_animate(EffectWindow* w,
 
     it->second = QRect();
 
-    d->m_animationsTouched = true;
+    d_ptr->m_animationsTouched = true;
 
     if (delay > 0) {
         QTimer::singleShot(delay, this, &AnimationEffect::triggerRepaint);
@@ -305,13 +302,13 @@ quint64 AnimationEffect::p_animate(EffectWindow* w,
 
 bool AnimationEffect::retarget(quint64 animationId, FPx2 newTarget, int newRemainingTime)
 {
-    Q_D(AnimationEffect);
-    if (animationId == d->m_justEndedAnimation) {
+    if (animationId == d_ptr->m_justEndedAnimation) {
         // this is just ending, do not try to retarget it
         return false;
     }
 
-    for (auto entry = d->m_animations.begin(), mapEnd = d->m_animations.end(); entry != mapEnd;
+    for (auto entry = d_ptr->m_animations.begin(), mapEnd = d_ptr->m_animations.end();
+         entry != mapEnd;
          ++entry) {
         for (auto anim = entry->first.begin(), animEnd = entry->first.end(); anim != animEnd;
              ++anim) {
@@ -333,12 +330,11 @@ bool AnimationEffect::retarget(quint64 animationId, FPx2 newTarget, int newRemai
 
 bool AnimationEffect::freezeInTime(quint64 animationId, qint64 frozenTime)
 {
-    Q_D(AnimationEffect);
-
-    if (animationId == d->m_justEndedAnimation) {
+    if (animationId == d_ptr->m_justEndedAnimation) {
         return false; // this is just ending, do not try to retarget it
     }
-    for (auto entry = d->m_animations.begin(), mapEnd = d->m_animations.end(); entry != mapEnd;
+    for (auto entry = d_ptr->m_animations.begin(), mapEnd = d_ptr->m_animations.end();
+         entry != mapEnd;
          ++entry) {
         for (auto anim = entry->first.begin(), animEnd = entry->first.end(); anim != animEnd;
              ++anim) {
@@ -358,13 +354,12 @@ bool AnimationEffect::redirect(quint64 animationId,
                                Direction direction,
                                TerminationFlags terminationFlags)
 {
-    Q_D(AnimationEffect);
-
-    if (animationId == d->m_justEndedAnimation) {
+    if (animationId == d_ptr->m_justEndedAnimation) {
         return false;
     }
 
-    for (auto entryIt = d->m_animations.begin(); entryIt != d->m_animations.end(); ++entryIt) {
+    for (auto entryIt = d_ptr->m_animations.begin(); entryIt != d_ptr->m_animations.end();
+         ++entryIt) {
         auto animIt = std::find_if(entryIt->first.begin(),
                                    entryIt->first.end(),
                                    [animationId](AniData& anim) { return anim.id == animationId; });
@@ -392,13 +387,12 @@ bool AnimationEffect::redirect(quint64 animationId,
 
 bool AnimationEffect::complete(quint64 animationId)
 {
-    Q_D(AnimationEffect);
-
-    if (animationId == d->m_justEndedAnimation) {
+    if (animationId == d_ptr->m_justEndedAnimation) {
         return false;
     }
 
-    for (auto entryIt = d->m_animations.begin(); entryIt != d->m_animations.end(); ++entryIt) {
+    for (auto entryIt = d_ptr->m_animations.begin(); entryIt != d_ptr->m_animations.end();
+         ++entryIt) {
         auto animIt = std::find_if(entryIt->first.begin(),
                                    entryIt->first.end(),
                                    [animationId](AniData& anim) { return anim.id == animationId; });
@@ -416,13 +410,13 @@ bool AnimationEffect::complete(quint64 animationId)
 
 bool AnimationEffect::cancel(quint64 animationId)
 {
-    Q_D(AnimationEffect);
-    if (animationId == d->m_justEndedAnimation) {
+    if (animationId == d_ptr->m_justEndedAnimation) {
         // this is just ending, do not try to cancel it but fake success
         return true;
     }
 
-    for (auto entry = d->m_animations.begin(), mapEnd = d->m_animations.end(); entry != mapEnd;
+    for (auto entry = d_ptr->m_animations.begin(), mapEnd = d_ptr->m_animations.end();
+         entry != mapEnd;
          ++entry) {
         for (auto anim = entry->first.begin(), animEnd = entry->first.end(); anim != animEnd;
              ++anim) {
@@ -440,9 +434,9 @@ bool AnimationEffect::cancel(quint64 animationId)
                                &EffectWindow::windowExpandedGeometryChanged,
                                this,
                                &AnimationEffect::_windowExpandedGeometryChanged);
-                    d->m_animations.erase(entry);
+                    d_ptr->m_animations.erase(entry);
                 }
-                d->m_animationsTouched = true; // could be called from animationEnded
+                d_ptr->m_animationsTouched = true; // could be called from animationEnded
                 return true;
             }
         }
@@ -495,10 +489,9 @@ QRect AnimationEffect::clipRect(const QRect& geo, const AniData& anim) const
 
 void AnimationEffect::prePaintWindow(effect::window_prepaint_data& data)
 {
-    Q_D(AnimationEffect);
-    auto entry = d->m_animations.find(&data.window);
+    auto entry = d_ptr->m_animations.find(&data.window);
 
-    if (entry != d->m_animations.end()) {
+    if (entry != d_ptr->m_animations.end()) {
         for (auto anim = entry->first.begin(); anim != entry->first.end(); ++anim) {
             if (anim->startTime > clock() && !anim->waitAtSource) {
                 continue;
@@ -530,9 +523,8 @@ static inline float geometryCompensation(int flags, float v)
 
 void AnimationEffect::paintWindow(effect::window_paint_data& data)
 {
-    Q_D(AnimationEffect);
-    auto entry = d->m_animations.constFind(&data.window);
-    if (entry != d->m_animations.constEnd()) {
+    auto entry = d_ptr->m_animations.constFind(&data.window);
+    if (entry != d_ptr->m_animations.constEnd()) {
         for (QList<AniData>::const_iterator anim = entry->first.constBegin();
              anim != entry->first.constEnd();
              ++anim) {
@@ -681,11 +673,10 @@ void AnimationEffect::paintWindow(effect::window_paint_data& data)
 
 void AnimationEffect::postPaintScreen()
 {
-    Q_D(AnimationEffect);
-    d->m_animationsTouched = false;
+    d_ptr->m_animationsTouched = false;
     bool damageDirty = false;
 
-    for (auto entry = d->m_animations.begin(); entry != d->m_animations.end();) {
+    for (auto entry = d_ptr->m_animations.begin(); entry != d_ptr->m_animations.end();) {
         bool invalidateLayerRect = false;
         int animCounter = 0;
         for (auto anim = entry->first.begin(); anim != entry->first.end();) {
@@ -695,7 +686,7 @@ void AnimationEffect::postPaintScreen()
                 continue;
             }
             auto window = entry.key();
-            d->m_justEndedAnimation = anim->id;
+            d_ptr->m_justEndedAnimation = anim->id;
             if (anim->shader
                 && std::none_of(
                     entry->first.begin(), entry->first.end(), [anim](const auto& other) {
@@ -704,19 +695,20 @@ void AnimationEffect::postPaintScreen()
                 unredirect(window);
             }
             animationEnded(window, anim->attribute, anim->meta);
-            d->m_justEndedAnimation = 0;
+            d_ptr->m_justEndedAnimation = 0;
             // NOTICE animationEnded is an external call and might have called "::animate"
             // as a result our iterators could now point random junk on the heap
             // so we've to restore the former states, ie. find our window list and animation
-            if (d->m_animationsTouched) {
-                d->m_animationsTouched = false;
-                entry = d->m_animations.begin();
-                while (entry.key() != window && entry != d->m_animations.end()) {
+            if (d_ptr->m_animationsTouched) {
+                d_ptr->m_animationsTouched = false;
+                entry = d_ptr->m_animations.begin();
+                while (entry.key() != window && entry != d_ptr->m_animations.end()) {
                     ++entry;
                 }
-                Q_ASSERT(entry
-                         != d->m_animations.end()); // usercode should not delete animations from
-                                                    // animationEnded (not even possible atm.)
+                Q_ASSERT(
+                    entry
+                    != d_ptr->m_animations.end()); // usercode should not delete animations from
+                                                   // animationEnded (not even possible atm.)
                 anim = entry->first.begin();
                 Q_ASSERT(animCounter < entry->first.count());
                 for (int i = 0; i < animCounter; ++i) {
@@ -732,7 +724,7 @@ void AnimationEffect::postPaintScreen()
                        this,
                        &AnimationEffect::_windowExpandedGeometryChanged);
             effects->addRepaint(entry->second);
-            entry = d->m_animations.erase(entry);
+            entry = d_ptr->m_animations.erase(entry);
         } else {
             if (invalidateLayerRect) {
                 *const_cast<QRect*>(&(entry->second)) = QRect(); // invalidate
@@ -744,10 +736,10 @@ void AnimationEffect::postPaintScreen()
     if (damageDirty) {
         updateLayerRepaints();
     }
-    if (d->m_needSceneRepaint) {
+    if (d_ptr->m_needSceneRepaint) {
         effects->addRepaintFull();
     } else {
-        for (auto entry = d->m_animations.constBegin(); entry != d->m_animations.constEnd();
+        for (auto entry = d_ptr->m_animations.constBegin(); entry != d_ptr->m_animations.constEnd();
              ++entry) {
             for (auto anim = entry->first.constBegin(); anim != entry->first.constEnd(); ++anim) {
                 if (anim->startTime > clock())
@@ -835,15 +827,16 @@ void AnimationEffect::setMetaData(MetaType type, uint value, uint& meta)
 
 void AnimationEffect::triggerRepaint()
 {
-    Q_D(AnimationEffect);
-    for (auto entry = d->m_animations.constBegin(); entry != d->m_animations.constEnd(); ++entry) {
+    for (auto entry = d_ptr->m_animations.constBegin(); entry != d_ptr->m_animations.constEnd();
+         ++entry) {
         *const_cast<QRect*>(&(entry->second)) = QRect();
     }
     updateLayerRepaints();
-    if (d->m_needSceneRepaint) {
+    if (d_ptr->m_needSceneRepaint) {
         effects->addRepaintFull();
     } else {
-        for (auto it = d->m_animations.constBegin(); it != d->m_animations.constEnd(); ++it) {
+        for (auto it = d_ptr->m_animations.constBegin(); it != d_ptr->m_animations.constEnd();
+             ++it) {
             it.key()->addLayerRepaint(it->second);
         }
     }
@@ -869,9 +862,9 @@ static float fixOvershoot(float f, const AniData& d, short int dir, float s = 1.
 
 void AnimationEffect::updateLayerRepaints()
 {
-    Q_D(AnimationEffect);
-    d->m_needSceneRepaint = false;
-    for (auto entry = d->m_animations.constBegin(); entry != d->m_animations.constEnd(); ++entry) {
+    d_ptr->m_needSceneRepaint = false;
+    for (auto entry = d_ptr->m_animations.constBegin(); entry != d_ptr->m_animations.constEnd();
+         ++entry) {
         if (!entry->second.isNull()) {
             continue;
         }
@@ -902,7 +895,7 @@ void AnimationEffect::updateLayerRepaints()
             case Generic:
                 // we don't know whether this will change visual stacking order
                 // sic! no need to do anything else
-                d->m_needSceneRepaint = true;
+                d_ptr->m_needSceneRepaint = true;
                 return;
             case Translation:
             case Position: {
@@ -1001,9 +994,7 @@ void AnimationEffect::updateLayerRepaints()
 
 void AnimationEffect::_windowExpandedGeometryChanged(como::EffectWindow* w)
 {
-    Q_D(AnimationEffect);
-
-    if (auto entry = d->m_animations.constFind(w); entry != d->m_animations.constEnd()) {
+    if (auto entry = d_ptr->m_animations.constFind(w); entry != d_ptr->m_animations.constEnd()) {
         *const_cast<QRect*>(&(entry->second)) = QRect();
         updateLayerRepaints();
         if (!entry->second.isNull()) {
@@ -1015,10 +1006,8 @@ void AnimationEffect::_windowExpandedGeometryChanged(como::EffectWindow* w)
 
 void AnimationEffect::_windowClosed(EffectWindow* w)
 {
-    Q_D(AnimationEffect);
-
-    auto it = d->m_animations.find(w);
-    if (it == d->m_animations.end()) {
+    auto it = d_ptr->m_animations.find(w);
+    if (it == d_ptr->m_animations.end()) {
         return;
     }
 
@@ -1032,21 +1021,19 @@ void AnimationEffect::_windowClosed(EffectWindow* w)
 
 void AnimationEffect::_windowDeleted(EffectWindow* w)
 {
-    Q_D(AnimationEffect);
-    d->m_animations.remove(w);
+    d_ptr->m_animations.remove(w);
 }
 
 QString AnimationEffect::debug(const QString& /*parameter*/) const
 {
-    Q_D(const AnimationEffect);
-
-    if (d->m_animations.isEmpty()) {
+    if (d_ptr->m_animations.isEmpty()) {
         return QStringLiteral("No window is animated");
     }
 
     QString dbg;
 
-    for (auto entry = d->m_animations.constBegin(); entry != d->m_animations.constEnd(); ++entry) {
+    for (auto entry = d_ptr->m_animations.constBegin(); entry != d_ptr->m_animations.constEnd();
+         ++entry) {
         auto caption
             = entry.key()->isDeleted() ? QStringLiteral("[Deleted]") : entry.key()->caption();
         if (caption.isEmpty()) {
@@ -1063,6 +1050,5 @@ QString AnimationEffect::debug(const QString& /*parameter*/) const
 
 AnimationEffect::AniMap AnimationEffect::state() const
 {
-    Q_D(const AnimationEffect);
-    return d->m_animations;
+    return d_ptr->m_animations;
 }
