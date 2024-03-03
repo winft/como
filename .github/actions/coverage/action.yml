@@ -21,6 +21,7 @@ runs:
         --xml-pretty --xml coverage.xml \
         --html-details coverage-html/coverage.html \
         --gcov-executable '${{ inputs.gcov-exe }}' \
+        --exclude-throw-branches \
         -e build -r . build"
       shell: sh
     - name: Upload xml
