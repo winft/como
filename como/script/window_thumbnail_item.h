@@ -12,8 +12,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QQuickItem>
 #include <QUuid>
-
 #include <epoxy/gl.h>
+#include <gsl/pointers>
 
 namespace como
 {
@@ -50,8 +50,8 @@ Q_SIGNALS:
 private:
     void update(como::effect::screen_paint_data& data);
 
-    QPointer<QQuickWindow> m_view;
-    QPointer<scripting::window> m_handle;
+    gsl::not_null<QQuickWindow*> m_view;
+    scripting::window* m_handle;
 
     std::shared_ptr<GLTexture> m_offscreenTexture;
     std::unique_ptr<GLFramebuffer> m_offscreenTarget;
@@ -95,7 +95,7 @@ private:
     void reset_source();
 
     QUuid m_wId;
-    QPointer<scripting::window> m_client;
+    scripting::window* m_client{nullptr};
 
     mutable ThumbnailTextureProvider* m_provider = nullptr;
     std::shared_ptr<window_thumbnail_source> m_source;
