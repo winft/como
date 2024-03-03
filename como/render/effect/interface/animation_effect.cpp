@@ -41,7 +41,7 @@ public:
     AnimationEffect::AniMap m_animations;
     static quint64 m_animCounter;
     quint64 m_justEndedAnimation; // protect against cancel
-    QWeakPointer<FullScreenEffectLock> m_fullScreenEffectLock;
+    std::weak_ptr<FullScreenEffectLock> m_fullScreenEffectLock;
     bool m_needSceneRepaint, m_animationsTouched, m_isInitialized;
 };
 }
@@ -234,13 +234,12 @@ quint64 AnimationEffect::p_animate(EffectWindow* w,
         it = d_ptr->m_animations.insert(w, QPair<QList<AniData>, QRect>(QList<AniData>(), QRect()));
     }
 
-    FullScreenEffectLockPtr fullscreen;
+    std::shared_ptr<FullScreenEffectLock> fullscreen;
     if (fullScreenEffect) {
-        if (d_ptr->m_fullScreenEffectLock.isNull()) {
-            fullscreen = FullScreenEffectLockPtr::create(this);
-            d_ptr->m_fullScreenEffectLock = fullscreen.toWeakRef();
-        } else {
-            fullscreen = d_ptr->m_fullScreenEffectLock.toStrongRef();
+        fullscreen = d_ptr->m_fullScreenEffectLock.lock();
+        if (!fullscreen) {
+            fullscreen = std::make_shared<FullScreenEffectLock>(this);
+            d_ptr->m_fullScreenEffectLock = fullscreen;
         }
     }
 
