@@ -592,9 +592,9 @@ TEST_CASE("opengl shadow", "[render]")
         QVERIFY(commit_spy.wait());
 
         // Check that we got right shadow from the client.
-        QPointer<Wrapland::Server::Shadow> shadowIface = client->surface->state().shadow;
+        auto shadowIface = client->surface->state().shadow;
         QVERIFY(client->surface->state().updates & Wrapland::Server::surface_change::shadow);
-        QVERIFY(!shadowIface.isNull());
+        QVERIFY(shadowIface);
         QCOMPARE(shadowIface->offset().left(), 128.0);
         QCOMPARE(shadowIface->offset().top(), 128.0);
         QCOMPARE(shadowIface->offset().right(), 128.0);
@@ -680,8 +680,8 @@ TEST_CASE("opengl shadow", "[render]")
         QVERIFY(commit_spy.wait());
 
         // Check that we got right shadow from the client.
-        QPointer<Wrapland::Server::Shadow> shadowIface = client->surface->state().shadow;
-        QVERIFY(!shadowIface.isNull());
+        auto shadowIface = client->surface->state().shadow;
+        QVERIFY(shadowIface);
         QCOMPARE(shadowIface->offset().left(), 256.0);
         QCOMPARE(shadowIface->offset().top(), 256.0);
         QCOMPARE(shadowIface->offset().right(), 256.0);
