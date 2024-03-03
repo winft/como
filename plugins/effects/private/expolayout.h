@@ -162,5 +162,5 @@ private:
     std::optional<int> m_y;
     std::optional<int> m_width;
     std::optional<int> m_height;
-    QPointer<ExpoLayout> m_layout;
+    ExpoLayout* m_layout{nullptr};
 };
