@@ -230,9 +230,8 @@ create_subsurface(std::unique_ptr<Clt::Surface> const& surface,
     if (!get_client().interfaces.subcompositor) {
         return nullptr;
     }
-    auto subsurface
-        = std::unique_ptr<Clt::SubSurface>(get_client().interfaces.subcompositor->createSubSurface(
-            surface.get(), parent_surface.get()));
+    auto subsurface = std::unique_ptr<Clt::SubSurface>(
+        get_client().interfaces.subcompositor->createSubSurface(*surface, *parent_surface));
     if (!subsurface->isValid()) {
         return nullptr;
     }
