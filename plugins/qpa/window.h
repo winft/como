@@ -11,7 +11,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <epoxy/gl.h>
 
-#include <QPointer>
 #include <memory>
 #include <qpa/qplatformwindow.h>
 
@@ -43,7 +42,7 @@ private:
     void map();
     void unmap();
 
-    QPointer<win::internal_window_singleton> m_handle;
+    win::internal_window_singleton* m_handle{nullptr};
     std::shared_ptr<QOpenGLFramebufferObject> m_contentFBO;
     quint32 m_windowId;
     bool m_resized = false;
