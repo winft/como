@@ -12,7 +12,7 @@ runs:
   steps:
     - run: python -m venv venv && source venv/bin/activate
       shell: sh
-    - run: source venv/bin/activate && pip install --upgrade Jinja2==3.0.3 gcovr==5.0
+    - run: source venv/bin/activate && pip install --upgrade gcovr==7.2
       shell: sh
     - run: mkdir coverage-html
       shell: sh
