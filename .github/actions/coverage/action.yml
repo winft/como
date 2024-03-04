@@ -16,11 +16,15 @@ runs:
       shell: sh
     - run: mkdir coverage-html
       shell: sh
+    # TODO(romangg): --gcov-ignore-errors=no_working_dir_found is set because
+    # gcov executable is failing to find Catch2 from FetchContent. Needs to be
+    # reported as an issue in respective projects and tested again later on.
     - run:
         "source venv/bin/activate && gcovr -s \
         --xml-pretty --xml coverage.xml \
         --html-details coverage-html/coverage.html \
         --gcov-executable '${{ inputs.gcov-exe }}' \
+        --gcov-ignore-errors=no_working_dir_found \
         --exclude-throw-branches \
         -e build -r . build"
       shell: sh
