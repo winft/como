@@ -20,36 +20,37 @@ jobs:
   clang-format:
     uses: ./.github/workflows/clang-format.yml
 
-  clang-build:
+  coverage-build:
     uses: ./.github/workflows/build.yml
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
-      artifact-name: clang-build
-      cmake-preset: coverage
+      artifact-name: coverage-build
+      cmake-preset: gcc-cov
 
-  secondary-builds:
+  builds:
     strategy:
       matrix:
-        preset: [gcc, release]
+        preset: [clang, release]
     uses: ./.github/workflows/build.yml
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      artifact-name: '${{ matrix.preset }}-build'
       cmake-preset: ${{ matrix.preset }}
 
   install:
     uses: ./.github/workflows/install.yml
-    needs: clang-build
+    needs: builds
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
-      artifact-name: clang-build
+      artifact-name: release-build
 
   test:
     uses: ./.github/workflows/test.yml
-    needs: clang-build
+    needs: coverage-build
     secrets: inherit
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
-      artifact-name: clang-build
+      artifact-name: coverage-build
       # Following tests are currently disabled on CI:
       # * lockscreen, modifier-only-shortcut: flaky on CI because the lockscreen greeter process likes to
       #   freeze off. Also see: https://bugreports.qt.io/browse/QTBUG-82911
@@ -63,14 +64,14 @@ jobs:
 
   clang-tidy:
     uses: ./.github/workflows/clang-tidy.yml
-    needs: clang-build
+    needs: builds
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
       artifact-name: clang-build
 
   package:
     uses: ./.github/workflows/package.yml
-    needs: clang-build
+    needs: builds
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
       artifact-name: clang-build

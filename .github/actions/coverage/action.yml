@@ -2,6 +2,11 @@
 # SPDX-License-Identifier: MIT
 name: Report Coverage
 description: Uses gcovr to report coverage
+inputs:
+  gcov-exe:
+    description: Set custom gcov executable, e.g. 'llvm-cov gcov' for clang.
+    required: false
+    default: "gcov"
 runs:
   using: "composite"
   steps:
@@ -15,7 +20,7 @@ runs:
         "source venv/bin/activate && gcovr -s \
         --xml-pretty --xml coverage.xml \
         --html-details coverage-html/coverage.html \
-        --gcov-executable '/usr/bin/llvm-cov gcov' \
+        --gcov-executable '${{ inputs.gcov-exe }}' \
         -e build -r . build"
       shell: sh
     - name: Upload xml
