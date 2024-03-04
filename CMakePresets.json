@@ -11,7 +11,11 @@
       "hidden": true,
       "generator": "Ninja",
       "cacheVariables": {
-        "CMAKE_BUILD_TYPE": "Debug"
+        "CMAKE_BUILD_TYPE": "Debug",
+        "CMAKE_EXPORT_COMPILE_COMMANDS": {
+          "type": "BOOL",
+          "value": "ON"
+        }
       },
       "environment": {
         "DEBUG_COMMON_FLAGS": "-Wall -Wextra -Wchar-subscripts -Wformat-security -Wno-long-long -Wpointer-arith -Wundef",
@@ -20,7 +24,8 @@
         "DEBUG_SHARED_LINKER_FLAGS": "-Wl,--fatal-warnings",
         "DEBUG_MODULE_LINKER_FLAGS": "-Wl,--fatal-warnings",
         "NOUNDEF_LINKER_FLAGS": "-Wl,--no-undefined",
-        "DEBUG_CXX_FLAGS_CLANG": "$env{DEBUG_CXX_FLAGS} -fno-operator-names -Wno-gnu-zero-variadic-macro-arguments -Wno-cast-align -Werror -Wno-error=deprecated-declarations -Wno-error=unused-lambda-capture"
+        "DEBUG_CXX_FLAGS_CLANG": "$env{DEBUG_CXX_FLAGS} -fno-operator-names -Wno-gnu-zero-variadic-macro-arguments -Wno-cast-align -Werror -Wno-error=deprecated-declarations -Wno-error=unused-lambda-capture",
+        "DEBUG_CXX_FLAGS_GCC": "$env{DEBUG_CXX_FLAGS} -Wsuggest-override -Wlogical-op -Wmissing-include-dirs -Wno-missing-field-initializers -Werror -Wno-error=unknown-pragmas -Wno-error=deprecated-declarations -Wno-error=missing-include-dirs"
       }
     },
     {
@@ -46,7 +51,7 @@
         "CMAKE_C_COMPILER": "gcc",
         "CMAKE_CXX_COMPILER": "g++",
         "CMAKE_C_FLAGS": "$env{DEBUG_C_FLAGS}",
-        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS} -Wsuggest-override -Wlogical-op -Wmissing-include-dirs -Wno-missing-field-initializers -Werror -Wno-error=unknown-pragmas -Wno-error=deprecated-declarations -Wno-error=missing-include-dirs",
+        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS_GCC}",
         "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}",
         "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}"
       }
@@ -67,22 +72,26 @@
       }
     },
     {
-      "name": "coverage",
-      "inherits": "debug-base",
-      "displayName": "Tests with Coverage",
-      "description": "Build with tests and coverage reporting enabled",
+      "name": "clang-cov",
+      "inherits": "clang",
+      "displayName": "Clang Tests Coverage",
+      "description": "Clang Build with tests and coverage reporting enabled",
       "cacheVariables": {
-        "CMAKE_C_COMPILER": "clang",
-        "CMAKE_CXX_COMPILER": "clang++",
-        "CMAKE_C_FLAGS": "$env{DEBUG_C_FLAGS}",
         "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS_CLANG} --coverage",
-        "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}",
-        "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS}",
-        "CMAKE_EXE_LINKER_FLAGS": "--coverage",
-        "CMAKE_EXPORT_COMPILE_COMMANDS": {
-          "type": "BOOL",
-          "value": "ON"
-        }
+        "CMAKE_EXE_LINKER_FLAGS": "--coverage"
+      }
+    },
+    {
+      "name": "gcc-cov",
+      "inherits": "gcc",
+      "displayName": "GCC Tests Coverage",
+      "description": "GCC Build with tests and coverage reporting enabled",
+      "cacheVariables": {
+        "CMAKE_C_FLAGS": "$env{DEBUG_C_FLAGS} --coverage -fprofile-abs-path",
+        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS_GCC} --coverage -fprofile-abs-path",
+        "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS} --coverage -fprofile-abs-path",
+        "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS} --coverage -fprofile-abs-path",
+        "CMAKE_EXE_LINKER_FLAGS": "--coverage -fprofile-abs-path"
       }
     },
     {
