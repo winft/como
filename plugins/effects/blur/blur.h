@@ -15,6 +15,7 @@
 
 #include <QVector2D>
 #include <QVector>
+#include <span>
 #include <stack>
 #include <vector>
 

@@ -16,6 +16,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 #include <memory>
+#include <sstream>
 #include <string>
 #include <vector>
 #include <xkbcommon/xkbcommon-compose.h>
