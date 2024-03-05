@@ -441,11 +441,11 @@ public:
             mods &= keyQt;
             if (((keyQt & ~mods) == Qt::Key_Tab) || ((keyQt & ~mods) == Qt::Key_Backtab)) {
                 if (contains(forward, QKeyCombination(mods, Qt::Key_Backtab).toCombined())
-                    || contains(forward, QKeyCombination(mods, Qt::Key_Tab))) {
+                    || contains(forward, QKeyCombination(mods, Qt::Key_Tab).toCombined())) {
                     return Forward;
                 }
                 if (contains(backward, QKeyCombination(mods, Qt::Key_Backtab).toCombined())
-                    || contains(backward, QKeyCombination(mods, Qt::Key_Tab))) {
+                    || contains(backward, QKeyCombination(mods, Qt::Key_Tab).toCombined())) {
                     return Backward;
                 }
             }
