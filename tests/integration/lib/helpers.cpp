@@ -479,7 +479,11 @@ void pointer_motion_absolute(QPointF const& position, uint32_t time)
     wlr_signal_emit_safe(&test_app->pointer->events.frame, test_app->pointer);
 }
 
+#if WLR_HAVE_WL_POINTER_ENUMS
+void pointer_button_impl(uint32_t button, uint32_t time, wl_pointer_button_state state)
+#else
 void pointer_button_impl(uint32_t button, uint32_t time, wlr_button_state state)
+#endif
 {
     auto test_app = app();
 
@@ -498,19 +502,35 @@ void pointer_button_impl(uint32_t button, uint32_t time, wlr_button_state state)
 
 void pointer_button_pressed(uint32_t button, uint32_t time)
 {
+#if WLR_HAVE_WL_POINTER_ENUMS
+    pointer_button_impl(button, time, WL_POINTER_BUTTON_STATE_PRESSED);
+#else
     pointer_button_impl(button, time, WLR_BUTTON_PRESSED);
+#endif
 }
 
 void pointer_button_released(uint32_t button, uint32_t time)
 {
+#if WLR_HAVE_WL_POINTER_ENUMS
+    pointer_button_impl(button, time, WL_POINTER_BUTTON_STATE_RELEASED);
+#else
     pointer_button_impl(button, time, WLR_BUTTON_RELEASED);
+#endif
 }
 
+#if WLR_HAVE_WL_POINTER_ENUMS
+void pointer_axis_impl(double delta,
+                       uint32_t time,
+                       int32_t discrete_delta,
+                       wl_pointer_axis orientation,
+                       wl_pointer_axis_source source)
+#else
 void pointer_axis_impl(double delta,
                        uint32_t time,
                        int32_t discrete_delta,
                        wlr_axis_orientation orientation,
                        wlr_axis_source source)
+#endif
 {
     auto test_app = app();
 
@@ -531,14 +551,27 @@ void pointer_axis_impl(double delta,
 
 void pointer_axis_horizontal(double delta, uint32_t time, int32_t discrete_delta)
 {
+#if WLR_HAVE_WL_POINTER_ENUMS
+    pointer_axis_impl(delta,
+                      time,
+                      discrete_delta,
+                      WL_POINTER_AXIS_HORIZONTAL_SCROLL,
+                      WL_POINTER_AXIS_SOURCE_WHEEL);
+#else
     pointer_axis_impl(
         delta, time, discrete_delta, WLR_AXIS_ORIENTATION_HORIZONTAL, WLR_AXIS_SOURCE_WHEEL);
+#endif
 }
 
 void pointer_axis_vertical(double delta, uint32_t time, int32_t discrete_delta)
 {
+#if WLR_HAVE_WL_POINTER_ENUMS
+    pointer_axis_impl(
+        delta, time, discrete_delta, WL_POINTER_AXIS_VERTICAL_SCROLL, WL_POINTER_AXIS_SOURCE_WHEEL);
+#else
     pointer_axis_impl(
         delta, time, discrete_delta, WLR_AXIS_ORIENTATION_VERTICAL, WLR_AXIS_SOURCE_WHEEL);
+#endif
 }
 
 void keyboard_key_impl(uint32_t key,
