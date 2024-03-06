@@ -85,7 +85,7 @@ void handle_button(struct wl_listener* listener, void* data)
     auto event = button_event
     {
         wlr_event->button,
-#if WLR_HAVE_WL_POINTER_AXIS_SOURCE
+#if WLR_HAVE_WL_POINTER_ENUMS
             wlr_event->state == WL_POINTER_BUTTON_STATE_RELEASED ? button_state::released
                                                                  : button_state::pressed,
 #else
@@ -111,7 +111,7 @@ void handle_axis(struct wl_listener* listener, void* data)
 
     auto get_source = [](auto wlr_source) {
         switch (wlr_source) {
-#if WLR_HAVE_WL_POINTER_AXIS_SOURCE
+#if WLR_HAVE_WL_POINTER_ENUMS
         case WL_POINTER_AXIS_SOURCE_WHEEL:
             return axis_source::wheel;
         case WL_POINTER_AXIS_SOURCE_FINGER:
