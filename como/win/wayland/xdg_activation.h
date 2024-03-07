@@ -63,9 +63,9 @@ inline bool generate_token(char out[token_strlen])
 template<typename Space>
 struct xdg_activation {
     xdg_activation(Space& space)
-        : interface {
-        std::make_unique<Wrapland::Server::XdgActivationV1>(space.base.server->display.get())
-    }, space{space}
+        : interface{std::make_unique<Wrapland::Server::XdgActivationV1>(
+            space.base.server->display.get())}
+        , space{space}
     {
         QObject::connect(
             interface.get(),
