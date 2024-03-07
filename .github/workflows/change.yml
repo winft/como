@@ -20,22 +20,23 @@ jobs:
   clang-format:
     uses: ./.github/workflows/clang-format.yml
 
-  coverage-build:
+  clang-build:
     uses: ./.github/workflows/build.yml
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
-      artifact-name: coverage-build
-      cmake-preset: gcc-cov
+      artifact-name: clang-build
+      cmake-preset: clang
 
   builds:
     strategy:
       matrix:
-        preset: [clang, gcc, release]
+        preset: [gcc-cov, release]
     uses: ./.github/workflows/build.yml
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
-      artifact-name: '${{ matrix.preset }}-build'
+      artifact-name: ${{ matrix.preset }}-build
       cmake-preset: ${{ matrix.preset }}
+      cmake-args: -DBUILD_TESTING=ON
 
   install:
     uses: ./.github/workflows/install.yml
@@ -44,13 +45,18 @@ jobs:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
       artifact-name: release-build
 
-  test:
+  tests:
+    strategy:
+      fail-fast: false
+      matrix:
+        preset: [gcc-cov, release]
     uses: ./.github/workflows/test.yml
-    needs: coverage-build
+    needs: builds
     secrets: inherit
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
-      artifact-name: coverage-build
+      artifact-prefix: ${{ matrix.preset }}
+      coverage: ${{ matrix.preset == 'gcc-cov' }}
       # Following tests are currently disabled on CI:
       # * lockscreen, modifier-only-shortcut: flaky on CI because the lockscreen greeter process likes to
       #   freeze off. Also see: https://bugreports.qt.io/browse/QTBUG-82911
@@ -64,7 +70,7 @@ jobs:
 
   clang-tidy:
     uses: ./.github/workflows/clang-tidy.yml
-    needs: builds
+    needs: clang-build
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
       artifact-name: clang-build
@@ -74,5 +80,5 @@ jobs:
     needs: builds
     with:
       image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
-      artifact-name: clang-build
+      artifact-name: release-build
       package-name: como
