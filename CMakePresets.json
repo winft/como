@@ -72,20 +72,6 @@
       }
     },
     {
-      "name": "clang-cov",
-      "inherits": "clang",
-      "displayName": "Clang Tests Coverage",
-      "description": "Clang Build with tests and coverage reporting enabled",
-      "cacheVariables": {
-        "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS_CLANG} --coverage",
-        "CMAKE_EXE_LINKER_FLAGS": "--coverage",
-        "BUILD_EXAMPLES": {
-          "type": "BOOL",
-          "value": "OFF"
-        }
-      }
-    },
-    {
       "name": "gcc-cov",
       "inherits": "gcc",
       "displayName": "GCC Tests Coverage",
@@ -95,11 +81,7 @@
         "CMAKE_CXX_FLAGS": "$env{DEBUG_CXX_FLAGS_GCC} --coverage -fprofile-abs-path",
         "CMAKE_SHARED_LINKER_FLAGS": "$env{DEBUG_SHARED_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS} --coverage -fprofile-abs-path",
         "CMAKE_MODULE_LINKER_FLAGS": "$env{DEBUG_MODULE_LINKER_FLAGS} $env{NOUNDEF_LINKER_FLAGS} --coverage -fprofile-abs-path",
-        "CMAKE_EXE_LINKER_FLAGS": "--coverage -fprofile-abs-path",
-        "BUILD_EXAMPLES": {
-          "type": "BOOL",
-          "value": "OFF"
-        }
+        "CMAKE_EXE_LINKER_FLAGS": "--coverage -fprofile-abs-path"
       }
     },
     {

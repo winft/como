@@ -8,8 +8,8 @@ on:
         description: Image to run tests on
         required: true
         type: string
-      artifact-name:
-        description: Artifact name of build dir
+      artifact-prefix:
+        description: Artifact prefix of build dir
         required: true
         type: string
       ctest-args:
@@ -17,6 +17,11 @@ on:
         required: false
         type: string
         default: ''
+      coverage:
+        description: Option to create coverage
+        required: false
+        type: boolean
+        default: false
 
 jobs:
   test:
@@ -34,7 +39,7 @@ jobs:
       - name: Download artifact
         uses: actions/download-artifact@v4
         with:
-          name: ${{ inputs.artifact-name }}
+          name: ${{ inputs.artifact-prefix }}-build
       - name: Untar artifact
         run: tar -xzf build-dir.tar
       - name: List all tests
@@ -55,10 +60,11 @@ jobs:
             --output-on-failure --no-compress-output ${{ inputs.ctest-args }}"
         shell: bash
       - name: Generate a code coverage report
+        if: ${{ inputs.coverage }}
         uses: ./.github/actions/coverage
       - name: Upload coverage report to Codecov
         uses: codecov/codecov-action@v4
-        if: github.repository == 'winft/como' || github.event_name == 'pull_request'
+        if: ${{ inputs.coverage && (github.repository == 'winft/como' || github.event_name == 'pull_request') }}
         with:
           file: coverage.xml
           fail_ci_if_error: true
