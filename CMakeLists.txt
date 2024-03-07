@@ -302,6 +302,7 @@ ecm_find_qmlmodule(org.kde.kquickcontrolsaddons 2.0)
 ecm_find_qmlmodule(org.kde.plasma.core 2.0)
 ecm_find_qmlmodule(org.kde.plasma.components 2.0)
 
+option(BUILD_EXAMPLES "Enable building examples." ON)
 option(COMO_BUILD_DECORATIONS "Enable building of decorations." ON)
 option(COMO_BUILD_KCMS "Enable building of configuration modules." ON)
 option(COMO_BUILD_TABBOX "Enable building of Tabbox functionality" ON)
@@ -342,7 +343,9 @@ if (BUILD_TESTING)
     add_subdirectory(tests)
 endif()
 
-add_subdirectory(examples)
+if (BUILD_EXAMPLES)
+  add_subdirectory(examples)
+endif()
 
 if (KF6DocTools_FOUND)
     add_subdirectory(docs)
