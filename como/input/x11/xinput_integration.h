@@ -27,7 +27,7 @@ namespace como::input::x11
 
 static inline qreal fixed1616ToReal(FP1616 val)
 {
-    return (val)*1.0 / (1 << 16);
+    return (val) * 1.0 / (1 << 16);
 }
 
 template<typename Xinput>

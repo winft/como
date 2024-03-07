@@ -103,12 +103,11 @@ TEST_CASE("idle", "[input]")
     {
         struct notification_wrap {
             notification_wrap(uint32_t duration)
-                : interface {
-                get_client().interfaces.idle_notifier->get_notification(
+                : interface{get_client().interfaces.idle_notifier->get_notification(
                     duration,
-                    get_client().interfaces.seat.get())
-            }, idle_spy{interface.get(), &Wrapland::Client::idle_notification_v1::idled},
-                resume_spy{interface.get(), &Wrapland::Client::idle_notification_v1::resumed}
+                    get_client().interfaces.seat.get())}
+                , idle_spy{interface.get(), &Wrapland::Client::idle_notification_v1::idled}
+                , resume_spy{interface.get(), &Wrapland::Client::idle_notification_v1::resumed}
             {
             }
 
