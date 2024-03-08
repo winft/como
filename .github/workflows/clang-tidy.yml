@@ -12,6 +12,11 @@ on:
         description: Artifact name of build dir
         required: true
         type: string
+      threads:
+        description: Parallel execution count
+        required: false
+        type: number
+        default: 0
 
 jobs:
   clang-tidy:
@@ -33,8 +38,5 @@ jobs:
       - name: Untar artifact
         run: tar -xzf build-dir.tar
       - name: Run Clang-Tidy
-        # TODO(romangg): For now we skip the actual clang-tidy operation on CI because
-        # the process consumes too much resources and the runner terminates.
-        if: false
-        run: tooling/analysis/clang-tidy.py -p build
+        run: tooling/analysis/clang-tidy.py -p build -j ${{ inputs.threads }}
         shell: bash
