@@ -110,6 +110,7 @@ add_executable(tests
 )
 
 target_compile_definitions(tests PRIVATE USE_XWL=1)
+set_target_properties(tests PROPERTIES UNITY_BUILD ON)
 
 target_link_libraries(tests
 PRIVATE
@@ -188,6 +189,7 @@ add_executable(tests-wl
 )
 
 target_compile_definitions(tests-wl PRIVATE USE_XWL=0)
+set_target_properties(tests-wl PROPERTIES UNITY_BUILD ON)
 
 target_link_libraries(tests-wl
 PRIVATE
