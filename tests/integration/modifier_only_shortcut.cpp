@@ -13,13 +13,16 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace Wrapland::Client;
 
-static const QString s_serviceName = QStringLiteral("org.kde.KWin.Test.ModifierOnlyShortcut");
-static const QString s_path = QStringLiteral("/Test");
-static const QStringList trigger
-    = QStringList{s_serviceName, s_path, s_serviceName, QStringLiteral("shortcut")};
-
-namespace como::detail::test
+namespace como::detail::test::modifier_only_shortcut
 {
+
+namespace
+{
+
+const QString s_serviceName = QStringLiteral("org.kde.KWin.Test.ModifierOnlyShortcut");
+const QString s_path = QStringLiteral("/Test");
+const QStringList trigger
+    = QStringList{s_serviceName, s_path, s_serviceName, QStringLiteral("shortcut")};
 
 class Target : public QObject
 {
@@ -54,6 +57,8 @@ Target::~Target()
 void Target::shortcut()
 {
     Q_EMIT shortcutTriggered();
+}
+
 }
 
 TEST_CASE("modifier only shortcut", "[input]")

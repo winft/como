@@ -28,7 +28,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace Wrapland::Client;
 
-namespace como::detail::test
+namespace como::detail::test::qpainter_shadow
 {
 
 namespace

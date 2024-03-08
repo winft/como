@@ -14,13 +14,16 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 using namespace Wrapland::Client;
 
-static const QString s_serviceName = QStringLiteral("org.kde.KWin.Test.NoGlobalShortcuts");
-static const QString s_path = QStringLiteral("/Test");
-static const QStringList trigger
-    = QStringList{s_serviceName, s_path, s_serviceName, QStringLiteral("shortcut")};
+namespace como::detail::test::no_global_shortcuts
+{
 
 namespace
 {
+
+const QString s_serviceName = QStringLiteral("org.kde.KWin.Test.NoGlobalShortcuts");
+const QString s_path = QStringLiteral("/Test");
+const QStringList trigger
+    = QStringList{s_serviceName, s_path, s_serviceName, QStringLiteral("shortcut")};
 
 class Target : public QObject
 {
@@ -58,9 +61,6 @@ void Target::shortcut()
 }
 
 }
-
-namespace como::detail::test
-{
 
 TEST_CASE("no global shortcuts", "[input]")
 {
