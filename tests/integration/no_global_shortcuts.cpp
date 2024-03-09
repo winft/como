@@ -12,8 +12,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <catch2/generators/catch_generators.hpp>
 #include <linux/input.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test::no_global_shortcuts
 {
 

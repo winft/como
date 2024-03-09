@@ -10,10 +10,10 @@
 #include <Wrapland/Client/surface.h>
 #include <catch2/generators/catch_generators.hpp>
 
-namespace Clt = Wrapland::Client;
-
-namespace como::detail::test
+namespace como::detail::test::layer_shell
 {
+
+namespace Clt = Wrapland::Client;
 
 namespace
 {

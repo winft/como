@@ -239,26 +239,27 @@ TEST_CASE("slidingpopups", "[effect]")
         QSignalSpy windowAddedSpy(effects, &EffectsHandler::windowAdded);
         QVERIFY(windowAddedSpy.isValid());
 
-        using namespace Wrapland::Client;
         // the test created the slide protocol, let's create a Registry and listen for it
-        std::unique_ptr<Registry> registry(new Registry);
+        std::unique_ptr<Wrapland::Client::Registry> registry(new Wrapland::Client::Registry);
         registry->create(get_client().connection);
 
-        QSignalSpy interfacesAnnouncedSpy(registry.get(), &Registry::interfacesAnnounced);
+        QSignalSpy interfacesAnnouncedSpy(registry.get(),
+                                          &Wrapland::Client::Registry::interfacesAnnounced);
         QVERIFY(interfacesAnnouncedSpy.isValid());
         registry->setup();
         QVERIFY(interfacesAnnouncedSpy.wait());
-        auto slideInterface = registry->interface(Registry::Interface::Slide);
+        auto slideInterface = registry->interface(Wrapland::Client::Registry::Interface::Slide);
         QVERIFY(slideInterface.name != 0);
-        std::unique_ptr<SlideManager> slideManager(
+        std::unique_ptr<Wrapland::Client::SlideManager> slideManager(
             registry->createSlideManager(slideInterface.name, slideInterface.version));
         QVERIFY(slideManager);
 
         // create Wayland window
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<Slide> slide(slideManager->createSlide(surface.get()));
-        slide->setLocation(Slide::Location::Left);
+
+        std::unique_ptr<Wrapland::Client::Slide> slide(slideManager->createSlide(surface.get()));
+        slide->setLocation(Wrapland::Client::Slide::Location::Left);
         slide->commit();
         auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);

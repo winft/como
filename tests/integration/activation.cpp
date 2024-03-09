@@ -39,7 +39,6 @@ TEST_CASE("activation", "[win]")
     SECTION("switch to left window")
     {
         // Verifies that "Switch to Window to the Left" shortcut works.
-        using namespace Wrapland::Client;
 
         // Prepare the test environment.
         stackScreensHorizontally();
@@ -107,8 +106,6 @@ TEST_CASE("activation", "[win]")
     {
         // Verifies that "Switch to Window to the Right" shortcut works.
 
-        using namespace Wrapland::Client;
-
         // Prepare the test environment.
         stackScreensHorizontally();
 
@@ -175,8 +172,6 @@ TEST_CASE("activation", "[win]")
     {
         // Verifies that "Switch to Window Above" shortcut works.
 
-        using namespace Wrapland::Client;
-
         // Prepare the test environment.
         stackScreensVertically();
 
@@ -242,8 +237,6 @@ TEST_CASE("activation", "[win]")
     SECTION("switch to bottom window")
     {
         // Verifies that "Switch to Window Bottom" shortcut works.
-
-        using namespace Wrapland::Client;
 
         // Prepare the test environment.
         stackScreensVertically();
@@ -312,8 +305,6 @@ TEST_CASE("activation", "[win]")
         // Verifies that we switch to the top-most maximized client, i.e.
         // the one that user sees at the moment. See bug 411356.
 
-        using namespace Wrapland::Client;
-
         // Prepare the test environment.
         stackScreensHorizontally();
 
@@ -324,7 +315,8 @@ TEST_CASE("activation", "[win]")
         REQUIRE(client1);
         REQUIRE(client1->control->active);
 
-        QSignalSpy configureRequestedSpy1(shellSurface1.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy1(shellSurface1.get(),
+                                          &Wrapland::Client::XdgShellToplevel::configured);
         REQUIRE(configureRequestedSpy1.isValid());
 
         REQUIRE(configureRequestedSpy1.wait());
@@ -348,7 +340,8 @@ TEST_CASE("activation", "[win]")
         REQUIRE(client2);
         REQUIRE(client2->control->active);
 
-        QSignalSpy configureRequestedSpy2(shellSurface2.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy2(shellSurface2.get(),
+                                          &Wrapland::Client::XdgShellToplevel::configured);
         REQUIRE(configureRequestedSpy2.isValid());
 
         REQUIRE(configureRequestedSpy2.wait());
@@ -415,8 +408,6 @@ TEST_CASE("activation", "[win]")
         // Verifies that we switch to the top-most fullscreen fullscreen, i.e.
         // the one that user sees at the moment. See bug 411356.
 
-        using namespace Wrapland::Client;
-
         // Prepare the test environment.
         stackScreensVertically();
 
@@ -427,7 +418,8 @@ TEST_CASE("activation", "[win]")
         REQUIRE(client1);
         REQUIRE(client1->control->active);
 
-        QSignalSpy configureRequestedSpy1(shellSurface1.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy1(shellSurface1.get(),
+                                          &Wrapland::Client::XdgShellToplevel::configured);
         REQUIRE(configureRequestedSpy1.isValid());
 
         REQUIRE(configureRequestedSpy1.wait());
@@ -449,7 +441,8 @@ TEST_CASE("activation", "[win]")
         REQUIRE(client2);
         REQUIRE(client2->control->active);
 
-        QSignalSpy configureRequestedSpy2(shellSurface2.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy2(shellSurface2.get(),
+                                          &Wrapland::Client::XdgShellToplevel::configured);
         REQUIRE(configureRequestedSpy2.isValid());
 
         REQUIRE(configureRequestedSpy2.wait());

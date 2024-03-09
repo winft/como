@@ -15,8 +15,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Client/touch.h>
 #include <linux/input.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -35,12 +33,12 @@ TEST_CASE("no crash useractions menu", "[win]")
     setup_wayland_connection();
     cursor()->set_pos(QPoint(1280, 512));
 
-    std::unique_ptr<Surface> surface1(create_surface());
-    std::unique_ptr<XdgShellToplevel> shellSurface1(create_xdg_shell_toplevel(surface1));
-    QVERIFY(surface1);
-    QVERIFY(shellSurface1);
+    auto surface = create_surface();
+    auto shellSurface = create_xdg_shell_toplevel(surface);
+    QVERIFY(surface);
+    QVERIFY(shellSurface);
 
-    auto client = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::blue);
+    auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
     QVERIFY(client);
 
     setup.base->mod.space->user_actions_menu->show(QRect(), client);

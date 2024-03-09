@@ -21,9 +21,6 @@ TEST_CASE("buffer size change", "[render]")
     SECTION("shm")
     {
         // Verifies that an SHM buffer size change is handled correctly.
-
-        using namespace Wrapland::Client;
-
         auto surface = create_surface();
         QVERIFY(surface);
 
@@ -48,8 +45,6 @@ TEST_CASE("buffer size change", "[render]")
 
     SECTION("shm on subsurface")
     {
-        using namespace Wrapland::Client;
-
         // setup parent surface
         auto parentSurface = create_surface();
         QVERIFY(parentSurface);
@@ -59,7 +54,7 @@ TEST_CASE("buffer size change", "[render]")
         // setup sub surface
         auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<SubSurface> subSurface(create_subsurface(surface, parentSurface));
+        auto subSurface = create_subsurface(surface, parentSurface);
         QVERIFY(subSurface);
 
         // set buffer sizes
@@ -74,7 +69,7 @@ TEST_CASE("buffer size change", "[render]")
         QSignalSpy damagedParentSpy(parent->qobject.get(), &win::window_qobject::damaged);
         QVERIFY(damagedParentSpy.isValid());
         render(surface, QSize(20, 10), Qt::red);
-        parentSurface->commit(Surface::CommitFlag::None);
+        parentSurface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(damagedParentSpy.wait());
         QTRY_COMPARE(damagedParentSpy.count(), 2);

@@ -17,7 +17,7 @@
 #include <linux/input.h>
 #include <memory>
 
-namespace como::detail::test
+namespace como::detail::test::virtual_keyboard
 {
 
 namespace

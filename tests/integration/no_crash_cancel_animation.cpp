@@ -37,8 +37,6 @@ TEST_CASE("no crash cancel animation", "[render]")
     setup.base->mod.render->effects->loader->effectLoaded(effect, "crashy");
     QVERIFY(setup.base->mod.render->effects->isEffectLoaded(QStringLiteral("crashy")));
 
-    using namespace Wrapland::Client;
-
     // create a window
     auto surface = std::unique_ptr<Wrapland::Client::Surface>(create_surface());
     QVERIFY(surface);

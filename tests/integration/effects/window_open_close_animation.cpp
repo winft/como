@@ -62,11 +62,11 @@ TEST_CASE("window open close animation", "[effect]")
         QVERIFY(!effect->isActive());
 
         // Create the test client.
-        using namespace Wrapland::Client;
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
+
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
         QVERIFY(client);
         QVERIFY(effect->isActive());
@@ -98,12 +98,11 @@ TEST_CASE("window open close animation", "[effect]")
         QVERIFY(effectsImpl);
 
         // Create the main window.
-        using namespace Wrapland::Client;
-        std::unique_ptr<Surface> mainWindowSurface(create_surface());
+        auto mainWindowSurface = create_surface();
         QVERIFY(mainWindowSurface);
-        std::unique_ptr<XdgShellToplevel> mainWindowShellSurface(
-            create_xdg_shell_toplevel(mainWindowSurface));
+        auto mainWindowShellSurface = create_xdg_shell_toplevel(mainWindowSurface);
         QVERIFY(mainWindowShellSurface);
+
         auto mainWindow = render_and_wait_for_shown(mainWindowSurface, QSize(100, 50), Qt::blue);
         QVERIFY(mainWindow);
 
@@ -117,7 +116,7 @@ TEST_CASE("window open close animation", "[effect]")
         QVERIFY(!effect->isActive());
 
         // Create a popup, it should not be animated.
-        std::unique_ptr<Surface> popupSurface(create_surface());
+        auto popupSurface = create_surface();
         QVERIFY(popupSurface);
 
         Wrapland::Client::xdg_shell_positioner_data pos_data;
@@ -126,8 +125,8 @@ TEST_CASE("window open close animation", "[effect]")
         pos_data.anchor.edge = Qt::BottomEdge | Qt::LeftEdge;
         pos_data.gravity = Qt::BottomEdge | Qt::RightEdge;
 
-        std::unique_ptr<XdgShellPopup> popupShellSurface(
-            create_xdg_shell_popup(popupSurface, mainWindowShellSurface, pos_data));
+        auto popupShellSurface
+            = create_xdg_shell_popup(popupSurface, mainWindowShellSurface, pos_data);
         QVERIFY(popupShellSurface);
         auto popup = render_and_wait_for_shown(popupSurface, pos_data.size, Qt::red);
         QVERIFY(popup);

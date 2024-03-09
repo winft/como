@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <linux/input.h>
 #include <wayland-cursor.h>
 
-namespace como::detail::test
+namespace como::detail::test::pointer_input
 {
 
 namespace
@@ -124,14 +124,14 @@ TEST_CASE("pointer input", "[input]")
     SECTION("warping updates focus")
     {
         // this test verifies that warping the pointer creates pointer enter and leave events
-        using namespace Wrapland::Client;
+
         // create pointer and signal spy for enter and leave signals
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
-        QSignalSpy leftSpy(pointer, &Pointer::left);
+        QSignalSpy leftSpy(pointer, &Wrapland::Client::Pointer::left);
         QVERIFY(leftSpy.isValid());
 
         // create a window
@@ -175,14 +175,14 @@ TEST_CASE("pointer input", "[input]")
     SECTION("warping generates pointer moition")
     {
         // this test verifies that warping the pointer creates pointer motion events
-        using namespace Wrapland::Client;
+
         // create pointer and signal spy for enter and motion
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
-        QSignalSpy movedSpy(pointer, &Pointer::motion);
+        QSignalSpy movedSpy(pointer, &Wrapland::Client::Pointer::motion);
         QVERIFY(movedSpy.isValid());
 
         // create a window
@@ -214,13 +214,12 @@ TEST_CASE("pointer input", "[input]")
     {
         // this test verifies that pointer motion is handled correctly if
         // the pointer gets warped during processing of input events
-        using namespace Wrapland::Client;
 
         // create pointer
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy movedSpy(pointer, &Pointer::motion);
+        QSignalSpy movedSpy(pointer, &Wrapland::Client::Pointer::motion);
         QVERIFY(movedSpy.isValid());
 
         // warp cursor into expected geometry
@@ -264,7 +263,6 @@ TEST_CASE("pointer input", "[input]")
     {
         // This test verifies that a pointer enter event is generated when the cursor changes to
         // another screen due to removal of screen.
-        using namespace Wrapland::Client;
 
         // Ensure cursor is on second screen.
         cursor()->set_pos(1500, 300);
@@ -273,7 +271,7 @@ TEST_CASE("pointer input", "[input]")
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
 
         // Create a window.
@@ -315,9 +313,6 @@ TEST_CASE("pointer input", "[input]")
     SECTION("modifier click unrestricted move")
     {
         // this test ensures that Alt+mouse button press triggers unrestricted move
-
-        using namespace Wrapland::Client;
-
         enum class key {
             meta,
             alt,
@@ -351,7 +346,7 @@ TEST_CASE("pointer input", "[input]")
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy buttonSpy(pointer, &Pointer::buttonStateChanged);
+        QSignalSpy buttonSpy(pointer, &Wrapland::Client::Pointer::buttonStateChanged);
         QVERIFY(buttonSpy.isValid());
 
         // first modify the config for this run
@@ -374,10 +369,12 @@ TEST_CASE("pointer input", "[input]")
         QSignalSpy clientAddedSpy(setup.base->mod.space->qobject.get(),
                                   &space::qobject_t::wayland_window_added);
         QVERIFY(clientAddedSpy.isValid());
+
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
+
         render(surface);
         QVERIFY(clientAddedSpy.wait());
         auto window = get_wayland_window(setup.base->mod.space->stacking.active);
@@ -420,12 +417,12 @@ TEST_CASE("pointer input", "[input]")
     SECTION("modifier click unrestricted move global shortcuts disabled")
     {
         // this test ensures that Alt+mouse button press triggers unrestricted move
-        using namespace Wrapland::Client;
+
         // create pointer and signal spy for button events
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy buttonSpy(pointer, &Pointer::buttonStateChanged);
+        QSignalSpy buttonSpy(pointer, &Wrapland::Client::Pointer::buttonStateChanged);
         QVERIFY(buttonSpy.isValid());
 
         // first modify the config for this run
@@ -452,6 +449,7 @@ TEST_CASE("pointer input", "[input]")
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
+
         render(surface);
         QVERIFY(clientAddedSpy.wait());
         auto window = get_wayland_window(setup.base->mod.space->stacking.active);
@@ -483,9 +481,6 @@ TEST_CASE("pointer input", "[input]")
     {
         // this test verifies that mod+wheel performs a window operation and does not
         // pass the wheel to the window
-
-        using namespace Wrapland::Client;
-
         enum class key {
             meta,
             alt,
@@ -515,7 +510,7 @@ TEST_CASE("pointer input", "[input]")
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy axisSpy(pointer, &Pointer::axisChanged);
+        QSignalSpy axisSpy(pointer, &Wrapland::Client::Pointer::axisChanged);
         QVERIFY(axisSpy.isValid());
 
         // first modify the config for this run
@@ -571,13 +566,12 @@ TEST_CASE("pointer input", "[input]")
     {
         // this test verifies that mod+wheel performs a window operation and does not
         // pass the wheel to the window
-        using namespace Wrapland::Client;
 
         // create pointer and signal spy for button events
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy axisSpy(pointer, &Pointer::axisChanged);
+        QSignalSpy axisSpy(pointer, &Wrapland::Client::Pointer::axisChanged);
         QVERIFY(axisSpy.isValid());
 
         // first modify the config for this run
@@ -627,12 +621,10 @@ TEST_CASE("pointer input", "[input]")
     SECTION("scroll action")
     {
         // this test verifies that scroll on inactive window performs a mouse action
-        using namespace Wrapland::Client;
-
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy axisSpy(pointer, &Pointer::axisChanged);
+        QSignalSpy axisSpy(pointer, &Wrapland::Client::Pointer::axisChanged);
         QVERIFY(axisSpy.isValid());
 
         // first modify the config for this run
@@ -681,8 +673,6 @@ TEST_CASE("pointer input", "[input]")
 
     SECTION("focus follows mouse")
     {
-        using namespace Wrapland::Client;
-
         // need to create a pointer, otherwise it doesn't accept focus
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
@@ -784,8 +774,6 @@ TEST_CASE("pointer input", "[input]")
     {
         // This test performs the mouse button window action on an inactive window it should
         // activate the window and raise it.
-        using namespace Wrapland::Client;
-
         auto button = GENERATE(BTN_LEFT, BTN_MIDDLE, BTN_RIGHT);
 
         // First modify the config for this run - disable FocusFollowsMouse.
@@ -876,8 +864,6 @@ TEST_CASE("pointer input", "[input]")
     {
         // This test verifies the mouse action performed on an active window for all buttons it
         // should trigger a window raise depending on the click raise option.
-        using namespace Wrapland::Client;
-
         auto click_raise = GENERATE(true, false);
         auto button = GENERATE(range(BTN_LEFT, BTN_JOYSTICK));
 
@@ -885,7 +871,7 @@ TEST_CASE("pointer input", "[input]")
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy buttonSpy(pointer, &Pointer::buttonStateChanged);
+        QSignalSpy buttonSpy(pointer, &Wrapland::Client::Pointer::buttonStateChanged);
         QVERIFY(buttonSpy.isValid());
 
         // Adjust config for this run.
@@ -980,13 +966,12 @@ TEST_CASE("pointer input", "[input]")
     {
         // This test verifies that the pointer image gets updated correctly from the client provided
         // data.
-        using namespace Wrapland::Client;
 
         // We need a pointer to get the enter event.
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
 
         // Move cursor somewhere the new window won't open.
@@ -1024,7 +1009,8 @@ TEST_CASE("pointer input", "[input]")
         // Create a cursor on the pointer.
         auto cursorSurface = create_surface();
         QVERIFY(cursorSurface);
-        QSignalSpy cursorRenderedSpy(cursorSurface.get(), &Surface::frameRendered);
+        QSignalSpy cursorRenderedSpy(cursorSurface.get(),
+                                     &Wrapland::Client::Surface::frameRendered);
         QVERIFY(cursorRenderedSpy.isValid());
 
         auto red = QImage(QSize(10, 10), QImage::Format_ARGB32_Premultiplied);
@@ -1091,15 +1077,14 @@ TEST_CASE("pointer input", "[input]")
     SECTION("effect override cursor image")
     {
         // This test verifies the effect cursor override handling.
-        using namespace Wrapland::Client;
 
         // We need a pointer to get the enter event and set a cursor.
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
-        QSignalSpy leftSpy(pointer, &Pointer::left);
+        QSignalSpy leftSpy(pointer, &Wrapland::Client::Pointer::left);
         QVERIFY(leftSpy.isValid());
 
         // Move cursor somewhere the new window won't open.
@@ -1178,17 +1163,16 @@ TEST_CASE("pointer input", "[input]")
         // a button press outside the window should dismiss the popup
 
         // first create a parent surface
-        using namespace Wrapland::Client;
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
-        QSignalSpy leftSpy(pointer, &Pointer::left);
+        QSignalSpy leftSpy(pointer, &Wrapland::Client::Pointer::left);
         QVERIFY(leftSpy.isValid());
-        QSignalSpy buttonStateChangedSpy(pointer, &Pointer::buttonStateChanged);
+        QSignalSpy buttonStateChangedSpy(pointer, &Wrapland::Client::Pointer::buttonStateChanged);
         QVERIFY(buttonStateChangedSpy.isValid());
-        QSignalSpy motionSpy(pointer, &Pointer::motion);
+        QSignalSpy motionSpy(pointer, &Wrapland::Client::Pointer::motion);
         QVERIFY(motionSpy.isValid());
 
         cursor()->set_pos(800, 800);
@@ -1239,7 +1223,8 @@ TEST_CASE("pointer input", "[input]")
         QVERIFY(popupSurface);
         auto popupShellSurface = create_xdg_shell_popup(popupSurface, shellSurface, pos_data);
         QVERIFY(popupShellSurface);
-        QSignalSpy popupDoneSpy(popupShellSurface.get(), &XdgShellPopup::popupDone);
+        QSignalSpy popupDoneSpy(popupShellSurface.get(),
+                                &Wrapland::Client::XdgShellPopup::popupDone);
         QVERIFY(popupDoneSpy.isValid());
         popupShellSurface->requestGrab(seat, 0); // FIXME: Serial.
         render(popupSurface, pos_data.size);
@@ -1302,17 +1287,16 @@ TEST_CASE("pointer input", "[input]")
         // cancels the popup
 
         // first create a parent surface
-        using namespace Wrapland::Client;
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
-        QSignalSpy leftSpy(pointer, &Pointer::left);
+        QSignalSpy leftSpy(pointer, &Wrapland::Client::Pointer::left);
         QVERIFY(leftSpy.isValid());
-        QSignalSpy buttonStateChangedSpy(pointer, &Pointer::buttonStateChanged);
+        QSignalSpy buttonStateChangedSpy(pointer, &Wrapland::Client::Pointer::buttonStateChanged);
         QVERIFY(buttonStateChangedSpy.isValid());
-        QSignalSpy motionSpy(pointer, &Pointer::motion);
+        QSignalSpy motionSpy(pointer, &Wrapland::Client::Pointer::motion);
         QVERIFY(motionSpy.isValid());
 
         cursor()->set_pos(800, 800);
@@ -1326,12 +1310,12 @@ TEST_CASE("pointer input", "[input]")
 
         auto deco = get_client().interfaces.xdg_decoration->getToplevelDecoration(
             shellSurface.get(), shellSurface.get());
-        QSignalSpy decoSpy(deco, &XdgDecoration::modeChanged);
+        QSignalSpy decoSpy(deco, &Wrapland::Client::XdgDecoration::modeChanged);
         QVERIFY(decoSpy.isValid());
-        deco->setMode(XdgDecoration::Mode::ServerSide);
-        QCOMPARE(deco->mode(), XdgDecoration::Mode::ClientSide);
+        deco->setMode(Wrapland::Client::XdgDecoration::Mode::ServerSide);
+        QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ClientSide);
         init_xdg_shell_toplevel(surface, shellSurface);
-        QCOMPARE(deco->mode(), XdgDecoration::Mode::ServerSide);
+        QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ServerSide);
 
         render(surface);
         QVERIFY(clientAddedSpy.wait());
@@ -1362,7 +1346,8 @@ TEST_CASE("pointer input", "[input]")
         QVERIFY(popupSurface);
         auto popupShellSurface = create_xdg_shell_popup(popupSurface, shellSurface, pos_data);
         QVERIFY(popupShellSurface);
-        QSignalSpy popupDoneSpy(popupShellSurface.get(), &XdgShellPopup::popupDone);
+        QSignalSpy popupDoneSpy(popupShellSurface.get(),
+                                &Wrapland::Client::XdgShellPopup::popupDone);
         QVERIFY(popupDoneSpy.isValid());
         popupShellSurface->requestGrab(seat, 0); // FIXME: Serial.
         render(popupSurface, pos_data.size);
@@ -1397,13 +1382,12 @@ TEST_CASE("pointer input", "[input]")
         // see BUG: 372876
 
         // first create a parent surface
-        using namespace Wrapland::Client;
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
-        QSignalSpy leftSpy(pointer, &Pointer::left);
+        QSignalSpy leftSpy(pointer, &Wrapland::Client::Pointer::left);
         QVERIFY(leftSpy.isValid());
 
         cursor()->set_pos(800, 800);
@@ -1586,8 +1570,7 @@ TEST_CASE("pointer input", "[input]")
                  win::mouse_cmd::unrestricted_resize);
 
         // create a test client
-        using namespace Wrapland::Client;
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
@@ -1655,8 +1638,7 @@ TEST_CASE("pointer input", "[input]")
                  win::mouse_cmd::unrestricted_move);
 
         // create a test client
-        using namespace Wrapland::Client;
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);

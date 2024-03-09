@@ -44,8 +44,6 @@ TEST_CASE("touch input", "[input]")
     std::vector<window_holder> clients;
 
     auto showWindow = [&](bool decorated = false) -> wayland_window* {
-        using namespace Wrapland::Client;
-
         window_holder client;
         client.surface = create_surface();
         REQUIRE(client.surface.get());
@@ -55,12 +53,12 @@ TEST_CASE("touch input", "[input]")
         if (decorated) {
             auto deco = get_client().interfaces.xdg_decoration->getToplevelDecoration(
                 client.toplevel.get(), client.toplevel.get());
-            QSignalSpy decoSpy(deco, &XdgDecoration::modeChanged);
+            QSignalSpy decoSpy(deco, &Wrapland::Client::XdgDecoration::modeChanged);
             REQUIRE(decoSpy.isValid());
-            deco->setMode(XdgDecoration::Mode::ServerSide);
-            REQUIRE(deco->mode() == XdgDecoration::Mode::ClientSide);
+            deco->setMode(Wrapland::Client::XdgDecoration::Mode::ServerSide);
+            REQUIRE(deco->mode() == Wrapland::Client::XdgDecoration::Mode::ClientSide);
             init_xdg_shell_toplevel(client.surface, client.toplevel);
-            REQUIRE(deco->mode() == XdgDecoration::Mode::ServerSide);
+            REQUIRE(deco->mode() == Wrapland::Client::XdgDecoration::Mode::ServerSide);
         } else {
             init_xdg_shell_toplevel(client.surface, client.toplevel);
         }
@@ -101,23 +99,21 @@ TEST_CASE("touch input", "[input]")
 
     SECTION("multiple touch points")
     {
-        using namespace Wrapland::Client;
-
         auto decorated = GENERATE(false, true);
 
         auto c = showWindow(decorated);
         REQUIRE((win::decoration(c) != nullptr) == decorated);
         win::move(c, QPoint(100, 100));
         QVERIFY(c);
-        QSignalSpy sequenceStartedSpy(touch.get(), &Touch::sequenceStarted);
+        QSignalSpy sequenceStartedSpy(touch.get(), &Wrapland::Client::Touch::sequenceStarted);
         QVERIFY(sequenceStartedSpy.isValid());
-        QSignalSpy pointAddedSpy(touch.get(), &Touch::pointAdded);
+        QSignalSpy pointAddedSpy(touch.get(), &Wrapland::Client::Touch::pointAdded);
         QVERIFY(pointAddedSpy.isValid());
-        QSignalSpy pointMovedSpy(touch.get(), &Touch::pointMoved);
+        QSignalSpy pointMovedSpy(touch.get(), &Wrapland::Client::Touch::pointMoved);
         QVERIFY(pointMovedSpy.isValid());
-        QSignalSpy pointRemovedSpy(touch.get(), &Touch::pointRemoved);
+        QSignalSpy pointRemovedSpy(touch.get(), &Wrapland::Client::Touch::pointRemoved);
         QVERIFY(pointRemovedSpy.isValid());
-        QSignalSpy endedSpy(touch.get(), &Touch::sequenceEnded);
+        QSignalSpy endedSpy(touch.get(), &Wrapland::Client::Touch::sequenceEnded);
         QVERIFY(endedSpy.isValid());
 
         quint32 timestamp = 1;
@@ -165,16 +161,14 @@ TEST_CASE("touch input", "[input]")
 
     SECTION("cancel")
     {
-        using namespace Wrapland::Client;
-
         auto c = showWindow();
         win::move(c, QPoint(100, 100));
         QVERIFY(c);
-        QSignalSpy sequenceStartedSpy(touch.get(), &Touch::sequenceStarted);
+        QSignalSpy sequenceStartedSpy(touch.get(), &Wrapland::Client::Touch::sequenceStarted);
         QVERIFY(sequenceStartedSpy.isValid());
-        QSignalSpy cancelSpy(touch.get(), &Touch::sequenceCanceled);
+        QSignalSpy cancelSpy(touch.get(), &Wrapland::Client::Touch::sequenceCanceled);
         QVERIFY(cancelSpy.isValid());
-        QSignalSpy pointRemovedSpy(touch.get(), &Touch::pointRemoved);
+        QSignalSpy pointRemovedSpy(touch.get(), &Wrapland::Client::Touch::pointRemoved);
         QVERIFY(pointRemovedSpy.isValid());
 
         quint32 timestamp = 1;
@@ -195,7 +189,6 @@ TEST_CASE("touch input", "[input]")
     SECTION("touch mouse action")
     {
         // this test verifies that a touch down on an inactive client will activate it
-        using namespace Wrapland::Client;
         // create two windows
         auto c1 = showWindow();
         QVERIFY(c1);
@@ -206,7 +199,7 @@ TEST_CASE("touch input", "[input]")
         QVERIFY(c2->control->active);
 
         // also create a sequence started spy as the touch event should be passed through
-        QSignalSpy sequenceStartedSpy(touch.get(), &Touch::sequenceStarted);
+        QSignalSpy sequenceStartedSpy(touch.get(), &Wrapland::Client::Touch::sequenceStarted);
         QVERIFY(sequenceStartedSpy.isValid());
 
         quint32 timestamp = 1;

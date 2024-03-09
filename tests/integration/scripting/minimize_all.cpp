@@ -45,8 +45,6 @@ TEST_CASE("minimize all", "[script]")
 {
     // This test verifies that all windows are minimized when Meta+Shift+D
     // is pressed, and unminimized when the shortcut is pressed once again.
-    using namespace Wrapland::Client;
-
     qputenv("XDG_DATA_DIRS", QCoreApplication::applicationDirPath().toUtf8());
 
 #if USE_XWL
@@ -72,15 +70,21 @@ TEST_CASE("minimize all", "[script]")
     QTRY_COMPARE(runningChangedSpy.count(), 1);
 
     // Create a couple of test clients.
-    std::unique_ptr<Surface> surface1(create_surface());
-    std::unique_ptr<XdgShellToplevel> shellSurface1(create_xdg_shell_toplevel(surface1));
+    auto surface1 = create_surface();
+    QVERIFY(surface1);
+    auto shellSurface1 = create_xdg_shell_toplevel(surface1);
+    QVERIFY(shellSurface1);
+
     auto client1 = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::blue);
     QVERIFY(client1);
     QVERIFY(client1->control->active);
     QVERIFY(client1->isMinimizable());
 
-    std::unique_ptr<Surface> surface2(create_surface());
-    std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+    auto surface2 = create_surface();
+    QVERIFY(surface2);
+    auto shellSurface2 = create_xdg_shell_toplevel(surface2);
+    QVERIFY(shellSurface2);
+
     auto client2 = render_and_wait_for_shown(surface2, QSize(100, 50), Qt::red);
     QVERIFY(client2);
     QVERIFY(client2->control->active);

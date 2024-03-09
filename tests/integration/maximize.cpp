@@ -17,8 +17,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/xdg_decoration.h>
 #include <catch2/generators/catch_generators.hpp>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -141,23 +139,23 @@ TEST_CASE("maximize", "[win]")
         // This test verifies that a window created as maximized, will be maximized.
 
         // Create the test client.
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(
-            create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
 
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
 
         shellSurface->setMaximized(true);
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // Wait for the initial configure event.
         QVERIFY(configureRequestedSpy.wait());
         QCOMPARE(configureRequestedSpy.count(), 1);
 
         auto cfgdata = shellSurface->get_configure_data();
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Now let's render in an incorrect size.
         shellSurface->ackConfigure(configureRequestedSpy.back().front().value<quint32>());
@@ -187,22 +185,23 @@ TEST_CASE("maximize", "[win]")
         QCOMPARE(setup.base->mod.space->options->qobject->borderlessMaximizedWindows(), true);
 
         // Create the test client.
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(
-            create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly));
-        std::unique_ptr<XdgDecoration> decoration(
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
+        std::unique_ptr<Wrapland::Client::XdgDecoration> decoration(
             get_client().interfaces.xdg_decoration->getToplevelDecoration(shellSurface.get()));
 
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
 
         shellSurface->setMaximized(true);
 
-        QSignalSpy decorationConfiguredSpy(decoration.get(), &XdgDecoration::modeChanged);
+        QSignalSpy decorationConfiguredSpy(decoration.get(),
+                                           &Wrapland::Client::XdgDecoration::modeChanged);
         QVERIFY(decorationConfiguredSpy.isValid());
 
-        decoration->setMode(XdgDecoration::Mode::ServerSide);
-        surface->commit(Surface::CommitFlag::None);
+        decoration->setMode(Wrapland::Client::XdgDecoration::Mode::ServerSide);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // Wait for the initial configure event.
         QVERIFY(configureRequestedSpy.wait());
@@ -210,8 +209,8 @@ TEST_CASE("maximize", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         shellSurface->ackConfigure(configureRequestedSpy.back().front().value<quint32>());
         auto client = render_and_wait_for_shown(surface, QSize(1280, 1024), Qt::blue);
@@ -224,7 +223,7 @@ TEST_CASE("maximize", "[win]")
         QCOMPARE(client->geo.frame, QRect(0, 0, 1280, 1024));
 
         QTRY_VERIFY(decorationConfiguredSpy.count());
-        QCOMPARE(decoration->mode(), XdgDecoration::Mode::ServerSide);
+        QCOMPARE(decoration->mode(), Wrapland::Client::XdgDecoration::Mode::ServerSide);
 
         // Destroy the client.
         shellSurface.reset();
@@ -348,12 +347,13 @@ TEST_CASE("maximize", "[win]")
         win::space_reconfigure(*setup.base->mod.space);
         QCOMPARE(setup.base->mod.space->options->qobject->borderlessMaximizedWindows(), true);
 
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> xdgShellToplevel(create_xdg_shell_toplevel(surface));
-        std::unique_ptr<XdgDecoration> deco(
+        auto surface = create_surface();
+        auto xdgShellToplevel = create_xdg_shell_toplevel(surface);
+        std::unique_ptr<Wrapland::Client::XdgDecoration> deco(
             get_client().interfaces.xdg_decoration->getToplevelDecoration(xdgShellToplevel.get()));
 
-        QSignalSpy decorationConfiguredSpy(deco.get(), &XdgDecoration::modeChanged);
+        QSignalSpy decorationConfiguredSpy(deco.get(),
+                                           &Wrapland::Client::XdgDecoration::modeChanged);
         QVERIFY(decorationConfiguredSpy.isValid());
 
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
@@ -361,7 +361,8 @@ TEST_CASE("maximize", "[win]")
         QSignalSpy geometryChangedSpy(client->qobject.get(),
                                       &win::window_qobject::frame_geometry_changed);
         QVERIFY(geometryChangedSpy.isValid());
-        QSignalSpy configureRequestedSpy(xdgShellToplevel.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(xdgShellToplevel.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
 
         QVERIFY(win::decoration(client));
@@ -371,8 +372,9 @@ TEST_CASE("maximize", "[win]")
         QCOMPARE(decorationConfiguredSpy.count(), 1);
 
         auto cfgdata = xdgShellToplevel->get_configure_data();
-        QVERIFY(cfgdata.updates.testFlag(xdg_shell_toplevel_configure_change::size));
-        QCOMPARE(deco->mode(), XdgDecoration::Mode::ServerSide);
+        QVERIFY(
+            cfgdata.updates.testFlag(Wrapland::Client::xdg_shell_toplevel_configure_change::size));
+        QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ServerSide);
 
         // go to maximized
         xdgShellToplevel->setMaximized(true);
@@ -380,7 +382,8 @@ TEST_CASE("maximize", "[win]")
         QCOMPARE(configureRequestedSpy.count(), 2);
 
         cfgdata = xdgShellToplevel->get_configure_data();
-        QVERIFY(cfgdata.updates.testFlag(xdg_shell_toplevel_configure_change::size));
+        QVERIFY(
+            cfgdata.updates.testFlag(Wrapland::Client::xdg_shell_toplevel_configure_change::size));
 
         for (auto const& sig : configureRequestedSpy) {
             xdgShellToplevel->ackConfigure(sig.front().toInt());
@@ -393,7 +396,7 @@ TEST_CASE("maximize", "[win]")
         QVERIFY(!win::decoration(client));
         QVERIFY(client->noBorder());
         // but still server-side
-        QCOMPARE(deco->mode(), XdgDecoration::Mode::ServerSide);
+        QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ServerSide);
 
         // go back to normal
         xdgShellToplevel->setMaximized(false);
@@ -410,7 +413,7 @@ TEST_CASE("maximize", "[win]")
 
         QVERIFY(win::decoration(client));
         QVERIFY(!client->noBorder());
-        QCOMPARE(deco->mode(), XdgDecoration::Mode::ServerSide);
+        QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ServerSide);
     }
 }
 

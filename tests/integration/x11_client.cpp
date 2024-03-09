@@ -10,8 +10,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <catch2/generators/catch_generators.hpp>
 #include <xcb/xcb_icccm.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -146,8 +144,11 @@ TEST_CASE("x11 window", "[win]")
         QCOMPARE(get_x11_window(setup.base->mod.space->stacking.order.stack.back()), client);
 
         // now let's open a Wayland window
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
+        QVERIFY(shellSurface);
+
         auto waylandClient = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
         QVERIFY(waylandClient);
         QVERIFY(waylandClient->control->active);
@@ -299,8 +300,11 @@ TEST_CASE("x11 window", "[win]")
         QVERIFY(client->control->active);
 
         // create Wayland window
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
+        QVERIFY(shellSurface);
+
         auto waylandClient = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
         QVERIFY(waylandClient);
         QVERIFY(waylandClient->control->active);
@@ -385,8 +389,11 @@ TEST_CASE("x11 window", "[win]")
         QCOMPARE(rootInfo.activeWindow(), client->xcb_windows.client);
 
         // activate a wayland window
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
+        QVERIFY(shellSurface);
+
         auto waylandClient = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
         QVERIFY(waylandClient);
         QVERIFY(waylandClient->control->active);
