@@ -15,8 +15,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Client/xdgdecoration.h>
 #include <catch2/generators/catch_generators.hpp>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -77,10 +75,10 @@ TEST_CASE("placement", "[win]")
         // create a new window
         rc.surface = create_surface();
         rc.toplevel = create_xdg_shell_toplevel(rc.surface, CreationSetup::CreateOnly);
-        QSignalSpy configSpy(rc.toplevel.get(), &XdgShellToplevel::configured);
+        QSignalSpy configSpy(rc.toplevel.get(), &Wrapland::Client::XdgShellToplevel::configured);
         assert(configSpy.isValid());
 
-        rc.surface->commit(Surface::CommitFlag::None);
+        rc.surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         configSpy.wait();
 
         auto cfgdata = rc.toplevel->get_configure_data();
@@ -152,14 +150,14 @@ TEST_CASE("placement", "[win]")
         setPlacementPolicy(win::placement::maximizing);
 
         // add a top panel
-        std::unique_ptr<Surface> panelSurface(create_surface());
-        std::unique_ptr<QObject> panelShellSurface(create_xdg_shell_toplevel(panelSurface));
+        auto panelSurface = create_surface();
+        auto panelShellSurface = create_xdg_shell_toplevel(panelSurface);
         QVERIFY(panelSurface);
         QVERIFY(panelShellSurface);
 
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             get_client().interfaces.plasma_shell->createSurface(panelSurface.get()));
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Panel);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
         plasmaSurface->setPosition(QPoint(0, 0));
         render_and_wait_for_shown(panelSurface, QSize(1280, 20), Qt::blue);
 
@@ -168,7 +166,8 @@ TEST_CASE("placement", "[win]")
         for (int i = 0; i < 4; i++) {
             placements.push_back(createAndPlaceWindow(QSize(600, 500)));
             auto const& placement = placements.back();
-            QVERIFY(placement.initiallyConfiguredStates & xdg_shell_state::maximized);
+            QVERIFY(placement.initiallyConfiguredStates
+                    & Wrapland::Client::xdg_shell_state::maximized);
             QCOMPARE(placement.initiallyConfiguredSize, QSize(1280, 1024 - 20));
 
             // under the panel
@@ -181,13 +180,14 @@ TEST_CASE("placement", "[win]")
         setPlacementPolicy(win::placement::maximizing);
 
         // add a top panel
-        std::unique_ptr<Surface> panelSurface(create_surface());
-        std::unique_ptr<QObject> panelShellSurface(create_xdg_shell_toplevel(panelSurface));
+        auto panelSurface = create_surface();
+        auto panelShellSurface = create_xdg_shell_toplevel(panelSurface);
         QVERIFY(panelSurface);
         QVERIFY(panelShellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             get_client().interfaces.plasma_shell->createSurface(panelSurface.get()));
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Panel);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
         plasmaSurface->setPosition(QPoint(0, 0));
         render_and_wait_for_shown(panelSurface, QSize(1280, 20), Qt::blue);
 
@@ -198,8 +198,9 @@ TEST_CASE("placement", "[win]")
             auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
             shellSurface->setFullscreen(true);
 
-            QSignalSpy configSpy(shellSurface.get(), &XdgShellToplevel::configured);
-            surface->commit(Surface::CommitFlag::None);
+            QSignalSpy configSpy(shellSurface.get(),
+                                 &Wrapland::Client::XdgShellToplevel::configured);
+            surface->commit(Wrapland::Client::Surface::CommitFlag::None);
             configSpy.wait();
 
             auto cfgdata = shellSurface->get_configure_data();
@@ -209,7 +210,7 @@ TEST_CASE("placement", "[win]")
 
             auto c = render_and_wait_for_shown(surface, initiallyConfiguredSize, Qt::red);
 
-            QVERIFY(initiallyConfiguredStates & xdg_shell_state::fullscreen);
+            QVERIFY(initiallyConfiguredStates & Wrapland::Client::xdg_shell_state::fullscreen);
             QCOMPARE(initiallyConfiguredSize, QSize(1280, 1024));
             QCOMPARE(c->geo.frame, QRect(0, 0, 1280, 1024));
         }
@@ -224,8 +225,8 @@ TEST_CASE("placement", "[win]")
         group.sync();
         win::space_reconfigure(*setup.base->mod.space);
 
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::red);
         QVERIFY(client);
         QCOMPARE(client->geo.frame, QRect(590, 487, 100, 50));
@@ -246,8 +247,8 @@ TEST_CASE("placement", "[win]")
         cursor()->set_pos(QPoint(200, 300));
         QCOMPARE(cursor()->pos(), QPoint(200, 300));
 
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::red);
         QVERIFY(client);
         QCOMPARE(client->geo.frame, QRect(151, 276, 100, 50));
@@ -265,21 +266,21 @@ TEST_CASE("placement", "[win]")
         group.sync();
         win::space_reconfigure(*setup.base->mod.space);
 
-        std::unique_ptr<Surface> surface1(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface1(create_xdg_shell_toplevel(surface1));
+        auto surface1 = create_surface();
+        auto shellSurface1 = create_xdg_shell_toplevel(surface1);
         auto client1 = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::red);
         QVERIFY(client1);
         QCOMPARE(client1->geo.size(), QSize(100, 50));
 
-        std::unique_ptr<Surface> surface2(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+        auto surface2 = create_surface();
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         auto client2 = render_and_wait_for_shown(surface2, QSize(100, 50), Qt::blue);
         QVERIFY(client2);
         QVERIFY(client2->geo.pos() != client1->geo.pos());
         QCOMPARE(client2->geo.size(), QSize(100, 50));
 
-        std::unique_ptr<Surface> surface3(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface3(create_xdg_shell_toplevel(surface3));
+        auto surface3 = create_surface();
+        auto shellSurface3 = create_xdg_shell_toplevel(surface3);
         auto client3 = render_and_wait_for_shown(surface3, QSize(100, 50), Qt::green);
         QVERIFY(client3);
         QVERIFY(client3->geo.pos() != client1->geo.pos());

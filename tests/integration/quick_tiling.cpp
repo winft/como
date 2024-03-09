@@ -23,7 +23,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <linux/input.h>
 #include <xcb/xcb_icccm.h>
 
-namespace como::detail::test
+namespace como::detail::test::quick_tiling
 {
 
 namespace
@@ -77,8 +77,6 @@ TEST_CASE("quick tiling", "[win]")
 
     SECTION("quick tiling")
     {
-        using namespace Wrapland::Client;
-
         struct data {
             win::quicktiles mode;
             QRect expected_geo;
@@ -135,7 +133,8 @@ TEST_CASE("quick tiling", "[win]")
         QCOMPARE(c->geo.frame, QRect(0, 0, 100, 50));
         QCOMPARE(c->control->quicktiling, win::quicktiles::none);
 
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
         QSignalSpy quickTileChangedSpy(c->qobject.get(), &win::window_qobject::quicktiling_changed);
         QVERIFY(quickTileChangedSpy.isValid());
@@ -162,7 +161,9 @@ TEST_CASE("quick tiling", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, test_data.expected_geo.size());
-        REQUIRE(cfgdata.states == (get_client_tiles(test_data.mode) | xdg_shell_state::activated));
+        REQUIRE(
+            cfgdata.states
+            == (get_client_tiles(test_data.mode) | Wrapland::Client::xdg_shell_state::activated));
 
         // attach a new image
         shellSurface->ackConfigure(configureRequestedSpy.back().front().value<quint32>());
@@ -191,8 +192,6 @@ TEST_CASE("quick tiling", "[win]")
 
     SECTION("quick maximizing")
     {
-        using namespace Wrapland::Client;
-
         auto mode = GENERATE(win::quicktiles::maximize, win::quicktiles::none);
 
         auto surface = create_surface();
@@ -209,13 +208,16 @@ TEST_CASE("quick tiling", "[win]")
         QCOMPARE(c->maximizeMode(), win::maximize_mode::restore);
 
         // We have to receive a configure event upon becoming active.
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
         QVERIFY(configureRequestedSpy.wait());
         QCOMPARE(configureRequestedSpy.count(), 1);
 
         auto cfgdata = shellSurface->get_configure_data();
-        REQUIRE(cfgdata.states == xdg_shell_states(xdg_shell_state::activated));
+        REQUIRE(
+            cfgdata.states
+            == Wrapland::Client::xdg_shell_states(Wrapland::Client::xdg_shell_state::activated));
 
         QSignalSpy quickTileChangedSpy(c->qobject.get(), &win::window_qobject::quicktiling_changed);
         QVERIFY(quickTileChangedSpy.isValid());
@@ -242,9 +244,10 @@ TEST_CASE("quick tiling", "[win]")
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        REQUIRE(cfgdata.states
-                == xdg_shell_states(get_client_tiles(win::quicktiles::maximize)
-                                    | xdg_shell_state::activated));
+        REQUIRE(
+            cfgdata.states
+            == Wrapland::Client::xdg_shell_states(get_client_tiles(win::quicktiles::maximize)
+                                                  | Wrapland::Client::xdg_shell_state::activated));
 
         // Attach a new image.
         shellSurface->ackConfigure(configureRequestedSpy.back().front().value<quint32>());
@@ -274,7 +277,9 @@ TEST_CASE("quick tiling", "[win]")
 
         cfgdata = shellSurface->get_configure_data();
         REQUIRE(cfgdata.size == QSize(100, 50));
-        REQUIRE(cfgdata.states == xdg_shell_states(xdg_shell_state::activated));
+        REQUIRE(
+            cfgdata.states
+            == Wrapland::Client::xdg_shell_states(Wrapland::Client::xdg_shell_state::activated));
 
         // render again
         shellSurface->ackConfigure(configureRequestedSpy.back().front().value<quint32>());
@@ -289,8 +294,6 @@ TEST_CASE("quick tiling", "[win]")
 
     SECTION("keyboard move")
     {
-        using namespace Wrapland::Client;
-
         struct data {
             QPoint target;
             win::quicktiles expected_mode;
@@ -356,8 +359,6 @@ TEST_CASE("quick tiling", "[win]")
 
     SECTION("pointer move")
     {
-        using namespace Wrapland::Client;
-
         struct data {
             QPoint target;
             win::quicktiles expected_mode;
@@ -378,9 +379,10 @@ TEST_CASE("quick tiling", "[win]")
         QVERIFY(shellSurface);
 
         // wait for the initial configure event
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(configureRequestedSpy.wait());
         QCOMPARE(configureRequestedSpy.count(), 1);
 
@@ -425,8 +427,6 @@ TEST_CASE("quick tiling", "[win]")
     {
         // test verifies that touch on decoration also allows quick tiling
         // see BUG: 390113
-        using namespace Wrapland::Client;
-
         struct data {
             QPoint target;
             win::quicktiles expected_mode;
@@ -448,17 +448,18 @@ TEST_CASE("quick tiling", "[win]")
 
         auto deco = get_client().interfaces.xdg_decoration->getToplevelDecoration(
             shellSurface.get(), shellSurface.get());
-        QSignalSpy decoSpy(deco, &XdgDecoration::modeChanged);
+        QSignalSpy decoSpy(deco, &Wrapland::Client::XdgDecoration::modeChanged);
         QVERIFY(decoSpy.isValid());
 
-        deco->setMode(XdgDecoration::Mode::ServerSide);
-        QCOMPARE(deco->mode(), XdgDecoration::Mode::ClientSide);
+        deco->setMode(Wrapland::Client::XdgDecoration::Mode::ServerSide);
+        QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ClientSide);
 
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
 
         init_xdg_shell_toplevel(surface, shellSurface);
-        QCOMPARE(deco->mode(), XdgDecoration::Mode::ServerSide);
+        QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ServerSide);
         QCOMPARE(configureRequestedSpy.count(), 1);
         QVERIFY(configureRequestedSpy.last().first().toSize().isEmpty());
 
@@ -700,8 +701,6 @@ TEST_CASE("quick tiling", "[win]")
 
     SECTION("shortcut")
     {
-        using namespace Wrapland::Client;
-
         struct data {
             std::vector<std::string> shortcuts;
             win::quicktiles expected_mode;
@@ -751,7 +750,8 @@ TEST_CASE("quick tiling", "[win]")
         QCOMPARE(c->control->quicktiling, win::quicktiles::none);
 
         // We have to receive a configure event when the client becomes active.
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
         QVERIFY(configureRequestedSpy.wait());
         QCOMPARE(configureRequestedSpy.count(), 1);
@@ -803,8 +803,6 @@ TEST_CASE("quick tiling", "[win]")
 
     SECTION("script")
     {
-        using namespace Wrapland::Client;
-
         struct data {
             std::string action;
             win::quicktiles expected_mode;
@@ -836,7 +834,8 @@ TEST_CASE("quick tiling", "[win]")
         QCOMPARE(c->control->quicktiling, win::quicktiles::none);
 
         // We have to receive a configure event upon the client becoming active.
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
         QVERIFY(configureRequestedSpy.isValid());
         QVERIFY(configureRequestedSpy.wait());
         QCOMPARE(configureRequestedSpy.count(), 1);

@@ -71,31 +71,29 @@ TEST_CASE("decoration input", "[input],[win]")
     } client;
 
     auto showWindow = [&]() -> space::wayland_window* {
-        using namespace Wrapland::Client;
-
 #define VERIFY(statement)                                                                          \
     if (!QTest::qVerify((statement), #statement, "", __FILE__, __LINE__))                          \
         return nullptr;
 #define COMPARE(actual, expected)                                                                  \
     if (!QTest::qCompare(actual, expected, #actual, #expected, __FILE__, __LINE__))                \
         return nullptr;
-
         client.surface = create_surface();
         VERIFY(client.surface.get());
         client.toplevel = create_xdg_shell_toplevel(client.surface, CreationSetup::CreateOnly);
         VERIFY(client.toplevel.get());
 
-        QSignalSpy configureRequestedSpy(client.toplevel.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(client.toplevel.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
 
         auto deco = get_client().interfaces.xdg_decoration->getToplevelDecoration(
             client.toplevel.get(), client.toplevel.get());
-        QSignalSpy decoSpy(deco, &XdgDecoration::modeChanged);
+        QSignalSpy decoSpy(deco, &Wrapland::Client::XdgDecoration::modeChanged);
         VERIFY(decoSpy.isValid());
-        deco->setMode(XdgDecoration::Mode::ServerSide);
-        COMPARE(deco->mode(), XdgDecoration::Mode::ClientSide);
+        deco->setMode(Wrapland::Client::XdgDecoration::Mode::ServerSide);
+        COMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ClientSide);
         init_xdg_shell_toplevel(client.surface, client.toplevel);
         COMPARE(decoSpy.count(), 1);
-        COMPARE(deco->mode(), XdgDecoration::Mode::ServerSide);
+        COMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ServerSide);
 
         VERIFY(configureRequestedSpy.count() > 0 || configureRequestedSpy.wait());
         COMPARE(configureRequestedSpy.count(), 1);

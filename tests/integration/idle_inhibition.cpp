@@ -13,8 +13,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/display.h>
 #include <Wrapland/Server/kde_idle.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -32,8 +30,10 @@ TEST_CASE("idle inhibition", "[win]")
         QCOMPARE(idle.inhibit_count, 0);
 
         // now create window
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
+        QVERIFY(shellSurface);
 
         auto notification = std::unique_ptr<Wrapland::Client::idle_notification_v1>(
             get_client().interfaces.idle_notifier->get_notification(
@@ -49,7 +49,7 @@ TEST_CASE("idle inhibition", "[win]")
         QVERIFY(idle_spy.wait());
 
         // now create inhibition on window
-        std::unique_ptr<IdleInhibitor> inhibitor(
+        std::unique_ptr<Wrapland::Client::IdleInhibitor> inhibitor(
             get_client().interfaces.idle_inhibit->createInhibitor(surface.get()));
         QVERIFY(inhibitor->isValid());
 
@@ -104,13 +104,13 @@ TEST_CASE("idle inhibition", "[win]")
         QCOMPARE(idle.inhibit_count, 0);
 
         // Create the test client.
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         // Create the inhibitor object.
-        std::unique_ptr<IdleInhibitor> inhibitor(
+        std::unique_ptr<Wrapland::Client::IdleInhibitor> inhibitor(
             get_client().interfaces.idle_inhibit->createInhibitor(surface.get()));
         QVERIFY(inhibitor->isValid());
 
@@ -155,13 +155,13 @@ TEST_CASE("idle inhibition", "[win]")
         QCOMPARE(idle.inhibit_count, 0);
 
         // Create the test client.
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         // Create the inhibitor object.
-        std::unique_ptr<IdleInhibitor> inhibitor(
+        std::unique_ptr<Wrapland::Client::IdleInhibitor> inhibitor(
             get_client().interfaces.idle_inhibit->createInhibitor(surface.get()));
         QVERIFY(inhibitor->isValid());
 
@@ -196,13 +196,13 @@ TEST_CASE("idle inhibition", "[win]")
         QCOMPARE(idle.inhibit_count, 0);
 
         // Create the test client.
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         // Create the inhibitor object.
-        std::unique_ptr<IdleInhibitor> inhibitor(
+        std::unique_ptr<Wrapland::Client::IdleInhibitor> inhibitor(
             get_client().interfaces.idle_inhibit->createInhibitor(surface.get()));
         QVERIFY(inhibitor->isValid());
 
@@ -216,8 +216,8 @@ TEST_CASE("idle inhibition", "[win]")
         // Unmap the client.
         QSignalSpy hiddenSpy(c->qobject.get(), &win::window_qobject::windowHidden);
         QVERIFY(hiddenSpy.isValid());
-        surface->attachBuffer(Buffer::Ptr());
-        surface->commit(Surface::CommitFlag::None);
+        surface->attachBuffer(Wrapland::Client::Buffer::Ptr());
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(hiddenSpy.wait());
 
         // The surface is no longer visible, so the compositor don't have to honor the
@@ -254,13 +254,13 @@ TEST_CASE("idle inhibition", "[win]")
         QCOMPARE(idle.inhibit_count, 0);
 
         // Create the test client.
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         // Create the inhibitor object.
-        std::unique_ptr<IdleInhibitor> inhibitor(
+        std::unique_ptr<Wrapland::Client::IdleInhibitor> inhibitor(
             get_client().interfaces.idle_inhibit->createInhibitor(surface.get()));
         QVERIFY(inhibitor->isValid());
 

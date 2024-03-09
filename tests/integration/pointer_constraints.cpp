@@ -20,8 +20,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <functional>
 #include <linux/input.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -60,15 +58,20 @@ TEST_CASE("pointer constraints", "[input]")
                                   data{&QRect::topLeft, {-1, -1}},
                                   data{&QRect::topRight, {1, -1}});
 
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
-        std::unique_ptr<Pointer> pointer(get_client().interfaces.seat->createPointer());
-        std::unique_ptr<ConfinedPointer> confinedPointer(
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
+        std::unique_ptr<Wrapland::Client::Pointer> pointer(
+            get_client().interfaces.seat->createPointer());
+        std::unique_ptr<Wrapland::Client::ConfinedPointer> confinedPointer(
             get_client().interfaces.pointer_constraints->confinePointer(
-                surface.get(), pointer.get(), nullptr, PointerConstraints::LifeTime::OneShot));
-        QSignalSpy confinedSpy(confinedPointer.get(), &ConfinedPointer::confined);
+                surface.get(),
+                pointer.get(),
+                nullptr,
+                Wrapland::Client::PointerConstraints::LifeTime::OneShot));
+        QSignalSpy confinedSpy(confinedPointer.get(), &Wrapland::Client::ConfinedPointer::confined);
         QVERIFY(confinedSpy.isValid());
-        QSignalSpy unconfinedSpy(confinedPointer.get(), &ConfinedPointer::unconfined);
+        QSignalSpy unconfinedSpy(confinedPointer.get(),
+                                 &Wrapland::Client::ConfinedPointer::unconfined);
         QVERIFY(unconfinedSpy.isValid());
 
         // now map the window
@@ -152,10 +155,15 @@ TEST_CASE("pointer constraints", "[input]")
 
         // reconfine pointer (this time with persistent life time)
         confinedPointer.reset(get_client().interfaces.pointer_constraints->confinePointer(
-            surface.get(), pointer.get(), nullptr, PointerConstraints::LifeTime::Persistent));
-        QSignalSpy confinedSpy2(confinedPointer.get(), &ConfinedPointer::confined);
+            surface.get(),
+            pointer.get(),
+            nullptr,
+            Wrapland::Client::PointerConstraints::LifeTime::Persistent));
+        QSignalSpy confinedSpy2(confinedPointer.get(),
+                                &Wrapland::Client::ConfinedPointer::confined);
         QVERIFY(confinedSpy2.isValid());
-        QSignalSpy unconfinedSpy2(confinedPointer.get(), &ConfinedPointer::unconfined);
+        QSignalSpy unconfinedSpy2(confinedPointer.get(),
+                                  &Wrapland::Client::ConfinedPointer::unconfined);
         QVERIFY(unconfinedSpy2.isValid());
 
         // activate it again, this confines again
@@ -181,8 +189,8 @@ TEST_CASE("pointer constraints", "[input]")
         QCOMPARE(setup.base->mod.space->input->pointer->isConstrained(), true);
 
         // create a second window and move it above our constrained window
-        std::unique_ptr<Surface> surface2(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+        auto surface2 = create_surface();
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         auto c2 = render_and_wait_for_shown(surface2, QSize(1280, 1024), Qt::blue);
         QVERIFY(c2);
         QVERIFY(unconfinedSpy2.wait());
@@ -194,12 +202,12 @@ TEST_CASE("pointer constraints", "[input]")
         // let's set a region which results in unconfined
         auto r = get_client().interfaces.compositor->createRegion(QRegion(2, 2, 3, 3));
         confinedPointer->setRegion(r.get());
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(unconfinedSpy2.wait());
         QCOMPARE(setup.base->mod.space->input->pointer->isConstrained(), false);
         // and set a full region again, that should confine
         confinedPointer->setRegion(nullptr);
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(confinedSpy2.wait());
         QCOMPARE(setup.base->mod.space->input->pointer->isConstrained(), true);
 
@@ -220,8 +228,12 @@ TEST_CASE("pointer constraints", "[input]")
 
         // confine again
         confinedPointer.reset(get_client().interfaces.pointer_constraints->confinePointer(
-            surface.get(), pointer.get(), nullptr, PointerConstraints::LifeTime::Persistent));
-        QSignalSpy confinedSpy3(confinedPointer.get(), &ConfinedPointer::confined);
+            surface.get(),
+            pointer.get(),
+            nullptr,
+            Wrapland::Client::PointerConstraints::LifeTime::Persistent));
+        QSignalSpy confinedSpy3(confinedPointer.get(),
+                                &Wrapland::Client::ConfinedPointer::confined);
         QVERIFY(confinedSpy3.isValid());
         QVERIFY(confinedSpy3.wait());
         QCOMPARE(setup.base->mod.space->input->pointer->isConstrained(), true);
@@ -239,18 +251,22 @@ TEST_CASE("pointer constraints", "[input]")
         // simple interaction test to verify that the pointer gets locked
         // the various ways to unlock are not tested as that's already verified by
         // testConfinedPointer
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(surface);
         QVERIFY(shellSurface);
 
-        std::unique_ptr<Pointer> pointer(get_client().interfaces.seat->createPointer());
-        std::unique_ptr<LockedPointer> lockedPointer(
+        std::unique_ptr<Wrapland::Client::Pointer> pointer(
+            get_client().interfaces.seat->createPointer());
+        std::unique_ptr<Wrapland::Client::LockedPointer> lockedPointer(
             get_client().interfaces.pointer_constraints->lockPointer(
-                surface.get(), pointer.get(), nullptr, PointerConstraints::LifeTime::OneShot));
-        QSignalSpy lockedSpy(lockedPointer.get(), &LockedPointer::locked);
+                surface.get(),
+                pointer.get(),
+                nullptr,
+                Wrapland::Client::PointerConstraints::LifeTime::OneShot));
+        QSignalSpy lockedSpy(lockedPointer.get(), &Wrapland::Client::LockedPointer::locked);
         QVERIFY(lockedSpy.isValid());
-        QSignalSpy unlockedSpy(lockedPointer.get(), &LockedPointer::unlocked);
+        QSignalSpy unlockedSpy(lockedPointer.get(), &Wrapland::Client::LockedPointer::unlocked);
         QVERIFY(unlockedSpy.isValid());
 
         // now map the window
@@ -280,8 +296,11 @@ TEST_CASE("pointer constraints", "[input]")
         QCOMPARE(cursor()->pos(), c->geo.frame.center() + QPoint(1, 1));
 
         lockedPointer.reset(get_client().interfaces.pointer_constraints->lockPointer(
-            surface.get(), pointer.get(), nullptr, PointerConstraints::LifeTime::Persistent));
-        QSignalSpy lockedSpy2(lockedPointer.get(), &LockedPointer::locked);
+            surface.get(),
+            pointer.get(),
+            nullptr,
+            Wrapland::Client::PointerConstraints::LifeTime::Persistent));
+        QSignalSpy lockedSpy2(lockedPointer.get(), &Wrapland::Client::LockedPointer::locked);
         QVERIFY(lockedSpy2.isValid());
 
         // activate the client again, this should lock again
@@ -319,15 +338,19 @@ TEST_CASE("pointer constraints", "[input]")
     {
         // test case which verifies that the pointer gets unlocked when the window for it gets
         // closed
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
-        std::unique_ptr<Pointer> pointer(get_client().interfaces.seat->createPointer());
-        std::unique_ptr<LockedPointer> lockedPointer(
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
+        std::unique_ptr<Wrapland::Client::Pointer> pointer(
+            get_client().interfaces.seat->createPointer());
+        std::unique_ptr<Wrapland::Client::LockedPointer> lockedPointer(
             get_client().interfaces.pointer_constraints->lockPointer(
-                surface.get(), pointer.get(), nullptr, PointerConstraints::LifeTime::OneShot));
-        QSignalSpy lockedSpy(lockedPointer.get(), &LockedPointer::locked);
+                surface.get(),
+                pointer.get(),
+                nullptr,
+                Wrapland::Client::PointerConstraints::LifeTime::OneShot));
+        QSignalSpy lockedSpy(lockedPointer.get(), &Wrapland::Client::LockedPointer::locked);
         QVERIFY(lockedSpy.isValid());
-        QSignalSpy unlockedSpy(lockedPointer.get(), &LockedPointer::unlocked);
+        QSignalSpy unlockedSpy(lockedPointer.get(), &Wrapland::Client::LockedPointer::unlocked);
         QVERIFY(unlockedSpy.isValid());
 
         // now map the window

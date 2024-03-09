@@ -26,8 +26,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <catch2/generators/catch_generators.hpp>
 #include <cmath>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test::qpainter_shadow
 {
 
@@ -496,9 +494,8 @@ TEST_CASE("qpainter shadow", "[render]")
         setup_wayland_connection(global_selection::xdg_decoration);
 
         // Create a decorated client.
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(
-            create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         get_client().interfaces.xdg_decoration->getToplevelDecoration(shellSurface.get(),
                                                                       shellSurface.get());
         init_xdg_shell_toplevel(surface, shellSurface);
@@ -556,8 +553,8 @@ TEST_CASE("qpainter shadow", "[render]")
         setup_wayland_connection(global_selection::shadow);
 
         // Create a surface.
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(surface);
         QVERIFY(shellSurface);
 
@@ -588,35 +585,35 @@ TEST_CASE("qpainter shadow", "[render]")
 
         auto shmPool = get_client().interfaces.shm.get();
 
-        Buffer::Ptr bufferTopLeft
+        Wrapland::Client::Buffer::Ptr bufferTopLeft
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(0, 0, 128, 128)));
         clientShadow->attachTopLeft(bufferTopLeft);
 
-        Buffer::Ptr bufferTop
+        Wrapland::Client::Buffer::Ptr bufferTop
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128, 0, 1, 128)));
         clientShadow->attachTop(bufferTop);
 
-        Buffer::Ptr bufferTopRight
+        Wrapland::Client::Buffer::Ptr bufferTopRight
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128 + 1, 0, 128, 128)));
         clientShadow->attachTopRight(bufferTopRight);
 
-        Buffer::Ptr bufferRight
+        Wrapland::Client::Buffer::Ptr bufferRight
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128 + 1, 128, 128, 1)));
         clientShadow->attachRight(bufferRight);
 
-        Buffer::Ptr bufferBottomRight
+        Wrapland::Client::Buffer::Ptr bufferBottomRight
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128 + 1, 128 + 1, 128, 128)));
         clientShadow->attachBottomRight(bufferBottomRight);
 
-        Buffer::Ptr bufferBottom
+        Wrapland::Client::Buffer::Ptr bufferBottom
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128, 128 + 1, 1, 128)));
         clientShadow->attachBottom(bufferBottom);
 
-        Buffer::Ptr bufferBottomLeft
+        Wrapland::Client::Buffer::Ptr bufferBottomLeft
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(0, 128 + 1, 128, 128)));
         clientShadow->attachBottomLeft(bufferBottomLeft);
 
-        Buffer::Ptr bufferLeft
+        Wrapland::Client::Buffer::Ptr bufferLeft
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(0, 128, 128, 1)));
         clientShadow->attachLeft(bufferLeft);
 
@@ -626,7 +623,7 @@ TEST_CASE("qpainter shadow", "[render]")
         QSignalSpy committed_spy(client->surface, &Wrapland::Server::Surface::committed);
         QVERIFY(committed_spy.isValid());
         clientShadow->commit();
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(committed_spy.wait());
         QVERIFY(client->surface->state().updates & Wrapland::Server::surface_change::shadow);
 

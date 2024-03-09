@@ -10,8 +10,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Client/surface.h>
 #include <catch2/generators/catch_generators.hpp>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -29,14 +27,15 @@ TEST_CASE("showing desktop", "[win]")
 
     SECTION("restore focus")
     {
-        std::unique_ptr<Surface> surface1(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface1(create_xdg_shell_toplevel(surface1));
+        auto surface1 = create_surface();
+        auto shellSurface1 = create_xdg_shell_toplevel(surface1);
         QVERIFY(surface1);
         QVERIFY(shellSurface1);
 
         auto client1 = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::blue);
-        std::unique_ptr<Surface> surface2(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+
+        auto surface2 = create_surface();
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         QVERIFY(surface2);
         QVERIFY(shellSurface2);
 
@@ -57,29 +56,28 @@ TEST_CASE("showing desktop", "[win]")
     {
         // first create a desktop window
 
-        std::unique_ptr<Surface> desktopSurface(create_surface());
+        auto desktopSurface = create_surface();
         QVERIFY(desktopSurface);
-        std::unique_ptr<XdgShellToplevel> desktopShellSurface(
-            create_xdg_shell_toplevel(desktopSurface));
+        auto desktopShellSurface = create_xdg_shell_toplevel(desktopSurface);
         QVERIFY(desktopShellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             get_client().interfaces.plasma_shell->createSurface(desktopSurface.get()));
         QVERIFY(plasmaSurface);
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Desktop);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Desktop);
 
         auto desktop = render_and_wait_for_shown(desktopSurface, QSize(100, 50), Qt::blue);
         QVERIFY(desktop);
         QVERIFY(win::is_desktop(desktop));
 
         // now create some windows
-        std::unique_ptr<Surface> surface1(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface1(create_xdg_shell_toplevel(surface1));
+        auto surface1 = create_surface();
+        auto shellSurface1 = create_xdg_shell_toplevel(surface1);
         QVERIFY(surface1);
         QVERIFY(shellSurface1);
 
         auto client1 = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::blue);
-        std::unique_ptr<Surface> surface2(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+        auto surface2 = create_surface();
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         QVERIFY(surface2);
         QVERIFY(shellSurface2);
 

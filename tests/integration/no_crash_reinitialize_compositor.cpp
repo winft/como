@@ -18,8 +18,6 @@ TEST_CASE("no crash reinit compositor", "[render]")
     // This test verifies that KWin doesn't crash when the compositor settings have been changed
     // while a scripted effect animates the disappearing of a window.
 
-    using namespace Wrapland::Client;
-
     qputenv("XDG_DATA_DIRS", QCoreApplication::applicationDirPath().toUtf8());
     qputenv("COMO_EFFECTS_FORCE_ANIMATIONS", QByteArrayLiteral("1"));
     qputenv("KWIN_COMPOSE", QByteArrayLiteral("O2"));
@@ -53,9 +51,9 @@ TEST_CASE("no crash reinit compositor", "[render]")
     // Create the test client.
     setup_wayland_connection();
 
-    std::unique_ptr<Surface> surface(create_surface());
+    auto surface = create_surface();
     QVERIFY(surface);
-    std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+    auto shellSurface = create_xdg_shell_toplevel(surface);
     QVERIFY(shellSurface);
     auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
     QVERIFY(client);

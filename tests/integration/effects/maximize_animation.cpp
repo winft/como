@@ -43,19 +43,17 @@ TEST_CASE("maximize animation", "[effect]")
         // This test verifies that the maximize effect animates a client
         // when it's maximized or restored.
 
-        using namespace Wrapland::Client;
-
         // Create the test client.
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-
-        std::unique_ptr<XdgShellToplevel> shellSurface(
-            create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly));
+        auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
+        QVERIFY(shellSurface);
 
         // Wait for the initial configure event.
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
 
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy.isValid());
         QVERIFY(configureRequestedSpy.wait());
@@ -63,8 +61,8 @@ TEST_CASE("maximize animation", "[effect]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(0, 0));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Draw contents of the surface.
         shellSurface->ackConfigure(configureRequestedSpy.back().front().value<quint32>());
@@ -78,8 +76,8 @@ TEST_CASE("maximize animation", "[effect]")
         QCOMPARE(configureRequestedSpy.count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Load effect that will be tested.
         const QString effectName = QStringLiteral("maximize");
@@ -106,8 +104,8 @@ TEST_CASE("maximize animation", "[effect]")
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Draw contents of the maximized client.
         shellSurface->ackConfigure(configureRequestedSpy.back().front().value<quint32>());
@@ -128,8 +126,8 @@ TEST_CASE("maximize animation", "[effect]")
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(100, 50));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Draw contents of the restored client.
         shellSurface->ackConfigure(configureRequestedSpy.back().front().value<quint32>());

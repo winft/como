@@ -14,8 +14,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/output.h>
 #include <Wrapland/Server/wl_output.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -41,8 +39,8 @@ TEST_CASE("no crash cursor physical size empty", "[win]")
     {
         // This test ensures that there is no endless recursion if the cursor theme cannot be
         // created a reason for creation failure could be physical size not existing see BUG: 390314
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         get_client().interfaces.xdg_decoration->getToplevelDecoration(shellSurface.get(),
                                                                       shellSurface.get());
 

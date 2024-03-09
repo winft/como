@@ -11,8 +11,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Client/xdg_shell.h>
 #include <linux/input.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -36,10 +34,11 @@ TEST_CASE("xdg-shell rules", "[win]")
         return {config, group};
     };
 
-    auto createWindow = [&](const QByteArray& appId,
-                            int timeout = 5000) -> std::tuple<wayland_window*,
-                                                              std::unique_ptr<Surface>,
-                                                              std::unique_ptr<XdgShellToplevel>> {
+    auto createWindow =
+        [&](const QByteArray& appId,
+            int timeout = 5000) -> std::tuple<wayland_window*,
+                                              std::unique_ptr<Wrapland::Client::Surface>,
+                                              std::unique_ptr<Wrapland::Client::XdgShellToplevel>> {
         // Create an xdg surface.
         auto surface = create_surface();
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
@@ -48,8 +47,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         shellSurface->setAppId(appId);
 
         // Wait for the initial configure event.
-        QSignalSpy configureRequestedSpy(shellSurface.get(), &XdgShellToplevel::configured);
-        surface->commit(Surface::CommitFlag::None);
+        QSignalSpy configureRequestedSpy(shellSurface.get(),
+                                         &Wrapland::Client::XdgShellToplevel::configured);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         configureRequestedSpy.wait();
 
         // Draw content of the surface.
@@ -89,8 +89,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -122,8 +122,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -199,8 +199,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -276,8 +276,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -321,8 +321,8 @@ TEST_CASE("xdg-shell rules", "[win]")
     {
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -412,8 +412,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -468,16 +468,16 @@ TEST_CASE("xdg-shell rules", "[win]")
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
-        std::unique_ptr<Surface> surface = create_surface();
-        std::unique_ptr<XdgShellToplevel> shellSurface
+        std::unique_ptr<Wrapland::Client::Surface> surface = create_surface();
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface
             = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
 
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
 
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // The window size shouldn't be enforced by the rule.
         QVERIFY(configureRequestedSpy->wait());
@@ -519,13 +519,12 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         auto surface = create_surface();
-        std::unique_ptr<XdgShellToplevel> shellSurface
-            = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
+        auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // The initial configure event should contain size hint set by the rule.
         QVERIFY(configureRequestedSpy->wait());
@@ -533,8 +532,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(480, 640));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::resizing));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::resizing));
 
         // Map the client.
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -549,8 +548,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::resizing));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::resizing));
 
         // One still should be able to resize the client.
         QSignalSpy geometryChangedSpy(client->qobject.get(),
@@ -578,8 +577,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 3);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::resizing));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::resizing));
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
 
         auto const cursorPos = cursor()->pos();
@@ -590,9 +589,10 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 4);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::resizing));
-        QVERIFY(cfgdata.updates.testFlag(xdg_shell_toplevel_configure_change::size));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::resizing));
+        QVERIFY(
+            cfgdata.updates.testFlag(Wrapland::Client::xdg_shell_toplevel_configure_change::size));
         QCOMPARE(cfgdata.size, QSize(488, 640));
         QCOMPARE(clientStepUserMovedResizedSpy.count(), 0);
 
@@ -619,9 +619,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         surface = create_surface();
         shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy->wait());
         QCOMPARE(configureRequestedSpy->count(), 1);
@@ -663,9 +663,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // The initial configure event should contain size hint set by the rule.
         QVERIFY(configureRequestedSpy->wait());
@@ -673,8 +673,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(480, 640));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::resizing));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::resizing));
 
         // Map the client.
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -689,8 +689,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::resizing));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::resizing));
 
         // One should still be able to resize the client.
         QSignalSpy geometryChangedSpy(client->qobject.get(),
@@ -718,8 +718,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 3);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::resizing));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::resizing));
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
 
         auto const cursorPos = cursor()->pos();
@@ -730,9 +730,10 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 4);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::resizing));
-        QVERIFY(cfgdata.updates.testFlag(xdg_shell_toplevel_configure_change::size));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::resizing));
+        QVERIFY(
+            cfgdata.updates.testFlag(Wrapland::Client::xdg_shell_toplevel_configure_change::size));
         QCOMPARE(cfgdata.size, QSize(488, 640));
         QCOMPARE(clientStepUserMovedResizedSpy.count(), 0);
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -758,9 +759,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         surface = create_surface();
         shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy->wait());
         QCOMPARE(configureRequestedSpy->count(), 1);
@@ -802,9 +803,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // The initial configure event should contain size hint set by the rule.
         QVERIFY(configureRequestedSpy->wait());
@@ -846,9 +847,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         surface = create_surface();
         shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy->wait());
         QCOMPARE(configureRequestedSpy->count(), 1);
@@ -879,9 +880,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // The expected surface dimensions should be set by the rule.
         QVERIFY(configureRequestedSpy->wait());
@@ -960,9 +961,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // The initial configure event should contain size hint set by the rule.
         QVERIFY(configureRequestedSpy->wait());
@@ -1006,9 +1007,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         surface = create_surface();
         shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy->wait());
         QCOMPARE(configureRequestedSpy->count(), 1);
@@ -1052,9 +1053,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // Wait for the initial configure event.
         QVERIFY(configureRequestedSpy->wait());
@@ -1062,8 +1063,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(0, 0));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Map the client.
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -1081,8 +1082,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Destroy the client.
         shellSurface.reset();
@@ -1110,9 +1111,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // Wait for the initial configure event.
         QVERIFY(configureRequestedSpy->wait());
@@ -1120,8 +1121,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Map the client.
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -1138,8 +1139,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // One should still be able to change the maximized state of the client.
         win::active_window_maximize(*setup.base->mod.space);
@@ -1150,8 +1151,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // The size is empty since we did not have a restore size before.
         QVERIFY(cfgdata.size.isEmpty());
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         QSignalSpy geometryChangedSpy(client->qobject.get(),
                                       &win::window_qobject::frame_geometry_changed);
@@ -1171,17 +1172,17 @@ TEST_CASE("xdg-shell rules", "[win]")
         surface = create_surface();
         shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy->wait());
         QCOMPARE(configureRequestedSpy->count(), 1);
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
         client = render_and_wait_for_shown(surface, QSize(1280, 1024), Qt::blue);
@@ -1196,8 +1197,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Destroy the client.
         shellSurface.reset();
@@ -1225,9 +1226,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // Wait for the initial configure event.
         QVERIFY(configureRequestedSpy->wait());
@@ -1235,8 +1236,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Map the client.
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -1253,8 +1254,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // One should still be able to change the maximized state of the client.
         win::active_window_maximize(*setup.base->mod.space);
@@ -1265,8 +1266,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // The size is empty since we did not have a restore size before.
         QVERIFY(cfgdata.size.isEmpty());
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         QSignalSpy geometryChangedSpy(client->qobject.get(),
                                       &win::window_qobject::frame_geometry_changed);
@@ -1285,17 +1286,17 @@ TEST_CASE("xdg-shell rules", "[win]")
         surface = create_surface();
         shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy->wait());
         QCOMPARE(configureRequestedSpy->count(), 1);
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(0, 0));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
         client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
@@ -1310,8 +1311,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Destroy the client.
         shellSurface.reset();
@@ -1339,9 +1340,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // Wait for the initial configure event.
         QVERIFY(configureRequestedSpy->wait());
@@ -1349,8 +1350,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Map the client.
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -1367,8 +1368,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Any attempt to change the maximized state should not succeed.
         const QRect oldGeometry = client->geo.frame;
@@ -1385,17 +1386,17 @@ TEST_CASE("xdg-shell rules", "[win]")
         surface = create_surface();
         shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy->wait());
         QCOMPARE(configureRequestedSpy->count(), 1);
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
         client = render_and_wait_for_shown(surface, QSize(1280, 1024), Qt::blue);
@@ -1410,8 +1411,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Destroy the client.
         shellSurface.reset();
@@ -1426,9 +1427,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // Wait for the initial configure event.
         QVERIFY(configureRequestedSpy->wait());
@@ -1436,8 +1437,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(0, 0));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Map the client.
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -1454,8 +1455,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Initialize RuleBook with the test rule.
         auto [config, group] = get_config();
@@ -1476,8 +1477,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Draw contents of the maximized client.
         QSignalSpy geometryChangedSpy(client->qobject.get(),
@@ -1500,8 +1501,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(100, 50));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
         render(surface, QSize(100, 50), Qt::blue);
@@ -1544,9 +1545,9 @@ TEST_CASE("xdg-shell rules", "[win]")
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         std::unique_ptr<QSignalSpy> configureRequestedSpy;
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         // Wait for the initial configure event.
         QVERIFY(configureRequestedSpy->wait());
@@ -1554,8 +1555,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         auto cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(1280, 1024));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Map the client.
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
@@ -1572,8 +1573,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Any attempt to change the maximized state should not succeed.
         const QRect oldGeometry = client->geo.frame;
@@ -1590,17 +1591,17 @@ TEST_CASE("xdg-shell rules", "[win]")
         surface = create_surface();
         shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
         configureRequestedSpy.reset(
-            new QSignalSpy(shellSurface.get(), &XdgShellToplevel::configured));
+            new QSignalSpy(shellSurface.get(), &Wrapland::Client::XdgShellToplevel::configured));
         shellSurface->setAppId("org.kde.foo");
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
 
         QVERIFY(configureRequestedSpy->wait());
         QCOMPARE(configureRequestedSpy->count(), 1);
 
         cfgdata = shellSurface->get_configure_data();
         QCOMPARE(cfgdata.size, QSize(0, 0));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         shellSurface->ackConfigure(configureRequestedSpy->back().front().value<quint32>());
         client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
@@ -1615,8 +1616,8 @@ TEST_CASE("xdg-shell rules", "[win]")
         QCOMPARE(configureRequestedSpy->count(), 2);
 
         cfgdata = shellSurface->get_configure_data();
-        QVERIFY(cfgdata.states.testFlag(xdg_shell_state::activated));
-        QVERIFY(!cfgdata.states.testFlag(xdg_shell_state::maximized));
+        QVERIFY(cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::activated));
+        QVERIFY(!cfgdata.states.testFlag(Wrapland::Client::xdg_shell_state::maximized));
 
         // Destroy the client.
         shellSurface.reset();
@@ -1646,8 +1647,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -1683,8 +1684,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -1736,8 +1737,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QCOMPARE(win::get_subspace(*client), 2);
@@ -1786,8 +1787,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -1827,8 +1828,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QCOMPARE(win::get_subspace(*client), 1);
@@ -1888,8 +1889,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -1942,8 +1943,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->isMinimizable());
@@ -1972,8 +1973,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         QSignalSpy toplevel_created_Spy(setup.base->mod.space->xdg_shell.get(),
                                         &Wrapland::Server::XdgShell::toplevelCreated);
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo", 500);
@@ -2026,8 +2027,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->isMinimizable());
@@ -2075,8 +2076,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(!client->isMinimizable());
@@ -2107,8 +2108,8 @@ TEST_CASE("xdg-shell rules", "[win]")
     {
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->isMinimizable());
@@ -2159,8 +2160,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(!client->isMinimizable());
@@ -2202,8 +2203,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2231,8 +2232,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2272,8 +2273,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2315,8 +2316,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2347,8 +2348,8 @@ TEST_CASE("xdg-shell rules", "[win]")
     {
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(!client->control->skip_taskbar());
@@ -2396,8 +2397,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2441,8 +2442,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2470,8 +2471,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2511,8 +2512,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2554,8 +2555,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2586,8 +2587,8 @@ TEST_CASE("xdg-shell rules", "[win]")
     {
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(!client->control->skip_pager());
@@ -2635,8 +2636,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2680,8 +2681,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2709,8 +2710,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2750,8 +2751,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2793,8 +2794,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2825,8 +2826,8 @@ TEST_CASE("xdg-shell rules", "[win]")
     {
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(!client->control->skip_switcher());
@@ -2874,8 +2875,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2919,8 +2920,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2948,8 +2949,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -2989,8 +2990,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3030,8 +3031,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3060,8 +3061,8 @@ TEST_CASE("xdg-shell rules", "[win]")
     {
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(!client->control->keep_above);
@@ -3109,8 +3110,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3156,8 +3157,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3185,8 +3186,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3226,8 +3227,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3267,8 +3268,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3297,8 +3298,8 @@ TEST_CASE("xdg-shell rules", "[win]")
     {
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(!client->control->keep_below);
@@ -3346,8 +3347,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3393,8 +3394,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QCOMPARE(client->control->shortcut, QKeySequence());
@@ -3436,8 +3437,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3517,8 +3518,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3586,8 +3587,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3642,8 +3643,8 @@ TEST_CASE("xdg-shell rules", "[win]")
     {
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->shortcut.isEmpty());
@@ -3717,8 +3718,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
 
@@ -3830,8 +3831,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -3860,8 +3861,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -3888,8 +3889,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -3925,8 +3926,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -3959,8 +3960,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -3994,8 +3995,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -4040,8 +4041,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -4068,8 +4069,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);
@@ -4096,8 +4097,8 @@ TEST_CASE("xdg-shell rules", "[win]")
 
         // Create the test client.
         wayland_window* client;
-        std::unique_ptr<Surface> surface;
-        std::unique_ptr<XdgShellToplevel> shellSurface;
+        std::unique_ptr<Wrapland::Client::Surface> surface;
+        std::unique_ptr<Wrapland::Client::XdgShellToplevel> shellSurface;
         std::tie(client, surface, shellSurface) = createWindow("org.kde.foo");
         QVERIFY(client);
         QVERIFY(client->control->active);

@@ -325,11 +325,12 @@ TEST_CASE("debug console", "[debug]")
         setup_wayland_connection();
 
         // create the Surface and ShellSurface
-        using namespace Wrapland::Client;
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
+        QVERIFY(surface);
         QVERIFY(surface->isValid());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
+
         render(surface, QSize(10, 10), Qt::red);
 
         // now we have the window, it should be added to our model
@@ -388,8 +389,8 @@ TEST_CASE("debug console", "[debug]")
         QSignalSpy rowsRemovedSpy(model.get(), &QAbstractItemModel::rowsRemoved);
         QVERIFY(rowsRemovedSpy.isValid());
 
-        surface->attachBuffer(Buffer::Ptr());
-        surface->commit(Surface::CommitFlag::None);
+        surface->attachBuffer(Wrapland::Client::Buffer::Ptr());
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         shellSurface.reset();
         flush_wayland_connection();
         QVERIFY(rowsRemovedSpy.wait(500));

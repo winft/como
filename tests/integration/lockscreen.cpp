@@ -27,9 +27,7 @@ namespace
 
 void unlock()
 {
-    using namespace ScreenLocker;
-
-    const auto children = KSldApp::self()->children();
+    const auto children = ScreenLocker::KSldApp::self()->children();
     for (auto it = children.begin(); it != children.end(); ++it) {
         if (qstrcmp((*it)->metaObject()->className(), "LogindIntegration") != 0) {
             continue;
@@ -128,8 +126,6 @@ TEST_CASE("lockscreen", "[base]")
     std::unique_ptr<Wrapland::Client::XdgShellToplevel> toplevel_holder;
 
     auto showWindow = [&]() {
-        using namespace Wrapland::Client;
-
         surface_holder = create_surface();
         REQUIRE(surface_holder.get());
         toplevel_holder = create_xdg_shell_toplevel(surface_holder);
@@ -164,13 +160,12 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("pointer")
     {
-        using namespace Wrapland::Client;
-
-        std::unique_ptr<Pointer> pointer(get_client().interfaces.seat->createPointer());
+        std::unique_ptr<Wrapland::Client::Pointer> pointer(
+            get_client().interfaces.seat->createPointer());
         QVERIFY(pointer);
 
-        QSignalSpy enteredSpy(pointer.get(), &Pointer::entered);
-        QSignalSpy leftSpy(pointer.get(), &Pointer::left);
+        QSignalSpy enteredSpy(pointer.get(), &Wrapland::Client::Pointer::entered);
+        QSignalSpy leftSpy(pointer.get(), &Wrapland::Client::Pointer::left);
         QVERIFY(leftSpy.isValid());
         QVERIFY(enteredSpy.isValid());
 
@@ -212,13 +207,12 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("pointer button")
     {
-        using namespace Wrapland::Client;
-
-        std::unique_ptr<Pointer> pointer(get_client().interfaces.seat->createPointer());
+        std::unique_ptr<Wrapland::Client::Pointer> pointer(
+            get_client().interfaces.seat->createPointer());
         QVERIFY(pointer);
 
-        QSignalSpy enteredSpy(pointer.get(), &Pointer::entered);
-        QSignalSpy buttonChangedSpy(pointer.get(), &Pointer::buttonStateChanged);
+        QSignalSpy enteredSpy(pointer.get(), &Wrapland::Client::Pointer::entered);
+        QSignalSpy buttonChangedSpy(pointer.get(), &Wrapland::Client::Pointer::buttonStateChanged);
         QVERIFY(enteredSpy.isValid());
         QVERIFY(buttonChangedSpy.isValid());
 
@@ -256,13 +250,12 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("pointer axis")
     {
-        using namespace Wrapland::Client;
-
-        std::unique_ptr<Pointer> pointer(get_client().interfaces.seat->createPointer());
+        std::unique_ptr<Wrapland::Client::Pointer> pointer(
+            get_client().interfaces.seat->createPointer());
         QVERIFY(pointer);
 
-        QSignalSpy axisChangedSpy(pointer.get(), &Pointer::axisChanged);
-        QSignalSpy enteredSpy(pointer.get(), &Pointer::entered);
+        QSignalSpy axisChangedSpy(pointer.get(), &Wrapland::Client::Pointer::axisChanged);
+        QSignalSpy enteredSpy(pointer.get(), &Wrapland::Client::Pointer::entered);
         QVERIFY(axisChangedSpy.isValid());
         QVERIFY(enteredSpy.isValid());
 
@@ -299,14 +292,13 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("keyboard")
     {
-        using namespace Wrapland::Client;
-
-        std::unique_ptr<Keyboard> keyboard(get_client().interfaces.seat->createKeyboard());
+        std::unique_ptr<Wrapland::Client::Keyboard> keyboard(
+            get_client().interfaces.seat->createKeyboard());
         QVERIFY(keyboard);
 
-        QSignalSpy enteredSpy(keyboard.get(), &Keyboard::entered);
-        QSignalSpy leftSpy(keyboard.get(), &Keyboard::left);
-        QSignalSpy keyChangedSpy(keyboard.get(), &Keyboard::keyChanged);
+        QSignalSpy enteredSpy(keyboard.get(), &Wrapland::Client::Keyboard::entered);
+        QSignalSpy leftSpy(keyboard.get(), &Wrapland::Client::Keyboard::left);
+        QSignalSpy keyChangedSpy(keyboard.get(), &Wrapland::Client::Keyboard::keyChanged);
         QVERIFY(enteredSpy.isValid());
         QVERIFY(leftSpy.isValid());
         QVERIFY(keyChangedSpy.isValid());
@@ -322,16 +314,16 @@ TEST_CASE("lockscreen", "[base]")
         QVERIFY(keyChangedSpy.wait());
         QCOMPARE(keyChangedSpy.count(), 1);
         QCOMPARE(keyChangedSpy.at(0).at(0).value<quint32>(), quint32(KEY_A));
-        QCOMPARE(keyChangedSpy.at(0).at(1).value<Keyboard::KeyState>(),
-                 Keyboard::KeyState::Pressed);
+        QCOMPARE(keyChangedSpy.at(0).at(1).value<Wrapland::Client::Keyboard::KeyState>(),
+                 Wrapland::Client::Keyboard::KeyState::Pressed);
         QCOMPARE(keyChangedSpy.at(0).at(2).value<quint32>(), quint32(1));
 
         KEYRELEASE(KEY_A);
         QVERIFY(keyChangedSpy.wait());
         QCOMPARE(keyChangedSpy.count(), 2);
         QCOMPARE(keyChangedSpy.at(1).at(0).value<quint32>(), quint32(KEY_A));
-        QCOMPARE(keyChangedSpy.at(1).at(1).value<Keyboard::KeyState>(),
-                 Keyboard::KeyState::Released);
+        QCOMPARE(keyChangedSpy.at(1).at(1).value<Wrapland::Client::Keyboard::KeyState>(),
+                 Wrapland::Client::Keyboard::KeyState::Released);
         QCOMPARE(keyChangedSpy.at(1).at(2).value<quint32>(), quint32(2));
 
         LOCK QVERIFY(leftSpy.wait());
@@ -356,10 +348,10 @@ TEST_CASE("lockscreen", "[base]")
         QCOMPARE(keyChangedSpy.at(3).at(0).value<quint32>(), quint32(KEY_C));
         QCOMPARE(keyChangedSpy.at(2).at(2).value<quint32>(), quint32(5));
         QCOMPARE(keyChangedSpy.at(3).at(2).value<quint32>(), quint32(6));
-        QCOMPARE(keyChangedSpy.at(2).at(1).value<Keyboard::KeyState>(),
-                 Keyboard::KeyState::Pressed);
-        QCOMPARE(keyChangedSpy.at(3).at(1).value<Keyboard::KeyState>(),
-                 Keyboard::KeyState::Released);
+        QCOMPARE(keyChangedSpy.at(2).at(1).value<Wrapland::Client::Keyboard::KeyState>(),
+                 Wrapland::Client::Keyboard::KeyState::Pressed);
+        QCOMPARE(keyChangedSpy.at(3).at(1).value<Wrapland::Client::Keyboard::KeyState>(),
+                 Wrapland::Client::Keyboard::KeyState::Released);
     }
 
     SECTION("screen edge")
@@ -509,8 +501,6 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("move window")
     {
-        using namespace Wrapland::Client;
-
         auto c = showWindow();
         QVERIFY(c);
 
@@ -556,8 +546,6 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("pointer shortcut")
     {
-        using namespace Wrapland::Client;
-
         std::unique_ptr<QAction> action(new QAction(nullptr));
         QSignalSpy actionSpy(action.get(), &QAction::triggered);
         QVERIFY(actionSpy.isValid());
@@ -590,8 +578,6 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("axis shortcut")
     {
-        using namespace Wrapland::Client;
-
         auto direction = GENERATE(Qt::Vertical, Qt::Horizontal);
         auto sign = GENERATE(-1, 1);
 
@@ -640,8 +626,6 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("keyboard shortcut")
     {
-        using namespace Wrapland::Client;
-
         std::unique_ptr<QAction> action(new QAction(nullptr));
         QSignalSpy actionSpy(action.get(), &QAction::triggered);
         QVERIFY(actionSpy.isValid());
@@ -695,8 +679,6 @@ TEST_CASE("lockscreen", "[base]")
 
     SECTION("touch")
     {
-        using namespace Wrapland::Client;
-
         auto touch = get_client().interfaces.seat->createTouch(get_client().interfaces.seat.get());
         QVERIFY(touch);
         QVERIFY(touch->isValid());
@@ -704,11 +686,11 @@ TEST_CASE("lockscreen", "[base]")
         auto c = showWindow();
         QVERIFY(c);
 
-        QSignalSpy sequenceStartedSpy(touch, &Touch::sequenceStarted);
+        QSignalSpy sequenceStartedSpy(touch, &Wrapland::Client::Touch::sequenceStarted);
         QVERIFY(sequenceStartedSpy.isValid());
-        QSignalSpy cancelSpy(touch, &Touch::sequenceCanceled);
+        QSignalSpy cancelSpy(touch, &Wrapland::Client::Touch::sequenceCanceled);
         QVERIFY(cancelSpy.isValid());
-        QSignalSpy pointRemovedSpy(touch, &Touch::pointRemoved);
+        QSignalSpy pointRemovedSpy(touch, &Wrapland::Client::Touch::pointRemoved);
         QVERIFY(pointRemovedSpy.isValid());
 
         quint32 timestamp = 1;

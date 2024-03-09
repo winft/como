@@ -50,27 +50,27 @@ TEST_CASE("minimize animation", "[effect]")
     {
         // This test verifies that a minimize effect tries to animate a client
         // when it's minimized or unminimized.
-        using namespace Wrapland::Client;
-
         auto effectName = GENERATE(QString("magiclamp"), QString("squash"));
 
         QSignalSpy plasmaWindowCreatedSpy(get_client().interfaces.window_management.get(),
-                                          &PlasmaWindowManagement::windowCreated);
+                                          &Wrapland::Client::PlasmaWindowManagement::windowCreated);
         QVERIFY(plasmaWindowCreatedSpy.isValid());
 
         // Create a panel at the top of the screen.
         const QRect panelRect = QRect(0, 0, 1280, 36);
-        std::unique_ptr<Surface> panelSurface(create_surface());
+        auto panelSurface = create_surface();
         QVERIFY(panelSurface);
-        std::unique_ptr<XdgShellToplevel> panelShellSurface(
-            create_xdg_shell_toplevel(panelSurface));
+        auto panelShellSurface = create_xdg_shell_toplevel(panelSurface);
         QVERIFY(panelShellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaPanelShellSurface(
+
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaPanelShellSurface(
             get_client().interfaces.plasma_shell->createSurface(panelSurface.get()));
         QVERIFY(plasmaPanelShellSurface);
-        plasmaPanelShellSurface->setRole(PlasmaShellSurface::Role::Panel);
+
+        plasmaPanelShellSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
         plasmaPanelShellSurface->setPosition(panelRect.topLeft());
-        plasmaPanelShellSurface->setPanelBehavior(PlasmaShellSurface::PanelBehavior::AlwaysVisible);
+        plasmaPanelShellSurface->setPanelBehavior(
+            Wrapland::Client::PlasmaShellSurface::PanelBehavior::AlwaysVisible);
         auto panel = render_and_wait_for_shown(panelSurface, panelRect.size(), Qt::blue);
         QVERIFY(panel);
         QVERIFY(win::is_dock(panel));
@@ -79,10 +79,11 @@ TEST_CASE("minimize animation", "[effect]")
         QCOMPARE(plasmaWindowCreatedSpy.count(), 1);
 
         // Create the test client.
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
+
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::red);
         QVERIFY(client);
         QVERIFY(plasmaWindowCreatedSpy.wait());
@@ -90,7 +91,8 @@ TEST_CASE("minimize animation", "[effect]")
 
         // We have to set the minimized geometry because the squash effect needs it,
         // otherwise it won't start animation.
-        auto window = plasmaWindowCreatedSpy.last().first().value<PlasmaWindow*>();
+        auto window
+            = plasmaWindowCreatedSpy.last().first().value<Wrapland::Client::PlasmaWindow*>();
         QVERIFY(window);
         const QRect iconRect = QRect(0, 0, 42, 36);
         window->setMinimizedGeometry(panelSurface.get(), iconRect);

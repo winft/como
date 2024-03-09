@@ -9,8 +9,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <KConfigGroup>
 #include <linux/input.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 

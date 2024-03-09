@@ -49,15 +49,15 @@ TEST_CASE("input stacking order", "[win]")
         // the pointer is in the overlapping area which means the top most window has focus
         // as soon as the top most window gets lowered the window should lose focus and the
         // other window should gain focus without a mouse event in between
-        using namespace Wrapland::Client;
+
         // create pointer and signal spy for enter and leave signals
         auto seat = get_client().interfaces.seat.get();
         auto pointer = seat->createPointer(seat);
         QVERIFY(pointer);
         QVERIFY(pointer->isValid());
-        QSignalSpy enteredSpy(pointer, &Pointer::entered);
+        QSignalSpy enteredSpy(pointer, &Wrapland::Client::Pointer::entered);
         QVERIFY(enteredSpy.isValid());
-        QSignalSpy leftSpy(pointer, &Pointer::left);
+        QSignalSpy leftSpy(pointer, &Wrapland::Client::Pointer::left);
         QVERIFY(leftSpy.isValid());
 
         // now create the two windows and make them overlap

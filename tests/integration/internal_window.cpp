@@ -16,7 +16,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <catch2/generators/catch_generators.hpp>
 #include <linux/input.h>
 
-using namespace Wrapland::Client;
+namespace como::detail::test::internal_window
+{
 
 namespace
 {
@@ -127,9 +128,6 @@ void HelperWindow::keyReleaseEvent(QKeyEvent* event)
 }
 
 }
-
-namespace como::detail::test
-{
 
 TEST_CASE("internal window", "[win]")
 {
@@ -326,15 +324,17 @@ TEST_CASE("internal window", "[win]")
     {
         // this test verifies that a leave event is sent to a client when an internal window
         // gets a key event
-        std::unique_ptr<Keyboard> keyboard(get_client().interfaces.seat->createKeyboard());
+        std::unique_ptr<Wrapland::Client::Keyboard> keyboard(
+            get_client().interfaces.seat->createKeyboard());
         QVERIFY(keyboard);
         QVERIFY(keyboard->isValid());
-        QSignalSpy enteredSpy(keyboard.get(), &Keyboard::entered);
+        QSignalSpy enteredSpy(keyboard.get(), &Wrapland::Client::Keyboard::entered);
         QVERIFY(enteredSpy.isValid());
-        QSignalSpy leftSpy(keyboard.get(), &Keyboard::left);
+        QSignalSpy leftSpy(keyboard.get(), &Wrapland::Client::Keyboard::left);
         QVERIFY(leftSpy.isValid());
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
 
         // now let's render
         auto c = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);

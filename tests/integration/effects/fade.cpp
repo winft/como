@@ -10,8 +10,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Client/buffer.h>
 #include <Wrapland/Client/surface.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -64,8 +62,8 @@ TEST_CASE("fade", "[effect]")
         QSignalSpy windowClosedSpy(effects, &EffectsHandler::windowClosed);
         QVERIFY(windowClosedSpy.isValid());
 
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         auto c = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
         QVERIFY(c);
         QTRY_COMPARE(windowAddedSpy.count(), 1);
@@ -80,8 +78,8 @@ TEST_CASE("fade", "[effect]")
         QTRY_COMPARE(fade_effect->isActive(), false);
 
         // now unmap the surface
-        surface->attachBuffer(Buffer::Ptr());
-        surface->commit(Surface::CommitFlag::None);
+        surface->attachBuffer(Wrapland::Client::Buffer::Ptr());
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(windowHiddenSpy.wait());
         QCOMPARE(fade_effect->isActive(), false);
 
@@ -91,8 +89,8 @@ TEST_CASE("fade", "[effect]")
         QCOMPARE(fade_effect->isActive(), false);
 
         // and unmap once more
-        surface->attachBuffer(Buffer::Ptr());
-        surface->commit(Surface::CommitFlag::None);
+        surface->attachBuffer(Wrapland::Client::Buffer::Ptr());
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(windowHiddenSpy.wait());
         QCOMPARE(fade_effect->isActive(), false);
 

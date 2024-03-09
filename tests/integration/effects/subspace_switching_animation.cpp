@@ -17,8 +17,6 @@ TEST_CASE("subspace switching animation", "[effect]")
 {
     // This test verifies that subspace switching animation effects actually
     // try to animate switching between subspaces.
-    using namespace Wrapland::Client;
-
     auto effectName = GENERATE(QString("cubeslide"), QString("fadedesktop"), QString("slide"));
 
     qputenv("KWIN_COMPOSE", QByteArrayLiteral("O2"));
@@ -52,10 +50,11 @@ TEST_CASE("subspace switching animation", "[effect]")
 
     // The Fade Desktop effect will do nothing if there are no clients to fade,
     // so we have to create a dummy test client.
-    std::unique_ptr<Surface> surface(create_surface());
+    auto surface = create_surface();
     QVERIFY(surface);
-    std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+    auto shellSurface = create_xdg_shell_toplevel(surface);
     QVERIFY(shellSurface);
+
     auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
     QVERIFY(client);
     QCOMPARE(client->topo.subspaces.size(), 1);

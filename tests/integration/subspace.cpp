@@ -9,8 +9,6 @@
 #include <Wrapland/Client/surface.h>
 #include <catch2/generators/catch_generators.hpp>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -846,9 +844,9 @@ TEST_CASE("subspace", "[win]")
         QCOMPARE(win::subspaces_get_current_x11id(*vd_manager), 2u);
 
         // now create a window on this subspace
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
         QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
@@ -881,9 +879,9 @@ TEST_CASE("subspace", "[win]")
         QCOMPARE(win::subspaces_get_current_x11id(*vd_manager), 3u);
 
         // now create a window on this subspace
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
         QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
@@ -965,9 +963,9 @@ TEST_CASE("subspace", "[win]")
         QCOMPARE(win::subspaces_get_current_x11id(*vd_manager), 3u);
 
         // now create a window on this subspace
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
         QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);

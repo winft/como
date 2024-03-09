@@ -20,8 +20,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <algorithm>
 #include <catch2/generators/catch_generators.hpp>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test::opengl_shadow
 {
 
@@ -545,8 +543,11 @@ TEST_CASE("opengl shadow", "[render]")
         setup_wayland_connection(global_selection::shadow);
 
         // Create a surface.
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
+        QVERIFY(shellSurface);
+
         auto* client = render_and_wait_for_shown(surface, QSize(512, 512), Qt::blue);
         QVERIFY(client);
         QVERIFY(!win::decoration(client));
@@ -567,20 +568,18 @@ TEST_CASE("opengl shadow", "[render]")
 
         auto shmPool = get_client().interfaces.shm.get();
 
-        Buffer::Ptr bufferTop
-            = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128, 0, 1, 128)));
+        auto bufferTop = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128, 0, 1, 128)));
         clientShadow->attachTop(bufferTop);
 
-        Buffer::Ptr bufferRight
+        auto bufferRight
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128 + 1, 128, 128, 1)));
         clientShadow->attachRight(bufferRight);
 
-        Buffer::Ptr bufferBottom
+        auto bufferBottom
             = shmPool->createBuffer(referenceShadowTexture.copy(QRect(128, 128 + 1, 1, 128)));
         clientShadow->attachBottom(bufferBottom);
 
-        Buffer::Ptr bufferLeft
-            = shmPool->createBuffer(referenceShadowTexture.copy(QRect(0, 128, 128, 1)));
+        auto bufferLeft = shmPool->createBuffer(referenceShadowTexture.copy(QRect(0, 128, 128, 1)));
         clientShadow->attachLeft(bufferLeft);
 
         clientShadow->setOffsets(QMarginsF(128, 128, 128, 128));
@@ -588,7 +587,7 @@ TEST_CASE("opengl shadow", "[render]")
         QSignalSpy commit_spy(client->surface, &Wrapland::Server::Surface::committed);
         QVERIFY(commit_spy.isValid());
         clientShadow->commit();
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(commit_spy.wait());
 
         // Check that we got right shadow from the client.
@@ -645,13 +644,15 @@ TEST_CASE("opengl shadow", "[render]")
     SECTION("distribute huge corner tiles")
     {
         // this test verifies that huge corner tiles are distributed correctly
-
         setup_wayland_connection(global_selection::shadow);
 
         // Create a surface.
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
-        auto* client = render_and_wait_for_shown(surface, QSize(64, 64), Qt::blue);
+        auto surface = create_surface();
+        QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
+        QVERIFY(shellSurface);
+
+        auto client = render_and_wait_for_shown(surface, QSize(64, 64), Qt::blue);
         QVERIFY(client);
         QVERIFY(!win::decoration(client));
 
@@ -665,10 +666,10 @@ TEST_CASE("opengl shadow", "[render]")
 
         auto shmPool = get_client().interfaces.shm.get();
 
-        Buffer::Ptr bufferTopLeft = shmPool->createBuffer(referenceTileTexture);
+        auto bufferTopLeft = shmPool->createBuffer(referenceTileTexture);
         clientShadow->attachTopLeft(bufferTopLeft);
 
-        Buffer::Ptr bufferTopRight = shmPool->createBuffer(referenceTileTexture);
+        auto bufferTopRight = shmPool->createBuffer(referenceTileTexture);
         clientShadow->attachTopRight(bufferTopRight);
 
         clientShadow->setOffsets(QMarginsF(256, 256, 256, 0));
@@ -676,7 +677,7 @@ TEST_CASE("opengl shadow", "[render]")
         QSignalSpy commit_spy(client->surface, &Wrapland::Server::Surface::committed);
         QVERIFY(commit_spy.isValid());
         clientShadow->commit();
-        surface->commit(Surface::CommitFlag::None);
+        surface->commit(Wrapland::Client::Surface::CommitFlag::None);
         QVERIFY(commit_spy.wait());
 
         // Check that we got right shadow from the client.

@@ -146,7 +146,6 @@ TEST_CASE("scripted effects", "[effect]")
         // trigger windowAdded signal
 
         // create a window
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -220,7 +219,6 @@ TEST_CASE("scripted effects", "[effect]")
         QVERIFY(effect->load(QString::fromStdString(test_data.file)));
 
         // animated after window added connect
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -326,7 +324,6 @@ TEST_CASE("scripted effects", "[effect]")
         QSignalSpy isActiveFullScreenEffectSpyOther(
             effectOther, &scripting::effect::isActiveFullScreenEffectChanged);
 
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -385,7 +382,6 @@ TEST_CASE("scripted effects", "[effect]")
         QVERIFY(effect->load(QString::fromStdString(test_data.file)));
 
         // create a window
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -432,7 +428,6 @@ TEST_CASE("scripted effects", "[effect]")
         QVERIFY(effect->load(QStringLiteral("grabTest")));
 
         // create test client
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -465,7 +460,6 @@ TEST_CASE("scripted effects", "[effect]")
         QVERIFY(grabber->load(QStringLiteral("grabAlreadyGrabbedWindowTest_grabber")));
 
         // create test client
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -502,7 +496,6 @@ TEST_CASE("scripted effects", "[effect]")
         QVERIFY(thief->load(QStringLiteral("grabAlreadyGrabbedWindowForcedTest_thief")));
 
         // create test client
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -533,7 +526,6 @@ TEST_CASE("scripted effects", "[effect]")
         QVERIFY(effect->load(QStringLiteral("ungrabTest")));
 
         // create test client
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -574,7 +566,6 @@ TEST_CASE("scripted effects", "[effect]")
         QVERIFY(effect->load(test_data.file));
 
         // create test client
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
@@ -651,7 +642,6 @@ TEST_CASE("scripted effects", "[effect]")
         QVERIFY(effect->load(QStringLiteral("completeTest")));
 
         // create test client
-        using namespace Wrapland::Client;
         auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);

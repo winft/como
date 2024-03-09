@@ -11,8 +11,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <catch2/generators/catch_generators.hpp>
 #include <linux/input.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -41,25 +39,27 @@ TEST_CASE("tabbox", "[win]")
         // this test verifies that Alt+tab works correctly moving forward
 
         // first create three windows
-        std::unique_ptr<Surface> surface1(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface1(create_xdg_shell_toplevel(surface1));
+        auto surface1 = create_surface();
         QVERIFY(surface1);
+        auto shellSurface1 = create_xdg_shell_toplevel(surface1);
         QVERIFY(shellSurface1);
 
         auto c1 = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::blue);
         QVERIFY(c1);
         QVERIFY(c1->control->active);
-        std::unique_ptr<Surface> surface2(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+
+        auto surface2 = create_surface();
         QVERIFY(surface2);
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         QVERIFY(shellSurface2);
 
         auto c2 = render_and_wait_for_shown(surface2, QSize(100, 50), Qt::red);
         QVERIFY(c2);
         QVERIFY(c2->control->active);
-        std::unique_ptr<Surface> surface3(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface3(create_xdg_shell_toplevel(surface3));
+
+        auto surface3 = create_surface();
         QVERIFY(surface3);
+        auto shellSurface3 = create_xdg_shell_toplevel(surface3);
         QVERIFY(shellSurface3);
 
         auto c3 = render_and_wait_for_shown(surface3, QSize(100, 50), Qt::red);
@@ -104,25 +104,27 @@ TEST_CASE("tabbox", "[win]")
         // this test verifies that Alt+Shift+tab works correctly moving backward
 
         // first create three windows
-        std::unique_ptr<Surface> surface1(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface1(create_xdg_shell_toplevel(surface1));
+        auto surface1 = create_surface();
         QVERIFY(surface1);
+        auto shellSurface1 = create_xdg_shell_toplevel(surface1);
         QVERIFY(shellSurface1);
 
         auto c1 = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::blue);
         QVERIFY(c1);
         QVERIFY(c1->control->active);
-        std::unique_ptr<Surface> surface2(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+
+        auto surface2 = create_surface();
         QVERIFY(surface2);
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         QVERIFY(shellSurface2);
 
         auto c2 = render_and_wait_for_shown(surface2, QSize(100, 50), Qt::red);
         QVERIFY(c2);
         QVERIFY(c2->control->active);
-        std::unique_ptr<Surface> surface3(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface3(create_xdg_shell_toplevel(surface3));
+
+        auto surface3 = create_surface();
         QVERIFY(surface3);
+        auto shellSurface3 = create_xdg_shell_toplevel(surface3);
         QVERIFY(shellSurface3);
 
         auto c3 = render_and_wait_for_shown(surface3, QSize(100, 50), Qt::red);
@@ -173,25 +175,27 @@ TEST_CASE("tabbox", "[win]")
         // bug 368590
 
         // first create three windows
-        std::unique_ptr<Surface> surface1(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface1(create_xdg_shell_toplevel(surface1));
+        auto surface1 = create_surface();
         QVERIFY(surface1);
+        auto shellSurface1 = create_xdg_shell_toplevel(surface1);
         QVERIFY(shellSurface1);
 
         auto c1 = render_and_wait_for_shown(surface1, QSize(100, 50), Qt::blue);
         QVERIFY(c1);
         QVERIFY(c1->control->active);
-        std::unique_ptr<Surface> surface2(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+
+        auto surface2 = create_surface();
         QVERIFY(surface2);
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         QVERIFY(shellSurface2);
 
         auto c2 = render_and_wait_for_shown(surface2, QSize(100, 50), Qt::red);
         QVERIFY(c2);
         QVERIFY(c2->control->active);
-        std::unique_ptr<Surface> surface3(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface3(create_xdg_shell_toplevel(surface3));
+
+        auto surface3 = create_surface();
         QVERIFY(surface3);
+        auto shellSurface3 = create_xdg_shell_toplevel(surface3);
         QVERIFY(shellSurface3);
 
         auto c3 = render_and_wait_for_shown(surface3, QSize(100, 50), Qt::red);

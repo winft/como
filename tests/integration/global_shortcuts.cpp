@@ -15,8 +15,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <linux/input.h>
 #include <xcb/xcb_icccm.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -187,8 +185,8 @@ TEST_CASE("global shortcuts", "[input]")
         //   * https://github.com/xkbcommon/libxkbcommon/issues/17
 
         // first create a window
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(surface);
         QVERIFY(shellSurface);
 
@@ -388,8 +386,8 @@ TEST_CASE("global shortcuts", "[input]")
 
     SECTION("wayland window shortcut")
     {
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
 
         QCOMPARE(get_wayland_window(setup.base->mod.space->stacking.active), client);
@@ -434,9 +432,9 @@ TEST_CASE("global shortcuts", "[input]")
     {
         // QTBUG-62102
 
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
         QVERIFY(surface);
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);

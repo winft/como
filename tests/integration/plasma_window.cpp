@@ -16,9 +16,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Server/seat.h>
 #include <xcb/xcb_icccm.h>
 
-using namespace Wrapland::Client;
-
-namespace como::detail::test
+namespace como::detail::test::plasma_window
 {
 
 namespace
@@ -213,7 +211,7 @@ TEST_CASE("plasma window", "[win]")
         // this test verifies that a PlasmaWindow gets unmapped on Client side when an X11 client is
         // destroyed
         QSignalSpy plasmaWindowCreatedSpy(window_management,
-                                          &PlasmaWindowManagement::windowCreated);
+                                          &Wrapland::Client::PlasmaWindowManagement::windowCreated);
         QVERIFY(plasmaWindowCreatedSpy.isValid());
 
         // create an xcb window
@@ -288,7 +286,8 @@ TEST_CASE("plasma window", "[win]")
         QVERIFY(res_name_spy.wait());
         QCOMPARE(pw->resource_name(), "org.kwinft.wm_class.name2");
 
-        QSignalSpy unmappedSpy(window_management->windows().constFirst(), &PlasmaWindow::unmapped);
+        QSignalSpy unmappedSpy(window_management->windows().constFirst(),
+                               &Wrapland::Client::PlasmaWindow::unmapped);
         QVERIFY(unmappedSpy.isValid());
         QSignalSpy destroyedSpy(window_management->windows().constFirst(), &QObject::destroyed);
         QVERIFY(destroyedSpy.isValid());
@@ -311,7 +310,7 @@ TEST_CASE("plasma window", "[win]")
     {
         // this test verifies that an internal window is not added as a PlasmaWindow to the client
         QSignalSpy plasmaWindowCreatedSpy(window_management,
-                                          &PlasmaWindowManagement::windowCreated);
+                                          &Wrapland::Client::PlasmaWindowManagement::windowCreated);
         QVERIFY(plasmaWindowCreatedSpy.isValid());
         HelperWindow win;
         win.setGeometry(0, 0, 100, 100);
@@ -324,13 +323,12 @@ TEST_CASE("plasma window", "[win]")
     {
         // this test verifies that for a popup window no PlasmaWindow is sent to the client
         QSignalSpy plasmaWindowCreatedSpy(window_management,
-                                          &PlasmaWindowManagement::windowCreated);
+                                          &Wrapland::Client::PlasmaWindowManagement::windowCreated);
         QVERIFY(plasmaWindowCreatedSpy.isValid());
 
         // first create the parent window
-        std::unique_ptr<Surface> parentSurface(create_surface());
-        std::unique_ptr<XdgShellToplevel> parentShellSurface(
-            create_xdg_shell_toplevel(parentSurface));
+        auto parentSurface = create_surface();
+        auto parentShellSurface = create_xdg_shell_toplevel(parentSurface);
         auto parentClient = render_and_wait_for_shown(parentSurface, QSize(100, 50), Qt::blue);
         QVERIFY(parentClient);
         QVERIFY(plasmaWindowCreatedSpy.wait());
@@ -343,9 +341,8 @@ TEST_CASE("plasma window", "[win]")
         pos_data.anchor.edge = Qt::BottomEdge | Qt::RightEdge;
         pos_data.gravity = pos_data.anchor.edge;
 
-        std::unique_ptr<Surface> popupSurface(create_surface());
-        std::unique_ptr<XdgShellPopup> popupShellSurface(
-            create_xdg_shell_popup(popupSurface, parentShellSurface, pos_data));
+        auto popupSurface = create_surface();
+        auto popupShellSurface = create_xdg_shell_popup(popupSurface, parentShellSurface, pos_data);
         auto popupClient = render_and_wait_for_shown(popupSurface, pos_data.size, Qt::blue);
         QVERIFY(popupClient);
         QVERIFY(!plasmaWindowCreatedSpy.wait(100));
@@ -362,7 +359,7 @@ TEST_CASE("plasma window", "[win]")
     {
         // this test verifies that lock screen windows are not exposed to PlasmaWindow
         QSignalSpy plasmaWindowCreatedSpy(window_management,
-                                          &PlasmaWindowManagement::windowCreated);
+                                          &Wrapland::Client::PlasmaWindowManagement::windowCreated);
         QVERIFY(plasmaWindowCreatedSpy.isValid());
 
         // this time we use a QSignalSpy on XdgShellClient as it'a a little bit more complex setup
@@ -415,19 +412,19 @@ TEST_CASE("plasma window", "[win]")
         // this test verifies that also when a ShellSurface gets destroyed without a prior unmap
         // the PlasmaWindow gets destroyed on Client side
         QSignalSpy plasmaWindowCreatedSpy(window_management,
-                                          &PlasmaWindowManagement::windowCreated);
+                                          &Wrapland::Client::PlasmaWindowManagement::windowCreated);
         QVERIFY(plasmaWindowCreatedSpy.isValid());
 
         // first create the parent window
-        std::unique_ptr<Surface> parentSurface(create_surface());
-        std::unique_ptr<XdgShellToplevel> parentShellSurface(
-            create_xdg_shell_toplevel(parentSurface));
+        auto parentSurface = create_surface();
+        auto parentShellSurface = create_xdg_shell_toplevel(parentSurface);
         // map that window
         render(parentSurface, QSize(100, 50), Qt::blue);
         // this should create a plasma window
         QVERIFY(plasmaWindowCreatedSpy.wait());
         QCOMPARE(plasmaWindowCreatedSpy.count(), 1);
-        auto window = plasmaWindowCreatedSpy.first().first().value<PlasmaWindow*>();
+        auto window
+            = plasmaWindowCreatedSpy.first().first().value<Wrapland::Client::PlasmaWindow*>();
         QVERIFY(window);
         QSignalSpy destroyedSpy(window, &QObject::destroyed);
         QVERIFY(destroyedSpy.isValid());

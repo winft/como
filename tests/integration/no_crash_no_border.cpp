@@ -17,7 +17,6 @@ namespace como::detail::test
 TEST_CASE("no crash no border", "[win]")
 {
     // Create a window and ensure that this doesn't crash.
-    using namespace Wrapland::Client;
 
     // this test needs to enforce OpenGL compositing to get into the crashy condition
     qputenv("KWIN_COMPOSE", QByteArrayLiteral("O2"));
@@ -39,22 +38,21 @@ TEST_CASE("no crash no border", "[win]")
     setup_wayland_connection(global_selection::xdg_decoration);
     cursor()->set_pos(QPoint(640, 512));
 
-    std::unique_ptr<Surface> surface(create_surface());
+    auto surface = create_surface();
     QVERIFY(surface);
-    std::unique_ptr<XdgShellToplevel> shellSurface(
-        create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly));
+    auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
     QVERIFY(shellSurface);
 
     auto deco = get_client().interfaces.xdg_decoration->getToplevelDecoration(shellSurface.get(),
                                                                               shellSurface.get());
-    QSignalSpy decoSpy(deco, &XdgDecoration::modeChanged);
+    QSignalSpy decoSpy(deco, &Wrapland::Client::XdgDecoration::modeChanged);
     QVERIFY(decoSpy.isValid());
-    deco->setMode(XdgDecoration::Mode::ServerSide);
-    QCOMPARE(deco->mode(), XdgDecoration::Mode::ClientSide);
+    deco->setMode(Wrapland::Client::XdgDecoration::Mode::ServerSide);
+    QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ClientSide);
     init_xdg_shell_toplevel(surface, shellSurface);
 
     // Without server-side decoration available the mode set by the compositor will be client-side.
-    QCOMPARE(deco->mode(), XdgDecoration::Mode::ClientSide);
+    QCOMPARE(deco->mode(), Wrapland::Client::XdgDecoration::Mode::ClientSide);
 
     // let's render
     auto c = render_and_wait_for_shown(surface, QSize(500, 50), Qt::blue);

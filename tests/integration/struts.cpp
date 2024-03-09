@@ -140,8 +140,6 @@ TEST_CASE("struts", "[win]")
                  QRegion(0, 10, 32, 390).united(QRegion(0, 450, 40, 100))});
 
         // this test verifies that struts on Wayland panels are handled correctly
-        using namespace Wrapland::Client;
-
         auto const& outputs = setup.base->outputs;
         REQUIRE(win::space_window_area(
                     *setup.base->mod.space, win::area_option::placement, outputs.at(0), 1)
@@ -207,7 +205,7 @@ TEST_CASE("struts", "[win]")
             auto plasmaSurface = std::unique_ptr<Wrapland::Client::PlasmaShellSurface>(
                 plasma_shell->createSurface(surface.get()));
             plasmaSurface->setPosition(window_geo.topLeft());
-            plasmaSurface->setRole(PlasmaShellSurface::Role::Panel);
+            plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
             init_xdg_shell_toplevel(surface, shellSurface);
 
             // map the window
@@ -289,14 +287,14 @@ TEST_CASE("struts", "[win]")
     SECTION("move wayland panel")
     {
         // this test verifies that repositioning a Wayland panel updates the client area
-        using namespace Wrapland::Client;
         const QRect windowGeometry(0, 1000, 1280, 24);
         auto surface = create_surface();
         auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+
+        auto plasmaSurface = std::unique_ptr<Wrapland::Client::PlasmaShellSurface>(
             plasma_shell->createSurface(surface.get()));
         plasmaSurface->setPosition(windowGeometry.topLeft());
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Panel);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
         init_xdg_shell_toplevel(surface, shellSurface);
 
         // map the window
@@ -350,8 +348,6 @@ TEST_CASE("struts", "[win]")
 
     SECTION("wayland mobile panel")
     {
-        using namespace Wrapland::Client;
-
         // First enable maxmizing policy
         auto group = setup.base->config.main->group(QStringLiteral("Windows"));
         group.writeEntry("Placement", "maximizing");
@@ -360,17 +356,18 @@ TEST_CASE("struts", "[win]")
 
         // create first top panel
         const QRect windowGeometry(0, 0, 1280, 60);
-        auto surface = create_surface();
-        auto shellSurface = create_xdg_shell_toplevel(surface, CreationSetup::CreateOnly);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
-            plasma_shell->createSurface(surface.get()));
+        auto surface1 = create_surface();
+        auto shellSurface1 = create_xdg_shell_toplevel(surface1, CreationSetup::CreateOnly);
+
+        auto plasmaSurface = std::unique_ptr<Wrapland::Client::PlasmaShellSurface>(
+            plasma_shell->createSurface(surface1.get()));
         plasmaSurface->setPosition(windowGeometry.topLeft());
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Panel);
-        init_xdg_shell_toplevel(surface, shellSurface);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
+        init_xdg_shell_toplevel(surface1, shellSurface1);
 
         // map the first panel
         auto c = render_and_wait_for_shown(
-            surface, windowGeometry.size(), Qt::red, QImage::Format_RGB32);
+            surface1, windowGeometry.size(), Qt::red, QImage::Format_RGB32);
         QVERIFY(c);
         QVERIFY(!c->control->active);
         REQUIRE(c->geo.frame == windowGeometry);
@@ -396,13 +393,13 @@ TEST_CASE("struts", "[win]")
 
         // create another bottom panel
         const QRect windowGeometry2(0, 874, 1280, 150);
-        std::unique_ptr<Surface> surface2(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface2(
-            create_xdg_shell_toplevel(surface2, CreationSetup::CreateOnly));
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface2(
+        auto surface2 = create_surface();
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2, CreationSetup::CreateOnly);
+
+        auto plasmaSurface2 = std::unique_ptr<Wrapland::Client::PlasmaShellSurface>(
             plasma_shell->createSurface(surface2.get()));
         plasmaSurface2->setPosition(windowGeometry2.topLeft());
-        plasmaSurface2->setRole(PlasmaShellSurface::Role::Panel);
+        plasmaSurface2->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
         init_xdg_shell_toplevel(surface2, shellSurface2);
 
         auto c1 = render_and_wait_for_shown(
@@ -431,7 +428,7 @@ TEST_CASE("struts", "[win]")
                  QRect(0, 60, 2560, 814));
 
         // Destroy test clients.
-        shellSurface.reset();
+        shellSurface1.reset();
         QVERIFY(wait_for_destroyed(c));
         shellSurface2.reset();
         QVERIFY(wait_for_destroyed(c1));

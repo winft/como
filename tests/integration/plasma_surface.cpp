@@ -15,8 +15,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <Wrapland/Client/surface.h>
 #include <catch2/generators/catch_generators.hpp>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -39,24 +37,25 @@ TEST_CASE("plasma surface", "[win]")
         // this test verifies that a XdgShellClient is set on all subspaces when the role changes
 
         struct data {
-            PlasmaShellSurface::Role role;
+            Wrapland::Client::PlasmaShellSurface::Role role;
             bool expected_on_all_subspaces;
         };
 
-        auto test_data = GENERATE(data{PlasmaShellSurface::Role::Desktop, true},
-                                  data{PlasmaShellSurface::Role::Panel, true},
-                                  data{PlasmaShellSurface::Role::OnScreenDisplay, true},
-                                  data{PlasmaShellSurface::Role::Normal, false},
-                                  data{PlasmaShellSurface::Role::Notification, true},
-                                  data{PlasmaShellSurface::Role::ToolTip, true},
-                                  data{PlasmaShellSurface::Role::CriticalNotification, true},
-                                  data{PlasmaShellSurface::Role::AppletPopup, true});
+        auto test_data
+            = GENERATE(data{Wrapland::Client::PlasmaShellSurface::Role::Desktop, true},
+                       data{Wrapland::Client::PlasmaShellSurface::Role::Panel, true},
+                       data{Wrapland::Client::PlasmaShellSurface::Role::OnScreenDisplay, true},
+                       data{Wrapland::Client::PlasmaShellSurface::Role::Normal, false},
+                       data{Wrapland::Client::PlasmaShellSurface::Role::Notification, true},
+                       data{Wrapland::Client::PlasmaShellSurface::Role::ToolTip, true},
+                       data{Wrapland::Client::PlasmaShellSurface::Role::CriticalNotification, true},
+                       data{Wrapland::Client::PlasmaShellSurface::Role::AppletPopup, true});
 
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
 
@@ -77,13 +76,13 @@ TEST_CASE("plasma surface", "[win]")
 
         // let's create a second window where we init a little bit different
         // first creating the PlasmaSurface then the Shell Surface
-        std::unique_ptr<Surface> surface2(create_surface());
+        auto surface2 = create_surface();
         QVERIFY(surface2);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface2(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface2(
             plasma_shell->createSurface(surface2.get()));
         QVERIFY(plasmaSurface2);
         plasmaSurface2->setRole(test_data.role);
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         QVERIFY(shellSurface2);
 
         auto c2 = render_and_wait_for_shown(surface2, QSize(100, 50), Qt::blue);
@@ -98,26 +97,26 @@ TEST_CASE("plasma surface", "[win]")
         // this test verifies that some surface roles don't get focus
 
         struct data {
-            PlasmaShellSurface::Role role;
+            Wrapland::Client::PlasmaShellSurface::Role role;
             bool wants_input;
             bool active;
         };
 
-        auto test_data
-            = GENERATE(data{PlasmaShellSurface::Role::Desktop, true, true},
-                       data{PlasmaShellSurface::Role::Panel, true, false},
-                       data{PlasmaShellSurface::Role::OnScreenDisplay, false, false},
-                       data{PlasmaShellSurface::Role::Normal, true, true},
-                       data{PlasmaShellSurface::Role::Notification, false, false},
-                       data{PlasmaShellSurface::Role::ToolTip, false, false},
-                       data{PlasmaShellSurface::Role::CriticalNotification, false, false},
-                       data{PlasmaShellSurface::Role::AppletPopup, true, true});
+        auto test_data = GENERATE(
+            data{Wrapland::Client::PlasmaShellSurface::Role::Desktop, true, true},
+            data{Wrapland::Client::PlasmaShellSurface::Role::Panel, true, false},
+            data{Wrapland::Client::PlasmaShellSurface::Role::OnScreenDisplay, false, false},
+            data{Wrapland::Client::PlasmaShellSurface::Role::Normal, true, true},
+            data{Wrapland::Client::PlasmaShellSurface::Role::Notification, false, false},
+            data{Wrapland::Client::PlasmaShellSurface::Role::ToolTip, false, false},
+            data{Wrapland::Client::PlasmaShellSurface::Role::CriticalNotification, false, false},
+            data{Wrapland::Client::PlasmaShellSurface::Role::AppletPopup, true, true});
 
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
         plasmaSurface->setRole(test_data.role);
@@ -132,14 +131,14 @@ TEST_CASE("plasma surface", "[win]")
 
     SECTION("desktop is opaque")
     {
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Desktop);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Desktop);
 
         // now render to map the window
         auto c = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
@@ -176,16 +175,17 @@ TEST_CASE("plasma surface", "[win]")
                                   data{{1250, 0, 30, 800}, {1080, 0, 200, 300}, {1279, 100}},
                                   data{{1250, 200, 30, 824}, {1080, 0, 200, 300}, {1279, 250}});
 
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Panel);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
         plasmaSurface->setPosition(test_data.panel_geo.topLeft());
-        plasmaSurface->setPanelBehavior(PlasmaShellSurface::PanelBehavior::WindowsCanCover);
+        plasmaSurface->setPanelBehavior(
+            Wrapland::Client::PlasmaShellSurface::PanelBehavior::WindowsCanCover);
 
         // now render and map the window
         auto panel = render_and_wait_for_shown(surface, test_data.panel_geo.size(), Qt::blue);
@@ -201,9 +201,9 @@ TEST_CASE("plasma surface", "[win]")
         QCOMPARE(win::get_layer(*panel), win::layer::above);
 
         // create a Window
-        std::unique_ptr<Surface> surface2(create_surface());
+        auto surface2 = create_surface();
         QVERIFY(surface2);
-        std::unique_ptr<XdgShellToplevel> shellSurface2(create_xdg_shell_toplevel(surface2));
+        auto shellSurface2 = create_xdg_shell_toplevel(surface2);
         QVERIFY(shellSurface2);
 
         auto c = render_and_wait_for_shown(surface2, test_data.window_geo.size(), Qt::red);
@@ -235,14 +235,14 @@ TEST_CASE("plasma surface", "[win]")
 
     SECTION("osd placement")
     {
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
-        plasmaSurface->setRole(PlasmaShellSurface::Role::OnScreenDisplay);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::OnScreenDisplay);
 
         // now render and map the window
         auto c = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
@@ -276,16 +276,16 @@ TEST_CASE("plasma surface", "[win]")
 
     SECTION("osd placement manual position")
     {
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
 
-        plasmaSurface->setRole(PlasmaShellSurface::Role::OnScreenDisplay);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::OnScreenDisplay);
         plasmaSurface->setPosition(QPoint(50, 70));
 
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
         // now render and map the window
@@ -301,37 +301,38 @@ TEST_CASE("plasma surface", "[win]")
     SECTION("panel type has strut")
     {
         struct data {
-            PlasmaShellSurface::PanelBehavior panel_behavior;
+            Wrapland::Client::PlasmaShellSurface::PanelBehavior panel_behavior;
             bool expected_strut;
             QRect expected_max_area;
             win::layer expected_layer;
         };
 
-        auto test_data = GENERATE(data{PlasmaShellSurface::PanelBehavior::AlwaysVisible,
-                                       true,
-                                       {0, 50, 1280, 974},
-                                       win::layer::above},
-                                  data{PlasmaShellSurface::PanelBehavior::AutoHide,
-                                       false,
-                                       {0, 0, 1280, 1024},
-                                       win::layer::above},
-                                  data{PlasmaShellSurface::PanelBehavior::WindowsCanCover,
-                                       false,
-                                       {0, 0, 1280, 1024},
-                                       win::layer::above},
-                                  data{PlasmaShellSurface::PanelBehavior::WindowsGoBelow,
-                                       false,
-                                       {0, 0, 1280, 1024},
-                                       win::layer::above});
+        auto test_data
+            = GENERATE(data{Wrapland::Client::PlasmaShellSurface::PanelBehavior::AlwaysVisible,
+                            true,
+                            {0, 50, 1280, 974},
+                            win::layer::above},
+                       data{Wrapland::Client::PlasmaShellSurface::PanelBehavior::AutoHide,
+                            false,
+                            {0, 0, 1280, 1024},
+                            win::layer::above},
+                       data{Wrapland::Client::PlasmaShellSurface::PanelBehavior::WindowsCanCover,
+                            false,
+                            {0, 0, 1280, 1024},
+                            win::layer::above},
+                       data{Wrapland::Client::PlasmaShellSurface::PanelBehavior::WindowsGoBelow,
+                            false,
+                            {0, 0, 1280, 1024},
+                            win::layer::above});
 
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<QObject> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Panel);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
         plasmaSurface->setPosition(QPoint(0, 0));
         plasmaSurface->setPanelBehavior(test_data.panel_behavior);
 
@@ -353,14 +354,14 @@ TEST_CASE("plasma surface", "[win]")
     {
         auto activate = GENERATE(true, false);
 
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
-        std::unique_ptr<PlasmaShellSurface> plasmaSurface(
+        std::unique_ptr<Wrapland::Client::PlasmaShellSurface> plasmaSurface(
             plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
-        plasmaSurface->setRole(PlasmaShellSurface::Role::Panel);
+        plasmaSurface->setRole(Wrapland::Client::PlasmaShellSurface::Role::Panel);
         plasmaSurface->setPanelTakesFocus(activate);
 
         auto panel = render_and_wait_for_shown(surface, QSize(100, 200), Qt::blue);
@@ -388,12 +389,11 @@ TEST_CASE("plasma surface", "[win]")
 
         auto surface = create_surface();
         QVERIFY(surface);
-
         auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
 
-        auto plasmaSurface
-            = std::unique_ptr<PlasmaShellSurface>(plasma_shell->createSurface(surface.get()));
+        auto plasmaSurface = std::unique_ptr<Wrapland::Client::PlasmaShellSurface>(
+            plasma_shell->createSurface(surface.get()));
         QVERIFY(plasmaSurface);
         plasmaSurface->request_open_under_cursor();
 

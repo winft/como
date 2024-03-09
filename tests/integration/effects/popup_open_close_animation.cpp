@@ -50,8 +50,7 @@ TEST_CASE("popup open close animation", "[effect]")
         QVERIFY(effectsImpl);
 
         // Create the main window.
-        using namespace Wrapland::Client;
-        std::unique_ptr<Surface> mainWindowSurface(create_surface());
+        auto mainWindowSurface = create_surface();
         QVERIFY(mainWindowSurface);
         auto mainWindowShellSurface = create_xdg_shell_toplevel(mainWindowSurface);
         QVERIFY(mainWindowShellSurface);
@@ -68,10 +67,10 @@ TEST_CASE("popup open close animation", "[effect]")
         QVERIFY(!effect->isActive());
 
         // Create a popup, it should be animated.
-        std::unique_ptr<Surface> popupSurface(create_surface());
+        auto popupSurface = create_surface();
         QVERIFY(popupSurface);
 
-        xdg_shell_positioner_data pos_data;
+        Wrapland::Client::xdg_shell_positioner_data pos_data;
         pos_data.size = QSize(20, 20);
         pos_data.anchor.rect = QRect(0, 0, 10, 10);
         pos_data.anchor.edge = Qt::BottomEdge | Qt::LeftEdge;
@@ -115,8 +114,7 @@ TEST_CASE("popup open close animation", "[effect]")
         QVERIFY(effectsImpl);
 
         // Create the test client.
-        using namespace Wrapland::Client;
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
@@ -167,15 +165,15 @@ TEST_CASE("popup open close animation", "[effect]")
         QVERIFY(effectsImpl);
 
         // Create the test client.
-        using namespace Wrapland::Client;
-        std::unique_ptr<Surface> surface(create_surface());
+        auto surface = create_surface();
         QVERIFY(surface);
         auto shellSurface = create_xdg_shell_toplevel(surface);
         QVERIFY(shellSurface);
-        std::unique_ptr<XdgDecoration> deco(
+        std::unique_ptr<Wrapland::Client::XdgDecoration> deco(
             get_client().interfaces.xdg_decoration->getToplevelDecoration(shellSurface.get()));
         QVERIFY(deco);
-        deco->setMode(XdgDecoration::Mode::ServerSide);
+        deco->setMode(Wrapland::Client::XdgDecoration::Mode::ServerSide);
+
         auto client = render_and_wait_for_shown(surface, QSize(100, 50), Qt::blue);
         QVERIFY(client);
         QVERIFY(win::decoration(client));

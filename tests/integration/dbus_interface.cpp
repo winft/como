@@ -14,8 +14,6 @@ SPDX-License-Identifier: GPL-2.0-only OR GPL-3.0-only
 #include <Wrapland/Client/surface.h>
 #include <xcb/xcb_icccm.h>
 
-using namespace Wrapland::Client;
-
 namespace como::detail::test
 {
 
@@ -60,8 +58,8 @@ TEST_CASE("dbus interface", "[base]")
                                   &space::qobject_t::wayland_window_added);
         QVERIFY(clientAddedSpy.isValid());
 
-        std::unique_ptr<Surface> surface(create_surface());
-        std::unique_ptr<XdgShellToplevel> shellSurface(create_xdg_shell_toplevel(surface));
+        auto surface = create_surface();
+        auto shellSurface = create_xdg_shell_toplevel(surface);
         shellSurface->setAppId(QByteArrayLiteral("org.kde.foo"));
         shellSurface->setTitle(QStringLiteral("Test window"));
 
