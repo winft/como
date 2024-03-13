@@ -12,6 +12,7 @@
 #include "como_export.h"
 #include <como/base/logging.h>
 #include <como/base/wayland/platform_helpers.h>
+#include <como/base/wayland/server_helpers.h>
 
 #include <KScreenLocker/KsldApp>
 #include <QObject>
@@ -76,7 +77,7 @@ public:
      */
     int create_xwayland_connection()
     {
-        const auto socket = create_connection();
+        auto const socket = server_create_connection(*display);
         if (!socket.connection) {
             return -1;
         }
@@ -126,36 +127,6 @@ public:
     Wrapland::Server::Client* xwayland_connection() const
     {
         return m_xwayland.client;
-    }
-
-    /**
-     * Struct containing information for a created Wayland connection through a
-     * socketpair.
-     */
-    struct socket_pair_connection {
-        /**
-         * ServerSide Connection
-         */
-        Wrapland::Server::Client* connection = nullptr;
-        /**
-         * client-side file descriptor for the socket
-         */
-        int fd = -1;
-    };
-    /**
-     * Creates a Wayland connection using a socket pair.
-     */
-    socket_pair_connection create_connection()
-    {
-        socket_pair_connection ret;
-        int sx[2];
-        if (socketpair(AF_UNIX, SOCK_STREAM | SOCK_CLOEXEC, 0, sx) < 0) {
-            qCWarning(KWIN_CORE) << "Could not create socket";
-            return ret;
-        }
-        ret.connection = display->createClient(sx[0]);
-        ret.fd = sx[1];
-        return ret;
     }
 
     void init_screen_locker()
@@ -309,7 +280,7 @@ private:
 
     int create_screen_locker_connection()
     {
-        const auto socket = create_connection();
+        auto const socket = server_create_connection(*display);
         if (!socket.connection) {
             return -1;
         }

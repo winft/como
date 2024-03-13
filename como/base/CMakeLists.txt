@@ -151,6 +151,7 @@ target_sources(base-wl
       wayland/platform_helpers.h
       wayland/screen_lock.h
       wayland/server.h
+      wayland/server_helpers.h
       wayland/xwl_platform.h
   PRIVATE
     wayland/filtered_display.cpp
