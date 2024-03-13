@@ -42,9 +42,6 @@ namespace como::base::wayland
 
 class COMO_EXPORT server_qobject : public QObject
 {
-    Q_OBJECT
-Q_SIGNALS:
-    void screenlocker_initialized();
 };
 
 template<typename Base>
@@ -216,8 +213,6 @@ public:
         if (flags(m_initFlags & start_options::lock_screen)) {
             ScreenLocker::KSldApp::self()->lock(ScreenLocker::EstablishLock::Immediate);
         }
-
-        Q_EMIT qobject->screenlocker_initialized();
     }
 
     std::unique_ptr<server_qobject> qobject;
