@@ -9,10 +9,10 @@
 #pragma once
 
 #include "como_export.h"
-#include <como/base/wayland/screen_lock.h>
 #include <como/base/wayland/server.h>
 #include <como/input/wayland/xcursor_theme.h>
 #include <como/win/space_qobject.h>
+#include <como/win/wayland/screen_lock.h>
 #include <como/win/window_qobject.h>
 
 #include <KScreenLocker/KsldApp>
@@ -67,7 +67,7 @@ public:
                              reevaluteSource();
                          });
 
-        if (redirect.platform.base.server->has_screen_locker_integration()) {
+        if (win::wayland::screen_lock_is_supported(redirect.space)) {
             QObject::connect(ScreenLocker::KSldApp::self(),
                              &ScreenLocker::KSldApp::lockStateChanged,
                              qobject.get(),
@@ -284,7 +284,7 @@ private:
             setSource(CursorSource::DragAndDrop);
             return;
         }
-        if (base::wayland::is_screen_locked(cursor.redirect.platform.base)) {
+        if (win::wayland::screen_lock_is_locked(cursor.redirect.space)) {
             setSource(CursorSource::LockScreen);
             return;
         }

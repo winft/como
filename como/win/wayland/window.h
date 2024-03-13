@@ -21,6 +21,7 @@
 #include <como/win/rules/find.h>
 #include <como/win/rules/update.h>
 #include <como/win/scene.h>
+#include <como/win/wayland/screen_lock.h>
 #include <como/win/window_geometry.h>
 #include <como/win/window_metadata.h>
 #include <como/win/window_qobject.h>
@@ -848,8 +849,10 @@ public:
 
     bool isLockScreen() const
     {
-        return !this->remnant
-            && surface->client() == space.base.server->screen_locker_client_connection;
+        if (remnant) {
+            return false;
+        }
+        return surface->client() == screen_lock_get_client(space);
     }
 
     bool isInitialPositionSet() const

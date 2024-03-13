@@ -11,6 +11,7 @@
 #include <como/input/device_redirect.h>
 #include <como/input/event_filter.h>
 #include <como/input/event_spy.h>
+#include <como/win/wayland/screen_lock.h>
 
 #include <KScreenLocker/KsldApp>
 #include <QHash>
@@ -41,7 +42,7 @@ public:
     {
         device_redirect_init(this);
 
-        if (redirect->platform.base.server->has_screen_locker_integration()) {
+        if (win::wayland::screen_lock_is_supported(redirect->space)) {
             QObject::connect(ScreenLocker::KSldApp::self(),
                              &ScreenLocker::KSldApp::lockStateChanged,
                              qobject.get(),

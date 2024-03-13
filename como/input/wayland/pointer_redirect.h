@@ -16,6 +16,7 @@
 #include <como/input/qt_event.h>
 #include <como/utils/blocker.h>
 #include <como/win/input.h>
+#include <como/win/wayland/screen_lock.h>
 
 #include <KScreenLocker/KsldApp>
 #include <QObject>
@@ -73,7 +74,7 @@ public:
                          &base::platform_qobject::topology_changed,
                          qobject.get(),
                          [this] { updateAfterScreenChange(); });
-        if (redirect->platform.base.server->has_screen_locker_integration()) {
+        if (win::wayland::screen_lock_is_supported(redirect->space)) {
             QObject::connect(
                 ScreenLocker::KSldApp::self(),
                 &ScreenLocker::KSldApp::lockStateChanged,

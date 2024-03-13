@@ -404,7 +404,7 @@ TEST_CASE("plasma window", "[win]")
             break;
         }
         QVERIFY(lockStateChangedSpy.wait());
-        QVERIFY(!base::wayland::is_screen_locked(setup.base));
+        QVERIFY(!win::wayland::screen_lock_is_locked(setup.base->mod.space));
     }
 
     SECTION("destroyed but not unmapped")

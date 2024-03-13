@@ -26,6 +26,7 @@ target_sources(desktop
     FILE_SET HEADERS
     FILES
       platform.h
+      screen_locker.h
       screen_locker_watcher.h
   PRIVATE
     screen_locker_watcher.cpp
@@ -60,7 +61,25 @@ target_sources(desktop-kde
     ${desktop_kde_dbus_src}
 )
 
-set_target_properties(desktop desktop-kde PROPERTIES
+add_library(desktop-kde-wl SHARED)
+
+target_link_libraries(desktop-kde-wl
+  PUBLIC
+    desktop-kde
+    PW::KScreenLocker
+    WraplandServer
+)
+
+target_sources(desktop-kde-wl
+  PUBLIC
+    FILE_SET HEADERS
+    FILES
+      kde/screen_locker.h
+  PRIVATE
+    kde/screen_locker.cpp
+)
+
+set_target_properties(desktop desktop-kde desktop-kde-wl PROPERTIES
   VERSION ${CMAKE_PROJECT_VERSION}
   SOVERSION ${CMAKE_PROJECT_VERSION_MAJOR}
   PREFIX libcomo-
@@ -102,7 +121,7 @@ ecm_install_configured_files(
   @ONLY DESTINATION ${KDE_INSTALL_SYSTEMDUSERUNITDIR}
 )
 
-install(TARGETS desktop desktop-kde
+install(TARGETS desktop desktop-kde desktop-kde-wl
   EXPORT como-export
   LIBRARY NAMELINK_SKIP
   FILE_SET HEADERS DESTINATION ${KDE_INSTALL_INCLUDEDIR}/como/desktop

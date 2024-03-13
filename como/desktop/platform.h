@@ -5,6 +5,7 @@
 */
 #pragma once
 
+#include <como/desktop/screen_locker.h>
 #include <como/desktop/screen_locker_watcher.h>
 
 #include <QObject>
@@ -29,6 +30,7 @@ public:
 
     virtual ~platform() = default;
 
+    std::unique_ptr<desktop::screen_locker> screen_locker;
     std::unique_ptr<desktop::screen_locker_watcher> screen_locker_watcher;
 };
 

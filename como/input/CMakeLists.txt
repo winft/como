@@ -7,6 +7,8 @@ add_library(input SHARED)
 target_link_libraries(input
   PUBLIC
     win
+    # TODO(romangg): for lock_screen.h, remove.
+    PW::KScreenLocker
 )
 
 target_sources(input

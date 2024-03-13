@@ -7,7 +7,6 @@
 
 #include "effects.h"
 
-#include <como/base/wayland/screen_lock.h>
 #include <como/render/backend/wlroots/backend.h>
 #include <como/render/compositor_start.h>
 #include <como/render/dbus/compositing.h>
@@ -20,6 +19,7 @@
 #include <como/render/singleton_interface.h>
 #include <como/render/wayland/presentation.h>
 #include <como/render/wayland/shadow.h>
+#include <como/win/wayland/screen_lock.h>
 
 #include <memory>
 
@@ -260,7 +260,7 @@ public:
     {
         auto setup_hooks = [&, this](auto scene) -> decltype(scene) {
             scene->windowing_integration.is_screen_locked
-                = [&, this] { return base::wayland::is_screen_locked(this->base); };
+                = [&, this] { return win::wayland::screen_lock_is_locked(*space); };
             return scene;
         };
 

@@ -10,12 +10,12 @@
 
 #include <como/base/logging.h>
 #include <como/base/seat/session.h>
-#include <como/base/wayland/screen_lock.h>
 #include <como/debug/perf/ftrace.h>
 #include <como/render/gl/scene.h>
 #include <como/render/gl/timer_query.h>
 #include <como/win/remnant.h>
 #include <como/win/space_window_release.h>
+#include <como/win/wayland/screen_lock.h>
 
 #include <como/render/gl/interface/platform.h>
 
@@ -406,7 +406,8 @@ private:
         }
 
         idle = false;
-        auto const screen_lock_filtered = base::wayland::is_screen_locked(platform.base);
+        auto const screen_lock_filtered
+            = win::wayland::screen_lock_is_locked(*platform.base.mod.space);
 
         // Skip windows that are not yet ready for being painted and if screen is locked skip
         // windows that are neither lockscreen nor inputmethod windows.

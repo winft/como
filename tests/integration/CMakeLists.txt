@@ -114,7 +114,7 @@ set_target_properties(tests PROPERTIES UNITY_BUILD ON)
 
 target_link_libraries(tests
 PRIVATE
-  desktop-kde
+  desktop-kde-wl
   como::wayland
   como::xwayland
   script
@@ -193,7 +193,7 @@ set_target_properties(tests-wl PROPERTIES UNITY_BUILD ON)
 
 target_link_libraries(tests-wl
 PRIVATE
-  desktop-kde
+  desktop-kde-wl
   como::wayland
   script
   Qt::Test

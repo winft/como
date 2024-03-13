@@ -8,6 +8,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <base/wayland/app_singleton.h>
 #include <base/wayland/xwl_platform.h>
+#include <como/desktop/kde/screen_locker.h>
 #include <desktop/kde/platform.h>
 #include <render/shortcuts_init.h>
 #include <script/platform.h>
@@ -246,7 +247,8 @@ int main(int argc, char* argv[])
         base.process_environment.insert(QStringLiteral("WAYLAND_DISPLAY"), name.c_str());
     }
 
-    base.server->init_screen_locker();
+    base.mod.space->mod.desktop->screen_locker = std::make_unique<desktop::kde::screen_locker>(
+        *base.server, base.process_environment, parser.isSet(options.lockscreen));
 
     if (base.operation_mode == base::operation_mode::xwayland) {
         try {

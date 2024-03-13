@@ -12,6 +12,7 @@
 #include <como/input/spies/modifier_only_shortcuts.h>
 #include <como/input/xkb/layout_manager.h>
 #include <como/input/xkb/manager.h>
+#include <como/win/wayland/screen_lock.h>
 
 #include <KScreenLocker/KsldApp>
 #include <memory>
@@ -121,7 +122,7 @@ public:
                              }
                              update();
                          });
-        if (redirect->platform.base.server->has_screen_locker_integration()) {
+        if (win::wayland::screen_lock_is_supported(redirect->space)) {
             QObject::connect(ScreenLocker::KSldApp::self(),
                              &ScreenLocker::KSldApp::lockStateChanged,
                              qobject.get(),

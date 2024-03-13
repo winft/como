@@ -14,7 +14,7 @@ kcoreaddons_target_static_plugins(kwin_x11 NAMESPACE "kwin/effects/plugins")
 
 add_executable(kwin_wayland main_wayland.cpp)
 target_link_libraries(kwin_wayland
-  desktop-kde
+  desktop-kde-wl
   como::script
   como::wayland
   como::xwayland
