@@ -7,6 +7,7 @@
 
 #include <como/win/geo.h>
 #include <como/win/wayland/input.h>
+#include <como/win/wayland/screen_lock.h>
 
 namespace como::input
 {
@@ -15,7 +16,7 @@ template<typename Redirect>
 auto find_controlled_window(Redirect const& redirect, QPoint const& pos)
     -> std::optional<typename Redirect::window_t>
 {
-    auto const isScreenLocked = base::wayland::is_screen_locked(redirect.platform.base);
+    auto const isScreenLocked = win::wayland::screen_lock_is_locked(redirect.space);
     auto const& stacking = redirect.space.stacking.order.stack;
     if (stacking.empty()) {
         return {};
@@ -71,7 +72,7 @@ template<typename Redirect>
 auto find_window(Redirect const& redirect, QPoint const& pos)
     -> std::optional<typename Redirect::window_t>
 {
-    if (base::wayland::is_screen_locked(redirect.platform.base)) {
+    if (win::wayland::screen_lock_is_locked(redirect.space)) {
         return find_controlled_window(redirect, pos);
     }
 

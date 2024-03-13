@@ -7,9 +7,9 @@
 
 #include "popup_placement.h"
 #include "window_release.h"
+#include <como/win/wayland/screen_lock.h>
 #include <como/win/wayland/space_windows.h>
 
-#include <como/base/wayland/server.h>
 #include <como/utils/geo.h>
 #include <como/win/controlling.h>
 #include <como/win/input.h>
@@ -615,7 +615,7 @@ void install_deco(Win& win, Wrapland::Server::XdgDecoration* deco)
 template<typename Window, typename Space>
 void handle_new_toplevel(Space* space, Wrapland::Server::XdgShellToplevel* toplevel)
 {
-    if (toplevel->client() == space->base.server->screen_locker_client_connection) {
+    if (toplevel->client() == screen_lock_get_client(*space)) {
         ScreenLocker::KSldApp::self()->lockScreenShown();
     }
     auto& win = win::wayland::create_toplevel_window<Window>(space, toplevel);

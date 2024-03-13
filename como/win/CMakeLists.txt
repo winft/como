@@ -341,6 +341,7 @@ target_sources(win-wl
       wayland/plasma_window.h
       wayland/popup_placement.h
       wayland/scene.h
+      wayland/screen_lock.h
       wayland/session_manager.h
       wayland/setup.h
       wayland/space.h

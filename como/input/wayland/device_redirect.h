@@ -12,6 +12,7 @@
 #include <como/win/geo.h>
 #include <como/win/space_qobject.h>
 #include <como/win/stacking_order.h>
+#include <como/win/wayland/screen_lock.h>
 
 #include <QWindow>
 
@@ -227,7 +228,7 @@ QWindow* device_redirect_find_internal_window(Space& space, QPoint const& pos)
     if (space.windows.empty()) {
         return nullptr;
     }
-    if (base::wayland::is_screen_locked(space.base)) {
+    if (win::wayland::screen_lock_is_locked(space)) {
         return nullptr;
     }
 

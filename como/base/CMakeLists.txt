@@ -133,7 +133,6 @@ add_library(base-wl SHARED)
 target_link_libraries(base-wl
   PUBLIC
     KF6::Service
-    PW::KScreenLocker
     WraplandServer
     base
 )
@@ -149,7 +148,6 @@ target_sources(base-wl
       wayland/output_transform.h
       wayland/platform.h
       wayland/platform_helpers.h
-      wayland/screen_lock.h
       wayland/server.h
       wayland/server_helpers.h
       wayland/xwl_platform.h

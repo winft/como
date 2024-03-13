@@ -13,6 +13,7 @@
 #include <como/win/space_areas_helpers.h>
 #include <como/win/stacking.h>
 #include <como/win/transient.h>
+#include <como/win/wayland/screen_lock.h>
 #include <como/win/wayland/space_windows.h>
 
 #include <como/base/platform_qobject.h>
@@ -228,7 +229,7 @@ void handle_new_layer_surface(Space* space, Wrapland::Server::LayerSurfaceV1* la
     using var_win = typename Space::window_t;
     auto window = new Window(layer_surface->surface(), *space);
 
-    if (layer_surface->surface()->client() == space->base.server->screen_locker_client_connection) {
+    if (layer_surface->surface()->client() == win::wayland::screen_lock_get_client(*space)) {
         ScreenLocker::KSldApp::self()->lockScreenShown();
     }
 

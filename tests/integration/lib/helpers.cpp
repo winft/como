@@ -13,6 +13,7 @@
 #include "como/input/backend/wlroots/keyboard.h"
 #include "como/input/backend/wlroots/pointer.h"
 #include "como/input/backend/wlroots/touch.h"
+#include "como/win/wayland/screen_lock.h"
 #include "como/win/wayland/space.h"
 #include "como/win/wayland/window.h"
 
@@ -325,7 +326,7 @@ void init_xdg_shell_popup(std::unique_ptr<Clt::Surface> const& surface,
 
 void lock_screen()
 {
-    QVERIFY(!base::wayland::is_screen_locked(app()->base));
+    QVERIFY(!win::wayland::screen_lock_is_locked(*app()->base->mod.space));
 
     QSignalSpy lockStateChangedSpy(ScreenLocker::KSldApp::self(),
                                    &ScreenLocker::KSldApp::lockStateChanged);
@@ -337,7 +338,7 @@ void lock_screen()
     ScreenLocker::KSldApp::self()->lock(ScreenLocker::EstablishLock::Immediate);
     QCOMPARE(lockStateChangedSpy.count(), 1);
 
-    QVERIFY(base::wayland::is_screen_locked(app()->base));
+    QVERIFY(win::wayland::screen_lock_is_locked(*app()->base->mod.space));
     QVERIFY(lockWatcherSpy.wait());
     QCOMPARE(lockWatcherSpy.count(), 1);
     QCOMPARE(lockStateChangedSpy.count(), 2);
@@ -381,7 +382,7 @@ void unlock_screen()
     QCOMPARE(lockWatcherSpy.count(), 1);
     QCOMPARE(lockStateChangedSpy.count(), 1);
 
-    QVERIFY(!base::wayland::is_screen_locked(app()->base));
+    QVERIFY(!win::wayland::screen_lock_is_locked(*app()->base->mod.space));
 
     QVERIFY(!app()->base->mod.space->mod.desktop->screen_locker_watcher->is_locked());
 }

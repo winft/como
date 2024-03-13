@@ -7,11 +7,11 @@
 
 #include "helpers.h"
 
-#include <como/base/wayland/screen_lock.h>
 #include <como/base/wayland/server.h>
 #include <como/input/event_filter.h>
 #include <como/input/keyboard_redirect.h>
 #include <como/input/qt_event.h>
+#include <como/win/wayland/screen_lock.h>
 #include <como/win/wayland/space_windows.h>
 
 #include <KScreenLocker/KsldApp>
@@ -34,7 +34,7 @@ public:
 
     bool button(button_event const& event) override
     {
-        if (!base::wayland::is_screen_locked(this->redirect.platform.base)) {
+        if (!win::wayland::screen_lock_is_locked(this->redirect.space)) {
             return false;
         }
 
@@ -53,7 +53,7 @@ public:
 
     bool motion(motion_event const& event) override
     {
-        if (!base::wayland::is_screen_locked(this->redirect.platform.base)) {
+        if (!win::wayland::screen_lock_is_locked(this->redirect.space)) {
             return false;
         }
 
@@ -71,7 +71,7 @@ public:
 
     bool axis(axis_event const& event) override
     {
-        if (!base::wayland::is_screen_locked(this->redirect.platform.base)) {
+        if (!win::wayland::screen_lock_is_locked(this->redirect.space)) {
             return false;
         }
 
@@ -88,7 +88,7 @@ public:
 
     bool key(key_event const& event) override
     {
-        if (!base::wayland::is_screen_locked(this->redirect.platform.base)) {
+        if (!win::wayland::screen_lock_is_locked(this->redirect.space)) {
             return false;
         }
 
@@ -120,12 +120,12 @@ public:
     bool key_repeat(key_event const& /*event*/) override
     {
         // If screen is locked Wayland client takes care of it.
-        return base::wayland::is_screen_locked(this->redirect.platform.base);
+        return win::wayland::screen_lock_is_locked(this->redirect.space);
     }
 
     bool touch_down(touch_down_event const& event) override
     {
-        if (!base::wayland::is_screen_locked(this->redirect.platform.base)) {
+        if (!win::wayland::screen_lock_is_locked(this->redirect.space)) {
             return false;
         }
         auto seat = this->redirect.platform.base.server->seat();
@@ -138,7 +138,7 @@ public:
 
     bool touch_motion(touch_motion_event const& event) override
     {
-        if (!base::wayland::is_screen_locked(this->redirect.platform.base)) {
+        if (!win::wayland::screen_lock_is_locked(this->redirect.space)) {
             return false;
         }
         auto seat = this->redirect.platform.base.server->seat();
@@ -154,7 +154,7 @@ public:
 
     bool touch_up(touch_up_event const& event) override
     {
-        if (!base::wayland::is_screen_locked(this->redirect.platform.base)) {
+        if (!win::wayland::screen_lock_is_locked(this->redirect.space)) {
             return false;
         }
         auto seat = this->redirect.platform.base.server->seat();
@@ -172,37 +172,37 @@ public:
     bool pinch_begin(pinch_begin_event const& /*event*/) override
     {
         // no touchpad multi-finger gestures on lock screen
-        return base::wayland::is_screen_locked(this->redirect.platform.base);
+        return win::wayland::screen_lock_is_locked(this->redirect.space);
     }
 
     bool pinch_update(pinch_update_event const& /*event*/) override
     {
         // no touchpad multi-finger gestures on lock screen
-        return base::wayland::is_screen_locked(this->redirect.platform.base);
+        return win::wayland::screen_lock_is_locked(this->redirect.space);
     }
 
     bool pinch_end(pinch_end_event const& /*event*/) override
     {
         // no touchpad multi-finger gestures on lock screen
-        return base::wayland::is_screen_locked(this->redirect.platform.base);
+        return win::wayland::screen_lock_is_locked(this->redirect.space);
     }
 
     bool swipe_begin(swipe_begin_event const& /*event*/) override
     {
         // no touchpad multi-finger gestures on lock screen
-        return base::wayland::is_screen_locked(this->redirect.platform.base);
+        return win::wayland::screen_lock_is_locked(this->redirect.space);
     }
 
     bool swipe_update(swipe_update_event const& /*event*/) override
     {
         // no touchpad multi-finger gestures on lock screen
-        return base::wayland::is_screen_locked(this->redirect.platform.base);
+        return win::wayland::screen_lock_is_locked(this->redirect.space);
     }
 
     bool swipe_end(swipe_end_event const& /*event*/) override
     {
         // no touchpad multi-finger gestures on lock screen
-        return base::wayland::is_screen_locked(this->redirect.platform.base);
+        return win::wayland::screen_lock_is_locked(this->redirect.space);
     }
 
 private:

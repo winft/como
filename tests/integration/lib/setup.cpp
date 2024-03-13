@@ -8,6 +8,7 @@
 #include "como/base/backend/wlroots/helpers.h"
 #include "como/base/config.h"
 #include "como/desktop/kde/platform.h"
+#include "como/desktop/kde/screen_locker.h"
 #include "como/input/wayland/platform.h"
 #include "como/render/shortcuts_init.h"
 #include "como/render/wayland/platform.h"
@@ -144,7 +145,8 @@ void setup::start()
     metadata.physical_size = {1280, 1024};
     out->wrapland_output()->set_metadata(metadata);
 
-    base->server->init_screen_locker();
+    base->mod.space->mod.desktop->screen_locker = std::make_unique<desktop::kde::screen_locker>(
+        *base->server, base->process_environment, false);
 
 #if USE_XWL
     if (base->operation_mode == base::operation_mode::xwayland) {
