@@ -69,7 +69,7 @@ public:
         return effect->d.get();
     }
 
-    std::unique_ptr<QQmlComponent> delegate;
+    QPointer<QQmlComponent> delegate;
     QUrl source;
     std::map<EffectScreen const*, std::unique_ptr<QQmlContext>> contexts;
     std::map<EffectScreen const*, std::unique_ptr<QQmlIncubator>> incubators;
@@ -270,7 +270,7 @@ void QuickSceneEffect::setSource(const QUrl& url)
     }
     if (d->source != url) {
         d->source = url;
-        d->delegate.reset();
+        d->delegate.clear();
     }
 }
 
@@ -287,7 +287,7 @@ void QuickSceneEffect::setDelegate(QQmlComponent* delegate)
     }
     if (d->delegate.get() != delegate) {
         d->source = QUrl();
-        d->delegate.reset(delegate);
+        d->delegate = delegate;
         Q_EMIT delegateChanged();
     }
 }
@@ -516,11 +516,12 @@ void QuickSceneEffect::startInternal()
             return;
         }
 
-        d->delegate = std::make_unique<QQmlComponent>(effects->qmlEngine());
+        d->delegate = new QQmlComponent(effects->qmlEngine(), this);
         d->delegate->loadUrl(d->source);
+
         if (d->delegate->isError()) {
             qWarning().nospace() << "Failed to load " << d->source << ": " << d->delegate->errors();
-            d->delegate.reset();
+            d->delegate.clear();
             return;
         }
         Q_EMIT delegateChanged();
