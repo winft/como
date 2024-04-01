@@ -43,6 +43,7 @@ Name[zh_CN]=Aurorae 窗口装饰
 Name[zh_TW]=Aurorae 視窗裝飾
 
 ProvidersUrl=https://autoconfig.kde.org/ocs/providers.xml
+ContentWarning=Executables
 Categories=Window Decoration Aurorae
 Uncompress=archive
 TargetDir=aurorae/themes
