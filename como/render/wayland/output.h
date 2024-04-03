@@ -10,6 +10,7 @@
 
 #include <como/base/logging.h>
 #include <como/base/seat/session.h>
+#include <como/base/wayland/screen_lock.h>
 #include <como/debug/perf/ftrace.h>
 #include <como/render/gl/scene.h>
 #include <como/render/gl/timer_query.h>

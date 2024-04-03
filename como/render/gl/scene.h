@@ -283,7 +283,8 @@ protected:
     {
         auto& eff_win = static_cast<effect_window_t&>(data.window);
 
-        if (base::wayland::is_screen_locked(this->platform.base)) {
+        if (this->windowing_integration.is_screen_locked
+            && this->windowing_integration.is_screen_locked()) {
             if (std::visit(overload{[&](auto&& win) {
                                if constexpr (requires(decltype(win) win) { win.isLockScreen(); }) {
                                    if (win->isLockScreen()) {
