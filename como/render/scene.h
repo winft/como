@@ -11,7 +11,6 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "singleton_interface.h"
 #include "types.h"
 
-#include <como/base/wayland/screen_lock.h>
 #include <como/win/damage.h>
 #include <como/win/deco/renderer.h>
 #include <como/win/geo.h>
@@ -32,6 +31,7 @@ namespace como::render
 
 struct scene_windowing_integration {
     std::function<void(void)> handle_viewport_limits_alarm;
+    std::function<bool()> is_screen_locked;
 };
 
 /**
@@ -625,7 +625,7 @@ public:
         auto& eff_win = static_cast<effect_window_t&>(data.window);
         auto mask = static_cast<paint_type>(data.paint.mask);
 
-        if (base::wayland::is_screen_locked(platform.base)) {
+        if (windowing_integration.is_screen_locked && windowing_integration.is_screen_locked()) {
             if (!std::visit(
                     overload{[](auto&& win) {
                         auto do_draw{false};

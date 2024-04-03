@@ -7,6 +7,7 @@
 
 #include "effects.h"
 
+#include <como/base/wayland/screen_lock.h>
 #include <como/render/backend/wlroots/backend.h>
 #include <como/render/compositor_start.h>
 #include <como/render/dbus/compositing.h>
@@ -257,10 +258,16 @@ public:
 
     std::unique_ptr<scene_t> create_scene()
     {
+        auto setup_hooks = [&, this](auto scene) -> decltype(scene) {
+            scene->windowing_integration.is_screen_locked
+                = [&, this] { return base::wayland::is_screen_locked(this->base); };
+            return scene;
+        };
+
         if (is_sw_compositing()) {
-            return qpainter::create_scene(*this);
+            return setup_hooks(qpainter::create_scene(*this));
         }
-        return gl::create_scene(*this);
+        return setup_hooks(gl::create_scene(*this));
     }
 
     template<typename RefWin>
