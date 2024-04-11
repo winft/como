@@ -423,7 +423,7 @@ TEST_CASE("decoration input", "[input],[win]")
         };
         auto test_data = GENERATE(data{"to right", {10, 0}, {20, 0}, {30, 0}},
                                   data{"to left", {-10, 0}, {-20, 0}, {-30, 0}},
-                                  data{"to bottom", {0, 10}, {0, 20}, {0, 30}},
+                                  data{"to top", {0, 10}, {0, 20}, {0, 30}},
                                   data{"to bottom", {0, -10}, {0, -20}, {0, -30}});
 
         auto c = showWindow();
