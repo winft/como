@@ -18,7 +18,7 @@ target_sources(base
   PUBLIC
     FILE_SET HEADERS
     FILES
-      os/clock/linux_skew_notifier_engine.h
+      os/clock/skew_notifier_engine.h
       os/clock/skew_notifier.h
       seat/backend/logind/session.h
       seat/session.h
@@ -49,7 +49,7 @@ if (CMAKE_SYSTEM_NAME MATCHES "Linux")
     PUBLIC
       FILE_SET HEADERS
       FILES
-        os/clock/skew_notifier_engine.h
+        os/clock/linux_skew_notifier_engine.h
     PRIVATE
       os/clock/linux_skew_notifier_engine.cpp
   )
