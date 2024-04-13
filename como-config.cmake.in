@@ -16,7 +16,6 @@ find_dependency(KF6 @KF6_MIN_VERSION@ COMPONENTS
   Config
   ConfigWidgets
   CoreAddons
-  Declarative
   GlobalAccel
   I18n
   IdleTime
