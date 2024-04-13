@@ -14,6 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <sys/socket.h>
 #include <sys/stat.h>
 #include <sys/un.h>
+#include <unistd.h>
 
 namespace como::xwl
 {
