@@ -92,7 +92,6 @@ find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
 )
 # required frameworks by config modules
 find_package(KF6 ${KF6_MIN_VERSION} REQUIRED COMPONENTS
-    Declarative
     KCMUtils
     NewStuff
     Service
