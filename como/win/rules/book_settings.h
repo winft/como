@@ -25,19 +25,18 @@ class COMO_EXPORT book_settings : public book_settings_base
 {
 public:
     book_settings(KSharedConfig::Ptr config, QObject* parent = nullptr);
-    book_settings(const QString& configname, KConfig::OpenFlags, QObject* parent = nullptr);
-    book_settings(KConfig::OpenFlags, QObject* parent = nullptr);
     book_settings(QObject* parent = nullptr);
     ~book_settings();
 
     void setRules(std::vector<ruling*> const&);
-    std::deque<ruling*> rules();
+    std::deque<ruling*> rules() const;
 
     bool usrSave() override;
     void usrRead() override;
     bool usrIsSaveNeeded() const;
 
     size_t ruleCount() const;
+    std::optional<size_t> indexForId(QString const& id) const;
     settings* ruleSettingsAt(size_t row) const;
     settings* insertRuleSettingsAt(size_t row);
     void removeRuleSettingsAt(size_t row);

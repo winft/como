@@ -148,6 +148,7 @@ void ruling::write(rules::settings* settings) const
               }
           };
 
+    settings->setDefaults();
     settings->setDescription(description);
 
     // Always write wmclass.

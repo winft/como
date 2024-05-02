@@ -84,7 +84,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -117,7 +117,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -194,7 +194,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -271,7 +271,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -341,7 +341,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
 
         // The client should be moved to the position specified by the rule.
         QSignalSpy geometryChangedSpy(client->qobject.get(),
@@ -407,7 +407,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -464,7 +464,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -514,7 +514,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -655,7 +655,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -795,7 +795,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -913,7 +913,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The compositor should send a configure event with a new size.
@@ -953,7 +953,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1045,7 +1045,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1103,7 +1103,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1218,7 +1218,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1332,7 +1332,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1468,7 +1468,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // We should receive a configure event with a new surface size.
@@ -1537,7 +1537,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1642,7 +1642,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1679,7 +1679,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1732,7 +1732,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1782,7 +1782,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1844,7 +1844,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The client should have been moved to the second subspace.
@@ -1884,7 +1884,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1938,7 +1938,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -1968,7 +1968,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2022,7 +2022,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2071,7 +2071,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2123,7 +2123,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The client should be minimized now.
@@ -2155,7 +2155,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2198,7 +2198,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2227,7 +2227,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2268,7 +2268,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2311,7 +2311,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2362,7 +2362,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The client should not be on a taskbar now.
@@ -2392,7 +2392,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2437,7 +2437,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2466,7 +2466,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2507,7 +2507,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2550,7 +2550,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2601,7 +2601,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The client should not be on a pager now.
@@ -2631,7 +2631,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2676,7 +2676,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2705,7 +2705,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2746,7 +2746,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2789,7 +2789,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2840,7 +2840,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The client should be excluded from window switching effects now.
@@ -2870,7 +2870,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2915,7 +2915,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2944,7 +2944,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -2985,7 +2985,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3026,7 +3026,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3075,7 +3075,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The client should now be kept above other clients.
@@ -3105,7 +3105,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3152,7 +3152,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3181,7 +3181,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3222,7 +3222,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3263,7 +3263,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3312,7 +3312,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The client should now be kept below other clients.
@@ -3342,7 +3342,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3389,7 +3389,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3432,7 +3432,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3513,7 +3513,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3582,7 +3582,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3657,7 +3657,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // The client should now have a window shortcut assigned.
@@ -3713,7 +3713,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3826,7 +3826,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3856,7 +3856,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3884,7 +3884,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3921,7 +3921,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3955,7 +3955,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -3990,7 +3990,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -4036,7 +4036,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -4064,7 +4064,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -4092,7 +4092,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // Create the test client.
@@ -4128,7 +4128,7 @@ TEST_CASE("xdg-shell rules", "[win]")
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
 
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         auto surface = create_surface();

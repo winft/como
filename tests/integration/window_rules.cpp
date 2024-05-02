@@ -54,7 +54,7 @@ TEST_CASE("window rules", "[win]")
         group.writeEntry("wmclasscomplete", false);
         group.writeEntry("wmclassmatch", enum_index(win::rules::name_match::exact));
         group.sync();
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // create the test window
@@ -142,7 +142,7 @@ TEST_CASE("window rules", "[win]")
         group.writeEntry("wmclassmatch", 1);
         group.sync();
 
-        setup.base->mod.space->rule_book->config = config;
+        setup.base->mod.space->rule_book->settings->setSharedConfig(config);
         win::space_reconfigure(*setup.base->mod.space);
 
         // create the test window
