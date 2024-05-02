@@ -9,7 +9,6 @@
 #include <como/base/logging.h>
 #include <como/win/control.h>
 
-#include "book_settings.h"
 #include "rules_settings.h"
 
 #include <KConfig>
@@ -46,34 +45,25 @@ void book::load()
 {
     deleteAll();
 
-    if (!config) {
-        config = KSharedConfig::openConfig(QStringLiteral("kwinrulesrc"), KConfig::NoGlobals);
+    if (!settings) {
+        settings = std::make_unique<book_settings>();
     } else {
-        config->reparseConfiguration();
+        settings->sharedConfig()->reparseConfiguration();
     }
 
-    book_settings book(config);
-    book.load();
-    m_rules = book.rules();
+    settings->load();
+    m_rules = settings->rules();
 }
 
 void book::save()
 {
     m_updateTimer->stop();
 
-    if (!config) {
+    if (!settings) {
         qCWarning(KWIN_CORE) << "book::save invoked without prior invocation of book::load";
         return;
     }
-
-    std::vector<ruling*> filteredRules;
-    for (const auto& rule : std::as_const(m_rules)) {
-        filteredRules.push_back(rule);
-    }
-
-    book_settings settings(config);
-    settings.setRules(filteredRules);
-    settings.save();
+    settings->save();
 }
 
 void book::requestDiskStorage()

@@ -144,6 +144,7 @@ public:
     bytes_match clientmachine;
     string_match title;
 
+    QString id;
     QString description;
     bool wmclasscomplete;
     window_type_mask types;

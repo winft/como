@@ -6,7 +6,8 @@
 */
 #pragma once
 
-#include "window.h"
+#include <como/win/rules/book_settings.h>
+#include <como/win/rules/window.h>
 
 #include <QTimer>
 #include <deque>
@@ -14,6 +15,7 @@
 namespace como::win::rules
 {
 
+class book_settings;
 class ruling;
 
 class COMO_EXPORT book_qobject : public QObject
@@ -38,7 +40,7 @@ public:
     void requestDiskStorage();
 
     std::unique_ptr<book_qobject> qobject;
-    KSharedConfig::Ptr config;
+    std::unique_ptr<book_settings> settings;
     std::deque<ruling*> m_rules;
 
 private:

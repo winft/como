@@ -18,18 +18,9 @@ book_settings::book_settings(KSharedConfig::Ptr config, QObject* parent)
 {
 }
 
-book_settings::book_settings(const QString& configname, KConfig::OpenFlags flags, QObject* parent)
-    : book_settings(KSharedConfig::openConfig(configname, flags), parent)
-{
-}
-
-book_settings::book_settings(KConfig::OpenFlags flags, QObject* parent)
-    : book_settings(QStringLiteral("kwinrulesrc"), flags, parent)
-{
-}
-
 book_settings::book_settings(QObject* parent)
-    : book_settings(KConfig::FullConfig, parent)
+    : book_settings(KSharedConfig::openConfig(QStringLiteral("kwinrulesrc"), KConfig::NoGlobals),
+                    parent)
 {
 }
 
@@ -38,49 +29,23 @@ book_settings::~book_settings()
     qDeleteAll(m_list);
 }
 
-void book_settings::setRules(std::vector<ruling*> const& rules)
-{
-    mCount = rules.size();
-    mRuleGroupList.clear();
-    mRuleGroupList.reserve(rules.size());
-
-    size_t i{0};
-    auto const list_length = m_list.size();
-    for (const auto& rule : rules) {
-        rules::settings* settings;
-        if (i < list_length) {
-            // Optimization. Reuse settings already created
-            settings = m_list.at(i);
-            settings->setDefaults();
-        } else {
-            // If there are more rules than in cache
-            settings = new rules::settings(this->sharedConfig(), QString::number(i + 1), this);
-            m_list.push_back(settings);
-        }
-
-        rule->write(settings);
-        mRuleGroupList.append(settings->currentGroup());
-
-        i++;
-    }
-
-    if (m_list.empty()) {
-        return;
-    }
-
-    for (size_t j = m_list.size() - 1; j >= rules.size(); j--) {
-        delete m_list[j];
-        m_list.erase(m_list.begin() + j);
-    }
-}
-
-std::deque<ruling*> book_settings::rules()
+std::deque<ruling*> book_settings::rules() const
 {
     std::deque<ruling*> result;
     for (auto const& settings : m_list) {
         result.push_back(new ruling(settings));
     }
     return result;
+}
+
+std::optional<size_t> book_settings::indexForId(QString const& id) const
+{
+    for (size_t i = 0; i < m_list.size(); i++) {
+        if (m_list.at(i)->currentGroup() == id) {
+            return i;
+        }
+    }
+    return std::nullopt;
 }
 
 bool book_settings::usrSave()

@@ -17,25 +17,31 @@ namespace como::win::rules
 template<typename Book, typename RefWin>
 void discard_used_rules(Book& book, RefWin& ref_win, bool withdrawn)
 {
-    auto updated = false;
-
     for (auto it = book.m_rules.begin(); it != book.m_rules.end();) {
         if (ref_win.control->rules.contains(*it)) {
+            auto const index = book.settings->indexForId((*it)->id);
+
             if ((*it)->discardUsed(withdrawn)) {
-                updated = true;
+                if (index) {
+                    auto settings = book.settings->ruleSettingsAt(index.value());
+                    (*it)->write(settings);
+                }
             }
             if ((*it)->isEmpty()) {
                 ref_win.control->remove_rule(*it);
                 auto r = *it;
                 it = book.m_rules.erase(it);
                 delete r;
+                if (index) {
+                    book.settings->removeRuleSettingsAt(index.value());
+                }
                 continue;
             }
         }
         ++it;
     }
 
-    if (updated) {
+    if (book.settings->usrIsSaveNeeded()) {
         book.requestDiskStorage();
     }
 }
