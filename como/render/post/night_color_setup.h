@@ -19,7 +19,8 @@ void init_night_color_shortcuts(Input& input, NightColor& manager)
     auto toggleAction = new QAction(manager.qobject.get());
     toggleAction->setProperty("componentName", "kwin");
     toggleAction->setObjectName(QStringLiteral("Toggle Night Color"));
-    toggleAction->setText(i18n("Toggle Night Light"));
+    toggleAction->setText(
+        i18nc("Temporarily disable/reenable Night Light", "Suspend/Resume Night Light"));
 
     input.shortcuts->register_keyboard_default_shortcut(toggleAction, {});
     input.shortcuts->register_keyboard_shortcut(toggleAction, {});
