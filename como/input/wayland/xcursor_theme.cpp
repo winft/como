@@ -82,8 +82,28 @@ std::chrono::milliseconds xcursor_sprite::delay() const
 static QList<xcursor_sprite>
 load_cursor(QString const& file_path, int target_size, double device_pixel_ratio)
 {
-    auto images
-        = XcursorFileLoadImages(QFile::encodeName(file_path), target_size * device_pixel_ratio);
+    QFile file(file_path);
+    if (!file.open(QFile::ReadOnly)) {
+        return {};
+    }
+
+    XcursorFile reader{
+        .closure = &file,
+        .read = [](XcursorFile* file, uint8_t* buffer, int len) -> int {
+            QFile* device = static_cast<QFile*>(file->closure);
+            return device->read(reinterpret_cast<char*>(buffer), len);
+        },
+        .skip = [](XcursorFile* file, long offset) -> XcursorBool {
+            QFile* device = static_cast<QFile*>(file->closure);
+            return device->skip(offset) != -1;
+        },
+        .seek = [](XcursorFile* file, long offset) -> XcursorBool {
+            QFile* device = static_cast<QFile*>(file->closure);
+            return device->seek(offset);
+        },
+    };
+
+    auto images = XcursorXcFileLoadImages(&reader, target_size * device_pixel_ratio);
     if (!images) {
         return {};
     }
