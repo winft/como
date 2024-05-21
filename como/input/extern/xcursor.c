@@ -188,7 +188,6 @@ typedef struct _XcursorFile XcursorFile;
 struct _XcursorFile {
     void    *closure;
     int	    (*read)  (XcursorFile *file, unsigned char *buf, int len);
-    int	    (*write) (XcursorFile *file, unsigned char *buf, int len);
     int	    (*seek)  (XcursorFile *file, long offset, int whence);
 };
 
@@ -557,13 +556,6 @@ _XcursorStdioFileRead (XcursorFile *file, unsigned char *buf, int len)
 }
 
 static int
-_XcursorStdioFileWrite (XcursorFile *file, unsigned char *buf, int len)
-{
-    FILE    *f = file->closure;
-    return fwrite (buf, 1, len, f);
-}
-
-static int
 _XcursorStdioFileSeek (XcursorFile *file, long offset, int whence)
 {
     FILE    *f = file->closure;
@@ -575,7 +567,6 @@ _XcursorStdioFileInitialize (FILE *stdfile, XcursorFile *file)
 {
     file->closure = stdfile;
     file->read = _XcursorStdioFileRead;
-    file->write = _XcursorStdioFileWrite;
     file->seek = _XcursorStdioFileSeek;
 }
 
