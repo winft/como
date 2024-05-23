@@ -30,7 +30,6 @@
 #include <como/input/filters/move_resize.h>
 #include <como/input/filters/popup.h>
 #include <como/input/filters/screen_edge.h>
-#include <como/input/filters/terminate_server.h>
 #include <como/input/filters/virtual_terminal.h>
 #include <como/input/filters/window_action.h>
 #include <como/input/filters/window_selector.h>
@@ -357,9 +356,6 @@ private:
 
         m_spies.push_back(new activity_spy(*this));
         m_spies.push_back(new touch_hide_cursor_spy(*this));
-        if (has_global_shortcuts) {
-            m_filters.emplace_back(new terminate_server_filter<type>(*this));
-        }
         m_filters.emplace_back(new drag_and_drop_filter<type>(*this));
         m_filters.emplace_back(new lock_screen_filter<type>(*this));
         m_filters.emplace_back(new popup_filter<type>(*this));
