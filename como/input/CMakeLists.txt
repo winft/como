@@ -32,7 +32,6 @@ target_sources(input
       filters/popup.h
       filters/screen_edge.h
       filters/tabbox.h
-      filters/terminate_server.h
       filters/virtual_terminal.h
       filters/window_action.h
       filters/window_selector.h
