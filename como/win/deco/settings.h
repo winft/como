@@ -110,6 +110,7 @@ private:
         s_buttonNames[KDecoration2::DecorationButtonType::KeepAbove] = QChar('F');
         s_buttonNames[KDecoration2::DecorationButtonType::KeepBelow] = QChar('B');
         s_buttonNames[KDecoration2::DecorationButtonType::Shade] = QChar('L');
+        s_buttonNames[KDecoration2::DecorationButtonType::Spacer] = QChar('_');
     }
 
     QString buttonsToString(QVector<KDecoration2::DecorationButtonType> const& buttons) const
