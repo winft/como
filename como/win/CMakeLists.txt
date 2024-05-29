@@ -9,7 +9,9 @@ target_link_libraries(win
   PUBLIC
     KDecoration2::KDecoration
     KDecoration2::KDecoration2Private
-    KF6::ConfigWidgets
+    KF6::ColorScheme
+    KF6::ConfigCore
+    KF6::ConfigGui
     KF6::CoreAddons
     KF6::I18n
     KF6::Package

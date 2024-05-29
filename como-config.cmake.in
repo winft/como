@@ -13,8 +13,8 @@ find_dependency(wlroots @WLROOTS_MIN_VERSION@)
 find_dependency(Qt6Gui @QT_MIN_VERSION@)
 find_dependency(KF6 @KF6_MIN_VERSION@ COMPONENTS
   Auth
+  ColorScheme
   Config
-  ConfigWidgets
   CoreAddons
   GlobalAccel
   I18n
