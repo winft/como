@@ -31,7 +31,7 @@ namespace como::input
 template<typename Filters, typename UnaryPredicate>
 void process_filters(Filters const& filters, UnaryPredicate function)
 {
-    std::any_of(filters.cbegin(), filters.cend(), function);
+    static_cast<void>(std::any_of(filters.cbegin(), filters.cend(), function));
 }
 
 /**
