@@ -480,8 +480,12 @@ TEST_CASE("decoration input", "[input],[win]")
         QTRY_VERIFY(!win::is_move(c));
         QCOMPARE(clientFinishUserMovedResizedSpy.count(), 2);
 
+        // TODO(romangg): A local variable is needed, otherwise the test fails on release builds
+        //                There seems to be a race condition. Needs to be investigated.
+        auto const compare_pos = oldPos + test_data.offset2 + test_data.offset3;
+
         // TODO: the offset should also be included
-        QCOMPARE(c->geo.pos(), oldPos + test_data.offset2 + test_data.offset3);
+        QCOMPARE(c->geo.pos(), compare_pos);
     }
 
     SECTION("resize outside window")
