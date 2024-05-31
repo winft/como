@@ -1659,10 +1659,10 @@ TEST_CASE("pointer input", "[input]")
         pointer_button_pressed(BTN_LEFT, timestamp++);
         QVERIFY(win::is_move(c));
 
-        auto const sizeAllCursor = loadReferenceThemeCursor(Qt::SizeAllCursor);
-        QVERIFY(!sizeAllCursor.image.isNull());
-        QCOMPARE(cursor()->platform_image().first, sizeAllCursor.image);
-        QCOMPARE(cursor()->platform_image().second, sizeAllCursor.hot_spot);
+        auto const closed_hand_cursor = loadReferenceThemeCursor(Qt::ClosedHandCursor);
+        QVERIFY(!closed_hand_cursor.image.isNull());
+        QCOMPARE(cursor()->platform_image().first, closed_hand_cursor.image);
+        QCOMPARE(cursor()->platform_image().second, closed_hand_cursor.hot_spot);
 
         // finish moving the client
         keyboard_key_released(KEY_LEFTMETA, timestamp++);

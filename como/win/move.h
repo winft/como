@@ -117,7 +117,7 @@ void update_cursor(Win* win)
         break;
     default:
         if (mov_res.enabled) {
-            shape = Qt::SizeAllCursor;
+            shape = Qt::ClosedHandCursor;
         } else {
             shape = Qt::ArrowCursor;
         }
