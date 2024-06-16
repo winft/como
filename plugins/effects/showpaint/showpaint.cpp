@@ -28,7 +28,8 @@ ShowPaintEffect::ShowPaintEffect()
     auto* toggleAction = new QAction(this);
     toggleAction->setObjectName(QStringLiteral("Toggle"));
     toggleAction->setText(i18n("Toggle Show Paint"));
-    effects->registerGlobalShortcutAndDefault({}, toggleAction);
+    effects->registerGlobalShortcutAndDefault(
+        QList<QKeySequence>() << (Qt::CTRL | Qt::META | Qt::ALT | Qt::Key_P), toggleAction);
 
     connect(toggleAction, &QAction::triggered, this, &ShowPaintEffect::toggle);
 }
