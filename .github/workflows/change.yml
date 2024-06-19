@@ -5,6 +5,22 @@ on:
   - push
   - pull_request
 jobs:
+  get:
+    runs-on: ubuntu-latest
+    outputs:
+      image: ${{ steps.setvar.outputs.result }}
+    env:
+      prefix: registry.gitlab.com/kwinft/ci-images/archlinux/como-base
+      result: ''
+      branch: ''
+    steps:
+      - run: echo "branch=${{ github.head_ref || github.ref_name }}" >> $GITHUB_ENV
+      - run: echo "result=${{ env.prefix }}-master" >> $GITHUB_ENV
+      - if: startsWith(env.branch, 'Plasma/') || github.ref_type == 'tag'
+        run: echo "result=${{ env.prefix }}-stable" >> $GITHUB_ENV
+      - id: setvar
+        run: echo "result=${{ env.result }}" >> $GITHUB_OUTPUT
+
   message-lint:
     uses: ./.github/workflows/commit-lint.yml
     with:
@@ -22,8 +38,9 @@ jobs:
 
   clang-build:
     uses: ./.github/workflows/build.yml
+    needs: get
     with:
-      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      image: ${{ needs.get.outputs.image }}
       artifact-name: clang-build
       cmake-preset: clang
 
@@ -32,17 +49,18 @@ jobs:
       matrix:
         preset: [gcc-cov, release]
     uses: ./.github/workflows/build.yml
+    needs: get
     with:
-      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      image: ${{ needs.get.outputs.image }}
       artifact-name: ${{ matrix.preset }}-build
       cmake-preset: ${{ matrix.preset }}
       cmake-args: -DBUILD_TESTING=ON
 
   install:
     uses: ./.github/workflows/install.yml
-    needs: builds
+    needs: [builds, get]
     with:
-      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      image: ${{ needs.get.outputs.image }}
       artifact-name: release-build
 
   tests:
@@ -51,10 +69,10 @@ jobs:
       matrix:
         preset: [gcc-cov, release]
     uses: ./.github/workflows/test.yml
-    needs: builds
+    needs: [builds, get]
     secrets: inherit
     with:
-      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      image: ${{ needs.get.outputs.image }}
       artifact-prefix: ${{ matrix.preset }}
       coverage: ${{ matrix.preset == 'gcc-cov' }}
       # Following tests are currently disabled on CI:
@@ -70,15 +88,15 @@ jobs:
 
   clang-tidy:
     uses: ./.github/workflows/clang-tidy.yml
-    needs: clang-build
+    needs: [clang-build, get]
     with:
-      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      image: ${{ needs.get.outputs.image }}
       artifact-name: clang-build
 
   package:
     uses: ./.github/workflows/package.yml
-    needs: builds
+    needs: [builds, get]
     with:
-      image: registry.gitlab.com/kwinft/ci-images/archlinux/kwinft-base-master
+      image: ${{ needs.get.outputs.image }}
       artifact-name: release-build
       package-name: como
