@@ -4,6 +4,64 @@ SPDX-License-Identifier: GPL-2.0-or-later
 -->
 # Changelog
 All notable changes to The Compositor Modules will be documented in this file.
+## [0.2.0](https://github.com/winft/como/compare/v0.1.0...v0.2.0) (2024-06-19)
+
+
+### ⚠ BREAKING CHANGES
+
+* consumer creates screen locker for desktop platform
+
+### Features
+
+* add a placeholder message in the thumbnails grid switcher ([a7902ec](https://github.com/winft/como/commit/a7902ecb3ef0724b9de996d8ac89c4da200e0f5e))
+* adds a border around hovered and selected desktop in desktopGrid ([ecdba0d](https://github.com/winft/como/commit/ecdba0d18e524ca76046bc4c5ccfa95592903172))
+* drop "<N>" window caption suffix ([0478703](https://github.com/winft/como/commit/0478703e7f86e3febfe5e994e59edc1c20e81326))
+* implement new overview layout algorithm ([c31e091](https://github.com/winft/como/commit/c31e0911f04e5d390ef9d1119907827ff322f7e1))
+* **input:** remove the terminate server shortcut ([885d504](https://github.com/winft/como/commit/885d504bc4df2ef192e89afce5021c4e9eea6683))
+* mark risky KNS content ([84b3a22](https://github.com/winft/como/commit/84b3a22e2d84a4f26ddc4603cfa895b1552fe595))
+* **plugin:** provide a way to reserve a screen edge for grid mode ([bedfb80](https://github.com/winft/como/commit/bedfb80ee54d3e4293551e763f8a0afa412b7f15))
+* **plugin:** remove middle click to close virtual desktop ([a89f065](https://github.com/winft/como/commit/a89f065a39d2e3cdc3b4f36e847ef0a488196706))
+* provide KDE screen locker in desktop module ([4b46eb9](https://github.com/winft/como/commit/4b46eb94de55fe06372eb0920ae137526f805e2e))
+
+
+### Bug Fixes
+
+* adapt to wlroots pointer enum name change ([5f25519](https://github.com/winft/como/commit/5f255190d74d6b8d2ade74ed572e882b38c72892))
+* add screen locked hook to windowing integration ([86df2ac](https://github.com/winft/como/commit/86df2ac3cfa1c08693443fef7a4e7a36b1dc4789))
+* add some missing includes ([7586d3c](https://github.com/winft/como/commit/7586d3cd718e08e9610d4fd53ed3667bc602c175))
+* assert not dividing by zero ([8c28b86](https://github.com/winft/como/commit/8c28b8677e608dd19da8e12790f827fe9422651b))
+* clarify strings for inhibition ([4080777](https://github.com/winft/como/commit/408077738e9b52b0b35988e7422f3a904ad9e47d))
+* define decoration spacer button ([3155ada](https://github.com/winft/como/commit/3155adace1ceeb4b34589236f196cad731544f20))
+* discard return value ([c944f4f](https://github.com/winft/como/commit/c944f4f11cbe426cfaaa8e2262fd315e3c9a6930))
+* do not take ownership of QuickEffect::delegate ([a3a7249](https://github.com/winft/como/commit/a3a72493d31d78f68211b8fd20254abe17efcd5f))
+* don't build SPI support if Qt wasn't build with it ([70c9ee6](https://github.com/winft/como/commit/70c9ee66f7adba864162f3744de156836b2bdf8f))
+* fix oversights on shortcut handling within Overview/Grid effect ([3f1ae13](https://github.com/winft/como/commit/3f1ae1339f1d9f6064b25b7a75e1ae79584a98da))
+* **plugin:** fix autohidden panels blinking when plasmashell launches ([ae65a28](https://github.com/winft/como/commit/ae65a28571e03257046eb979d352a61e691d5d85))
+* **plugin:** fix mainscript for declarative effects ([352a8a4](https://github.com/winft/como/commit/352a8a4766fc79209e011a3d08082a46b1a264c7))
+* **plugin:** search bar can be clicked without closing effect ([9aa0d25](https://github.com/winft/como/commit/9aa0d25782adb34ab17fae192e8dcf9aef67fede))
+* **plugin:** store expo layout without QPointer ([dc2d2c6](https://github.com/winft/como/commit/dc2d2c6ad7375c15da7a9bc9729fcf50940c12a4))
+* **plugin:** store internal window handle without QPointer ([bc7cea9](https://github.com/winft/como/commit/bc7cea976a6110ad68945fb24ecf06cdd4ed4652))
+* prevent including "show desktop" entry if there are no other windows ([156fc65](https://github.com/winft/como/commit/156fc65fd2ef331c1f69345b619b33f96cd9bd2e))
+* store event filters as raw pointers ([ff291bd](https://github.com/winft/como/commit/ff291bd9099015a40c65f2455625ea6dd7d09d94))
+* store implict grab without QPointer ([dc1443e](https://github.com/winft/como/commit/dc1443e1638beb8897d03ca32db40e54e599212e))
+* store window thumbnail item fields without QPointers ([8d71539](https://github.com/winft/como/commit/8d715390eb6eb73ce467406416d5cc8b6e021aa1))
+* use correct enum value for `PointerDevice` ([5ca52a4](https://github.com/winft/como/commit/5ca52a4f1c35238c0980b3e3ee0eac1bbd7cbbda))
+* use new wayland enums ([b7a040a](https://github.com/winft/como/commit/b7a040a39d4785c25810ae0d1f90703078d787b7))
+* use QKeyCombination::toCombined() ([81834c1](https://github.com/winft/como/commit/81834c12146016fcda69c6d4da305726c2252ce7))
+
+
+### Refactors
+
+* adapt to Wrapland subsurface change ([92e6581](https://github.com/winft/como/commit/92e65816fc652f173b6f477edff325c6e039d830))
+* make NETRootInfo initialization reasonable ([5e5adfb](https://github.com/winft/como/commit/5e5adfb3a3ab7158518fe695c32d281a2ab16d15))
+* optimize saving discarded rules to config ([1105f71](https://github.com/winft/como/commit/1105f717a27de307d83b570e37bffc915c1471de))
+* remove Q_D macro ([24a43a9](https://github.com/winft/como/commit/24a43a90c694fac8e4f71d80eda7dfcf58e13b8d))
+* remove screen locker init signal ([95cfefb](https://github.com/winft/como/commit/95cfefbbc6db5a38a259f074d7acacd226858961))
+* replace Qt smart pointers with STL ones ([5828bc2](https://github.com/winft/como/commit/5828bc2231eee9c4084614b0c01a3bead8419ecb))
+* round all the things consistently ([07b946f](https://github.com/winft/como/commit/07b946f00b4ac929670bb1f5511b7b4598c93557))
+* slight code cleanup ([6470ed1](https://github.com/winft/como/commit/6470ed17a3896af7ff09c09722fd145d944c56d9))
+* use smart pointer ([36fa216](https://github.com/winft/como/commit/36fa216d207d6d0518a4ea7cd9f81a9fa761ae33))
+* **wl:** create server connections in free function ([504561f](https://github.com/winft/como/commit/504561f7eec7ff7107153520a2fd812b59d31aea))
 
 ## [0.1.0](https://github.com/winft/como/compare/cfa93fa9db90b2219f21940be69e323fd7f68355...v0.1.0) (2024-02-27)
 
