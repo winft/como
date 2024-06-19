@@ -1,9 +1,7 @@
 <!--
 SPDX-FileCopyrightText: 2024 Roman Gilg <subdiff@gmail.com>
-
 SPDX-License-Identifier: GPL-2.0-or-later
 -->
-
 # Changelog
 All notable changes to The Compositor Modules will be documented in this file.
 
