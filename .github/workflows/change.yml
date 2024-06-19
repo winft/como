@@ -16,7 +16,7 @@ jobs:
     steps:
       - run: echo "branch=${{ github.head_ref || github.ref_name }}" >> $GITHUB_ENV
       - run: echo "result=${{ env.prefix }}-master" >> $GITHUB_ENV
-      - if: startsWith(env.branch, 'Plasma/') || github.ref_type == 'tag'
+      - if: startsWith(env.branch, '0.') || github.ref_type == 'tag'
         run: echo "result=${{ env.prefix }}-stable" >> $GITHUB_ENV
       - id: setvar
         run: echo "result=${{ env.result }}" >> $GITHUB_OUTPUT
