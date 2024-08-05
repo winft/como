@@ -129,11 +129,11 @@ QRegion ContrastEffect::contrastRegion(const EffectWindow* w) const
     if (auto const it = m_windowData.find(w); it != m_windowData.end()) {
         auto const& appRegion = it->second.contrastRegion;
         if (!appRegion.isEmpty()) {
-            region |= appRegion.translated(w->contentsRect().topLeft()) & w->decorationInnerRect();
+            region |= appRegion.translated(w->contentsRect().topLeft()) & w->contentsRect();
         } else {
             // An empty region means that the blur effect should be enabled
             // for the whole window.
-            region = w->decorationInnerRect();
+            region = w->contentsRect();
         }
     }
 

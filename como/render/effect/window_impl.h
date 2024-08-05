@@ -677,11 +677,6 @@ public:
                           *window.ref_win);
     }
 
-    QRect decorationInnerRect() const override
-    {
-        return contentsRect();
-    }
-
     KDecoration2::Decoration* decoration() const override
     {
         return std::visit(overload{[](auto&& ref_win) { return win::decoration(ref_win); }},
