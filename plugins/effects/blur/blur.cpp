@@ -293,7 +293,7 @@ QRegion BlurEffect::deco_blur_region(EffectWindow const* win) const
         return QRegion();
     }
 
-    auto const decorationRegion = QRegion(win->decoration()->rect()) - win->decorationInnerRect();
+    auto const decorationRegion = QRegion(win->decoration()->rect()) - win->contentsRect();
 
     // We return only blurred regions that belong to decoration region.
     return decorationRegion.intersected(win->decoration()->blurRegion());
@@ -331,7 +331,7 @@ QRegion BlurEffect::blur_region(EffectWindow const* win) const
         return win->rect();
     }
 
-    auto region = app_region.translated(win->contentsRect().topLeft()) & win->decorationInnerRect();
+    auto region = app_region.translated(win->contentsRect().topLeft()) & win->contentsRect();
     if (win->decorationHasAlpha() && deco_supports_blur_behind(win)) {
         region |= deco_blur_region(win);
     }
