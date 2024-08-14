@@ -87,11 +87,7 @@ void session::take_control(wl_display* display)
 
     // TODO(romangg): assert instead?
     if (!native) {
-#if WLR_HAVE_SESSION_CREATE_LOOP
         native = wlr_session_create(wl_display_get_event_loop(display));
-#else
-        native = wlr_session_create(display);
-#endif
         if (!native) {
             // TODO(romangg): error handling?
             qCCritical(KWIN_CORE) << "Could not take control.";

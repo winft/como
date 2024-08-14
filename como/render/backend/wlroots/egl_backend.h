@@ -5,8 +5,6 @@
 */
 #pragma once
 
-#include <config-como.h>
-
 #include "egl_helpers.h"
 #include "egl_output.h"
 #include "egl_texture.h"
@@ -71,12 +69,8 @@ public:
         wayland::init_egl(*this, data);
 
         if (this->hasExtension(QByteArrayLiteral("EGL_EXT_image_dma_buf_import"))) {
-#if WLR_HAVE_NEW_PIXEL_COPY_API
             auto const formats_set
                 = wlr_renderer_get_texture_formats(backend.renderer, WLR_BUFFER_CAP_DMABUF);
-#else
-            auto const formats_set = wlr_renderer_get_dmabuf_texture_formats(backend.renderer);
-#endif
             auto const formats_map = get_drm_formats<Wrapland::Server::drm_format>(formats_set);
 
             dmabuf = std::make_unique<Wrapland::Server::linux_dmabuf_v1>(

@@ -19,7 +19,6 @@ extern "C" {
 namespace como::base::backend::wlroots
 {
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
 struct output_state {
     output_state()
         : native{std::make_unique<wlr_output_state>()}
@@ -43,7 +42,6 @@ struct output_state {
 private:
     std::unique_ptr<wlr_output_state> native;
 };
-#endif
 
 template<typename Output>
 void output_handle_destroy(wl_listener* listener, void* /*data*/)
@@ -148,7 +146,6 @@ public:
         return wlr_output_get_gamma_size(native);
     }
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
     void update_dpms(base::dpms_mode mode) override
     {
         output_state state;
@@ -214,65 +211,14 @@ public:
             next_state = std::make_unique<output_state>();
         }
     }
-#else
-    void update_dpms(base::dpms_mode mode) override
-    {
-        auto set_on = mode == base::dpms_mode::on;
-        wlr_output_enable(native, set_on);
-
-        if (set_on) {
-            wlr_output_commit(native);
-            wayland::output_set_dpms_on(*this, *backend->frontend);
-            return;
-        }
-
-        if (!wlr_output_test(native)) {
-            qCWarning(KWIN_CORE) << "Failed test commit on disabling output for DPMS.";
-            wlr_output_enable(native, true);
-            return;
-        }
-
-        get_render(this->render)->disable();
-        wlr_output_commit(native);
-        wayland::output_set_dmps_off(mode, *this, *backend->frontend);
-    }
-
-    bool change_backend_state(Wrapland::Server::output_state const& state) override
-    {
-        wlr_output_enable(native, state.enabled);
-
-        if (state.enabled) {
-            set_native_mode(native, state.mode.id);
-            wlr_output_set_transform(native, static_cast<wl_output_transform>(state.transform));
-            wlr_output_enable_adaptive_sync(native, state.adaptive_sync);
-        }
-
-        return wlr_output_test(native);
-    }
-
-    bool set_gamma_ramp(gamma_ramp const& gamma) override
-    {
-        wlr_output_set_gamma(native, gamma.size(), gamma.red(), gamma.green(), gamma.blue());
-
-        if (!wlr_output_test(native)) {
-            qCWarning(KWIN_CORE) << "Failed test commit on set gamma ramp call.";
-            // TODO(romangg): Set previous gamma.
-            return false;
-        }
-        return true;
-    }
-#endif
 
     wlr_output* native;
-#if WLR_HAVE_NEW_PIXEL_COPY_API
     std::unique_ptr<output_state> next_state;
-#endif
     Backend* backend;
 
 private:
     base::event_receiver<output> destroy_rec;
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
     static void set_native_mode(wlr_output const& output, output_state& state, int mode_index)
     {
         // TODO(romangg): Determine target mode more precisly with semantic properties instead of
@@ -289,24 +235,6 @@ private:
             count++;
         }
     }
-#else
-    void set_native_mode(wlr_output* output, int mode_index)
-    {
-        // TODO(romangg): Determine target mode more precisly with semantic properties instead of
-        // index.
-        wlr_output_mode* wlr_mode;
-        auto count = 0;
-
-        wl_list_for_each(wlr_mode, &output->modes, link)
-        {
-            if (count == mode_index) {
-                wlr_output_set_mode(output, wlr_mode);
-                return;
-            }
-            count++;
-        }
-    }
-#endif
 
     template<typename AbstractRenderOutput>
     render_t* get_render(std::unique_ptr<AbstractRenderOutput>& output)

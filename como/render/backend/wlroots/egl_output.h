@@ -61,7 +61,6 @@ public:
         auto& base = static_cast<typename Output::base_t&>(out->base);
         out->swap_pending = true;
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
         if (!wlr_output_test_state(base.native, base.next_state->get_native())) {
             qCWarning(KWIN_CORE) << "Atomic output test failed on present.";
             base.next_state.reset();
@@ -74,21 +73,6 @@ public:
         }
 
         base.next_state.reset();
-#else
-        if (!base.native->enabled) {
-            wlr_output_enable(base.native, true);
-        }
-
-        if (!wlr_output_test(base.native)) {
-            qCWarning(KWIN_CORE) << "Atomic output test failed on present.";
-            wlr_output_rollback(base.native);
-            return false;
-        }
-        if (!wlr_output_commit(base.native)) {
-            qCWarning(KWIN_CORE) << "Atomic output commit failed on present.";
-            return false;
-        }
-#endif
         return true;
     }
 

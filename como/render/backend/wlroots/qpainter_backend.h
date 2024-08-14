@@ -10,7 +10,6 @@
 
 #include <como/render/qpainter/backend.h>
 #include <como/render/qpainter/scene.h>
-#include <config-como.h>
 
 namespace como::render::backend::wlroots
 {
@@ -49,9 +48,6 @@ public:
 
     void present(base_output_t* output, QRegion const& damage) override
     {
-#if !WLR_HAVE_NEW_PIXEL_COPY_API
-        wlr_renderer_end(platform.renderer);
-#endif
         get_qpainter_output(*output)->present(damage);
     }
 
