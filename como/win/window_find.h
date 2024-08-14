@@ -12,8 +12,9 @@ namespace como::win
 {
 
 template<typename Space>
-auto find_desktop(Space* space, bool topmost, int subspace)
-    -> std::optional<typename Space::window_t>
+auto find_desktop(Space* space,
+                  bool topmost,
+                  int subspace) -> std::optional<typename Space::window_t>
 {
     // TODO(fsorr): use C++20 std::ranges::reverse_view
     auto const& list = space->stacking.order.stack;

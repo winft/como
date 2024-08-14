@@ -28,7 +28,7 @@ class ThemeConfig
 public:
     ThemeConfig();
     void load(const KConfig& conf);
-    ~ThemeConfig(){};
+    ~ThemeConfig() {};
     // active window
     QColor activeTextColor(bool useTabs = false, bool focused = true) const;
     // inactive window

@@ -56,7 +56,7 @@ TEST_CASE("no crash cursor physical size empty", "[win]")
         output->set_metadata(metadata);
 
         // and fake a cursor theme change, so that the theme gets recreated
-        Q_EMIT cursor()->theme_changed();
+        Q_EMIT cursor() -> theme_changed();
 
         cursor()->set_pos(
             QPoint(c->geo.frame.center().x(), win::frame_to_client_pos(c, QPoint()).y() / 2));

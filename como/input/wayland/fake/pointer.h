@@ -38,22 +38,22 @@ public:
                              this->redirect.pointer->process_motion_absolute({pos, {this, 0}});
                          });
 
-        QObject::connect(
-            device,
-            &Wrapland::Server::FakeInputDevice::pointerButtonPressRequested,
-            this,
-            [this](auto button) {
-                // TODO: Fix time
-                this->redirect.pointer->process_button({button, button_state::pressed, {this, 0}});
-            });
-        QObject::connect(
-            device,
-            &Wrapland::Server::FakeInputDevice::pointerButtonReleaseRequested,
-            this,
-            [this](auto button) {
-                // TODO: Fix time
-                this->redirect.pointer->process_button({button, button_state::released, {this, 0}});
-            });
+        QObject::connect(device,
+                         &Wrapland::Server::FakeInputDevice::pointerButtonPressRequested,
+                         this,
+                         [this](auto button) {
+                             // TODO: Fix time
+                             this->redirect.pointer->process_button(
+                                 {button, button_state::pressed, {this, 0}});
+                         });
+        QObject::connect(device,
+                         &Wrapland::Server::FakeInputDevice::pointerButtonReleaseRequested,
+                         this,
+                         [this](auto button) {
+                             // TODO: Fix time
+                             this->redirect.pointer->process_button(
+                                 {button, button_state::released, {this, 0}});
+                         });
         QObject::connect(device,
                          &Wrapland::Server::FakeInputDevice::pointerAxisRequested,
                          this,

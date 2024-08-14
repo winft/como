@@ -32,13 +32,13 @@ class property : public wrapper<property_data,
 public:
     explicit property(xcb_connection_t* con)
         : wrapper<property_data, uint8_t, xcb_window_t, xcb_atom_t, xcb_atom_t, uint32_t, uint32_t>(
-            con)
+              con)
         , m_type(XCB_ATOM_NONE)
     {
     }
     property(property const& other)
         : wrapper<property_data, uint8_t, xcb_window_t, xcb_atom_t, xcb_atom_t, uint32_t, uint32_t>(
-            other)
+              other)
         , m_type(other.m_type)
     {
     }
@@ -50,14 +50,14 @@ public:
              uint32_t long_offset,
              uint32_t long_length)
         : wrapper<property_data, uint8_t, xcb_window_t, xcb_atom_t, xcb_atom_t, uint32_t, uint32_t>(
-            con,
-            window,
-            _delete,
-            window,
-            prop,
-            type,
-            long_offset,
-            long_length)
+              con,
+              window,
+              _delete,
+              window,
+              prop,
+              type,
+              long_offset,
+              long_length)
         , m_type(type)
     {
     }

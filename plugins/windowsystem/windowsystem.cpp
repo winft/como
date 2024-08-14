@@ -50,8 +50,8 @@ void WindowSystem::requestToken(QWindow* /*win*/, uint32_t serial, const QString
 
     // Ensure that xdgActivationTokenArrived is always emitted asynchronously
     QTimer::singleShot(0, [serial, token] {
-        Q_EMIT KWaylandExtras::self()->xdgActivationTokenArrived(serial,
-                                                                 QString::fromStdString(token));
+        Q_EMIT KWaylandExtras::self() -> xdgActivationTokenArrived(serial,
+                                                                   QString::fromStdString(token));
     });
 }
 

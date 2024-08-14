@@ -77,9 +77,9 @@ class idle
 public:
     idle()
         : qobject{std::make_unique<idle_qobject>(
-            [this](auto& listener) { add_listener(listener); },
-            [this](auto& listener) { remove_listener(listener); },
-            [this] { report_activity(); })}
+              [this](auto& listener) { add_listener(listener); },
+              [this](auto& listener) { remove_listener(listener); },
+              [this] { report_activity(); })}
         , countdown{std::make_unique<QTimer>()}
     {
         singleton_interface::idle_qobject = qobject.get();

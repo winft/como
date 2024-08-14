@@ -82,20 +82,18 @@ void handle_button(struct wl_listener* listener, void* data)
     auto pointer = event_receiver_struct->receiver;
     auto wlr_event = reinterpret_cast<wlr_pointer_button_event*>(data);
 
-    auto event = button_event
-    {
+    auto event = button_event{
         wlr_event->button,
 #if WLR_HAVE_WL_POINTER_ENUMS
-            wlr_event->state == WL_POINTER_BUTTON_STATE_RELEASED ? button_state::released
-                                                                 : button_state::pressed,
+        wlr_event->state == WL_POINTER_BUTTON_STATE_RELEASED ? button_state::released
+                                                             : button_state::pressed,
 #else
-            wlr_event->state == WLR_BUTTON_RELEASED ? button_state::released
-                                                    : button_state::pressed,
+        wlr_event->state == WLR_BUTTON_RELEASED ? button_state::released : button_state::pressed,
 #endif
-            {
-                pointer,
-                wlr_event->time_msec,
-            },
+        {
+            pointer,
+            wlr_event->time_msec,
+        },
     };
 
     Q_EMIT pointer->button_changed(event);

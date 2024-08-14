@@ -68,8 +68,8 @@ bool allow_window_activation(Space& space,
 
     auto const protection = ac
         ? std::visit(
-            overload{[](auto&& win) { return win->control->rules.checkFPP(fsp_level::medium); }},
-            *ac)
+              overload{[](auto&& win) { return win->control->rules.checkFPP(fsp_level::medium); }},
+              *ac)
         : fsp_level::none;
 
     // stealing is unconditionally allowed (NETWM behavior)

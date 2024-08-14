@@ -161,7 +161,7 @@ private:
                                          KDecoration2::DecorationButtonType::OnAllDesktops}));
         if (left != m_leftButtons) {
             m_leftButtons = left;
-            Q_EMIT decorationSettings()->decorationButtonsLeftChanged(m_leftButtons);
+            Q_EMIT decorationSettings() -> decorationButtonsLeftChanged(m_leftButtons);
         }
         const auto& right
             = readDecorationButtons(config,
@@ -173,7 +173,7 @@ private:
                                          KDecoration2::DecorationButtonType::Close}));
         if (right != m_rightButtons) {
             m_rightButtons = right;
-            Q_EMIT decorationSettings()->decorationButtonsRightChanged(m_rightButtons);
+            Q_EMIT decorationSettings() -> decorationButtonsRightChanged(m_rightButtons);
         }
         space.appmenu->setViewEnabled(
             left.contains(KDecoration2::DecorationButtonType::ApplicationMenu)
@@ -181,7 +181,7 @@ private:
         const bool close = config.readEntry("CloseOnDoubleClickOnMenu", false);
         if (close != m_closeDoubleClickMenu) {
             m_closeDoubleClickMenu = close;
-            Q_EMIT decorationSettings()->closeOnDoubleClickOnMenuChanged(m_closeDoubleClickMenu);
+            Q_EMIT decorationSettings() -> closeOnDoubleClickOnMenuChanged(m_closeDoubleClickMenu);
         }
         m_autoBorderSize = config.readEntry("BorderSizeAuto", true);
 
@@ -194,15 +194,15 @@ private:
         }
         if (size != m_borderSize) {
             m_borderSize = size;
-            Q_EMIT decorationSettings()->borderSizeChanged(m_borderSize);
+            Q_EMIT decorationSettings() -> borderSizeChanged(m_borderSize);
         }
         const QFont font = QFontDatabase::systemFont(QFontDatabase::TitleFont);
         if (font != m_font) {
             m_font = font;
-            Q_EMIT decorationSettings()->fontChanged(m_font);
+            Q_EMIT decorationSettings() -> fontChanged(m_font);
         }
 
-        Q_EMIT decorationSettings()->reconfigured();
+        Q_EMIT decorationSettings() -> reconfigured();
     }
 
     QVector<KDecoration2::DecorationButtonType>

@@ -64,7 +64,7 @@ template<typename Space>
 struct xdg_activation {
     xdg_activation(Space& space)
         : interface{std::make_unique<Wrapland::Server::XdgActivationV1>(
-            space.base.server->display.get())}
+              space.base.server->display.get())}
         , space{space}
     {
         QObject::connect(
