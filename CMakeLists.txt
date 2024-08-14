@@ -206,20 +206,12 @@ set_package_properties(Pixman PROPERTIES
     PURPOSE "Required for building wlroots backend."
 )
 
-set(WLROOTS_MIN_VERSION "0.17.0")
+set(WLROOTS_MIN_VERSION "0.18.0")
 find_package(wlroots ${WLROOTS_MIN_VERSION})
 set_package_properties(wlroots PROPERTIES
     TYPE REQUIRED
     PURPOSE "Required for building wlroots backend."
 )
-
-if (${wlroots_VERSION} VERSION_GREATER_EQUAL 0.18)
-  set(WLR_HAVE_SESSION_CREATE_LOOP 1)
-  set(WLR_HAVE_UTIL_TRANSFORM_HEADER 1)
-  set(WLR_HAVE_NEW_PIXEL_COPY_API 1)
-  set(WLR_HAVE_BACKEND_CREATE_WITH_LOOP 1)
-  set(WLR_HAVE_WL_POINTER_ENUMS 1)
-endif()
 
 find_package(X11)
 set_package_properties(X11 PROPERTIES

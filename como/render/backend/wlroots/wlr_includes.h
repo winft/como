@@ -5,8 +5,6 @@
 */
 #pragma once
 
-#include "config-como.h"
-
 // Must be included before wlr/render/gles2.h
 #include <epoxy/egl.h>
 #include <epoxy/gl.h>
@@ -33,8 +31,6 @@ extern "C" {
 #include <wlr/types/wlr_buffer.h>
 #include <wlr/util/log.h>
 #include <wlr/util/region.h>
-#if WLR_HAVE_UTIL_TRANSFORM_HEADER
 #include <wlr/util/transform.h>
-#endif
 #undef static
 }

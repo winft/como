@@ -48,20 +48,12 @@ public:
         // TODO(romangg): Make this dependent on KWIN_CORE debug verbosity.
         wlr_log_init(WLR_DEBUG, nullptr);
 
-#if WLR_HAVE_BACKEND_CREATE_WITH_LOOP
         auto wlloop = wl_display_get_event_loop(frontend.server->display->native());
         if (headless) {
             native = wlr_headless_backend_create(wlloop);
         } else {
             native = wlr_backend_autocreate(wlloop, &wlroots_session);
         }
-#else
-        if (headless) {
-            native = wlr_headless_backend_create(frontend.server->display->native());
-        } else {
-            native = wlr_backend_autocreate(frontend.server->display->native(), &wlroots_session);
-        }
-#endif
 
         destroyed->receiver = this;
         destroyed->event.notify = handle_destroy<type>;

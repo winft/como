@@ -84,12 +84,8 @@ void handle_button(struct wl_listener* listener, void* data)
 
     auto event = button_event{
         wlr_event->button,
-#if WLR_HAVE_WL_POINTER_ENUMS
         wlr_event->state == WL_POINTER_BUTTON_STATE_RELEASED ? button_state::released
                                                              : button_state::pressed,
-#else
-        wlr_event->state == WLR_BUTTON_RELEASED ? button_state::released : button_state::pressed,
-#endif
         {
             pointer,
             wlr_event->time_msec,
@@ -109,7 +105,6 @@ void handle_axis(struct wl_listener* listener, void* data)
 
     auto get_source = [](auto wlr_source) {
         switch (wlr_source) {
-#if WLR_HAVE_WL_POINTER_ENUMS
         case WL_POINTER_AXIS_SOURCE_WHEEL:
             return axis_source::wheel;
         case WL_POINTER_AXIS_SOURCE_FINGER:
@@ -118,16 +113,6 @@ void handle_axis(struct wl_listener* listener, void* data)
             return axis_source::continuous;
         case WL_POINTER_AXIS_SOURCE_WHEEL_TILT:
             return axis_source::wheel_tilt;
-#else
-        case WLR_AXIS_SOURCE_WHEEL:
-            return axis_source::wheel;
-        case WLR_AXIS_SOURCE_FINGER:
-            return axis_source::finger;
-        case WLR_AXIS_SOURCE_CONTINUOUS:
-            return axis_source::continuous;
-        case WLR_AXIS_SOURCE_WHEEL_TILT:
-            return axis_source::wheel_tilt;
-#endif
         default:
             return axis_source::unknown;
         }
