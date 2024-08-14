@@ -69,7 +69,22 @@ public:
         return effect->d.get();
     }
 
-    QPointer<QQmlComponent> delegate;
+    QQmlComponent* get_delegate() const
+    {
+        return delegate;
+    }
+    void set_delegate(QQmlComponent* set)
+    {
+        assert(delegate != set);
+        if (delegate) {
+            QObject::disconnect(delegate, &QObject::destroyed, this, nullptr);
+        }
+        delegate = set;
+        if (delegate) {
+            QObject::connect(delegate, &QObject::destroyed, this, [this] { delegate = {}; });
+        }
+    }
+
     QUrl source;
     std::map<EffectScreen const*, std::unique_ptr<QQmlContext>> contexts;
     std::map<EffectScreen const*, std::unique_ptr<QQmlIncubator>> incubators;
@@ -77,6 +92,9 @@ public:
     QuickSceneView* mouseImplicitGrab{nullptr};
     bool running = false;
     EffectScreen const* paintedScreen{nullptr};
+
+private:
+    QQmlComponent* delegate;
 };
 
 void QuickSceneEffectPrivate::set_mouse_implicit_grab(QuickSceneView* view)
@@ -270,13 +288,15 @@ void QuickSceneEffect::setSource(const QUrl& url)
     }
     if (d->source != url) {
         d->source = url;
-        d->delegate.clear();
+        if (d->get_delegate()) {
+            d->set_delegate(nullptr);
+        }
     }
 }
 
 QQmlComponent* QuickSceneEffect::delegate() const
 {
-    return d->delegate.get();
+    return d->get_delegate();
 }
 
 void QuickSceneEffect::setDelegate(QQmlComponent* delegate)
@@ -285,9 +305,9 @@ void QuickSceneEffect::setDelegate(QQmlComponent* delegate)
         qWarning() << "Cannot change QuickSceneEffect.source while running";
         return;
     }
-    if (d->delegate.get() != delegate) {
+    if (d->get_delegate() != delegate) {
         d->source = QUrl();
-        d->delegate = delegate;
+        d->set_delegate(delegate);
         Q_EMIT delegateChanged();
     }
 }
@@ -483,25 +503,25 @@ void QuickSceneEffect::addScreen(EffectScreen const* screen)
                 d->views[screen] = std::move(view);
             } else if (incubator->isError()) {
                 qCWarning(KWIN_CORE)
-                    << "Could not create a view for QML file" << d->delegate->url();
+                    << "Could not create a view for QML file" << d->get_delegate()->url();
                 qCWarning(KWIN_CORE) << incubator->errors();
             }
         });
     incubator->setInitialProperties(properties);
 
     QQmlContext* parentContext;
-    if (QQmlContext* context = d->delegate->creationContext()) {
+    if (auto context = d->get_delegate()->creationContext()) {
         parentContext = context;
     } else if (QQmlContext* context = qmlContext(this)) {
         parentContext = context;
     } else {
-        parentContext = d->delegate->engine()->rootContext();
+        parentContext = d->get_delegate()->engine()->rootContext();
     }
     QQmlContext* context = new QQmlContext(parentContext);
 
     d->contexts[screen].reset(context);
     d->incubators[screen].reset(incubator);
-    d->delegate->create(*incubator, context);
+    d->get_delegate()->create(*incubator, context);
 }
 
 void QuickSceneEffect::startInternal()
@@ -510,24 +530,25 @@ void QuickSceneEffect::startInternal()
         return;
     }
 
-    if (!d->delegate) {
+    if (!d->get_delegate()) {
         if (Q_UNLIKELY(d->source.isEmpty())) {
             qWarning() << "QuickSceneEffect.source is empty. Did you forget to call setSource()?";
             return;
         }
 
-        d->delegate = new QQmlComponent(effects->qmlEngine(), this);
-        d->delegate->loadUrl(d->source);
+        d->set_delegate(new QQmlComponent(effects->qmlEngine(), this));
+        auto delegate = d->get_delegate();
+        delegate->loadUrl(d->source);
 
-        if (d->delegate->isError()) {
-            qWarning().nospace() << "Failed to load " << d->source << ": " << d->delegate->errors();
-            d->delegate.clear();
+        if (delegate->isError()) {
+            qWarning().nospace() << "Failed to load " << d->source << ": " << delegate->errors();
+            d->set_delegate(nullptr);
             return;
         }
         Q_EMIT delegateChanged();
     }
 
-    if (!d->delegate->isReady()) {
+    if (!d->get_delegate()->isReady()) {
         return;
     }
 
