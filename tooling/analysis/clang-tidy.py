@@ -51,3 +51,4 @@ with tempfile.NamedTemporaryFile(mode="w") as temp_file:
         ["python", run_clang_tidy_script_path] + additional_args, stdin=subprocess.PIPE
     )
     python_process.communicate()
+    exit(python_process.returncode)
