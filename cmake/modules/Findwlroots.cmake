@@ -23,7 +23,7 @@
 #==============================================================================
 
 find_package(PkgConfig)
-pkg_search_module(PKG_wlroots wlroots-0.18)
+pkg_search_module(PKG_wlroots wlroots-0.19 wlroots-0.18)
 
 set(wlroots_VERSION ${PKG_wlroots_VERSION})
 set(wlroots_INCLUDE_DIRS ${PKG_wlroots_INCLUDE_DIRS})
