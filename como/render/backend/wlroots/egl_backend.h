@@ -156,16 +156,11 @@ public:
         auto const& output_impl = static_cast<typename Backend::output_t::base_t const&>(output);
         auto native_out = output_impl.native;
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
         const_cast<typename Backend::output_t::base_t&>(output_impl).ensure_next_state();
 
         assert(!current_render_pass);
         current_render_pass = wlr_output_begin_render_pass(
             native_out, output_impl.next_state->get_native(), &out->bufferAge, nullptr);
-#else
-        wlr_output_attach_render(native_out, &out->bufferAge);
-        wlr_renderer_begin(backend.renderer, viewport.width(), viewport.height());
-#endif
 
         auto transform = static_cast<effect::transform_type>(get_transform(output_impl));
 
@@ -182,16 +177,11 @@ public:
             .flip_y = true,
         };
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
         native_fbo
             = GLFramebuffer(wlr_gles2_renderer_get_buffer_fbo(
                                 backend.renderer, output_impl.next_state->get_native()->buffer),
                             res,
                             viewport);
-#else
-        native_fbo
-            = GLFramebuffer(wlr_gles2_renderer_get_current_fbo(backend.renderer), res, viewport);
-#endif
         push_framebuffer(data, &native_fbo);
 
         return data;
@@ -240,13 +230,9 @@ public:
         render_targets.pop();
         assert(render_targets.empty());
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
         assert(current_render_pass);
         wlr_render_pass_submit(current_render_pass);
         current_render_pass = nullptr;
-#else
-        wlr_renderer_end(backend.renderer);
-#endif
 
         if (damagedRegion.intersected(output->geometry()).isEmpty()) {
             // If the damaged region of a window is fully occluded, the only
@@ -259,10 +245,6 @@ public:
             if (!renderedRegion.intersected(output->geometry()).isEmpty()) {
                 glFlush();
             }
-
-#if !WLR_HAVE_NEW_PIXEL_COPY_API
-            wlr_output_rollback(impl_out->native);
-#endif
             return;
         }
 
@@ -331,17 +313,11 @@ private:
         enum wl_output_transform transform = wlr_output_transform_invert(output->native->transform);
         wlr_region_transform(&damage, &damage, transform, width, height);
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
         wlr_output_state_set_damage(output->next_state->get_native(), &damage);
-#else
-        wlr_output_set_damage(output->native, &damage);
-#endif
         pixman_region32_fini(&damage);
     }
 
-#if WLR_HAVE_NEW_PIXEL_COPY_API
     wlr_render_pass* current_render_pass{nullptr};
-#endif
 };
 
 }
