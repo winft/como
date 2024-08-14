@@ -347,8 +347,7 @@ public:
 
     void init_shortcuts()
     {
-        key(
-            s_windows, [this] { slot_walk_through_windows(); }, Qt::ALT | Qt::Key_Tab);
+        key(s_windows, [this] { slot_walk_through_windows(); }, Qt::ALT | Qt::Key_Tab);
         key(
             s_windowsRev,
             [this] { slot_walk_back_through_windows(); },

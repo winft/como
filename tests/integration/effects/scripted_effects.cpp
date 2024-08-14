@@ -58,9 +58,9 @@ QList<QAction*> ScriptedEffectWithDebugSpy::actions()
 
 ScriptedEffectWithDebugSpy::ScriptedEffectWithDebugSpy(test::setup& setup)
     : scripting::effect(
-        *como::effects,
-        [&]() -> render::options& { return *setup.base->mod.render->options; },
-        [&] { return setup.base->topology.size; })
+          *como::effects,
+          [&]() -> render::options& { return *setup.base->mod.render->options; },
+          [&] { return setup.base->topology.size; })
     , setup{setup}
 {
 }

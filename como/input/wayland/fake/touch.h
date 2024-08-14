@@ -20,30 +20,30 @@ public:
         : redirect{redirect}
         , device{device}
     {
-        QObject::connect(
-            device,
-            &Wrapland::Server::FakeInputDevice::touchDownRequested,
-            this->qobject.get(),
-            [this](auto id, auto const& pos) {
-                // TODO: Fix time
-                this->redirect.touch->process_down({static_cast<int32_t>(id), pos, {nullptr, 0}});
-            });
-        QObject::connect(
-            device,
-            &Wrapland::Server::FakeInputDevice::touchMotionRequested,
-            this->qobject.get(),
-            [this](auto id, auto const& pos) {
-                // TODO: Fix time
-                this->redirect.touch->process_motion({static_cast<int32_t>(id), pos, {nullptr, 0}});
-            });
-        QObject::connect(
-            device,
-            &Wrapland::Server::FakeInputDevice::touchUpRequested,
-            this->qobject.get(),
-            [this](auto id) {
-                // TODO: Fix time
-                this->redirect.touch->process_up({static_cast<int32_t>(id), {nullptr, 0}});
-            });
+        QObject::connect(device,
+                         &Wrapland::Server::FakeInputDevice::touchDownRequested,
+                         this->qobject.get(),
+                         [this](auto id, auto const& pos) {
+                             // TODO: Fix time
+                             this->redirect.touch->process_down(
+                                 {static_cast<int32_t>(id), pos, {nullptr, 0}});
+                         });
+        QObject::connect(device,
+                         &Wrapland::Server::FakeInputDevice::touchMotionRequested,
+                         this->qobject.get(),
+                         [this](auto id, auto const& pos) {
+                             // TODO: Fix time
+                             this->redirect.touch->process_motion(
+                                 {static_cast<int32_t>(id), pos, {nullptr, 0}});
+                         });
+        QObject::connect(device,
+                         &Wrapland::Server::FakeInputDevice::touchUpRequested,
+                         this->qobject.get(),
+                         [this](auto id) {
+                             // TODO: Fix time
+                             this->redirect.touch->process_up(
+                                 {static_cast<int32_t>(id), {nullptr, 0}});
+                         });
         QObject::connect(device,
                          &Wrapland::Server::FakeInputDevice::touchCancelRequested,
                          this->qobject.get(),

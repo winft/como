@@ -79,7 +79,7 @@ public:
 
     platform(Base& base)
         : qobject{std::make_unique<compositor_qobject>(
-            [this](auto te) { return handle_timer_event(te); })}
+              [this](auto te) { return handle_timer_event(te); })}
         , base{base}
         , options{std::make_unique<render::options>(base.operation_mode, base.config.main)}
         , night_color{std::make_unique<render::post::night_color_manager<Base>>(base)}

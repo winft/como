@@ -43,7 +43,7 @@ public:
 
     virtual void hide() = 0;
     virtual void raiseOrShow(bool raise) = 0;
-    virtual void init(){};
+    virtual void init() {};
 
     virtual void moveToTop();
     virtual void moveToRight();

@@ -13,8 +13,8 @@ namespace como::input
 {
 
 template<typename Redirect>
-auto find_controlled_window(Redirect const& redirect, QPoint const& pos)
-    -> std::optional<typename Redirect::window_t>
+auto find_controlled_window(Redirect const& redirect,
+                            QPoint const& pos) -> std::optional<typename Redirect::window_t>
 {
     auto const isScreenLocked = win::wayland::screen_lock_is_locked(redirect.space);
     auto const& stacking = redirect.space.stacking.order.stack;
@@ -69,8 +69,8 @@ auto find_controlled_window(Redirect const& redirect, QPoint const& pos)
 }
 
 template<typename Redirect>
-auto find_window(Redirect const& redirect, QPoint const& pos)
-    -> std::optional<typename Redirect::window_t>
+auto find_window(Redirect const& redirect,
+                 QPoint const& pos) -> std::optional<typename Redirect::window_t>
 {
     if (win::wayland::screen_lock_is_locked(redirect.space)) {
         return find_controlled_window(redirect, pos);

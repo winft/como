@@ -58,16 +58,16 @@ void Window::setGeometry(const QRect& rect)
     const QRect& oldRect = geometry();
     QPlatformWindow::setGeometry(rect);
     if (rect.x() != oldRect.x()) {
-        Q_EMIT window()->xChanged(rect.x());
+        Q_EMIT window() -> xChanged(rect.x());
     }
     if (rect.y() != oldRect.y()) {
-        Q_EMIT window()->yChanged(rect.y());
+        Q_EMIT window() -> yChanged(rect.y());
     }
     if (rect.width() != oldRect.width()) {
-        Q_EMIT window()->widthChanged(rect.width());
+        Q_EMIT window() -> widthChanged(rect.width());
     }
     if (rect.height() != oldRect.height()) {
-        Q_EMIT window()->heightChanged(rect.height());
+        Q_EMIT window() -> heightChanged(rect.height());
     }
 
     const QSize nativeSize = rect.size() * m_scale;

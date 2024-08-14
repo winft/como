@@ -84,8 +84,7 @@ private:
             return;
         }
         m_dequeueScheduled = true;
-        QMetaObject::invokeMethod(
-            this, [this] { dequeue(); }, Qt::QueuedConnection);
+        QMetaObject::invokeMethod(this, [this] { dequeue(); }, Qt::QueuedConnection);
     }
     Loader* m_effectLoader;
     bool m_dequeueScheduled;
