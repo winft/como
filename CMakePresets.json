@@ -24,7 +24,7 @@
         "DEBUG_SHARED_LINKER_FLAGS": "-Wl,--fatal-warnings",
         "DEBUG_MODULE_LINKER_FLAGS": "-Wl,--fatal-warnings",
         "NOUNDEF_LINKER_FLAGS": "-Wl,--no-undefined",
-        "DEBUG_CXX_FLAGS_CLANG": "$env{DEBUG_CXX_FLAGS} -fno-operator-names -Wno-gnu-zero-variadic-macro-arguments -Wno-cast-align -Werror -Wno-error=deprecated-declarations -Wno-error=unused-lambda-capture",
+        "DEBUG_CXX_FLAGS_CLANG": "$env{DEBUG_CXX_FLAGS} -fno-operator-names -Wno-gnu-zero-variadic-macro-arguments -Wno-cast-align -Werror -Wno-error=deprecated-declarations -Wno-error=unused-lambda-capture -Wno-missing-field-initializers",
         "DEBUG_CXX_FLAGS_GCC": "$env{DEBUG_CXX_FLAGS} -Wsuggest-override -Wlogical-op -Wmissing-include-dirs -Wno-missing-field-initializers -Werror -Wno-error=unknown-pragmas -Wno-error=deprecated-declarations -Wno-error=missing-include-dirs"
       }
     },
