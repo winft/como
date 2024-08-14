@@ -30,8 +30,7 @@
 #include <Wrapland/Server/touch_pool.h>
 #include <Wrapland/Server/xdg_decoration.h>
 #include <Wrapland/Server/xdg_foreign.h>
-#include <Wrapland/Server/xdg_shell_popup.h>
-#include <Wrapland/Server/xdg_shell_toplevel.h>
+#include <Wrapland/Server/xdg_shell.h>
 
 #include <functional>
 #include <memory>
