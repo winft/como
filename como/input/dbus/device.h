@@ -153,6 +153,23 @@ class COMO_EXPORT device : public QObject
     Q_PROPERTY(bool supportsOutputArea READ supportsOutputArea CONSTANT)
     Q_PROPERTY(QRectF defaultOutputArea READ defaultOutputArea CONSTANT)
     Q_PROPERTY(QRectF outputArea READ outputArea WRITE setOutputArea NOTIFY outputAreaChanged)
+    Q_PROPERTY(bool defaultMapToWorkspace READ defaultMapToWorkspace CONSTANT)
+    Q_PROPERTY(bool mapToWorkspace READ isMapToWorkspace WRITE setMapToWorkspace NOTIFY
+                   mapToWorkspaceChanged)
+
+    bool defaultMapToWorkspace() const
+    {
+        return false;
+    }
+
+    bool isMapToWorkspace() const
+    {
+        return false;
+    }
+
+    void setMapToWorkspace(bool /*mapToWorkspace*/)
+    {
+    }
 
 public:
     explicit device(input::control::keyboard* control, QObject* parent);
@@ -298,6 +315,7 @@ Q_SIGNALS:
     void scrollFactorChanged();
     void clickMethodChanged();
     void outputAreaChanged();
+    void mapToWorkspaceChanged();
 };
 
 }
