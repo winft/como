@@ -156,6 +156,7 @@ class COMO_EXPORT device : public QObject
     Q_PROPERTY(bool defaultMapToWorkspace READ defaultMapToWorkspace CONSTANT)
     Q_PROPERTY(bool mapToWorkspace READ isMapToWorkspace WRITE setMapToWorkspace NOTIFY
                    mapToWorkspaceChanged)
+    Q_PROPERTY(QString deviceGroupId READ deviceGroupId CONSTANT)
 
     bool defaultMapToWorkspace() const
     {
@@ -169,6 +170,11 @@ class COMO_EXPORT device : public QObject
 
     void setMapToWorkspace(bool /*mapToWorkspace*/)
     {
+    }
+
+    QString deviceGroupId() const
+    {
+        return {};
     }
 
 public:
