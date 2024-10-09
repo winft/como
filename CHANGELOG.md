@@ -4,6 +4,39 @@ SPDX-License-Identifier: GPL-2.0-or-later
 -->
 # Changelog
 All notable changes to The Compositor Modules will be documented in this file.
+## [0.3.0](https://github.com/winft/como/compare/v0.2.0...v0.3.0) (2024-10-09)
+
+
+### Features
+
+* don't animate the position of windows that get hidden ([d8dece2](https://github.com/winft/como/commit/d8dece2e496bf77f8cb8ee128c76abada66d801f))
+* drop morphing popups effect ([7e4001a](https://github.com/winft/como/commit/7e4001aa2f0a822f44c673d9c9a94d3f6f737012))
+* implement input device group stub ([df6041d](https://github.com/winft/como/commit/df6041d1ad6cfbf8abd589f9280ad680312baed0))
+* implement stub to map tablet to full desktop area ([826a358](https://github.com/winft/como/commit/826a358670054eae640250fc1794937ded22c0c5))
+* label text background ([5367b3c](https://github.com/winft/como/commit/5367b3ce200ceeb4cfdfed431d22da0b4b6e18a3))
+* set default shortcut ([d4acae1](https://github.com/winft/como/commit/d4acae1753275747d96bcf1f63943776630678b0))
+* use "grabbing" cursor during interactive move ([3b70de7](https://github.com/winft/como/commit/3b70de705cb8957574fd3f5904612f334b4665e0))
+
+
+### Bug Fixes
+
+* adapt to wlroots formats API change ([a6ad71e](https://github.com/winft/como/commit/a6ad71e46e48be10bc29724461f7232c9573316c))
+* avoid caching animation duration ([1eaa738](https://github.com/winft/como/commit/1eaa738c7a56dc491ce1fa1a6bb862d7bd8acbb6))
+* fix drag and drop hotspot ([ba96461](https://github.com/winft/como/commit/ba96461006f08c89be4146cd78fd48c846458b13))
+* fix MenuButton not accepting button press events ([37b45b6](https://github.com/winft/como/commit/37b45b69e5c1d14bef09ba8f98c3ced29289a312))
+* include xdg-shell header ([ebda5c0](https://github.com/winft/como/commit/ebda5c01412d4ff8c988209beae39e13e8f1bedb))
+* label topMargin to small, remove height padding ([a3a8bd2](https://github.com/winft/como/commit/a3a8bd294ff55e096fd05019715a20b16296b2fd))
+* linearize desktops in the desktop bar when using non linear desktop layout ([aa6eda4](https://github.com/winft/como/commit/aa6eda4cf2915d1e4ebd173780d402df53e06c86))
+* manage delegate lifetime without QPointer ([bd49bb5](https://github.com/winft/como/commit/bd49bb58a0a3cda68c1f0e7f0672ee074a400d89))
+
+
+### Refactors
+
+* drop xcursor write hook ([1ccc5d3](https://github.com/winft/como/commit/1ccc5d369bc4f3dbdd966bd7c6e3e4f3b4cdddb0))
+* load Xcursor themes using QFile ([6c4c3db](https://github.com/winft/como/commit/6c4c3db3d7633c836f104aae4d4e33cf2a7ef1e8))
+* port to simpler PlasmaWindow ([8aa1075](https://github.com/winft/como/commit/8aa10756342d55f8b54069f70486b8c05fb6bc52))
+* remove decorationInnerRect ([8eafe66](https://github.com/winft/como/commit/8eafe66e789f415f58210057a2f492a352324428))
+
 ## [0.2.0](https://github.com/winft/como/compare/v0.1.0...v0.2.0) (2024-06-19)
 
 
