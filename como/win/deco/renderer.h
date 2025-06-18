@@ -10,8 +10,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include "como_export.h"
 #include <como/win/damage.h>
 
-#include <KDecoration2/DecoratedClient>
-#include <KDecoration2/Decoration>
+#include <KDecoration3/DecoratedWindow>
+#include <KDecoration3/Decoration>
 #include <QObject>
 #include <QPainter>
 #include <QRegion>
@@ -41,7 +41,7 @@ struct render_window {
     std::function<int()> bit_depth;
     std::function<void(QRect&, QRect&, QRect&, QRect&)> layout_rects;
 
-    KDecoration2::Decoration* deco;
+    KDecoration3::Decoration* deco;
     xcb_window_t frame_id{XCB_WINDOW_NONE};
 };
 
@@ -150,7 +150,7 @@ public:
 
         auto markImageSizesDirty = [this] { injector->image_size_dirty = true; };
         QObject::connect(client->decoration(),
-                         &KDecoration2::Decoration::damaged,
+                         &KDecoration3::Decoration::damaged,
                          injector->qobject.get(),
                          [this](auto const& rect) {
                              if (!m_client) {
@@ -173,15 +173,15 @@ public:
                              markImageSizesDirty();
                          });
         QObject::connect(client->decoration(),
-                         &KDecoration2::Decoration::bordersChanged,
+                         &KDecoration3::Decoration::bordersChanged,
                          injector->qobject.get(),
                          markImageSizesDirty);
         QObject::connect(client->decoratedClient(),
-                         &KDecoration2::DecoratedClient::widthChanged,
+                         &KDecoration3::DecoratedWindow::widthChanged,
                          injector->qobject.get(),
                          markImageSizesDirty);
         QObject::connect(client->decoratedClient(),
-                         &KDecoration2::DecoratedClient::heightChanged,
+                         &KDecoration3::DecoratedWindow::heightChanged,
                          injector->qobject.get(),
                          markImageSizesDirty);
     }

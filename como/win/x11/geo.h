@@ -288,10 +288,10 @@ void do_set_maximize_mode(Win& win, win::maximize_mode mode)
                           | rules::type::position | rules::type::size);
 
     // Update decoration borders.
-    if (auto deco = decoration(&win); deco && deco->client()
+    if (auto deco = decoration(&win); deco && deco->window()
         && !(win.space.options->qobject->borderlessMaximizedWindows()
              && mode == maximize_mode::full)) {
-        auto const deco_client = decoration(&win)->client();
+        auto const deco_client = decoration(&win)->window();
 
         if ((mode & maximize_mode::vertical) != (old_mode & maximize_mode::vertical)) {
             Q_EMIT deco_client->maximizedVerticallyChanged(flags(mode & maximize_mode::vertical));

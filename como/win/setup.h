@@ -11,7 +11,7 @@
 #include "placement.h"
 #include "screen.h"
 
-#include <KDecoration2/Decoration>
+#include <KDecoration3/Decoration>
 
 namespace como::win
 {

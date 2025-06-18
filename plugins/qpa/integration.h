@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <QHash>
 #include <QObject>
-#include <QtGui/private/qgenericunixservices_p.h>
+#include <QtGui/private/qdesktopunixservices_p.h>
 #include <qpa/qplatformintegration.h>
 
 namespace como
@@ -62,7 +62,7 @@ private:
     QScopedPointer<QPlatformNativeInterface> m_nativeInterface;
     placeholder_screen* m_dummyScreen{nullptr};
     QHash<como::base::output*, Screen*> m_screens;
-    QScopedPointer<QGenericUnixServices> m_services;
+    QScopedPointer<QDesktopUnixServices> m_services;
 };
 
 }

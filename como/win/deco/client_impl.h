@@ -14,7 +14,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <como/win/window_operation.h>
 #include <como/win/window_qobject.h>
 
-#include <KDecoration2/Private/DecoratedClientPrivate>
+#include <KDecoration3/Private/DecoratedWindowPrivate>
 #include <QDeadlineTimer>
 #include <QObject>
 #include <QStyle>
@@ -25,15 +25,15 @@ namespace como::win::deco
 {
 
 template<typename Window>
-class client_impl : public KDecoration2::ApplicationMenuEnabledDecoratedClientPrivate
+class client_impl : public KDecoration3::DecoratedWindowPrivate
 {
 public:
     using renderer_t = deco::renderer<client_impl>;
 
     client_impl(Window* window,
-                KDecoration2::DecoratedClient* decoratedClient,
-                KDecoration2::Decoration* decoration)
-        : ApplicationMenuEnabledDecoratedClientPrivate(decoratedClient, decoration)
+                KDecoration3::DecoratedWindow* decoratedClient,
+                KDecoration3::Decoration* decoration)
+        : DecoratedWindowPrivate(decoratedClient, decoration)
         , qobject{std::make_unique<client_impl_qobject>()}
         , m_client(window)
         , m_clientSize(win::frame_to_client_size(window, window->geo.size()))
@@ -74,11 +74,11 @@ public:
         QObject::connect(window->qobject.get(),
                          &window_qobject::keepAboveChanged,
                          decoratedClient,
-                         &KDecoration2::DecoratedClient::keepAboveChanged);
+                         &KDecoration3::DecoratedWindow::keepAboveChanged);
         QObject::connect(window->qobject.get(),
                          &window_qobject::keepBelowChanged,
                          decoratedClient,
-                         &KDecoration2::DecoratedClient::keepBelowChanged);
+                         &KDecoration3::DecoratedWindow::keepBelowChanged);
 
         auto comp_qobject = m_client->space.base.mod.render->qobject.get();
         using comp_qobject_t = std::remove_pointer_t<decltype(comp_qobject)>;
@@ -105,29 +105,29 @@ public:
         QObject::connect(window->qobject.get(),
                          &window_qobject::closeableChanged,
                          decoratedClient,
-                         &KDecoration2::DecoratedClient::closeableChanged);
+                         &KDecoration3::DecoratedWindow::closeableChanged);
         QObject::connect(window->qobject.get(),
                          &window_qobject::minimizeableChanged,
                          decoratedClient,
-                         &KDecoration2::DecoratedClient::minimizeableChanged);
+                         &KDecoration3::DecoratedWindow::minimizeableChanged);
         QObject::connect(window->qobject.get(),
                          &window_qobject::maximizeableChanged,
                          decoratedClient,
-                         &KDecoration2::DecoratedClient::maximizeableChanged);
+                         &KDecoration3::DecoratedWindow::maximizeableChanged);
 
         QObject::connect(window->qobject.get(),
                          &window_qobject::paletteChanged,
                          decoratedClient,
-                         &KDecoration2::DecoratedClient::paletteChanged);
+                         &KDecoration3::DecoratedWindow::paletteChanged);
 
         QObject::connect(window->qobject.get(),
                          &window_qobject::hasApplicationMenuChanged,
                          decoratedClient,
-                         &KDecoration2::DecoratedClient::hasApplicationMenuChanged);
+                         &KDecoration3::DecoratedWindow::hasApplicationMenuChanged);
         QObject::connect(window->qobject.get(),
                          &window_qobject::applicationMenuActiveChanged,
                          decoratedClient,
-                         &KDecoration2::DecoratedClient::applicationMenuActiveChanged);
+                         &KDecoration3::DecoratedWindow::applicationMenuActiveChanged);
 
         m_toolTipWakeUp.setSingleShot(true);
         QObject::connect(&m_toolTipWakeUp, &QTimer::timeout, qobject.get(), [this]() {
@@ -146,21 +146,30 @@ public:
             requestHideToolTip();
         }
     }
-
     QString caption() const override
     {
         return win::caption(m_client);
     }
 
-    WId decorationId() const override
+    WId winId() const 
     {
         return m_client->frameId();
     }
 
-    int height() const override
+    qreal height() const override
     {
         return m_clientSize.height();
     }
+qreal scale() const override
+{
+    return 1.0;
+}
+
+qreal nextScale() const override
+{
+	return 1.0;
+}
+
 
     QIcon icon() const override
     {
@@ -247,7 +256,7 @@ public:
         return m_client->control->palette.q_palette();
     }
 
-    QColor color(KDecoration2::ColorGroup group, KDecoration2::ColorRole role) const override
+    QColor color(KDecoration3::ColorGroup group, KDecoration3::ColorRole role) const override
     {
         auto dp = m_client->control->palette.current;
         if (dp) {
@@ -262,17 +271,17 @@ public:
         return m_client->providesContextHelp();
     }
 
-    QSize size() const override
+    QSizeF size() const override
     {
         return m_clientSize;
     }
 
-    int width() const override
+    qreal width() const override
     {
         return m_clientSize.width();
     }
 
-    WId windowId() const override
+    WId windowId() const 
     {
         if constexpr (requires(decltype(m_client) win) { win->xcb_windows; }) {
             return m_client->xcb_windows.client;
@@ -452,9 +461,9 @@ public:
         return m_renderer->move_data();
     }
 
-    KDecoration2::DecoratedClient* decoratedClient()
+    KDecoration3::DecoratedWindow* decoratedClient()
     {
-        return KDecoration2::DecoratedClientPrivate::client();
+        return KDecoration3::DecoratedWindowPrivate::window();
     }
 
     std::unique_ptr<client_impl_qobject> qobject;

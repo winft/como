@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/Decoration>
+#include <KDecoration3/Decoration>
 #include <Wrapland/Client/compositor.h>
 #include <Wrapland/Client/plasmashell.h>
 #include <Wrapland/Client/surface.h>

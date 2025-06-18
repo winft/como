@@ -72,7 +72,7 @@ auto get_transient_family(Win* win)
 template<typename Win>
 auto lead_of_annexed_transient(Win* win) -> decltype(win->transient->lead())
 {
-    if (win && win->transient->annexed) {
+    if (win && win->transient && win->transient->annexed) {
         return lead_of_annexed_transient(win->transient->lead());
     }
     return win;

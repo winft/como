@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <como/win/appmenu.h>
 
-#include <KDecoration2/DecorationSettings>
+#include <KDecoration3/DecorationSettings>
 #include <QObject>
 #include <functional>
 #include <memory>
@@ -52,7 +52,7 @@ appmenu_callbacks create_appmenu_callbacks(Space const& space)
     callbacks.show_request = [&space](appmenu_address const& addr, int action_id) {
         if (auto deco_settings = space.deco->settings()) {
             // Ignore request when user has not configured appmenu title bar button.
-            auto menu_enum = KDecoration2::DecorationButtonType::ApplicationMenu;
+            auto menu_enum = KDecoration3::DecorationButtonType::ApplicationMenu;
             auto const& lbtn = deco_settings->decorationButtonsLeft();
             auto const& rbtn = deco_settings->decorationButtonsRight();
             if (!lbtn.contains(menu_enum) && !rbtn.contains(menu_enum)) {

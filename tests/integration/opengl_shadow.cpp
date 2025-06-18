@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/Decoration>
-#include <KDecoration2/DecorationShadow>
+#include <KDecoration3/Decoration>
+#include <KDecoration3/DecorationShadow>
 #include <QByteArray>
 #include <QDir>
 #include <QVector>
@@ -104,7 +104,7 @@ TEST_CASE("opengl shadow", "[render]")
         QDir(QCoreApplication::applicationDirPath()).absoluteFilePath("fakes"));
 
     // Change decoration theme.
-    auto group = setup.base->config.main->group(QStringLiteral("org.kde.kdecoration2"));
+    auto group = setup.base->config.main->group(QStringLiteral("org.kde.kdecoration3"));
     group.writeEntry("library", "org.kde.test.fakedecowithshadows");
     group.sync();
     win::space_reconfigure(*setup.base->mod.space);

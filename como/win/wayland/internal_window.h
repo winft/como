@@ -691,11 +691,11 @@ public:
         if (decoration) {
             QMetaObject::invokeMethod(decoration, "update", Qt::QueuedConnection);
             QObject::connect(decoration,
-                             &KDecoration2::Decoration::shadowChanged,
+                             &KDecoration3::Decoration::shadowChanged,
                              this->qobject.get(),
                              [this] { win::update_shadow(this); });
             QObject::connect(decoration,
-                             &KDecoration2::Decoration::bordersChanged,
+                             &KDecoration3::Decoration::bordersChanged,
                              this->qobject.get(),
                              [this]() {
                                  win::geometry_updates_blocker blocker(this);

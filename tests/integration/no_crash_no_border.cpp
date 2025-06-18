@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/Decoration>
+#include <KDecoration3/Decoration>
 #include <Wrapland/Client/surface.h>
 #include <Wrapland/Client/xdgdecoration.h>
 #include <linux/input.h>
@@ -24,7 +24,7 @@ TEST_CASE("no crash no border", "[win]")
     test::setup setup("no-crash-no-border");
 
     auto config = setup.base->config.main;
-    config->group(QStringLiteral("org.kde.kdecoration2")).writeEntry("NoPlugin", true);
+    config->group(QStringLiteral("org.kde.kdecoration3")).writeEntry("NoPlugin", true);
     config->sync();
 
     setup.start();

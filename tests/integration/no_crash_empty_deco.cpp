@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/Decoration>
+#include <KDecoration3/Decoration>
 #include <linux/input.h>
 
 namespace como::detail::test

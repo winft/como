@@ -677,7 +677,7 @@ public:
                           *window.ref_win);
     }
 
-    KDecoration2::Decoration* decoration() const override
+    KDecoration3::Decoration* decoration() const override
     {
         return std::visit(overload{[](auto&& ref_win) { return win::decoration(ref_win); }},
                           *window.ref_win);
