@@ -22,7 +22,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 #include <como/render/gl/interface/framebuffer.h>
 #include <como/render/gl/interface/platform.h>
 
-#include <KDecoration2/DecorationSettings>
+#include <KDecoration3/DecorationSettings>
 
 namespace como::render
 {

@@ -127,7 +127,7 @@ set_package_properties(Plasma PROPERTIES
     TYPE RUNTIME
 )
 
-find_package(KDecoration2 ${KDE_PLASMA_VERSION}
+find_package(KDecoration3 ${KDE_PLASMA_VERSION}
   CONFIG REQUIRED
 )
 

@@ -157,7 +157,7 @@ QSize frame_size(Win* win)
  * of the window.
  */
 template<typename Win>
-QRect input_geometry(Win* win)
+QRectF input_geometry(Win* win)
 {
     if (auto deco = decoration(win)) {
         return win->geo.frame + deco->resizeOnlyBorders();

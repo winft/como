@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/Decoration>
-#include <KDecoration2/DecorationSettings>
+#include <KDecoration3/Decoration>
+#include <KDecoration3/DecorationSettings>
 #include <Wrapland/Client/compositor.h>
 #include <Wrapland/Client/connection_thread.h>
 #include <Wrapland/Client/keyboard.h>
@@ -310,7 +310,7 @@ TEST_CASE("decoration input", "[input],[win]")
         // TODO: Test input position with different border sizes.
         // TODO: We should test with the fake decoration to have a fixed test environment.
         auto const hasBorders = setup.base->mod.space->deco->settings()->borderSize()
-            != KDecoration2::BorderSize::None;
+            != KDecoration3::BorderSize::None;
         auto deviation = [hasBorders] { return hasBorders ? -1 : 0; };
 
         MOTION(QPoint(c->geo.frame.x(), 0));

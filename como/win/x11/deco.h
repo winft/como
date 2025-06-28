@@ -14,7 +14,7 @@
 #include <como/win/scene.h>
 #include <como/win/x11/net/geo.h>
 
-#include <KDecoration2/DecoratedClient>
+#include <KDecoration3/DecoratedWindow>
 
 namespace como::win::x11
 {
@@ -78,16 +78,16 @@ void create_decoration(Win* win)
         QMetaObject::invokeMethod(decoration, "update", Qt::QueuedConnection);
 
         QObject::connect(decoration,
-                         &KDecoration2::Decoration::shadowChanged,
+                         &KDecoration3::Decoration::shadowChanged,
                          win->qobject.get(),
                          [win] { win::update_shadow(win); });
         QObject::connect(decoration,
-                         &KDecoration2::Decoration::resizeOnlyBordersChanged,
+                         &KDecoration3::Decoration::resizeOnlyBordersChanged,
                          win->qobject.get(),
                          [win] { update_input_window(win, win->geo.frame); });
 
         QObject::connect(
-            decoration, &KDecoration2::Decoration::bordersChanged, win->qobject.get(), [win]() {
+            decoration, &KDecoration3::Decoration::bordersChanged, win->qobject.get(), [win]() {
                 set_frame_extents(win);
 
                 update_server_geometry(win, win->geo.frame);
@@ -97,11 +97,11 @@ void create_decoration(Win* win)
             });
 
         QObject::connect(win->control->deco.client->decoratedClient(),
-                         &KDecoration2::DecoratedClient::widthChanged,
+                         &KDecoration3::DecoratedWindow::widthChanged,
                          win->qobject.get(),
                          [win] { update_input_window(win, win->geo.frame); });
         QObject::connect(win->control->deco.client->decoratedClient(),
-                         &KDecoration2::DecoratedClient::heightChanged,
+                         &KDecoration3::DecoratedWindow::heightChanged,
                          win->qobject.get(),
                          [win] { update_input_window(win, win->geo.frame); });
     }

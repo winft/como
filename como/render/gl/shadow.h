@@ -81,7 +81,7 @@ private:
         QSharedPointer<GLTexture> texture;
         QVector<Shadow*> shadows;
     };
-    QHash<KDecoration2::DecorationShadow*, Data> m_cache;
+    QHash<KDecoration3::DecorationShadow*, Data> m_cache;
 };
 
 template<typename Window, typename Scene>

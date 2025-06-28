@@ -6,7 +6,7 @@
 
 #include "auroraeconfig.h"
 #include "auroraeshared.h"
-#include <KDecoration2/DecorationButton>
+#include <KDecoration3/DecorationButton>
 #include <KLocalizedString>
 #include <KLocalizedTranslator>
 #include <KPluginFactory>
@@ -29,7 +29,7 @@ ConfigurationModule::ConfigurationModule(QObject* parent,
                                          const QVariantList& args)
     : KCModule(parent, data)
     , m_theme(findTheme(args))
-    , m_buttonSize(int(KDecoration2::BorderSize::Normal) - s_indexMapper)
+    , m_buttonSize(int(KDecoration3::BorderSize::Normal) - s_indexMapper)
 {
     init();
 }
@@ -71,7 +71,7 @@ void ConfigurationModule::initSvg()
     skel->setCurrentGroup(m_theme.mid(16));
     skel->addItemInt(QStringLiteral("ButtonSize"),
                      m_buttonSize,
-                     int(KDecoration2::BorderSize::Normal) - s_indexMapper,
+                     int(KDecoration3::BorderSize::Normal) - s_indexMapper,
                      QStringLiteral("ButtonSize"));
     addConfig(skel, form);
 }

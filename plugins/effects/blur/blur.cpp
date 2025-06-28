@@ -28,7 +28,7 @@
 #include <KConfigGroup>
 #include <KSharedConfig>
 
-#include <KDecoration2/Decoration>
+#include <KDecoration3/Decoration>
 
 namespace como
 {
@@ -293,7 +293,7 @@ QRegion BlurEffect::deco_blur_region(EffectWindow const* win) const
         return QRegion();
     }
 
-    auto const decorationRegion = QRegion(win->decoration()->rect()) - win->contentsRect();
+    auto const decorationRegion = QRegion(win->decoration()->rect().toRect()) - win->contentsRect();
 
     // We return only blurred regions that belong to decoration region.
     return decorationRegion.intersected(win->decoration()->blurRegion());

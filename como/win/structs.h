@@ -10,7 +10,7 @@
 #include "deco/palette.h"
 #include "types.h"
 
-#include <KDecoration2/Decoration>
+#include <KDecoration3/Decoration>
 
 #include <QElapsedTimer>
 #include <QPoint>
@@ -52,7 +52,7 @@ struct deco_impl {
     QMetaObject::Connection client_destroy;
 
     deco::window<VarWin>* window{nullptr};
-    KDecoration2::Decoration* decoration{nullptr};
+    KDecoration3::Decoration* decoration{nullptr};
     deco::client_impl<RefWin>* client{nullptr};
 
     struct {

@@ -6,7 +6,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/Decoration>
+#include <KDecoration3/Decoration>
 #include <QQuickItem>
 #include <linux/input.h>
 
@@ -23,7 +23,7 @@ TEST_CASE("no crash aurorae destroy deco", "[win],[xwl]")
     test::setup setup("debug-console", base::operation_mode::xwayland);
 
     auto config = app()->base->config.main;
-    config->group(QStringLiteral("org.kde.kdecoration2"))
+    config->group(QStringLiteral("org.kde.kdecoration3"))
         .writeEntry("library", "org.kde.kwin.aurorae");
     config->sync();
 

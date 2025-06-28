@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/DecoratedClient>
-#include <KDecoration2/Decoration>
-#include <KDecoration2/DecorationSettings>
+#include <KDecoration3/DecoratedWindow>
+#include <KDecoration3/Decoration>
+#include <KDecoration3/DecorationSettings>
 #include <Wrapland/Client/compositor.h>
 #include <Wrapland/Client/plasmashell.h>
 #include <Wrapland/Client/shm_pool.h>
@@ -65,13 +65,13 @@ TEST_CASE("maximize", "[win]")
         // When there are no borders, there is no change to them when maximizing.
         // TODO: we should test both cases with fixed fake decoration for autotests.
         auto const hasBorders = setup.base->mod.space->deco->settings()->borderSize()
-            != KDecoration2::BorderSize::None;
+            != KDecoration3::BorderSize::None;
 
         // now maximize
-        QSignalSpy bordersChangedSpy(decoration, &KDecoration2::Decoration::bordersChanged);
+        QSignalSpy bordersChangedSpy(decoration, &KDecoration3::Decoration::bordersChanged);
         QVERIFY(bordersChangedSpy.isValid());
         QSignalSpy maximizedChangedSpy(decoration->client(),
-                                       &KDecoration2::DecoratedClient::maximizedChanged);
+                                       &KDecoration3::DecoratedWindow::maximizedChanged);
         QVERIFY(maximizedChangedSpy.isValid());
         QSignalSpy geometryShapeChangedSpy(client->qobject.get(),
                                            &win::window_qobject::frame_geometry_changed);

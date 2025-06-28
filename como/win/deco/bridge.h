@@ -16,24 +16,23 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <como/win/deco.h>
 
-#include <KDecoration2/DecoratedClient>
-#include <KDecoration2/Decoration>
-#include <KDecoration2/DecorationSettings>
-#include <KDecoration2/Private/DecorationBridge>
+#include <KDecoration3/DecoratedWindow>
+#include <KDecoration3/Decoration>
+#include <KDecoration3/Private/DecorationBridge>
 #include <KPluginFactory>
 #include <KPluginMetaData>
 #include <QMetaProperty>
 
-namespace KDecoration2
+namespace KDecoration3
 {
-class DecorationSettings;
+class DecorataionSettings;
 }
 
 namespace como::win::deco
 {
 
 static const QString s_aurorae = QStringLiteral("org.kde.kwin.aurorae");
-static const QString s_pluginName = QStringLiteral("org.kde.kdecoration2");
+static const QString s_pluginName = QStringLiteral("org.kde.kdecoration3");
 
 #if HAVE_BREEZE_DECO
 static const QString s_defaultPlugin = QStringLiteral(BREEZE_KDECORATION_PLUGIN_ID);
@@ -42,7 +41,7 @@ static const QString s_defaultPlugin = s_aurorae;
 #endif
 
 template<typename Space>
-class bridge : public KDecoration2::DecorationBridge
+class bridge : public KDecoration3::DecorationBridge
 {
 public:
     bridge(Space& space)
@@ -69,7 +68,7 @@ public:
             return;
         }
         m_plugin = readPlugin();
-        m_settings = std::make_shared<KDecoration2::DecorationSettings>(this);
+        m_settings = std::make_shared<KDecoration3::DecorationSettings>(this);
         initPlugin();
         if (!m_factory) {
             if (m_plugin != s_defaultPlugin) {
@@ -86,7 +85,7 @@ public:
     }
 
     template<typename Win>
-    KDecoration2::Decoration* createDecoration(deco::window<Win>* window)
+    KDecoration3::Decoration* createDecoration(deco::window<Win>* window)
     {
         if (m_noPlugin) {
             return nullptr;
@@ -99,28 +98,33 @@ public:
         if (!m_theme.isEmpty()) {
             args.insert(QStringLiteral("theme"), m_theme);
         }
-        auto deco = m_factory->create<KDecoration2::Decoration>(window, QVariantList{args});
+        auto deco = m_factory->create<KDecoration3::Decoration>(window, QVariantList{args});
+        connect(deco, &KDecoration3::Decoration::nextStateChanged, this, [this,deco](auto state) {
+                deco->apply(state->clone());
+        });
+
         deco->setSettings(m_settings);
+	deco->create();
         deco->init();
         return deco;
     }
 
-    std::unique_ptr<KDecoration2::DecoratedClientPrivate>
-    createClient(KDecoration2::DecoratedClient* client,
-                 KDecoration2::Decoration* decoration) override
+    std::unique_ptr<KDecoration3::DecoratedWindowPrivate>
+    createClient(KDecoration3::DecoratedWindow* client,
+                 KDecoration3::Decoration* decoration) override
     {
         using window_t = typename Space::window_t;
 
         return std::visit(
-            overload{[&](auto win) -> std::unique_ptr<KDecoration2::DecoratedClientPrivate> {
+            overload{[&](auto win) -> std::unique_ptr<KDecoration3::DecoratedWindowPrivate> {
                 using win_t = std::remove_pointer_t<decltype(win)>;
                 return std::make_unique<client_impl<win_t>>(win, client, decoration);
             }},
             static_cast<window<window_t>*>(decoration->parent())->win);
     }
 
-    std::unique_ptr<KDecoration2::DecorationSettingsPrivate>
-    settings(KDecoration2::DecorationSettings* parent) override
+    std::unique_ptr<KDecoration3::DecorationSettingsPrivate>
+    settings(KDecoration3::DecorationSettings* parent) override
     {
         return std::make_unique<deco::settings<Space>>(space, parent);
     }
@@ -181,7 +185,7 @@ public:
         }
     }
 
-    std::shared_ptr<KDecoration2::DecorationSettings> const& settings() const
+    std::shared_ptr<KDecoration3::DecorationSettings> const& settings() const
     {
         return m_settings;
     }
@@ -302,11 +306,11 @@ private:
 
     static QString settingsProperty(const QVariant& variant)
     {
-        if (QLatin1String(variant.typeName()) == QLatin1String("KDecoration2::BorderSize")) {
+        if (QLatin1String(variant.typeName()) == QLatin1String("KDecoration3::BorderSize")) {
             return QString::number(variant.toInt());
         } else if (QLatin1String(variant.typeName())
-                   == QLatin1String("QVector<KDecoration2::DecorationButtonType>")) {
-            const auto& b = variant.value<QVector<KDecoration2::DecorationButtonType>>();
+                   == QLatin1String("QVector<KDecoration3::DecorationButtonType>")) {
+            const auto& b = variant.value<QVector<KDecoration3::DecorationButtonType>>();
             QString buffer;
             for (auto it = b.begin(); it != b.end(); ++it) {
                 if (it != b.begin()) {
@@ -325,7 +329,7 @@ private:
     QString m_plugin;
     QString m_defaultTheme;
     QString m_theme;
-    std::shared_ptr<KDecoration2::DecorationSettings> m_settings;
+    std::shared_ptr<KDecoration3::DecorationSettings> m_settings;
     bool m_noPlugin{false};
     Space& space;
 };

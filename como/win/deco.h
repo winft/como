@@ -7,14 +7,14 @@
 
 #include "structs.h"
 
-#include <KDecoration2/Decoration>
+#include <KDecoration3/Decoration>
 #include <QObject>
 
 namespace como::win
 {
 
 template<typename Win>
-KDecoration2::Decoration* decoration(Win* win)
+KDecoration3::Decoration* decoration(Win* win)
 {
     if (win->control) {
         return win->control->deco.decoration;

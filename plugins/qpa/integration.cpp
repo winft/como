@@ -43,7 +43,7 @@ Integration::Integration()
     , QPlatformIntegration()
     , m_fontDb(new QGenericUnixFontDatabase())
     , m_nativeInterface(new QPlatformNativeInterface())
-    , m_services(new QGenericUnixServices())
+    , m_services(new QDesktopUnixServices())
 {
 }
 

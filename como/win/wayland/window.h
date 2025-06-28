@@ -717,11 +717,11 @@ public:
             if (decoration) {
                 QMetaObject::invokeMethod(decoration, "update", Qt::QueuedConnection);
                 QObject::connect(decoration,
-                                 &KDecoration2::Decoration::shadowChanged,
+                                 &KDecoration3::Decoration::shadowChanged,
                                  this->qobject.get(),
                                  [this] { update_shadow(this); });
                 QObject::connect(decoration,
-                                 &KDecoration2::Decoration::bordersChanged,
+                                 &KDecoration3::Decoration::bordersChanged,
                                  this->qobject.get(),
                                  [this]() {
                                      geometry_updates_blocker geo_blocker(this);
@@ -1320,10 +1320,10 @@ public:
                                 | rules::type::position | rules::type::size);
 
         // Update decoration borders.
-        if (auto deco = decoration(this); deco && deco->client()
+        if (auto deco = decoration(this); deco && deco->window()
             && !(space.options->qobject->borderlessMaximizedWindows()
                  && mode == maximize_mode::full)) {
-            auto const deco_client = win::decoration(this)->client();
+            auto const deco_client = win::decoration(this)->window();
             if ((mode & maximize_mode::vertical) != (old_mode & maximize_mode::vertical)) {
                 Q_EMIT deco_client->maximizedVerticallyChanged(
                     flags(mode & maximize_mode::vertical));

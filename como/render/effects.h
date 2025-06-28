@@ -981,7 +981,7 @@ public:
             // TODO: this could become per window and be derived from the actual position in the
             // deco
             auto deco_settings = get_space().deco->settings();
-            auto close_enum = KDecoration2::DecorationButtonType::Close;
+            auto close_enum = KDecoration3::DecorationButtonType::Close;
             return deco_settings && deco_settings->decorationButtonsLeft().contains(close_enum)
                 ? Qt::TopLeftCorner
                 : Qt::TopRightCorner;

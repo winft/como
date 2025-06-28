@@ -11,29 +11,29 @@
 #include <como/win/deco.h>
 #include <como/win/scene.h>
 
-#include <KDecoration2/Decoration>
-#include <KDecoration2/DecorationShadow>
+#include <KDecoration3/Decoration>
+#include <KDecoration3/DecorationShadow>
 
 namespace como::render
 {
 
 template<typename Shadow>
-bool update_deco_shadow(Shadow& impl, KDecoration2::Decoration* decoration)
+bool update_deco_shadow(Shadow& impl, KDecoration3::Decoration* decoration)
 {
     if (!std::visit(overload{[&](auto&& ref_win) {
                         if (impl.m_decorationShadow) {
                             // disconnect previous connections
                             QObject::disconnect(
                                 impl.m_decorationShadow.get(),
-                                &KDecoration2::DecorationShadow::innerShadowRectChanged,
+                                &KDecoration3::DecorationShadow::innerShadowRectChanged,
                                 ref_win->qobject.get(),
                                 nullptr);
                             QObject::disconnect(impl.m_decorationShadow.get(),
-                                                &KDecoration2::DecorationShadow::shadowChanged,
+                                                &KDecoration3::DecorationShadow::shadowChanged,
                                                 ref_win->qobject.get(),
                                                 nullptr);
                             QObject::disconnect(impl.m_decorationShadow.get(),
-                                                &KDecoration2::DecorationShadow::paddingChanged,
+                                                &KDecoration3::DecorationShadow::paddingChanged,
                                                 ref_win->qobject.get(),
                                                 nullptr);
                         }
@@ -47,15 +47,15 @@ bool update_deco_shadow(Shadow& impl, KDecoration2::Decoration* decoration)
                         auto update_shadow = [ref_win]() { win::update_shadow(ref_win); };
 
                         QObject::connect(impl.m_decorationShadow.get(),
-                                         &KDecoration2::DecorationShadow::innerShadowRectChanged,
+                                         &KDecoration3::DecorationShadow::innerShadowRectChanged,
                                          ref_win->qobject.get(),
                                          update_shadow);
                         QObject::connect(impl.m_decorationShadow.get(),
-                                         &KDecoration2::DecorationShadow::shadowChanged,
+                                         &KDecoration3::DecorationShadow::shadowChanged,
                                          ref_win->qobject.get(),
                                          update_shadow);
                         QObject::connect(impl.m_decorationShadow.get(),
-                                         &KDecoration2::DecorationShadow::paddingChanged,
+                                         &KDecoration3::DecorationShadow::paddingChanged,
                                          ref_win->qobject.get(),
                                          update_shadow);
                         return true;

@@ -11,7 +11,7 @@ SPDX-License-Identifier: GPL-2.0-or-later
 
 #include <KColorScheme>
 #include <KConfigWatcher>
-#include <KDecoration2/DecorationSettings>
+#include <KDecoration3/DecorationSettings>
 #include <KSharedConfig>
 #include <QFileSystemWatcher>
 #include <QPalette>
@@ -29,7 +29,7 @@ public:
 
     bool isValid() const;
 
-    QColor color(KDecoration2::ColorGroup group, KDecoration2::ColorRole role) const;
+    QColor color(KDecoration3::ColorGroup group, KDecoration3::ColorRole role) const;
     QPalette get_qt_palette() const;
 
 Q_SIGNALS:

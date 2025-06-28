@@ -6,8 +6,8 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/Decoration>
-#include <KDecoration2/DecorationShadow>
+#include <KDecoration3/Decoration>
+#include <KDecoration3/DecorationShadow>
 #include <QByteArray>
 #include <QDir>
 #include <QImage>

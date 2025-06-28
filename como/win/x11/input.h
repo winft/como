@@ -51,7 +51,7 @@ void update_input_window(Win* win, QRect const& frame_geo)
                              -top,
                              win::decoration(win)->size().width() + left + right,
                              win::decoration(win)->size().height() + top + bottom);
-            region = region.subtracted(win::decoration(win)->rect());
+            region = region.subtracted(win::decoration(win)->rect().toRect());
         }
     }
 

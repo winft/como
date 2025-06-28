@@ -8,7 +8,7 @@
 */
 #pragma once
 
-#include <KDecoration2/Private/DecoratedClientPrivate>
+#include <KDecoration3/Private/DecoratedWindowPrivate>
 #include <QWindow>
 #include <optional>
 
@@ -38,7 +38,7 @@ struct device_redirect_focus {
     QWindow* internal_window{nullptr};
 
     struct {
-        KDecoration2::DecoratedClientPrivate* client{nullptr};
+        KDecoration3::DecoratedWindowPrivate* client{nullptr};
 
         // TODO(romangg): Make this unnecessary. Reuse instead the normal focus window.
         std::optional<Window> window;

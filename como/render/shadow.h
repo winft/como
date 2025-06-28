@@ -15,7 +15,7 @@
 
 #include <como/render/effect/interface/window_quad.h>
 
-#include <KDecoration2/DecorationShadow>
+#include <KDecoration3/DecorationShadow>
 #include <QObject>
 #include <QPixmap>
 #include <functional>
@@ -110,7 +110,7 @@ public:
         return m_decorationShadow->shadow();
     }
 
-    std::weak_ptr<KDecoration2::DecorationShadow> decorationShadow() const
+    std::weak_ptr<KDecoration3::DecorationShadow> decorationShadow() const
     {
         return m_decorationShadow;
     }
@@ -267,7 +267,7 @@ public:
     int m_leftOffset;
 
     // Decoration based shadows
-    std::shared_ptr<KDecoration2::DecorationShadow> m_decorationShadow;
+    std::shared_ptr<KDecoration3::DecorationShadow> m_decorationShadow;
 
     Window* window;
 
@@ -290,7 +290,7 @@ protected:
         return m_shadowElements[static_cast<size_t>(element)];
     }
 
-    QSize elementSize(shadow_element element) const
+    QSizeF elementSize(shadow_element element) const
     {
         if (m_decorationShadow) {
             switch (element) {
@@ -311,7 +311,7 @@ protected:
             case shadow_element::top_left:
                 return m_decorationShadow->topLeftGeometry().size();
             default:
-                return QSize();
+                return QSizeF();
             }
         } else {
             return m_shadowElements[enum_index(element)].size();

@@ -7,8 +7,8 @@ add_library(win SHARED)
 
 target_link_libraries(win
   PUBLIC
-    KDecoration2::KDecoration
-    KDecoration2::KDecoration2Private
+    KDecoration3::KDecoration
+    KDecoration3::KDecoration3Private
     KF6::ColorScheme
     KF6::ConfigCore
     KF6::ConfigGui

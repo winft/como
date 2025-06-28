@@ -6,9 +6,9 @@ SPDX-License-Identifier: GPL-2.0-or-later
 */
 #include "lib/setup.h"
 
-#include <KDecoration2/DecoratedClient>
-#include <KDecoration2/Decoration>
-#include <KDecoration2/DecorationSettings>
+#include <KDecoration3/DecoratedWindow>
+#include <KDecoration3/Decoration>
+#include <KDecoration3/DecorationSettings>
 #include <QDBusConnection>
 #include <QDBusMessage>
 #include <QDBusPendingCall>
@@ -502,7 +502,7 @@ TEST_CASE("quick tiling", "[win]")
         // When there are no borders, there is no change to them when quick-tiling.
         // TODO: we should test both cases with fixed fake decoration for autotests.
         auto const hasBorders = setup.base->mod.space->deco->settings()->borderSize()
-            != KDecoration2::BorderSize::None;
+            != KDecoration3::BorderSize::None;
 
         QCOMPARE(quickTileChangedSpy.count(), 1);
         REQUIRE(c->control->quicktiling == test_data.expected_mode);
